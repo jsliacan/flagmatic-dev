@@ -14,3 +14,5 @@ To install, type:
 Then, from the Sage prompt, type:
 
     sage: from flagmatic.all import *
+
+If you expect to install flagmatic repeatedly then have a look at the 'install_flagmatic' bash script.
