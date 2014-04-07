@@ -1,16 +1,4 @@
 #!/bin/bash
-
-# This scripts reduces flagmatic installation to just one command 'install_flagmatic'
-
-# SETUP
-# 1. Modify the path in FLAGMATIC_PKG to the pkg directory in your flagmatic download
-#    This may look like: /home/your_username/Downloads/flagmatic/pkg/
-# 2. Move this file to /usr/local/bin (for example)
-# 3. Make the file executable $ cd /usr/local/bin; sudo chmod +x install_flagmatic
-
-# USAGE
-# Type in terminal (from any location) $ install_flagmatic
-
 FLAGMATIC_PKG=/home/srobik/Github/flagmatic-dev/pkg/
 cd $FLAGMATIC_PKG
 eval "sudo -E sage -python setup.py install"
