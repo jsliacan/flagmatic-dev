@@ -41,3 +41,5 @@ from construction import *
 from blowup_construction import *
 from random_graph_construction import *
 from random_tournament_construction import *
+
+from verify import *

@@ -46,7 +46,7 @@ setup (
 	packages=['flagmatic'],
 	author='Emil R. Vaughan',
 	author_email='e.vaughan@qmul.ac.uk',
-	version='2.0',
+	version='dev',
 	cmdclass = {'build_ext': build_ext},
 	ext_modules = [
 		Extension('flagmatic.flag',

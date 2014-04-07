@@ -2652,3 +2652,39 @@ def humanise_all(fin=None,fout=None):
     """Make human-readable both sdp.dat-s and sdp.out"""
     humanise_input_file(fin)
     humanise_output_file(fout,fin)
+
+def alphabetise(flag_str_representation, r):
+    """Return a representation of a flag in alphabetical form.
+
+    INPUT:
+    flag_str_representation: a string representation of a flag, together with edge size
+    
+    EXAMPLE:
+    sage: a = alphabetise("3:122313",2)
+    sage: a
+    sage: '3:121323'
+    """
+
+    nstr = edgesstr = tpstr = ""
+
+    try:
+        nstr, edgesstr = flag_str_representation.split(":")
+        if edgesstr[-1:] == ")" and edgesstr[-3:-2] == "(":
+            tpstr = edgesstr[-3:]
+            edgesstr = edgesstr[:-3]
+    except ValueError:
+        print "Wrong flag representation!"
+    
+    edges = list()
+
+    if not len(edgesstr)%r == 0:
+        raise ValueError
+    else:
+        for i in range(len(edgesstr)/r):
+            edges.append(edgesstr[i*r:(i+1)*r])
+
+    edges.sort()    
+    new_flag_repre = nstr + ":" + ''.join(edges) + tpstr
+
+    return new_flag_repre
+    

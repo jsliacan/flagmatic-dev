@@ -29,6 +29,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 """
 
 from sage.rings.all import Integer, Rational
+from sage.misc.misc import SAGE_TMP
+from os.path import join
 
 from hypergraph_flag import make_graph_block, print_graph_block
 from three_graph_flag import *
@@ -140,50 +142,30 @@ class AssumptionsProblem(Problem):
                 textform = textform.strip()+ ")"
                 print textform
 
-    '''
-    def add_special_assumptions(self, *args):
-        """
-        Adds assumptions consisting of flags, with intention of weighing these assumptions by flag families and averaging aftewards. 
-        
-        assumption = (type_graph_string, [(flag1, coeff1), ..., (flagk, coeffk)])
-        coeff_i must be rationals or integers, i.e. 1/2, 2,
-        
-        EXAMPLE:
-        problem.add_special_assumption("1:", [("2:12(1)", 1), ("1:(1)", -1/2)])
-        """
-        
-        for arg in args:
-            
-            try:
-                tg = GraphFlag(arg[1])
-                terms = [(GraphFlag(x), Rational9y)) for x,y in arg[2]]
-            except ValueError:
-                print "Wrong values passed to function."
-            
-    '''
-            
+
     def add_assumption(self, typegraph, lincomb, make_free=False):
         """
-        Adds assumptions of the type \sum a*F \geq 0.
+        Adds assumptions of the form \sum a*F \geq 0.
         """
         # TODO: let the user specify equalities, inequalities, etc.
-
-        try:
-            tg = GraphFlag(typegraph)
-            terms = [(GraphFlag(x),Rational(y)) for x,y in lincomb]
-        except ValueError:
-            print "Wrong arg types."
         
-        #self.clear_densities()
+        try:
+            tg = GraphFlag(alphabetise(typegraph,2))
+            terms = [(GraphFlag(alphabetise(x,2)),Rational(y)) for x,y in lincomb]
+        except ValueError:
+            print "Wrong arguments."
+        
+        # DO NOT clear densities if not adding first assumption
+        if not self._assumptions:
+            self.clear_densities()
 
         self.state("set_objective", "yes")
         
         m = self.n - max([t[0].n for t in terms]) + tg.n         # m := order of flags that multiply assumption, called 'assumption_flags'
-        print "m = %d" % m
+
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
                                                     forbidden_graphs=self._forbidden_graphs,
                                                     forbidden_induced_graphs=self._forbidden_induced_graphs)
-
         num_densities = len(assumption_flags)
         sys.stdout.write("Added %d quantum graphs.\n" % num_densities)
         
@@ -217,13 +199,16 @@ class AssumptionsProblem(Problem):
                     dg.append((self._graphs[gi], qg[gi]))
             self._density_graphs.append(dg)
 
-        # update active densities (indices of active admissible graphs - those that appear in objective fcn??)
+        # update active densities (indices of active admissible graphs)
         new_density_indices = range(num_previous_densities, num_previous_densities + len(quantum_graphs))
         self._active_densities.extend(new_density_indices)
-
-        if not make_free:
-            self._density_coeff_blocks.append(new_density_indices)
-
+        
+        if not make_free: # if make_free==False
+            if not self._density_coeff_blocks: # make assumptions look like one big assumption
+                self._density_coeff_blocks.append(new_density_indices)
+            else:
+                self._density_coeff_blocks[0].extend(new_density_indices)
+        
         self._compute_densities()
 
 
@@ -438,6 +423,71 @@ class AssumptionsProblem(Problem):
 
         return new_problem
 
+
+
+        
+    def mult(self, tg, flag1, flag2):
+        
+        try:
+            tp = GraphFlag(tg)
+            f1 = GraphFlag(flag1)
+            f2 = GraphFlag(flag2)
+        except ValueError:
+            print "Wrong input."
+
+        if f1.n + f2.n - tp.n == self._n:
+            fblock1 = make_graph_block([f1], f1.n)
+            fblock2 = make_graph_block([f2], f2.n)
+            gblock = make_graph_block(self.graphs, self._n)
+            rarray = self._flag_cls.flag_products(gblock, tp, fblock1, fblock2)
+            print rarray
+        else:
+            print "Wrong flags to multiply!"
+
+
+    def leave_footprint(self, filename=None):
+        """
+        Write a file with info necessary for verifying the result of
+        the current assumptions problem.
+        """
+        fname = os.path.join(unicode(SAGE_TMP),"assumptions_problem.cert")
+        
+        if filename:
+            fname = filename
+        
+        try:
+            fout = open(fname, 'w')
+        except IOError:
+            print "Something is wrong with your filename..."
+
+        fout.write("Admissible Graphs\n\n")
+        for graph in self.graphs:
+            fout.write(str(graph) + '\n')
+
+        fout.write("\nTypes\n\n")
+        for i in range(len(self.types)):
+            fout.write(str(self.types[i]) + '\n')
+ 
+        fout.write("\nFlags\n\n")
+        for tflags in self.flags:
+            for flag in tflags:
+                fout.write(str(flag) + '\n')
+            fout.write('\n')
+
+        fout.write("Flag Product Densities\n\n")
+        for tproducts in self._product_densities_arrays:
+            for prod in tproducts:
+                fout.write(' '.join([str(x) for x in prod]) + '\n')
+            fout.write("\n")
+        
+        fout.write("Density Graphs\n\n")
+        for dg in self._density_graphs:
+            fout.write(str(dg))
+            fout.write("\n")
+        
+        fout.close()
+        
+        print "Footprint in", fname
 
 
 
