@@ -78,7 +78,7 @@ cdef class HypergraphFlag (Flag):
 
 		if representation is None:
 			self._n = 0
-			self.ne = 0
+            self.ne = 0
 			self._t = 0
 
 		elif isinstance(representation, basestring): # basestring is any of 'unicode' or 'str'
@@ -1441,6 +1441,7 @@ cdef class HypergraphFlag (Flag):
 	#
 	# TODO: Make this function accept more than one type on s vertices.
 	#
+
 	
 	@classmethod
 	def flag_products (cls, graph_block gb, HypergraphFlag tg, graph_block flags1, graph_block flags2):
@@ -1881,6 +1882,7 @@ def get_pair_combinations (n, s, m1, m2):
 
 
 previous_equal_pair_combinations = {}
+
 
 cdef int *generate_equal_pair_combinations(int n, int s, int m, int *number_of):
 

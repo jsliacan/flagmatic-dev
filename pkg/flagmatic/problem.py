@@ -33,7 +33,7 @@ import numpy
 import pexpect
 
 from sage.structure.sage_object import SageObject
-from sage.rings.all import Integer, QQ, ZZ, RDF
+from sage.rings.all import Integer, Rational, QQ, ZZ, RDF
 from sage.functions.other import floor
 from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagonal_matrix
 from sage.modules.misc import gram_schmidt
@@ -1243,7 +1243,11 @@ class Problem(SageObject):
         num_types = len(self._types)
         num_active_densities = len(self._active_densities)
         num_density_coeff_blocks = len(self._density_coeff_blocks)
-        num_classic_assumptions = len(self._classic_assumptions)
+
+        try: # needs to be here
+            num_classic_assumptions = len(self._classic_assumptions)
+        except:
+            self._classic_assumptions = None
 
         if num_active_densities < 1:
             raise NotImplementedError("there must be at least one active density.")
@@ -2688,3 +2692,121 @@ def alphabetise(flag_str_representation, r):
 
     return new_flag_repre
     
+def fpd(tp, flg1, flg2, grph):
+    """
+    Return the value of p(flg1,flg2;grph) if the given type is tp.
+    Function name stands for 'flag product density'.
+    
+    INPUT:
+    
+    Use strings. Make sure order of graph is |flg1|+|flg2|-|tp|
+    - tp # type on which both flags are based
+    
+    - flg1, flg2 # flags to be multiplied
+
+    - grph # graph with respect to which density will be taken
+
+    EXAMPLE:
+    
+    sage: fpd("2:", "3:13(2)", "3:23(2)", "4:1234")
+    sage: 1/3
+    """
+    
+    try:
+        
+        t = GraphFlag(alphabetise(tp, 2)) # for now only 2-graphs
+        f1 = GraphFlag(alphabetise(flg1,2))
+        f2 = GraphFlag(alphabetise(flg2,2))
+        gr = GraphFlag(alphabetise(grph,2))
+
+    except ValueError:
+
+        print "You are feeding unhealthy things to the function!"
+        sys.exit(1)
+    
+
+    #not a 100% way to avoid name collision, but good enough...    
+    the_most_ridiculous_name = GraphProblem() 
+    
+    gblock = make_graph_block([gr], gr.n)
+    fblock1 = make_graph_block([f1], f1.n)
+    fblock2 = make_graph_block([f2], f2.n)
+    
+    try:
+
+        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)
+
+    except ValueError:
+
+        print "Something went wrong when multiplying flags. Make sure your flag is on the right type etc."
+        sys.exit(1)
+
+    num_val = Rational((prod[0][3], prod[0][4]))
+
+    return num_val
+
+
+def fpds(tp, flg1, flg2, nn):
+    """
+    Return a linear combination of graphs on nn vertices that such
+    that p(flg1,flg2; graph) > 0 for each term in the combination
+    (here graph is on nn vertices).
+    Function name stands for 'flag product densities'
+    
+    INPUT:
+    
+    Use strings. Make sure nn is at least |flg1|+|flg2|-|tp|
+    
+    - tp # type on which both flags are based
+    
+    - flg1, flg2 # flags to be multiplied
+
+    - nn # order of the graph class
+
+    EXAMPLE:
+    
+    sage: fpds("2:", "3:13(2)", "3:23(2)", 4)
+    sage: [(4:1234, 1/3), (4:121324, 1/12)]
+    """
+    
+    
+    try:
+        
+        t = GraphFlag(alphabetise(tp, 2)) # for now only 2-graphs
+        f1 = GraphFlag(alphabetise(flg1,2))
+        f2 = GraphFlag(alphabetise(flg2,2))
+        n_gr = int(nn)
+
+    except ValueError:
+
+        print "You are feeding unhealthy things to the function!"
+        sys.exit(1)
+    
+
+    # check for correct value input...
+    if t.n != f1.t or t.n != f2.t:
+        raise TypeError("Your input is inconsistent (flags must be on the type that you specify).")
+    
+    if nn < f1.n + f2.n - t.n:
+        raise TypeError("Your input violates |flg1|+|flg2|-|tp| <= nn.")
+
+    the_most_ridiculous_name = GraphProblem()
+    grphs = the_most_ridiculous_name._flag_cls.generate_graphs(n_gr)
+    
+    gblock = make_graph_block(grphs, n_gr)
+    fblock1 = make_graph_block([f1], f1.n)
+    fblock2 = make_graph_block([f2], f2.n)
+    
+    try:
+        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)       
+    except ValueError:
+        print "You are feeding unhealthy things to the function!"
+        sys.exit(1)
+    
+
+    # write product as list of 2-tuples, each being (graph, coeff)
+    lin_comb = list()
+    for item in prod:
+        lin_comb.append((grphs[item[0]], Rational((item[3],item[4]))))
+
+    return lin_comb

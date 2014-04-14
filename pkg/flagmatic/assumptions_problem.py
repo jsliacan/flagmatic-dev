@@ -143,9 +143,103 @@ class AssumptionsProblem(Problem):
                 print textform
 
 
-    def add_assumption(self, typegraph, lincomb, make_free=False):
+    def add_assumption(self, typegraph, lincomb, const=0, equality=False, make_free=False):
         """
-        Adds assumptions of the form \sum a*F \geq 0.
+        Convert assumption from the general form:
+        [linear combination of flags on one type] >= c   OR
+        [linear combination of flags on one type] == c 
+
+        into an assumptions of the form
+        [linear combination of flags on one type] >= 0
+
+        INPUT:
+        
+        - typegraph: # it is the common type or the entire assumption,
+                     # e.g. "3:121323" for labelled triangle
+        
+        - lincomb: # this is the linear combination of terms (flag,
+                   # coef) as a list, i.e. LHS of the assumption
+        
+        - const: # RHS of the assumption (should be some rational in form a/b or a)
+        
+        - equality: # whether the assumption is equality True or inequality False; default is False
+
+        - make_free # default is False
+
+        EXAMPLE:
+        
+        # assume edge density = 1/2: 
+        problem = GraphAssumptionsProblem(4)
+        problem.add_assumption("0:", [("2:12(0)", 1)], 1/2, equality=True)
+        
+        """
+        
+        try:
+            tgraph = typegraph
+            tg = GraphFlag(alphabetise(typegraph,2))
+            lcomb = [(g, Rational(c)) for g,c in lincomb]
+            cst = Rational(const)
+            eq = equality
+            mf = make_free
+
+        except ValueError:
+            print "You are trying to feed this function unhealthy things!"
+
+
+        # translate the assumption to the simple ones and add them one by one
+
+        if eq == True: # assumption is equality
+
+            minus_lcomb = [(g,-c) for g,c in lcomb]
+
+            if const == 0: # assumption has RHS equal to 0
+
+                self.add_ass(tgraph, lcomb, make_free=mf)
+                self.add_ass(tgraph, minus_lcomb, make_free=mf)
+
+            else: # assumption has non-zero RHS
+
+                newterm_graph = tgraph + "(" + str(tg.n) + ")"
+                newterm_coef = -Rational(cst)
+                lcomb.append((newterm_graph, newterm_coef))
+                minus_lcomb.append((newterm_graph, -newterm_coef))
+                self.add_ass(tgraph, lcomb, make_free=mf)
+                self.add_ass(tgraph, minus_lcomb, make_free=mf)
+
+        else: # assumption is already inequality
+
+            if const == 0: # assumption has RHS equal to 0
+
+                self.add_ass(tgraph, lcomb, make_free=mf)
+
+            else: # assumption has non-zero RHS
+
+                newterm = (tgraph + "(" + str(tg.n) + ")", -Rational(cst))
+                lcomb.append(newterm)
+                self.add_ass(tgraph, lcomb, make_free=mf)
+                          
+        
+        
+    def add_ass(self, typegraph, lincomb,  make_free=False):
+        """
+        Adds assumption of the form [linear combintaion of flags on same type] >= 0
+        
+        INPUT:
+
+        - typegraph: # it is the common type or the entire assumption,
+                     # e.g. "3:121323" for labelled triangle
+        
+        - lincomb: # this is the linear combination of terms (flag,
+                   # coef) as a list, i.e. LHS of the assumption
+        
+        - make_free # not exctly sure
+
+        EXAMPLE:
+        
+        # assume edge density = 1/2: 
+        problem = GraphAssumptionsProblem(4)
+        problem.add_assumption("0:", [("2:12(0)", 1), ("1:(0)", -1/2)]
+        problem.add_assumption("0:", [("2:12(0)", -1), ("1:(0)", 1/2)])
         """
         # TODO: let the user specify equalities, inequalities, etc.
         
@@ -160,7 +254,7 @@ class AssumptionsProblem(Problem):
             self.clear_densities()
 
         self.state("set_objective", "yes")
-        
+
         m = self.n - max([t[0].n for t in terms]) + tg.n         # m := order of flags that multiply assumption, called 'assumption_flags'
 
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
