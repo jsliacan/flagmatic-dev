@@ -175,9 +175,12 @@ class AssumptionsProblem(Problem):
         """
         
         try:
-            tgraph = typegraph
-            tg = GraphFlag(alphabetise(typegraph,2))
-            lcomb = [(g, Rational(c)) for g,c in lincomb]
+            tg = GraphFlag(typegraph)
+            tg.make_minimal_isomorph()
+            
+            lcomb = [(GraphFlag(g), Rational(c)) for g,c in lincomb]
+            for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
+
             cst = Rational(const)
             eq = equality
             mf = make_free
@@ -188,73 +191,48 @@ class AssumptionsProblem(Problem):
 
         # translate the assumption to the simple ones and add them one by one
 
-        if eq == True: # assumption is equality
+        if eq: # assumption is equality
 
             minus_lcomb = [(g,-c) for g,c in lcomb]
 
-            if const == 0: # assumption has RHS equal to 0
+            self.add_ass(tg, lcomb, cst, make_free=mf)
+            self.add_ass(tg, minus_lcomb, -cst, make_free=mf)
 
-                self.add_ass(tgraph, lcomb, make_free=mf)
-                self.add_ass(tgraph, minus_lcomb, make_free=mf)
-
-            else: # assumption has non-zero RHS
-
-                newterm_graph = tgraph + "(" + str(tg.n) + ")"
-                newterm_coef = -Rational(cst)
-                lcomb.append((newterm_graph, newterm_coef))
-                minus_lcomb.append((newterm_graph, -newterm_coef))
-                self.add_ass(tgraph, lcomb, make_free=mf)
-                self.add_ass(tgraph, minus_lcomb, make_free=mf)
 
         else: # assumption is already inequality
 
-            if const == 0: # assumption has RHS equal to 0
-
-                self.add_ass(tgraph, lcomb, make_free=mf)
-
-            else: # assumption has non-zero RHS
-
-                newterm = (tgraph + "(" + str(tg.n) + ")", -Rational(cst))
-                lcomb.append(newterm)
-                self.add_ass(tgraph, lcomb, make_free=mf)
+            self.add_ass(tg, lcomb, cst, make_free=mf)
                           
         
-        
-    def add_ass(self, typegraph, lincomb,  make_free=False):
+    def add_ass(self, tg, terms, const, make_free=False):
         """
+        Not intended to be called by user. Use add_assumption() instead. 
         Adds assumption of the form [linear combintaion of flags on same type] >= 0
         
         INPUT:
 
-        - typegraph: # it is the common type or the entire assumption,
-                     # e.g. "3:121323" for labelled triangle
+        - tg: # it is the common type or the entire assumption,
+              # e.g. GraphFlag("3:121323") for labelled triangle
         
-        - lincomb: # this is the linear combination of terms (flag,
-                   # coef) as a list, i.e. LHS of the assumption
+        - terms: # this is the linear combination of terms (flag,
+                 # coef) as a list, i.e. LHS of the assumption
         
-        - make_free # not exctly sure
+        - make_free: # not exctly sure
 
         EXAMPLE:
         
         # assume edge density = 1/2: 
         problem = GraphAssumptionsProblem(4)
-        problem.add_assumption("0:", [("2:12(0)", 1), ("1:(0)", -1/2)]
-        problem.add_assumption("0:", [("2:12(0)", -1), ("1:(0)", 1/2)])
+        problem.add_assumption(GraphFlag("0:"), [(GraphFlag("2:12(0)"), 1), (GraphFlag("1:(0)"), -1/2)]
+        problem.add_assumption(GraphFlag("0:"), [(GraphFlag("2:12(0)"), -1), (GraphFlag("1:(0)"), 1/2)])
         """
-        # TODO: let the user specify equalities, inequalities, etc.
-        
-        try:
-            tg = GraphFlag(alphabetise(typegraph,2))
-            terms = [(GraphFlag(alphabetise(x,2)),Rational(y)) for x,y in lincomb]
-        except ValueError:
-            print "Wrong arguments."
         
         # DO NOT clear densities if not adding first assumption
         if not self._assumptions:
             self.clear_densities()
 
         self.state("set_objective", "yes")
-
+        
         m = self.n - max([t[0].n for t in terms]) + tg.n         # m := order of flags that multiply assumption, called 'assumption_flags'
 
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
@@ -264,7 +242,8 @@ class AssumptionsProblem(Problem):
         sys.stdout.write("Added %d quantum graphs.\n" % num_densities)
         
         num_graphs = len(self._graphs)
-        quantum_graphs = [[Integer(0) for i in range(num_graphs)] for j in range(num_densities)]
+        # each g in self.graphs appears in each quantum graph with coeff const.
+        quantum_graphs = [[-const for i in range(num_graphs)] for j in range(num_densities)]
         
         assumption_flags_block = make_graph_block(assumption_flags, m)
         graph_block = make_graph_block(self._graphs, self._n)
@@ -284,7 +263,7 @@ class AssumptionsProblem(Problem):
         self._assumption_flags.append(assumption_flags)
         
         num_previous_densities = len(self._density_graphs)
-        
+
         # just making it pretty
         for qg in quantum_graphs:
             dg = []

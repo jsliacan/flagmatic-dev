@@ -2713,16 +2713,22 @@ def fpd(tp, flg1, flg2, grph):
     """
     
     try:
-        
-        t = GraphFlag(alphabetise(tp, 2)) # for now only 2-graphs
-        f1 = GraphFlag(alphabetise(flg1,2))
-        f2 = GraphFlag(alphabetise(flg2,2))
-        gr = GraphFlag(alphabetise(grph,2))
+        # read imput and convert it to flagmatic's default representation
+        t = GraphFlag(tp)
+        t.make_minimal_isomorph()
+
+        f1 = GraphFlag(flg1)
+        f1.make_minimal_isomorph()
+
+        f2 = GraphFlag(flg2)
+        f2.make_minimal_isomorph()
+
+        gr = GraphFlag(grph)
+        gr.make_minimal_isomorph()
 
     except ValueError:
 
         print "You are feeding unhealthy things to the function!"
-        sys.exit(1)
     
 
     #not a 100% way to avoid name collision, but good enough...    
@@ -2769,19 +2775,19 @@ def fpds(tp, flg1, flg2, nn):
     sage: [(4:1234, 1/3), (4:121324, 1/12)]
     """
     
-    
     try:
-        
-        t = GraphFlag(alphabetise(tp, 2)) # for now only 2-graphs
-        f1 = GraphFlag(alphabetise(flg1,2))
-        f2 = GraphFlag(alphabetise(flg2,2))
+        t = GraphFlag(tp)
+        f1 = GraphFlag(flg1)
+        f2 = GraphFlag(flg2)
         n_gr = int(nn)
 
-    except ValueError:
+        t.make_minimal_isomorph() # use the right flag representation
+        f1.make_minimal_isomorph()    
+        f2.make_minimal_isomorph()
 
+    except ValueError:
         print "You are feeding unhealthy things to the function!"
-        sys.exit(1)
-    
+
 
     # check for correct value input...
     if t.n != f1.t or t.n != f2.t:
