@@ -260,3 +260,6 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
         verifile.write("\n"+ graph + " "*(L-len(graph)) + "\t " + str(coeff_graph))
 
         index_graph += 1
+
+
+    print "Verification written to ./verification.rslt"

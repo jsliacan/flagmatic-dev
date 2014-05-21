@@ -243,11 +243,19 @@ class AssumptionsProblem(Problem):
         
         num_graphs = len(self._graphs)
         # each g in self.graphs appears in each quantum graph with coeff const.
-        quantum_graphs = [[-const for i in range(num_graphs)] for j in range(num_densities)]
+        quantum_graphs = [[0 for i in range(num_graphs)] for j in range(num_densities)]
         
         assumption_flags_block = make_graph_block(assumption_flags, m)
         graph_block = make_graph_block(self._graphs, self._n)
 
+        # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
+        if not const == 0:
+            fg = GraphFlag(tg._repr_() + "("+str(tg.n)+")")
+            terms.append((fg, -const))
+        # and set const to 0
+        const = 0
+
+        print terms
         for i in range(len(terms)): # run through terms in the assumption
             fg = terms[i][0] # flag graph of term i
             flags_block = make_graph_block([fg], fg.n) 
@@ -259,6 +267,7 @@ class AssumptionsProblem(Problem):
                 value = Integer(row[3]) / Integer(row[4])
                 quantum_graphs[k][gi] += value * terms[i][1] # k = index in num_densities, gi = index in num_graphs
 
+            
         self._assumptions.append((tg, terms))
         self._assumption_flags.append(assumption_flags)
         
