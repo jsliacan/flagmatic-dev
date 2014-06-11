@@ -180,31 +180,48 @@ class AssumptionsProblem(Problem):
         """
 
         if self._flag_cls().r == 2:
+
             try:
                 tg = GraphFlag(typegraph)
                 tg.make_minimal_isomorph()
+
+                cst = Rational(const)
+                eq = equality
+                indep = independent
                 
                 lcomb = [(GraphFlag(g), Rational(c)) for g,c in lincomb]
                 for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
                 
-                cst = Rational(const)
-                eq = equality
-                indep = independent
+                # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
+                if const:
+                    fg = GraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                    lcomb.append((fg, -cst))
+                    # maker RHS zero. (not necessary though, not used again)
+                    cst = 0
 
             except ValueError:
                 print "You are trying to feed this function unhealthy things!"
 
         elif self._flag_cls().r == 3:
+
             try:
                 tg = ThreeGraphFlag(typegraph)
                 tg.make_minimal_isomorph()
-                
-                lcomb = [(ThreeGraphFlag(g), Rational(c)) for g,c in lincomb]
-                for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
-                
+
                 cst = Rational(const)
                 eq = equality
                 indep = independent
+                
+                lcomb = [(ThreeGraphFlag(g), Rational(c)) for g,c in lincomb]
+                for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
+
+                
+                # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
+                if const:
+                    fg = ThreeGraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                    lcomb.append((fg, -cst))
+                    # make RHS zero. (not necessary though, not used again)
+                    cst = 0
 
             except ValueError:
                 print "You are trying to feed this function unhealthy things!"
@@ -216,16 +233,16 @@ class AssumptionsProblem(Problem):
 
             minus_lcomb = [(g,-c) for g,c in lcomb]
 
-            self.add_ass(tg, lcomb, cst, independent=indep)
-            self.add_ass(tg, minus_lcomb, -cst, independent=indep)
+            self.add_ass(tg, lcomb, independent=indep)
+            self.add_ass(tg, minus_lcomb, independent=indep)
 
 
         else: # assumption is already inequality
 
-            self.add_ass(tg, lcomb, cst, independent=indep)
+            self.add_ass(tg, lcomb, independent=indep)
                           
         
-    def add_ass(self, tg, terms, const, independent=False):
+    def add_ass(self, tg, terms, independent=False):
         """
         Not intended to be called by user. Use add_assumption() instead. 
         Adds assumption of the form [linear combintaion of flags on same type] >= 0
@@ -257,7 +274,7 @@ class AssumptionsProblem(Problem):
 
         self.state("set_objective", "yes")
         
-        m = self.n - max([t[0].n for t in terms]) + tg.n         # m := order of flags that multiply assumption, called 'assumption_flags'
+        m = self.n - max([t[0].n for t in terms]) + tg.n    # m := order of flags that multiply assumption -> 'assumption_flags'
 
         # generate flags to multiply assumptions with
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
@@ -268,17 +285,10 @@ class AssumptionsProblem(Problem):
         sys.stdout.write("Added %d quantum graphs.\n" % num_densities) # one quantum graph per assumption_flag
         
         num_graphs = len(self._graphs)
-        quantum_graphs = [[0 for i in range(num_graphs)] for j in range(num_densities)]
-        
-        assumption_flags_block = make_graph_block(assumption_flags, m)
-        graph_block = make_graph_block(self._graphs, self._n)
+        quantum_graphs = [[Integer(0) for i in range(num_graphs)] for j in range(num_densities)]
 
-        # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
-        if const:
-            fg = GraphFlag(tg._repr_() + "("+str(tg.n)+")")
-            terms.append((fg, -const))
-            # and set const to 0
-            const = 0
+        assumption_flags_block = make_graph_block(assumption_flags, m)
+        graph_block = make_graph_block(self._graphs, self.n)
 
         for i in range(len(terms)): # run through terms in the assumption
             fg = terms[i][0] # flag graph of term i
@@ -289,7 +299,7 @@ class AssumptionsProblem(Problem):
                 j = row[1]  # always 0 because always multiplying the same
                 k = row[2]
                 value = Integer(row[3]) / Integer(row[4])
-                quantum_graphs[k][gi] += (value * terms[i][1]) # k = index in num_densities, gi = index in num_graphs
+                quantum_graphs[k][gi] += value * terms[i][1] # k = index in num_densities, gi = index in num_graphs
 
         # just making a record    
         self._assumptions.append((tg, terms))
@@ -354,10 +364,7 @@ class AssumptionsProblem(Problem):
         if not self._flag_cls().r == 3:
             raise NotImplementedError
     
-        tg = ThreeGraphFlag("2:")
-        f1 = ThreeGraphFlag("3:123(2)")
-        f2 = ThreeGraphFlag("2:(2)")
-        self.add_assumption(tg, [(f1, Integer(1)), (f2, -value)], independent=independent)
+        self.add_assumption("2:", [("3:123(2)", 1)], value, equality=False, independent=independent)
 
     def add_degree_assumption(self, value, independent=True):
     
@@ -365,18 +372,10 @@ class AssumptionsProblem(Problem):
             raise NotImplementedError
     
         if self._flag_cls().r == 3:
-    
-            tg = ThreeGraphFlag("1:")
-            f1 = ThreeGraphFlag("3:123(1)")
-            f2 = ThreeGraphFlag("1:(1)")
-            self.add_assumption(tg, [(f1, Integer(1)), (f2, -value)], independent=independent)
+            self.add_assumption("1:", [("3:123(1)", 1)], value, equality=False, independent=independent)
 
         elif self._flag_cls().r == 2:
-
-            tg = GraphFlag("1:")
-            f1 = GraphFlag("2:12(1)")
-            f2 = GraphFlag("1:(1)")
-            self.add_assumption(tg, [(f1, Integer(1)), (f2, -value)], independent=independent)
+            self.add_assumption("1:", [("2:12(1)", 1)], value, equality=False, independent=independent)
 
     # TODO: fix this!
 

@@ -2816,3 +2816,45 @@ def fpds(tp, flg1, flg2, nn):
         lin_comb.append((grphs[item[0]], Rational((item[3],item[4]))))
 
     return lin_comb
+
+def dens(graph, family_dimension):
+    """
+    Return the graph represented as a linear combination of graphs on
+    n = family_dimension vertices.
+
+    INPUT:
+    
+    - graph: graph to be represented as a lin combination. Any string
+      representation will do as input.
+
+    - family_dimension: order of graphs that form quantum graph
+      representation of the input graph.
+
+    EXAMPLE:
+    
+    sage: dens("3:121323", 4)
+    sage: [(4:121323, 1/4), (4:12131423, 1/4), (4:1213142324, 1/2), (4:121314232434, 1)]
+    """
+
+    try:
+
+        g = GraphFlag(graph)
+        g.make_minimal_isomorph()
+        
+        n_gr = Integer(family_dimension)
+        
+        the_most_ridiculous_name2 = GraphProblem();
+        grphs = the_most_ridiculous_name2._flag_cls.generate_graphs(n_gr)
+        
+    except ValueError:
+        print "You are feeding unhealthy things to the function!"
+        sys.exit(1)
+
+    quantum_graph = list()
+
+    for h in grphs:
+        dgh = h.subgraph_density(g)
+        if dgh > 0:
+            quantum_graph.append((h, dgh))
+            
+    return quantum_graph
