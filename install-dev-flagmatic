@@ -1,0 +1,12 @@
+#!/bin/bash                                                                                                                                                                    
+FLAGMATIC_PKG=/home/srobik/Github/flagmatic-dev/pkg/
+SAGE_SITE_PKGS=/opt/sage-6.1.1-x86_64-Linux/local/lib/python2.7/site-packages/
+
+# remove old flagmatic versions                                                                                                                                                
+cd $SAGE_SITE_PKGS
+eval "sudo rm Flagmatic*.egg-info"
+eval "sudo rm -rf flagmatic"
+
+# install new flagmatic version                                                                                                                                                
+cd $FLAGMATIC_PKG
+eval "sudo -E sage -python setup.py install"

@@ -144,7 +144,7 @@ class AssumptionsProblem(Problem):
                 print textform
 
 
-    def add_assumption(self, typegraph, lincomb, const=0, equality=False, independent=False):
+    def add_assumption(self, typegraph, lincomb, const=0, equality=False):
         """
         Convert assumption from the general form:
         [linear combination of flags on one type] >= c   OR
@@ -167,10 +167,6 @@ class AssumptionsProblem(Problem):
         - equality: # whether the assumption is equality True or
                     # inequality False; default is False
 
-        - independent # no restrictions on coefficients by which the
-                      # assumptions are multiplied, except for
-                      # non-negativity; default is False
-
         EXAMPLE:
         
         # assume edge density = 1/2: 
@@ -187,7 +183,7 @@ class AssumptionsProblem(Problem):
 
                 cst = Rational(const)
                 eq = equality
-                indep = independent
+                indep = False
                 
                 lcomb = [(GraphFlag(g), Rational(c)) for g,c in lincomb]
                 for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
@@ -210,7 +206,7 @@ class AssumptionsProblem(Problem):
 
                 cst = Rational(const)
                 eq = equality
-                indep = independent
+                indep = False
                 
                 lcomb = [(ThreeGraphFlag(g), Rational(c)) for g,c in lincomb]
                 for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
@@ -231,6 +227,7 @@ class AssumptionsProblem(Problem):
 
         if eq: # assumption is equality
 
+            indep = True # in this case assumption does not to go the objective function
             minus_lcomb = [(g,-c) for g,c in lcomb]
 
             self.add_ass(tg, lcomb, independent=indep)
