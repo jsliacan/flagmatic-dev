@@ -48,6 +48,7 @@ class AssumptionsProblem(Problem):
         self._assumptions = []
         self._assumption_flags = []
         self._classic_assumptions = [] # assumptions without labels
+        self._quantum_graphs = []
 
     def clear_densities(self):
         

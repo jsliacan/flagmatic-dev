@@ -201,7 +201,7 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
             if block in range(num_types+1, num_types+2):
                 coeffs.append(val)
 
-
+    
     # verify ------------------------------------
 
     # check if coeffs are non-negative and if they add to 1
@@ -214,6 +214,9 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
             verifile.write("There is a negative coefficient: " + str(coeff))
             ALL_NONNEGATIVE = False
             break
+    
+    verifile.write("coeffs\n")
+    verifile.write(str(coeffs) + "\n\n")
 
     if ALL_NONNEGATIVE:
         verifile.write("All coeffs are non-negative.")
@@ -223,9 +226,16 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
     verifile.write("\n\nSDP Matrices \n \n")
     i = 0
     for m in Q_matrices:
+        M = matrix(m)
+        eigvals = M.eigenvalues()
+        rkm = 0
+        for i in range(len(eigvals)):
+            if eigvals[i] > 1e-10 or eigvals[i] < -1e-10:
+                rkm += 1
+        dim = M.ncols()
         verifile.write("Type " + str(i) + " eigenvalues" + ":\n")
-        verifile.write(str(matrix(m).eigenvalues()) + "\n") # give eigenvalues for the moment
-
+        verifile.write("rk = " + str(rkm) + " dim = " + str(dim) + "\n")
+        verifile.write(str(eigvals) + "\n\n") # give eigenvalues for the moment
         i += 1
     
     # check whether coeffs in front of admissible graphs are non-positive
@@ -234,7 +244,8 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
     verifile.write("\n\nGraph Coefficients\n")
     index_graph = 0
     for graph in admissible_graphs: # for each admissible graph compute its coeff
-
+        
+        sharp = False
         coeff_graph = 0
         
         # contribution from [[p^tQp]]
@@ -255,9 +266,11 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
             index_dg += 1
         
         graph_coeffs.append(coeff_graph)
-
-        # write into file
-        verifile.write("\n"+ graph + " "*(L-len(graph)) + "\t " + str(coeff_graph))
+        
+        if coeff_graph < 1e-9 and coeff_graph > -1e-9:
+            verifile.write("\n"+ graph + " "*(L-len(graph)) + "\t " + str(coeff_graph) + " (sharp)")
+        else:
+            verifile.write("\n"+ graph + " "*(L-len(graph)) + "\t " + str(coeff_graph))
 
         index_graph += 1
 
