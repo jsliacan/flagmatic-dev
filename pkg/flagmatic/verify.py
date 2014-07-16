@@ -73,8 +73,9 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
     sdpout_path = os.path.join(unicode(SAGE_TMP), 'sdp.out')
     cert_path = os.path.join(unicode(SAGE_TMP), 'assumptions_problem.cert')
     verified_path = 'verification.rslt'
+    forbid_path = 'to_forbid_induced.lst'
 
-    # if user specified files given use them
+    # if user specified files, use those
     if sdpout: default_sdpout_path = sdpout
     if certificate: default_cert_path = certificate
     if verified: default_verified_path = verified
@@ -85,6 +86,7 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
         sdpfile = open(sdpout_path, 'r')
         certfile = open(cert_path, 'r')
         verifile = open(verified_path, 'w')
+        forbidfile = open(forbid_path, 'w')
 
     except IOError:
 
@@ -92,6 +94,7 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
         print sdpout_path + 'for reading'
         print cert_path + 'for reading'
         print verified_path + 'for writing'
+        print forbid_path + 'for writing'
         
     #------------------- learn from files ---------------------
     
@@ -224,7 +227,7 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
 
     # check if Q_matrices are sdp
     verifile.write("\n\nSDP Matrices \n \n")
-    i = 0
+    t = 0
     for m in Q_matrices:
         M = matrix(m)
         eigvals = M.eigenvalues()
@@ -233,10 +236,10 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
             if eigvals[i] > 1e-10 or eigvals[i] < -1e-10:
                 rkm += 1
         dim = M.ncols()
-        verifile.write("Type " + str(i) + " eigenvalues" + ":\n")
+        verifile.write("Type " + str(t) + " eigenvalues" + ":\n")
         verifile.write("rk = " + str(rkm) + " dim = " + str(dim) + "\n")
         verifile.write(str(eigvals) + "\n\n") # give eigenvalues for the moment
-        i += 1
+        t += 1
     
     # check whether coeffs in front of admissible graphs are non-positive
     L = max([len(x) for x in admissible_graphs])
@@ -271,7 +274,8 @@ def verify_assumptions_problem(sdpout=None, certificate=None, verified=None):
             verifile.write("\n"+ graph + " "*(L-len(graph)) + "\t " + str(coeff_graph) + " (sharp)")
         else:
             verifile.write("\n"+ graph + " "*(L-len(graph)) + "\t " + str(coeff_graph))
-
+            forbidfile.write(str(graph) + "\n")
+            
         index_graph += 1
 
 
