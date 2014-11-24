@@ -16,7 +16,7 @@ To install for the first time, type (this will remove other versions of flagmati
 
 To install again (e.g. after having installed another version of flagmatic in the meantime), type:
 
-   $ install-dev-flagmatic
+    $ install-dev-flagmatic
 
 Then, from the Sage prompt, type:
 
