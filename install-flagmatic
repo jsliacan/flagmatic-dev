@@ -1,4 +1,0 @@
-#!/bin/bash
-FLAGMATIC_PKG=/home/srobik/Github/flagmatic-dev/pkg/
-cd $FLAGMATIC_PKG
-eval "sudo -E sage -python setup.py install"
