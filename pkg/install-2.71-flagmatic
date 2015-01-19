@@ -1,5 +1,5 @@
 #!/bin/bash                                                                                                                                                                    
-FLAGMATIC_PKG=/Users/srobik/Github/flagmatic-dev/pkg/
+FLAGMATIC_PKG=/Users/srobik/Github/flagmatic-2.71/pkg/
 SAGE_SITE_PKGS=/Users/srobik/sage-6.4/local/lib/python2.7/site-packages/
 
 # remove old flagmatic versions                                                                                                                                                

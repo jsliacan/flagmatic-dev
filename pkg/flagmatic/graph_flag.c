@@ -431,7 +431,6 @@ struct __pyx_obj_9flagmatic_10graph_flag_GraphFlag;
 struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct____init__;
 struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens;
 struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr;
-struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr;
 
 /* "sage/structure/sage_object.pxd":1
  * cdef class SageObject:             # <<<<<<<<<<<<<<
@@ -535,44 +534,23 @@ struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct____init__ {
  * 
  * 
  * 	def automorphism_group_gens(self):             # <<<<<<<<<<<<<<
- * 
- * 		G, d = self.Graph().automorphism_group(translation=True)
+ * 		# This function is not very necessary. Just to keep things compatible with Emil's code.
+ * 		# New Sage 6.4.1+ does not relabel graphs to compute automorphism group.
  */
 struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens {
   PyObject_HEAD
-  PyObject *__pyx_v_d;
   PyObject *__pyx_v_gen;
-  PyObject *__pyx_v_rd;
 };
 
 
-/* "flagmatic/graph_flag.pyx":98
- * 		# relabel the generators back to how they should be.
- * 
- * 		rd = dict((v,k) for (k,v) in d.iteritems())             # <<<<<<<<<<<<<<
+/* "flagmatic/graph_flag.pyx":97
+ * 		G = self.Graph().automorphism_group()
  * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))
+ * 		gens = sorted([tuple(sorted(tuple(sorted(cy)) for cy in gen)) for gen in trans_gens])             # <<<<<<<<<<<<<<
+ * 
+ * 		return gens
  */
 struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr {
-  PyObject_HEAD
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *__pyx_outer_scope;
-  PyObject *__pyx_v_k;
-  PyObject *__pyx_v_v;
-  PyObject *__pyx_t_0;
-  Py_ssize_t __pyx_t_1;
-  Py_ssize_t __pyx_t_2;
-  int __pyx_t_3;
-};
-
-
-/* "flagmatic/graph_flag.pyx":100
- * 		rd = dict((v,k) for (k,v) in d.iteritems())
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))             # <<<<<<<<<<<<<<
- * 			for gen in trans_gens])
- * 
- */
-struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr {
   PyObject_HEAD
   struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *__pyx_outer_scope;
   PyObject *__pyx_v_cy;
@@ -781,48 +759,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetSlice(
         PyObject** py_start, PyObject** py_stop, PyObject** py_slice,
         int has_cstart, int has_cstop, int wraparound);
 
-static CYTHON_INLINE int __Pyx_IterFinish(void);
-
-static PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name);
-
-static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
-
-static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
-
-static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
-
-static CYTHON_INLINE void __Pyx_RaiseNoneNotIterableError(void);
-
-static void __Pyx_UnpackTupleError(PyObject *, Py_ssize_t index);
-
-static CYTHON_INLINE int __Pyx_unpack_tuple2(PyObject* tuple, PyObject** value1, PyObject** value2,
-                                             int is_tuple, int has_known_size, int decref_tuple);
-
-static CYTHON_INLINE PyObject* __Pyx_dict_iterator(PyObject* dict, int is_dict, PyObject* method_name,
-                                                   Py_ssize_t* p_orig_length, int* p_is_dict);
-static CYTHON_INLINE int __Pyx_dict_iter_next(PyObject* dict_or_iter, Py_ssize_t orig_length, Py_ssize_t* ppos,
-                                              PyObject** pkey, PyObject** pvalue, PyObject** pitem, int is_dict);
-
-#if PY_MAJOR_VERSION >= 3
-static PyObject *__Pyx_PyDict_GetItem(PyObject *d, PyObject* key) {
-    PyObject *value;
-    value = PyDict_GetItemWithError(d, key);
-    if (unlikely(!value)) {
-        if (!PyErr_Occurred()) {
-            PyObject* args = PyTuple_Pack(1, key);
-            if (likely(args))
-                PyErr_SetObject(PyExc_KeyError, args);
-            Py_XDECREF(args);
-        }
-        return NULL;
-    }
-    Py_INCREF(value);
-    return value;
-}
-#else
-    #define __Pyx_PyDict_GetItem(d, key) PyObject_GetItem(d, key)
-#endif
-
 #if CYTHON_COMPILING_IN_CPYTHON
 static CYTHON_INLINE int __Pyx_ListComp_Append(PyObject* list, PyObject* x) {
     PyListObject* L = (PyListObject*) list;
@@ -952,7 +888,6 @@ static PyTypeObject *__pyx_ptype_9flagmatic_10graph_flag_GraphFlag = 0;
 static PyTypeObject *__pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct____init__ = 0;
 static PyTypeObject *__pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens = 0;
 static PyTypeObject *__pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr = 0;
-static PyTypeObject *__pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr = 0;
 #define __Pyx_MODULE_NAME "flagmatic.graph_flag"
 int __pyx_module_is_main_flagmatic__graph_flag = 0;
 
@@ -971,14 +906,11 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_10generate_flags(CY
 static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_12generate_graphs(PyObject *__pyx_v_cls, PyObject *__pyx_v_n, PyObject *__pyx_v_forbidden_edge_numbers, PyObject *__pyx_v_forbidden_graphs, PyObject *__pyx_v_forbidden_induced_graphs); /* proto */
 static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_14Graph(struct __pyx_obj_9flagmatic_10graph_flag_GraphFlag *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_genexpr(PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_3genexpr(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_16automorphism_group_gens(struct __pyx_obj_9flagmatic_10graph_flag_GraphFlag *__pyx_v_self); /* proto */
 static PyObject *__pyx_tp_new_9flagmatic_10graph_flag_GraphFlag(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct____init__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static char __pyx_k_n[] = "n";
 static char __pyx_k_r[] = "r";
 static char __pyx_k_tg[] = "tg";
@@ -1008,10 +940,8 @@ static char __pyx_k_binomial[] = "binomial";
 static char __pyx_k_oriented[] = "oriented";
 static char __pyx_k_vertices[] = "vertices";
 static char __pyx_k_add_edges[] = "add_edges";
-static char __pyx_k_iteritems[] = "iteritems";
 static char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static char __pyx_k_description[] = "description";
-static char __pyx_k_translation[] = "translation";
 static char __pyx_k_add_vertices[] = "add_vertices";
 static char __pyx_k_cycle_tuples[] = "cycle_tuples";
 static char __pyx_k_edge_iterator[] = "edge_iterator";
@@ -1030,7 +960,6 @@ static char __pyx_k_forbidden_edge_numbers[] = "forbidden_edge_numbers";
 static char __pyx_k_forbidden_induced_graphs[] = "forbidden_induced_graphs";
 static char __pyx_k_flagmatic_2_Copyright_c_2012_E[] = "\n\nflagmatic 2\n\nCopyright (c) 2012, E. R. Vaughan. All rights reserved.\n\nRedistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n\n1) Redistributions of source code must retain the above copyright notice, this\nlist of conditions and the following disclaimer.\n\n2) Redistributions in binary form must reproduce the above copyright notice,\nthis list of conditions and the following disclaimer in the documentation and/or\nother materials provided with the distribution.\n\nTHIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS \"AS IS\" AND\nANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\nWARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\nDISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\nANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\nLOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\nANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\nSOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.\n\n";
 static char __pyx_k_automorphism_group_gens_locals_g[] = "automorphism_group_gens.<locals>.genexpr";
-static char __pyx_k_automorphism_group_gens_locals_g_2[] = "automorphism_group_gens.<locals>.genexpr.<locals>.<lambda>";
 static PyObject *__pyx_kp_s_2_12;
 static PyObject *__pyx_kp_s_2_graph;
 static PyObject *__pyx_n_s_Graph;
@@ -1040,7 +969,6 @@ static PyObject *__pyx_n_s_add_vertices;
 static PyObject *__pyx_n_s_args;
 static PyObject *__pyx_n_s_automorphism_group;
 static PyObject *__pyx_n_s_automorphism_group_gens_locals_g;
-static PyObject *__pyx_n_s_automorphism_group_gens_locals_g_2;
 static PyObject *__pyx_n_s_binomial;
 static PyObject *__pyx_n_s_close;
 static PyObject *__pyx_n_s_cycle_tuples;
@@ -1060,7 +988,6 @@ static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_index;
 static PyObject *__pyx_n_s_init;
 static PyObject *__pyx_n_s_init___locals_lambda;
-static PyObject *__pyx_n_s_iteritems;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_map;
 static PyObject *__pyx_n_s_max_number_edges;
@@ -1080,7 +1007,6 @@ static PyObject *__pyx_n_s_super;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_tg;
 static PyObject *__pyx_n_s_throw;
-static PyObject *__pyx_n_s_translation;
 static PyObject *__pyx_n_s_vertices;
 static PyObject *__pyx_int_1;
 static PyObject *__pyx_int_2;
@@ -2450,8 +2376,8 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_14Graph(struct __py
  * 
  * 
  * 	def automorphism_group_gens(self):             # <<<<<<<<<<<<<<
- * 
- * 		G, d = self.Graph().automorphism_group(translation=True)
+ * 		# This function is not very necessary. Just to keep things compatible with Emil's code.
+ * 		# New Sage 6.4.1+ does not relabel graphs to compute automorphism group.
  */
 
 /* Python wrapper */
@@ -2468,12 +2394,12 @@ static PyObject *__pyx_pw_9flagmatic_10graph_flag_9GraphFlag_17automorphism_grou
 }
 static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_2generator(__pyx_GeneratorObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
 
-/* "flagmatic/graph_flag.pyx":98
- * 		# relabel the generators back to how they should be.
- * 
- * 		rd = dict((v,k) for (k,v) in d.iteritems())             # <<<<<<<<<<<<<<
+/* "flagmatic/graph_flag.pyx":97
+ * 		G = self.Graph().automorphism_group()
  * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))
+ * 		gens = sorted([tuple(sorted(tuple(sorted(cy)) for cy in gen)) for gen in trans_gens])             # <<<<<<<<<<<<<<
+ * 
+ * 		return gens
  */
 
 static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_genexpr(PyObject *__pyx_self) {
@@ -2494,7 +2420,7 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
   __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
   __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
   {
-    __pyx_GeneratorObject *gen = __Pyx_Generator_New((__pyx_generator_body_t) __pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_2generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_automorphism_group_gens_locals_g); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_GeneratorObject *gen = __Pyx_Generator_New((__pyx_generator_body_t) __pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_2generator, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_automorphism_group_gens_locals_g); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2516,195 +2442,6 @@ static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
   PyObject *__pyx_r = NULL;
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
-  Py_ssize_t __pyx_t_3;
-  int __pyx_t_4;
-  PyObject *__pyx_t_5 = NULL;
-  PyObject *__pyx_t_6 = NULL;
-  int __pyx_t_7;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("None", 0);
-  switch (__pyx_generator->resume_label) {
-    case 0: goto __pyx_L3_first_run;
-    case 1: goto __pyx_L6_resume_from_yield;
-    default: /* CPython raises the right error here */
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = 0;
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_d)) { __Pyx_RaiseClosureNameError("d"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  if (unlikely(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_d == Py_None)) {
-    PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%s'", "iteritems");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
-  __pyx_t_5 = __Pyx_dict_iterator(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_d, 0, __pyx_n_s_iteritems, (&__pyx_t_3), (&__pyx_t_4)); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_1);
-  __pyx_t_1 = __pyx_t_5;
-  __pyx_t_5 = 0;
-  while (1) {
-    __pyx_t_7 = __Pyx_dict_iter_next(__pyx_t_1, __pyx_t_3, &__pyx_t_2, &__pyx_t_5, &__pyx_t_6, NULL, __pyx_t_4);
-    if (unlikely(__pyx_t_7 == 0)) break;
-    if (unlikely(__pyx_t_7 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_5);
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_k);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_k, __pyx_t_5);
-    __Pyx_GIVEREF(__pyx_t_5);
-    __pyx_t_5 = 0;
-    __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_v);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_v, __pyx_t_6);
-    __Pyx_GIVEREF(__pyx_t_6);
-    __pyx_t_6 = 0;
-    __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_6);
-    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_v);
-    PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_cur_scope->__pyx_v_v);
-    __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_v);
-    __Pyx_INCREF(__pyx_cur_scope->__pyx_v_k);
-    PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_cur_scope->__pyx_v_k);
-    __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_k);
-    __pyx_r = __pyx_t_6;
-    __pyx_t_6 = 0;
-    __Pyx_XGIVEREF(__pyx_t_1);
-    __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
-    __pyx_cur_scope->__pyx_t_1 = __pyx_t_2;
-    __pyx_cur_scope->__pyx_t_2 = __pyx_t_3;
-    __pyx_cur_scope->__pyx_t_3 = __pyx_t_4;
-    __Pyx_XGIVEREF(__pyx_r);
-    __Pyx_RefNannyFinishContext();
-    /* return from generator, yielding value */
-    __pyx_generator->resume_label = 1;
-    return __pyx_r;
-    __pyx_L6_resume_from_yield:;
-    __pyx_t_1 = __pyx_cur_scope->__pyx_t_0;
-    __pyx_cur_scope->__pyx_t_0 = 0;
-    __Pyx_XGOTREF(__pyx_t_1);
-    __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
-    __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
-    __pyx_t_4 = __pyx_cur_scope->__pyx_t_3;
-    if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* function exit code */
-  PyErr_SetNone(PyExc_StopIteration);
-  goto __pyx_L0;
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_XDECREF(__pyx_t_6);
-  __Pyx_AddTraceback("genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_L0:;
-  __Pyx_XDECREF(__pyx_r);
-  __pyx_generator->resume_label = -1;
-  __Pyx_Generator_clear((PyObject*)__pyx_generator);
-  __Pyx_RefNannyFinishContext();
-  return NULL;
-}
-static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_5generator1(__pyx_GeneratorObject *__pyx_generator, PyObject *__pyx_sent_value); /* proto */
-
-/* "flagmatic/graph_flag.pyx":100
- * 		rd = dict((v,k) for (k,v) in d.iteritems())
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))             # <<<<<<<<<<<<<<
- * 			for gen in trans_gens])
- * 
- */
-
-/* Python wrapper */
-static PyObject *__pyx_pw_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_7genexpr_lambda2(PyObject *__pyx_self, PyObject *__pyx_v_x); /*proto*/
-static PyMethodDef __pyx_mdef_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_7genexpr_lambda2 = {"lambda2", (PyCFunction)__pyx_pw_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_7genexpr_lambda2, METH_O, 0};
-static PyObject *__pyx_pw_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_7genexpr_lambda2(PyObject *__pyx_self, PyObject *__pyx_v_x) {
-  PyObject *__pyx_r = 0;
-  __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("lambda2 (wrapper)", 0);
-  __pyx_r = __pyx_lambda_funcdef_lambda2(__pyx_self, ((PyObject *)__pyx_v_x));
-
-  /* function exit code */
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, PyObject *__pyx_v_x) {
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *__pyx_cur_scope;
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *__pyx_outer_scope;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  PyObject *__pyx_t_1 = NULL;
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("lambda2", 0);
-  __pyx_outer_scope = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *) __Pyx_CyFunction_GetClosure(__pyx_self);
-  __pyx_cur_scope = __pyx_outer_scope;
-  __Pyx_XDECREF(__pyx_r);
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_rd)) { __Pyx_RaiseClosureNameError("rd"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
-  if (unlikely(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_rd == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
-  __pyx_t_1 = __Pyx_PyDict_GetItem(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_rd, __pyx_v_x); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_r = __pyx_t_1;
-  __pyx_t_1 = 0;
-  goto __pyx_L0;
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("flagmatic.graph_flag.GraphFlag.automorphism_group_gens.genexpr.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __pyx_L0:;
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_3genexpr(PyObject *__pyx_self) {
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *__pyx_cur_scope;
-  PyObject *__pyx_r = NULL;
-  __Pyx_RefNannyDeclarations
-  int __pyx_lineno = 0;
-  const char *__pyx_filename = NULL;
-  int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("genexpr", 0);
-  __pyx_cur_scope = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *)__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr(__pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr, __pyx_empty_tuple, NULL);
-  if (unlikely(!__pyx_cur_scope)) {
-    __Pyx_RefNannyFinishContext();
-    return NULL;
-  }
-  __Pyx_GOTREF(__pyx_cur_scope);
-  __pyx_cur_scope->__pyx_outer_scope = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *) __pyx_self;
-  __Pyx_INCREF(((PyObject *)__pyx_cur_scope->__pyx_outer_scope));
-  __Pyx_GIVEREF(__pyx_cur_scope->__pyx_outer_scope);
-  {
-    __pyx_GeneratorObject *gen = __Pyx_Generator_New((__pyx_generator_body_t) __pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_5generator1, (PyObject *) __pyx_cur_scope, __pyx_n_s_genexpr, __pyx_n_s_automorphism_group_gens_locals_g); if (unlikely(!gen)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_cur_scope);
-    __Pyx_RefNannyFinishContext();
-    return (PyObject *) gen;
-  }
-
-  /* function exit code */
-  __pyx_L1_error:;
-  __Pyx_AddTraceback("flagmatic.graph_flag.GraphFlag.automorphism_group_gens.genexpr", __pyx_clineno, __pyx_lineno, __pyx_filename);
-  __pyx_r = NULL;
-  __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
-  __Pyx_XGIVEREF(__pyx_r);
-  __Pyx_RefNannyFinishContext();
-  return __pyx_r;
-}
-
-static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_5generator1(__pyx_GeneratorObject *__pyx_generator, PyObject *__pyx_sent_value) /* generator body */
-{
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *__pyx_cur_scope = ((struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *)__pyx_generator->closure);
-  PyObject *__pyx_r = NULL;
-  PyObject *__pyx_t_1 = NULL;
-  Py_ssize_t __pyx_t_2;
   PyObject *(*__pyx_t_3)(PyObject *);
   PyObject *__pyx_t_4 = NULL;
   PyObject *__pyx_t_5 = NULL;
@@ -2721,31 +2458,31 @@ static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen)) { __Pyx_RaiseClosureNameError("gen"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
+  if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen)) { __Pyx_RaiseClosureNameError("gen"); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;} }
   if (likely(PyList_CheckExact(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen)) || PyTuple_CheckExact(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen)) {
     __pyx_t_1 = __pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
     __pyx_t_3 = NULL;
   } else {
-    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_cur_scope->__pyx_outer_scope->__pyx_v_gen); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   for (;;) {
     if (likely(!__pyx_t_3)) {
       if (likely(PyList_CheckExact(__pyx_t_1))) {
         if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       } else {
         if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       }
     } else {
@@ -2754,7 +2491,7 @@ static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
@@ -2764,37 +2501,24 @@ static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_cy, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_CyFunction_NewEx(&__pyx_mdef_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_7genexpr_lambda2, 0, __pyx_n_s_automorphism_group_gens_locals_g_2, ((PyObject*)__pyx_cur_scope), __pyx_n_s_flagmatic_graph_flag, __pyx_d, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = PyTuple_New(2); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_cur_scope->__pyx_v_cy);
-    PyTuple_SET_ITEM(__pyx_t_5, 1, __pyx_cur_scope->__pyx_v_cy);
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_cur_scope->__pyx_v_cy);
     __Pyx_GIVEREF(__pyx_cur_scope->__pyx_v_cy);
-    __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_map, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_sorted, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_4);
-    __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_sorted, __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_t_4 = PyTuple_New(1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyTuple_New(1); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_5);
+    __Pyx_GIVEREF(__pyx_t_5);
+    __pyx_t_5 = 0;
+    __pyx_t_5 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyTuple_Type))), __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
-    PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4);
-    __Pyx_GIVEREF(__pyx_t_4);
-    __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyTuple_Type))), __pyx_t_5, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_r = __pyx_t_4;
-    __pyx_t_4 = 0;
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+    __pyx_r = __pyx_t_5;
+    __pyx_t_5 = 0;
     __Pyx_XGIVEREF(__pyx_t_1);
     __pyx_cur_scope->__pyx_t_0 = __pyx_t_1;
     __pyx_cur_scope->__pyx_t_1 = __pyx_t_2;
@@ -2810,7 +2534,7 @@ static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
     __Pyx_XGOTREF(__pyx_t_1);
     __pyx_t_2 = __pyx_cur_scope->__pyx_t_1;
     __pyx_t_3 = __pyx_cur_scope->__pyx_t_2;
-    if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(!__pyx_sent_value)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -2834,8 +2558,8 @@ static PyObject *__pyx_gb_9flagmatic_10graph_flag_9GraphFlag_23automorphism_grou
  * 
  * 
  * 	def automorphism_group_gens(self):             # <<<<<<<<<<<<<<
- * 
- * 		G, d = self.Graph().automorphism_group(translation=True)
+ * 		# This function is not very necessary. Just to keep things compatible with Emil's code.
+ * 		# New Sage 6.4.1+ does not relabel graphs to compute automorphism group.
  */
 
 static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_16automorphism_group_gens(struct __pyx_obj_9flagmatic_10graph_flag_GraphFlag *__pyx_v_self) {
@@ -2849,11 +2573,10 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_16automorphism_grou
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
   PyObject *__pyx_t_4 = NULL;
-  PyObject *(*__pyx_t_5)(PyObject *);
-  Py_ssize_t __pyx_t_6;
-  PyObject *(*__pyx_t_7)(PyObject *);
-  PyObject *__pyx_t_8 = NULL;
-  int __pyx_t_9;
+  Py_ssize_t __pyx_t_5;
+  PyObject *(*__pyx_t_6)(PyObject *);
+  PyObject *__pyx_t_7 = NULL;
+  int __pyx_t_8;
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -2865,301 +2588,206 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_16automorphism_grou
   }
   __Pyx_GOTREF(__pyx_cur_scope);
 
-  /* "flagmatic/graph_flag.pyx":93
- * 	def automorphism_group_gens(self):
+  /* "flagmatic/graph_flag.pyx":95
+ * 		# New Sage 6.4.1+ does not relabel graphs to compute automorphism group.
  * 
- * 		G, d = self.Graph().automorphism_group(translation=True)             # <<<<<<<<<<<<<<
- * 
- * 		# Sage gives the graph new labels! Get a translation dictionary, and
+ * 		G = self.Graph().automorphism_group()             # <<<<<<<<<<<<<<
+ * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
+ * 		gens = sorted([tuple(sorted(tuple(sorted(cy)) for cy in gen)) for gen in trans_gens])
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Graph); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_Graph); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_4 = NULL;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_4)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+    }
+  }
+  if (__pyx_t_4) {
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+  } else {
+    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = NULL;
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_automorphism_group); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_3);
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_t_2 = NULL;
+  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
+    __pyx_t_2 = PyMethod_GET_SELF(__pyx_t_3);
+    if (likely(__pyx_t_2)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_2);
+      __Pyx_INCREF(function);
+      __Pyx_DECREF_SET(__pyx_t_3, function);
+    }
+  }
+  if (__pyx_t_2) {
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  } else {
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 95; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_v_G = __pyx_t_1;
+  __pyx_t_1 = 0;
+
+  /* "flagmatic/graph_flag.pyx":96
+ * 
+ * 		G = self.Graph().automorphism_group()
+ * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]             # <<<<<<<<<<<<<<
+ * 		gens = sorted([tuple(sorted(tuple(sorted(cy)) for cy in gen)) for gen in trans_gens])
+ * 
+ */
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_G, __pyx_n_s_gens); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
-    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_2);
-    if (likely(__pyx_t_3)) {
+    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_2);
+    if (likely(__pyx_t_4)) {
       PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_2);
-      __Pyx_INCREF(__pyx_t_3);
+      __Pyx_INCREF(__pyx_t_4);
       __Pyx_INCREF(function);
       __Pyx_DECREF_SET(__pyx_t_2, function);
     }
   }
-  if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_automorphism_group); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_translation, Py_True) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_empty_tuple, __pyx_t_1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if ((likely(PyTuple_CheckExact(__pyx_t_3))) || (PyList_CheckExact(__pyx_t_3))) {
-    PyObject* sequence = __pyx_t_3;
-    #if CYTHON_COMPILING_IN_CPYTHON
-    Py_ssize_t size = Py_SIZE(sequence);
-    #else
-    Py_ssize_t size = PySequence_Size(sequence);
-    #endif
-    if (unlikely(size != 2)) {
-      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
-      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-      {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    }
-    #if CYTHON_COMPILING_IN_CPYTHON
-    if (likely(PyTuple_CheckExact(sequence))) {
-      __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
-      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
-    } else {
-      __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
-      __pyx_t_2 = PyList_GET_ITEM(sequence, 1); 
-    }
-    __Pyx_INCREF(__pyx_t_1);
-    __Pyx_INCREF(__pyx_t_2);
-    #else
-    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_2);
-    #endif
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  } else {
-    Py_ssize_t index = -1;
-    __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = Py_TYPE(__pyx_t_4)->tp_iternext;
-    index = 0; __pyx_t_1 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_1)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_1);
-    index = 1; __pyx_t_2 = __pyx_t_5(__pyx_t_4); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
-    __Pyx_GOTREF(__pyx_t_2);
-    if (__Pyx_IternextUnpackEndCheck(__pyx_t_5(__pyx_t_4), 2) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_t_5 = NULL;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    goto __pyx_L4_unpacking_done;
-    __pyx_L3_unpacking_failed:;
-    __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_5 = NULL;
-    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-    {__pyx_filename = __pyx_f[0]; __pyx_lineno = 93; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __pyx_L4_unpacking_done:;
-  }
-  __pyx_v_G = __pyx_t_1;
-  __pyx_t_1 = 0;
-  __Pyx_GIVEREF(__pyx_t_2);
-  __pyx_cur_scope->__pyx_v_d = __pyx_t_2;
-  __pyx_t_2 = 0;
-
-  /* "flagmatic/graph_flag.pyx":98
- * 		# relabel the generators back to how they should be.
- * 
- * 		rd = dict((v,k) for (k,v) in d.iteritems())             # <<<<<<<<<<<<<<
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))
- */
-  __pyx_t_3 = __pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = PyTuple_New(1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_2);
-  PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_3);
-  __Pyx_GIVEREF(__pyx_t_3);
-  __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyDict_Type))), __pyx_t_2, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_GIVEREF(__pyx_t_3);
-  __pyx_cur_scope->__pyx_v_rd = ((PyObject*)__pyx_t_3);
-  __pyx_t_3 = 0;
-
-  /* "flagmatic/graph_flag.pyx":99
- * 
- * 		rd = dict((v,k) for (k,v) in d.iteritems())
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]             # <<<<<<<<<<<<<<
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))
- * 			for gen in trans_gens])
- */
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_G, __pyx_n_s_gens); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = NULL;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
-    __pyx_t_4 = PyMethod_GET_SELF(__pyx_t_1);
-    if (likely(__pyx_t_4)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
-      __Pyx_INCREF(__pyx_t_4);
-      __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_1, function);
-    }
-  }
   if (__pyx_t_4) {
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   }
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (likely(PyList_CheckExact(__pyx_t_2)) || PyTuple_CheckExact(__pyx_t_2)) {
-    __pyx_t_1 = __pyx_t_2; __Pyx_INCREF(__pyx_t_1); __pyx_t_6 = 0;
-    __pyx_t_7 = NULL;
-  } else {
-    __pyx_t_6 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_t_2); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_7 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  }
+  __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
+    __pyx_t_2 = __pyx_t_3; __Pyx_INCREF(__pyx_t_2); __pyx_t_5 = 0;
+    __pyx_t_6 = NULL;
+  } else {
+    __pyx_t_5 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_2);
+    __pyx_t_6 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_6)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  }
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
-    if (likely(!__pyx_t_7)) {
-      if (likely(PyList_CheckExact(__pyx_t_1))) {
-        if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
+    if (likely(!__pyx_t_6)) {
+      if (likely(PyList_CheckExact(__pyx_t_2))) {
+        if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_2 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       } else {
-        if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        if (__pyx_t_5 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_2 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_2); __pyx_t_6++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_5); __Pyx_INCREF(__pyx_t_3); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #else
-        __pyx_t_2 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_2, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         #endif
       }
     } else {
-      __pyx_t_2 = __pyx_t_7(__pyx_t_1);
-      if (unlikely(!__pyx_t_2)) {
+      __pyx_t_3 = __pyx_t_6(__pyx_t_2);
+      if (unlikely(!__pyx_t_3)) {
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         break;
       }
-      __Pyx_GOTREF(__pyx_t_2);
+      __Pyx_GOTREF(__pyx_t_3);
     }
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_gen);
-    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_gen, __pyx_t_2);
-    __Pyx_GIVEREF(__pyx_t_2);
-    __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_gen, __pyx_n_s_cycle_tuples); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_gen, __pyx_t_3);
+    __Pyx_GIVEREF(__pyx_t_3);
+    __pyx_t_3 = 0;
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_gen, __pyx_n_s_cycle_tuples); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = NULL;
+    __pyx_t_7 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
-      __pyx_t_8 = PyMethod_GET_SELF(__pyx_t_4);
-      if (likely(__pyx_t_8)) {
+      __pyx_t_7 = PyMethod_GET_SELF(__pyx_t_4);
+      if (likely(__pyx_t_7)) {
         PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_4);
-        __Pyx_INCREF(__pyx_t_8);
+        __Pyx_INCREF(__pyx_t_7);
         __Pyx_INCREF(function);
         __Pyx_DECREF_SET(__pyx_t_4, function);
       }
     }
-    if (__pyx_t_8) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_8); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-      __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
+    if (__pyx_t_7) {
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_7); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else {
-      __pyx_t_2 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
-    __Pyx_GOTREF(__pyx_t_2);
+    __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_2))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 99; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_3))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 96; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_v_trans_gens = ((PyObject*)__pyx_t_3);
-  __pyx_t_3 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+  __pyx_v_trans_gens = ((PyObject*)__pyx_t_1);
+  __pyx_t_1 = 0;
 
-  /* "flagmatic/graph_flag.pyx":100
- * 		rd = dict((v,k) for (k,v) in d.iteritems())
+  /* "flagmatic/graph_flag.pyx":97
+ * 		G = self.Graph().automorphism_group()
  * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))             # <<<<<<<<<<<<<<
- * 			for gen in trans_gens])
- * 
- */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __Pyx_GOTREF(__pyx_t_1);
-
-  /* "flagmatic/graph_flag.pyx":101
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))
- * 			for gen in trans_gens])             # <<<<<<<<<<<<<<
+ * 		gens = sorted([tuple(sorted(tuple(sorted(cy)) for cy in gen)) for gen in trans_gens])             # <<<<<<<<<<<<<<
  * 
  * 		return gens
  */
-  __pyx_t_2 = __pyx_v_trans_gens; __Pyx_INCREF(__pyx_t_2); __pyx_t_6 = 0;
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __Pyx_GOTREF(__pyx_t_2);
+  __pyx_t_3 = __pyx_v_trans_gens; __Pyx_INCREF(__pyx_t_3); __pyx_t_5 = 0;
   for (;;) {
-    if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_2)) break;
+    if (__pyx_t_5 >= PyList_GET_SIZE(__pyx_t_3)) break;
     #if CYTHON_COMPILING_IN_CPYTHON
-    __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_5); __Pyx_INCREF(__pyx_t_4); __pyx_t_5++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     #else
-    __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 101; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_5); __pyx_t_5++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     #endif
     __Pyx_XGOTREF(__pyx_cur_scope->__pyx_v_gen);
     __Pyx_XDECREF_SET(__pyx_cur_scope->__pyx_v_gen, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
-
-    /* "flagmatic/graph_flag.pyx":100
- * 		rd = dict((v,k) for (k,v) in d.iteritems())
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))             # <<<<<<<<<<<<<<
- * 			for gen in trans_gens])
- * 
- */
-    __pyx_t_4 = __pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_3genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __pyx_pf_9flagmatic_10graph_flag_9GraphFlag_23automorphism_group_gens_genexpr(((PyObject*)__pyx_cur_scope)); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_8);
-    PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4);
+    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_sorted, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_sorted, __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    __pyx_t_8 = PyTuple_New(1); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-    __Pyx_GOTREF(__pyx_t_8);
-    PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_4);
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    __pyx_t_7 = PyTuple_New(1); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_GOTREF(__pyx_t_7);
+    PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_4);
     __pyx_t_4 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyTuple_Type))), __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyTuple_Type))), __pyx_t_7, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_t_4))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_4))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-
-    /* "flagmatic/graph_flag.pyx":101
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))
- * 			for gen in trans_gens])             # <<<<<<<<<<<<<<
- * 
- * 		return gens
- */
   }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = ((PyObject*)__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_1 = ((PyObject*)__pyx_t_2);
+  __pyx_t_2 = 0;
+  __pyx_t_8 = PyList_Sort(__pyx_t_1); if (unlikely(__pyx_t_8 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_v_gens = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "flagmatic/graph_flag.pyx":100
- * 		rd = dict((v,k) for (k,v) in d.iteritems())
- * 		trans_gens = [gen.cycle_tuples() for gen in G.gens()]
- * 		gens = sorted([tuple(sorted(tuple(sorted(map(lambda x : rd[x], cy))) for cy in gen))             # <<<<<<<<<<<<<<
- * 			for gen in trans_gens])
- * 
- */
-  __pyx_t_9 = PyList_Sort(__pyx_t_3); if (unlikely(__pyx_t_9 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_v_gens = ((PyObject*)__pyx_t_3);
-  __pyx_t_3 = 0;
-
-  /* "flagmatic/graph_flag.pyx":103
- * 			for gen in trans_gens])
+  /* "flagmatic/graph_flag.pyx":99
+ * 		gens = sorted([tuple(sorted(tuple(sorted(cy)) for cy in gen)) for gen in trans_gens])
  * 
  * 		return gens             # <<<<<<<<<<<<<<
  */
@@ -3172,8 +2800,8 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_16automorphism_grou
  * 
  * 
  * 	def automorphism_group_gens(self):             # <<<<<<<<<<<<<<
- * 
- * 		G, d = self.Graph().automorphism_group(translation=True)
+ * 		# This function is not very necessary. Just to keep things compatible with Emil's code.
+ * 		# New Sage 6.4.1+ does not relabel graphs to compute automorphism group.
  */
 
   /* function exit code */
@@ -3182,7 +2810,7 @@ static PyObject *__pyx_pf_9flagmatic_10graph_flag_9GraphFlag_16automorphism_grou
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_8);
+  __Pyx_XDECREF(__pyx_t_7);
   __Pyx_AddTraceback("flagmatic.graph_flag.GraphFlag.automorphism_group_gens", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
@@ -3406,9 +3034,7 @@ static PyObject *__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_1_autom
 static void __pyx_tp_dealloc_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens(PyObject *o) {
   struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *)o;
   PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_v_d);
   Py_CLEAR(p->__pyx_v_gen);
-  Py_CLEAR(p->__pyx_v_rd);
   if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens)))) {
     __pyx_freelist_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens[__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens++] = ((struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *)o);
   } else {
@@ -3419,14 +3045,8 @@ static void __pyx_tp_dealloc_9flagmatic_10graph_flag___pyx_scope_struct_1_automo
 static int __pyx_tp_traverse_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens(PyObject *o, visitproc v, void *a) {
   int e;
   struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *)o;
-  if (p->__pyx_v_d) {
-    e = (*v)(p->__pyx_v_d, a); if (e) return e;
-  }
   if (p->__pyx_v_gen) {
     e = (*v)(p->__pyx_v_gen, a); if (e) return e;
-  }
-  if (p->__pyx_v_rd) {
-    e = (*v)(p->__pyx_v_rd, a); if (e) return e;
   }
   return 0;
 }
@@ -3434,14 +3054,8 @@ static int __pyx_tp_traverse_9flagmatic_10graph_flag___pyx_scope_struct_1_automo
 static int __pyx_tp_clear_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens(PyObject *o) {
   PyObject* tmp;
   struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *)o;
-  tmp = ((PyObject*)p->__pyx_v_d);
-  p->__pyx_v_d = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
   tmp = ((PyObject*)p->__pyx_v_gen);
   p->__pyx_v_gen = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_rd);
-  p->__pyx_v_rd = ((PyObject*)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
@@ -3524,8 +3138,7 @@ static void __pyx_tp_dealloc_9flagmatic_10graph_flag___pyx_scope_struct_2_genexp
   struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr *)o;
   PyObject_GC_UnTrack(o);
   Py_CLEAR(p->__pyx_outer_scope);
-  Py_CLEAR(p->__pyx_v_k);
-  Py_CLEAR(p->__pyx_v_v);
+  Py_CLEAR(p->__pyx_v_cy);
   Py_CLEAR(p->__pyx_t_0);
   if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr)))) {
     __pyx_freelist_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr[__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr++] = ((struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr *)o);
@@ -3540,11 +3153,8 @@ static int __pyx_tp_traverse_9flagmatic_10graph_flag___pyx_scope_struct_2_genexp
   if (p->__pyx_outer_scope) {
     e = (*v)(((PyObject*)p->__pyx_outer_scope), a); if (e) return e;
   }
-  if (p->__pyx_v_k) {
-    e = (*v)(p->__pyx_v_k, a); if (e) return e;
-  }
-  if (p->__pyx_v_v) {
-    e = (*v)(p->__pyx_v_v, a); if (e) return e;
+  if (p->__pyx_v_cy) {
+    e = (*v)(p->__pyx_v_cy, a); if (e) return e;
   }
   if (p->__pyx_t_0) {
     e = (*v)(p->__pyx_t_0, a); if (e) return e;
@@ -3558,11 +3168,8 @@ static int __pyx_tp_clear_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr(P
   tmp = ((PyObject*)p->__pyx_outer_scope);
   p->__pyx_outer_scope = ((struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_k);
-  p->__pyx_v_k = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_v);
-  p->__pyx_v_v = Py_None; Py_INCREF(Py_None);
+  tmp = ((PyObject*)p->__pyx_v_cy);
+  p->__pyx_v_cy = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   tmp = ((PyObject*)p->__pyx_t_0);
   p->__pyx_t_0 = Py_None; Py_INCREF(Py_None);
@@ -3627,123 +3234,6 @@ static PyTypeObject __pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_2_gene
   #endif
 };
 
-static struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *__pyx_freelist_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr[8];
-static int __pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr = 0;
-
-static PyObject *__pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr)))) {
-    o = (PyObject*)__pyx_freelist_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr[--__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr];
-    memset(o, 0, sizeof(struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr));
-    (void) PyObject_INIT(o, t);
-    PyObject_GC_Track(o);
-  } else {
-    o = (*t->tp_alloc)(t, 0);
-    if (unlikely(!o)) return 0;
-  }
-  return o;
-}
-
-static void __pyx_tp_dealloc_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr(PyObject *o) {
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *)o;
-  PyObject_GC_UnTrack(o);
-  Py_CLEAR(p->__pyx_outer_scope);
-  Py_CLEAR(p->__pyx_v_cy);
-  Py_CLEAR(p->__pyx_t_0);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr)))) {
-    __pyx_freelist_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr[__pyx_freecount_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr++] = ((struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *)o);
-  } else {
-    (*Py_TYPE(o)->tp_free)(o);
-  }
-}
-
-static int __pyx_tp_traverse_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr(PyObject *o, visitproc v, void *a) {
-  int e;
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *)o;
-  if (p->__pyx_outer_scope) {
-    e = (*v)(((PyObject*)p->__pyx_outer_scope), a); if (e) return e;
-  }
-  if (p->__pyx_v_cy) {
-    e = (*v)(p->__pyx_v_cy, a); if (e) return e;
-  }
-  if (p->__pyx_t_0) {
-    e = (*v)(p->__pyx_t_0, a); if (e) return e;
-  }
-  return 0;
-}
-
-static int __pyx_tp_clear_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr(PyObject *o) {
-  PyObject* tmp;
-  struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *p = (struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr *)o;
-  tmp = ((PyObject*)p->__pyx_outer_scope);
-  p->__pyx_outer_scope = ((struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens *)Py_None); Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_cy);
-  p->__pyx_v_cy = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_t_0);
-  p->__pyx_t_0 = Py_None; Py_INCREF(Py_None);
-  Py_XDECREF(tmp);
-  return 0;
-}
-
-static PyTypeObject __pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr = {
-  PyVarObject_HEAD_INIT(0, 0)
-  "flagmatic.graph_flag.__pyx_scope_struct_3_genexpr", /*tp_name*/
-  sizeof(struct __pyx_obj_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr), /*tp_basicsize*/
-  0, /*tp_itemsize*/
-  __pyx_tp_dealloc_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr, /*tp_dealloc*/
-  0, /*tp_print*/
-  0, /*tp_getattr*/
-  0, /*tp_setattr*/
-  #if PY_MAJOR_VERSION < 3
-  0, /*tp_compare*/
-  #else
-  0, /*reserved*/
-  #endif
-  0, /*tp_repr*/
-  0, /*tp_as_number*/
-  0, /*tp_as_sequence*/
-  0, /*tp_as_mapping*/
-  0, /*tp_hash*/
-  0, /*tp_call*/
-  0, /*tp_str*/
-  0, /*tp_getattro*/
-  0, /*tp_setattro*/
-  0, /*tp_as_buffer*/
-  Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
-  0, /*tp_doc*/
-  __pyx_tp_traverse_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr, /*tp_traverse*/
-  __pyx_tp_clear_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr, /*tp_clear*/
-  0, /*tp_richcompare*/
-  0, /*tp_weaklistoffset*/
-  0, /*tp_iter*/
-  0, /*tp_iternext*/
-  0, /*tp_methods*/
-  0, /*tp_members*/
-  0, /*tp_getset*/
-  0, /*tp_base*/
-  0, /*tp_dict*/
-  0, /*tp_descr_get*/
-  0, /*tp_descr_set*/
-  0, /*tp_dictoffset*/
-  0, /*tp_init*/
-  0, /*tp_alloc*/
-  __pyx_tp_new_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr, /*tp_new*/
-  0, /*tp_free*/
-  0, /*tp_is_gc*/
-  0, /*tp_bases*/
-  0, /*tp_mro*/
-  0, /*tp_cache*/
-  0, /*tp_subclasses*/
-  0, /*tp_weaklist*/
-  0, /*tp_del*/
-  0, /*tp_version_tag*/
-  #if PY_VERSION_HEX >= 0x030400a1
-  0, /*tp_finalize*/
-  #endif
-};
-
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
 };
@@ -3776,7 +3266,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_args, __pyx_k_args, sizeof(__pyx_k_args), 0, 0, 1, 1},
   {&__pyx_n_s_automorphism_group, __pyx_k_automorphism_group, sizeof(__pyx_k_automorphism_group), 0, 0, 1, 1},
   {&__pyx_n_s_automorphism_group_gens_locals_g, __pyx_k_automorphism_group_gens_locals_g, sizeof(__pyx_k_automorphism_group_gens_locals_g), 0, 0, 1, 1},
-  {&__pyx_n_s_automorphism_group_gens_locals_g_2, __pyx_k_automorphism_group_gens_locals_g_2, sizeof(__pyx_k_automorphism_group_gens_locals_g_2), 0, 0, 1, 1},
   {&__pyx_n_s_binomial, __pyx_k_binomial, sizeof(__pyx_k_binomial), 0, 0, 1, 1},
   {&__pyx_n_s_close, __pyx_k_close, sizeof(__pyx_k_close), 0, 0, 1, 1},
   {&__pyx_n_s_cycle_tuples, __pyx_k_cycle_tuples, sizeof(__pyx_k_cycle_tuples), 0, 0, 1, 1},
@@ -3796,7 +3285,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_index, __pyx_k_index, sizeof(__pyx_k_index), 0, 0, 1, 1},
   {&__pyx_n_s_init, __pyx_k_init, sizeof(__pyx_k_init), 0, 0, 1, 1},
   {&__pyx_n_s_init___locals_lambda, __pyx_k_init___locals_lambda, sizeof(__pyx_k_init___locals_lambda), 0, 0, 1, 1},
-  {&__pyx_n_s_iteritems, __pyx_k_iteritems, sizeof(__pyx_k_iteritems), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_map, __pyx_k_map, sizeof(__pyx_k_map), 0, 0, 1, 1},
   {&__pyx_n_s_max_number_edges, __pyx_k_max_number_edges, sizeof(__pyx_k_max_number_edges), 0, 0, 1, 1},
@@ -3816,7 +3304,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_tg, __pyx_k_tg, sizeof(__pyx_k_tg), 0, 0, 1, 1},
   {&__pyx_n_s_throw, __pyx_k_throw, sizeof(__pyx_k_throw), 0, 0, 1, 1},
-  {&__pyx_n_s_translation, __pyx_k_translation, sizeof(__pyx_k_translation), 0, 0, 1, 1},
   {&__pyx_n_s_vertices, __pyx_k_vertices, sizeof(__pyx_k_vertices), 0, 0, 1, 1},
   {0, 0, 0, 0, 0, 0, 0}
 };
@@ -3824,7 +3311,7 @@ static int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_super = __Pyx_GetBuiltinName(__pyx_n_s_super); if (!__pyx_builtin_super) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 41; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_map = __Pyx_GetBuiltinName(__pyx_n_s_map); if (!__pyx_builtin_map) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 44; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 86; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_sorted = __Pyx_GetBuiltinName(__pyx_n_s_sorted); if (!__pyx_builtin_sorted) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_sorted = __Pyx_GetBuiltinName(__pyx_n_s_sorted); if (!__pyx_builtin_sorted) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -3968,12 +3455,9 @@ PyMODINIT_FUNC PyInit_graph_flag(void)
   if (PyType_Ready(&__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 91; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens.tp_print = 0;
   __pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens = &__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_1_automorphism_group_gens;
-  if (PyType_Ready(&__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 98; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 97; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr.tp_print = 0;
   __pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr = &__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_2_genexpr;
-  if (PyType_Ready(&__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 100; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr.tp_print = 0;
-  __pyx_ptype_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr = &__pyx_type_9flagmatic_10graph_flag___pyx_scope_struct_3_genexpr;
   /*--- Type import code ---*/
   __pyx_ptype_4sage_9structure_11sage_object_SageObject = __Pyx_ImportType("sage.structure.sage_object", "SageObject", sizeof(struct __pyx_obj_4sage_9structure_11sage_object_SageObject), 1); if (unlikely(!__pyx_ptype_4sage_9structure_11sage_object_SageObject)) {__pyx_filename = __pyx_f[1]; __pyx_lineno = 1; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_9flagmatic_4flag_Flag = __Pyx_ImportType("flagmatic.flag", "Flag", sizeof(struct __pyx_obj_9flagmatic_4flag_Flag), 1); if (unlikely(!__pyx_ptype_9flagmatic_4flag_Flag)) {__pyx_filename = __pyx_f[2]; __pyx_lineno = 3; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
@@ -5138,237 +4622,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetSlice(
         "'%.200s' object is unsliceable", Py_TYPE(obj)->tp_name);
 bad:
     return NULL;
-}
-
-static CYTHON_INLINE int __Pyx_IterFinish(void) {
-#if CYTHON_COMPILING_IN_CPYTHON
-    PyThreadState *tstate = PyThreadState_GET();
-    PyObject* exc_type = tstate->curexc_type;
-    if (unlikely(exc_type)) {
-        if (likely(exc_type == PyExc_StopIteration) || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration)) {
-            PyObject *exc_value, *exc_tb;
-            exc_value = tstate->curexc_value;
-            exc_tb = tstate->curexc_traceback;
-            tstate->curexc_type = 0;
-            tstate->curexc_value = 0;
-            tstate->curexc_traceback = 0;
-            Py_DECREF(exc_type);
-            Py_XDECREF(exc_value);
-            Py_XDECREF(exc_tb);
-            return 0;
-        } else {
-            return -1;
-        }
-    }
-    return 0;
-#else
-    if (unlikely(PyErr_Occurred())) {
-        if (likely(PyErr_ExceptionMatches(PyExc_StopIteration))) {
-            PyErr_Clear();
-            return 0;
-        } else {
-            return -1;
-        }
-    }
-    return 0;
-#endif
-}
-
-static PyObject* __Pyx_PyObject_CallMethod0(PyObject* obj, PyObject* method_name) {
-    PyObject *method, *result = NULL;
-    method = __Pyx_PyObject_GetAttrStr(obj, method_name);
-    if (unlikely(!method)) goto bad;
-#if CYTHON_COMPILING_IN_CPYTHON
-    if (likely(PyMethod_Check(method))) {
-        PyObject *self = PyMethod_GET_SELF(method);
-        if (likely(self)) {
-            PyObject *function = PyMethod_GET_FUNCTION(method);
-            result = __Pyx_PyObject_CallOneArg(function, self);
-            Py_DECREF(method);
-            return result;
-        }
-    }
-#endif
-    result = __Pyx_PyObject_CallNoArg(method);
-    Py_DECREF(method);
-bad:
-    return result;
-}
-
-static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
-    PyErr_Format(PyExc_ValueError,
-                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
-                 index, (index == 1) ? "" : "s");
-}
-
-static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
-    PyErr_Format(PyExc_ValueError,
-                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
-}
-
-static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
-    if (unlikely(retval)) {
-        Py_DECREF(retval);
-        __Pyx_RaiseTooManyValuesError(expected);
-        return -1;
-    } else {
-        return __Pyx_IterFinish();
-    }
-    return 0;
-}
-
-static CYTHON_INLINE void __Pyx_RaiseNoneNotIterableError(void) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-}
-
-static void __Pyx_UnpackTupleError(PyObject *t, Py_ssize_t index) {
-    if (t == Py_None) {
-      __Pyx_RaiseNoneNotIterableError();
-    } else if (PyTuple_GET_SIZE(t) < index) {
-      __Pyx_RaiseNeedMoreValuesError(PyTuple_GET_SIZE(t));
-    } else {
-      __Pyx_RaiseTooManyValuesError(index);
-    }
-}
-
-static CYTHON_INLINE int __Pyx_unpack_tuple2(PyObject* tuple, PyObject** pvalue1, PyObject** pvalue2,
-                                             int is_tuple, int has_known_size, int decref_tuple) {
-    Py_ssize_t index;
-    PyObject *value1 = NULL, *value2 = NULL, *iter = NULL;
-    if (!is_tuple && unlikely(!PyTuple_Check(tuple))) {
-        iternextfunc iternext;
-        iter = PyObject_GetIter(tuple);
-        if (unlikely(!iter)) goto bad;
-        if (decref_tuple) { Py_DECREF(tuple); tuple = NULL; }
-        iternext = Py_TYPE(iter)->tp_iternext;
-        value1 = iternext(iter); if (unlikely(!value1)) { index = 0; goto unpacking_failed; }
-        value2 = iternext(iter); if (unlikely(!value2)) { index = 1; goto unpacking_failed; }
-        if (!has_known_size && unlikely(__Pyx_IternextUnpackEndCheck(iternext(iter), 2))) goto bad;
-        Py_DECREF(iter);
-    } else {
-        if (!has_known_size && unlikely(PyTuple_GET_SIZE(tuple) != 2)) {
-            __Pyx_UnpackTupleError(tuple, 2);
-            goto bad;
-        }
-#if CYTHON_COMPILING_IN_PYPY
-        value1 = PySequence_ITEM(tuple, 0);
-        if (unlikely(!value1)) goto bad;
-        value2 = PySequence_ITEM(tuple, 1);
-        if (unlikely(!value2)) goto bad;
-#else
-        value1 = PyTuple_GET_ITEM(tuple, 0);
-        value2 = PyTuple_GET_ITEM(tuple, 1);
-        Py_INCREF(value1);
-        Py_INCREF(value2);
-#endif
-        if (decref_tuple) { Py_DECREF(tuple); }
-    }
-    *pvalue1 = value1;
-    *pvalue2 = value2;
-    return 0;
-unpacking_failed:
-    if (!has_known_size && __Pyx_IterFinish() == 0)
-        __Pyx_RaiseNeedMoreValuesError(index);
-bad:
-    Py_XDECREF(iter);
-    Py_XDECREF(value1);
-    Py_XDECREF(value2);
-    if (decref_tuple) { Py_XDECREF(tuple); }
-    return -1;
-}
-
-static CYTHON_INLINE PyObject* __Pyx_dict_iterator(PyObject* iterable, int is_dict, PyObject* method_name,
-                                                   Py_ssize_t* p_orig_length, int* p_source_is_dict) {
-    is_dict = is_dict || likely(PyDict_CheckExact(iterable));
-    *p_source_is_dict = is_dict;
-#if !CYTHON_COMPILING_IN_PYPY
-    if (is_dict) {
-        *p_orig_length = PyDict_Size(iterable);
-        Py_INCREF(iterable);
-        return iterable;
-    }
-#endif
-    *p_orig_length = 0;
-    if (method_name) {
-        PyObject* iter;
-        iterable = __Pyx_PyObject_CallMethod0(iterable, method_name);
-        if (!iterable)
-            return NULL;
-#if !CYTHON_COMPILING_IN_PYPY
-        if (PyTuple_CheckExact(iterable) || PyList_CheckExact(iterable))
-            return iterable;
-#endif
-        iter = PyObject_GetIter(iterable);
-        Py_DECREF(iterable);
-        return iter;
-    }
-    return PyObject_GetIter(iterable);
-}
-static CYTHON_INLINE int __Pyx_dict_iter_next(PyObject* iter_obj, Py_ssize_t orig_length, Py_ssize_t* ppos,
-                                              PyObject** pkey, PyObject** pvalue, PyObject** pitem, int source_is_dict) {
-    PyObject* next_item;
-#if !CYTHON_COMPILING_IN_PYPY
-    if (source_is_dict) {
-        PyObject *key, *value;
-        if (unlikely(orig_length != PyDict_Size(iter_obj))) {
-            PyErr_SetString(PyExc_RuntimeError, "dictionary changed size during iteration");
-            return -1;
-        }
-        if (unlikely(!PyDict_Next(iter_obj, ppos, &key, &value))) {
-            return 0;
-        }
-        if (pitem) {
-            PyObject* tuple = PyTuple_New(2);
-            if (unlikely(!tuple)) {
-                return -1;
-            }
-            Py_INCREF(key);
-            Py_INCREF(value);
-            PyTuple_SET_ITEM(tuple, 0, key);
-            PyTuple_SET_ITEM(tuple, 1, value);
-            *pitem = tuple;
-        } else {
-            if (pkey) {
-                Py_INCREF(key);
-                *pkey = key;
-            }
-            if (pvalue) {
-                Py_INCREF(value);
-                *pvalue = value;
-            }
-        }
-        return 1;
-    } else if (PyTuple_CheckExact(iter_obj)) {
-        Py_ssize_t pos = *ppos;
-        if (unlikely(pos >= PyTuple_GET_SIZE(iter_obj))) return 0;
-        *ppos = pos + 1;
-        next_item = PyTuple_GET_ITEM(iter_obj, pos);
-        Py_INCREF(next_item);
-    } else if (PyList_CheckExact(iter_obj)) {
-        Py_ssize_t pos = *ppos;
-        if (unlikely(pos >= PyList_GET_SIZE(iter_obj))) return 0;
-        *ppos = pos + 1;
-        next_item = PyList_GET_ITEM(iter_obj, pos);
-        Py_INCREF(next_item);
-    } else
-#endif
-    {
-        next_item = PyIter_Next(iter_obj);
-        if (unlikely(!next_item)) {
-            return __Pyx_IterFinish();
-        }
-    }
-    if (pitem) {
-        *pitem = next_item;
-    } else if (pkey && pvalue) {
-        if (__Pyx_unpack_tuple2(next_item, pkey, pvalue, source_is_dict, source_is_dict, 1))
-            return -1;
-    } else if (pkey) {
-        *pkey = next_item;
-    } else {
-        *pvalue = next_item;
-    }
-    return 1;
 }
 
 static void __Pyx_call_next_tp_dealloc(PyObject* obj, destructor current_tp_dealloc) {

@@ -51,7 +51,8 @@ class AxiomsProblem(Problem):
         
         self._density_graphs = []
         self._active_densities = []
-        self._density_coeff_blocks = []        
+        self._density_coeff_blocks = []
+        
         self._compute_densities()
 
     def set_inactive_densities(self, *args):
@@ -101,7 +102,7 @@ class AxiomsProblem(Problem):
                 k = row[2]
                 value = Integer(row[3]) / Integer(row[4])
                 quantum_graphs[k][gi] += value * terms[i][1]
-
+        
         self._axioms.append((tg, terms))
         self._axiom_flags.append(axiom_flags)
         
@@ -236,7 +237,7 @@ class AxiomsProblem(Problem):
 
     def make_degree_problem(self, value):
 
-        #self.clear_densities()
+        self.clear_densities()
         self.add_degree_axiom(value, False)
 
     def show_large_densities(self, larger_than=1e-4):

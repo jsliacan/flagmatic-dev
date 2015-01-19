@@ -33,7 +33,7 @@ import numpy
 import pexpect
 
 from sage.structure.sage_object import SageObject
-from sage.rings.all import Integer, Rational, QQ, ZZ, RDF
+from sage.rings.all import Integer, QQ, ZZ, RDF
 from sage.functions.other import floor
 from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagonal_matrix
 from sage.modules.misc import gram_schmidt
@@ -131,7 +131,9 @@ class Problem(SageObject):
 
     def __init__(self, flag_cls, order=None, forbid_induced=None, forbid=None,
                  forbid_homomorphic_images=False, density=None, minimize=False,
-                 type_orders=None, types=None, max_flags=None, compute_products=True):
+                 type_orders=None, types=None, max_flags=None, compute_products=True,
+                 mode="plain"):
+        
         r"""
         Creates a new Problem object. Generally it is not necessary to call this method
         directly, as Problem objects are more easily created using the helper functions:
@@ -156,15 +158,19 @@ class Problem(SageObject):
         else:
             raise ValueError
 
-        self._n = 0 # order of admissible graphs H_i
-
+        self._n = 0
+        self._mode = "plain"
+        
         self._field = QQ
-        self._approximate_field = RDF # Real Double Field (requires NumPy)
+        self._approximate_field = RDF
 
         self._forbidden_edge_numbers = []
         self._forbidden_graphs = []
         self._forbidden_induced_graphs = []
 
+        self._axioms = []
+        self._axiom_flags = []
+        
         self.state("specify", "yes")
         self.set_objective(minimize=minimize)
 
@@ -176,6 +182,14 @@ class Problem(SageObject):
         if not forbid_induced is None:
             self.forbid_induced(forbid_induced)
 
+        if not mode is None:
+            if mode == "optimization": self._mode = mode
+            elif mode == "feasibility": self._mode = mode
+            elif not mode == "plain":
+                raise ValueError
+                
+            
+            
         if not forbid is None:
             self.forbid(forbid)
 
@@ -444,7 +458,7 @@ class Problem(SageObject):
             self._types.extend(these_types)
             self._flags.extend(these_flags)
 
-            num_types = len(self._types)
+        num_types = len(self._types)
 
         if not max_flags is None:
             bad_indices = [i for i in range(num_types) if len(self._flags[i]) > max_flags]
@@ -524,6 +538,17 @@ class Problem(SageObject):
 
         self._minimize = minimize
 
+
+    def clear_densities(self):
+        
+        self._density_graphs = []
+        self._active_densities = []
+        self._density_coeff_blocks = []
+        
+        self._compute_densities()
+
+
+        
     def _compute_densities(self):
 
         self._densities = []
@@ -703,8 +728,79 @@ class Problem(SageObject):
             self._forbid(g, False)
         #sys.stdout.write("\n")
 
+        # TODO: warn if already solved
+    
 
-    # TODO: warn if already solved
+    def add_axiom(self, tg, terms, make_free=True):
+
+        if self._mode == "plain":
+            sys.stdout.write("\n Cannot add assumptions in 'plain' mode. Change mode? (press corresponding number and then retur key)\n")
+            sys.stdout.write("0 stay in 'plain' mode\n")
+            sys.stdout.write("1 change to 'optimization' mode\n")
+            sys.stdout.write("2 change to 'feasibility' mode\n")
+            choice = raw_input("Enter your choice now: ")
+
+            if choice == '1':
+                self._mode = "optimization"
+            elif choice == '2':
+                self._mode = "feasibility"
+            elif not choice == '0':
+                raise ValueError
+                
+            
+        if not terms:
+            sys.stdout.write("Not adding any assumptions!\n")
+            return
+
+        
+        self.state("set_objective", "yes")
+
+        m = self.n - max([t[0].n for t in terms]) + tg.n
+
+        axiom_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
+                                                    forbidden_graphs=self._forbidden_graphs,
+                                                    forbidden_induced_graphs=self._forbidden_induced_graphs)
+        
+        num_densities = len(axiom_flags)
+        sys.stdout.write("Added %d quantum graphs.\n" % num_densities)
+        
+        num_graphs = len(self._graphs)
+        quantum_graphs = [[Integer(0) for i in range(num_graphs)] for j in range(num_densities)]
+        
+        axiom_flags_block = make_graph_block(axiom_flags, m)
+        graph_block = make_graph_block(self._graphs, self.n)
+
+        for i in range(len(terms)):
+            fg = terms[i][0]
+            flags_block = make_graph_block([fg], fg.n)
+            rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, axiom_flags_block)
+            for row in rarray:
+                gi = row[0]
+                j = row[1]  # always 0
+                k = row[2]
+                value = Integer(row[3]) / Integer(row[4])
+                quantum_graphs[k][gi] += value * terms[i][1]
+        
+        self._axioms.append((tg, terms))
+        self._axiom_flags.append(axiom_flags)
+        
+        num_previous_densities = len(self._density_graphs)
+        
+        for qg in quantum_graphs:
+            dg = []
+            for gi in range(num_graphs):
+                if qg[gi] != 0:
+                    dg.append((self._graphs[gi], qg[gi]))
+            self._density_graphs.append(dg)
+
+        new_density_indices = range(num_previous_densities, num_previous_densities + len(quantum_graphs))
+        self._active_densities.extend(new_density_indices)
+
+        if not make_free:
+            self._density_coeff_blocks.append(new_density_indices)
+
+        self._compute_densities()
+
 
     def set_inactive_types(self, *args):
         r"""
@@ -727,6 +823,25 @@ class Problem(SageObject):
                 self._active_types.remove(ti)
             else:
                 sys.stdout.write("Warning: type %d is already inactive.\n" % ti)
+
+
+    def set_inactive_densities(self, *args):
+        r"""
+        Specifies that the coefficients of certain densities should be zero.
+        
+        INPUT:
+        
+        - arguments should be integers, specifying the indices of densities that should be
+          marked as being "inactive".
+        """
+        for arg in args:
+            di = int(arg)
+            if not di in range(len(self._density_graphs)):
+                raise ValueError
+            if di in self._active_densities:
+                self._active_densities.remove(di)
+            else:
+                sys.stdout.write("Warning: density %d is already inactive.\n" % di)
 
 
     def set_approximate_field(self, field):
@@ -1096,7 +1211,7 @@ class Problem(SageObject):
 
             tg = self._types[ti]
             s = tg.n
-            m = (self._n + s) / 2 # n = 2m-s, where m = |F|
+            m = (self._n + s) / 2
 
             flags_block = make_graph_block(self._flags[ti], m)
             rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, None)
@@ -1244,11 +1359,6 @@ class Problem(SageObject):
         num_active_densities = len(self._active_densities)
         num_density_coeff_blocks = len(self._density_coeff_blocks)
 
-        try: # needs to be here
-            num_classic_assumptions = len(self._classic_assumptions)
-        except:
-            self._classic_assumptions = None
-
         if num_active_densities < 1:
             raise NotImplementedError("there must be at least one active density.")
 
@@ -1272,52 +1382,40 @@ class Problem(SageObject):
 
         with open(self._sdp_input_filename, "w") as f:
 
-            # num constraints
             f.write("%d\n" % (num_graphs + num_density_coeff_blocks + num_extra_matrices,))
-            
-            # num blocks in each constraint
-            f.write("%d\n" % (total_num_blocks + 3 + (1 if self._classic_assumptions else 0) + (1 if force_zero_eigenvectors else 0),))
+            f.write("%d\n" % (total_num_blocks + 3 + (1 if force_zero_eigenvectors else 0),))
 
-            # block sizes
-            f.write("1 ") # first block is c
-            for b in self._block_matrix_structure: # then block_matricex: block for each type
+            f.write("1 ")
+            for b in self._block_matrix_structure:
                 f.write("%d " % b[1])
 
             f.write("-%d -%d" % (num_graphs, num_active_densities))
-            if self._classic_assumptions:
-                        f.write(" -%d" % num_classic_assumptions)
             if force_zero_eigenvectors:
                 f.write(" -%d" % num_extra_matrices)
             f.write("\n")
-            
-            # RHS of the SDP problem
+
             f.write("0.0 " * num_graphs)
             f.write("1.0 " * num_density_coeff_blocks)
             f.write("0.0 " * num_extra_matrices)
             f.write("\n")
 
-            # objective function
-            if not self._minimize: # max -c
+            if not self._minimize:
                 f.write("0 1 1 1 -1.0\n")
-            else: # max c
+            else:
                 f.write("0 1 1 1 1.0\n")
-            
+
             if force_zero_eigenvectors:
                 for mi in range(num_extra_matrices):
-                    f.write("0 %d %d %d %s\n" % (total_num_blocks + (5 if self._classic_assumptions else 4), mi + 1, mi + 1, "1.0" if self._minimize else "-1.0"))
-            
-            # buffer vars and bound c for each constraint
+                    f.write("0 %d %d %d %s\n" % (total_num_blocks + 4, mi + 1, mi + 1, "1.0" if self._minimize else "-1.0"))
+
             for i in range(num_graphs):
-                # every constraint will have -c or c on the LHS (depending on max/min)
                 if not self._minimize:
                     f.write("%d 1 1 1 -1.0\n" % (i + 1,))
                 else:
                     f.write("%d 1 1 1 1.0\n" % (i + 1,))
-                # if not sharp graph, then add buffer var to make constraint an equality
-                if not (force_sharp_graphs and i in self._sharp_graphs): 
+                if not (force_sharp_graphs and i in self._sharp_graphs):
                     f.write("%d %d %d %d 1.0\n" % (i + 1, total_num_blocks + 2, i + 1, i + 1))
-            
-            # add objective function to the SDP
+
             for i in range(num_graphs):
                 for j in range(num_active_densities):
                     d = self._densities[self._active_densities[j]][i]
@@ -1325,23 +1423,13 @@ class Problem(SageObject):
                         if self._minimize:
                             d *= -1
                         f.write("%d %d %d %d %s\n" % (i + 1, total_num_blocks + 3, j + 1, j + 1, d.n(digits=64)))
-            
-            # add classic assumptions to the SDP if there are any
-            if self._classic_assumptions: # use the fact that empty lists, strings, tuples are False
-                for i in range(num_graphs): # to each constraint add all assumptions
-                    for ai in range(len(self._classic_assumptions)):
-                        val = self._classic_assumptions[ai][i]
-                        if not val == 0:
-                            f.write("%d %d %d %d %s\n" % (i + 1, total_num_blocks + 4, ai + 1, ai + 1, val.n(digits=64)))
-                                
-            # set constant equal to 1
+
             for i in range(num_density_coeff_blocks):
                 for di in self._density_coeff_blocks[i]:
                     if di in self._active_densities:
                         j = self._active_densities.index(di)
                         f.write("%d %d %d %d 1.0\n" % (num_graphs + i + 1, total_num_blocks + 3, j + 1, j + 1))
 
-            # fill the block_matrix with right entries stored in product_densities_arrays
             for ti in self._active_types:
 
                 num_blocks, block_sizes, block_offsets, block_indices = self._get_block_matrix_structure(ti)
@@ -2425,9 +2513,95 @@ class Problem(SageObject):
         else:
             return "combination of quantum graphs"
 
-    def _augment_certificate(self, data):
-        pass
 
+    def show_large_densities(self, larger_than=1e-4):
+
+        self.state("run_sdp_solver", "ensure_yes")
+
+        num_densities = len(self._densities)
+
+        densities_to_use = []
+        for j in range(num_densities):
+            if self._sdp_density_coeffs[j] > larger_than:
+                densities_to_use.append(j)
+
+        sys.stdout.write("Densities: %s\n" % (densities_to_use,))
+
+        sys.stdout.write("Coefficients: %s\n" % ([self._sdp_density_coeffs[j] for j in densities_to_use],))
+
+        sys.stdout.write("Other densities: %s\n" % ([di for di in range(num_densities) if not di in densities_to_use],))
+
+    # def show_independent_densities(self):
+
+    #     self.state("run_sdp_solver", "ensure_yes")
+    
+    #     num_sharps = len(self._sharp_graphs)
+    #     num_densities = len(self._densities)
+    
+    #     densities_to_use = []
+        
+    #     if len(self._sdp_density_coeffs) > 0:
+    #         density_indices = sorted(range(num_densities), key=lambda i: -self._sdp_density_coeffs[i])
+    #     else:
+    #         density_indices = range(num_densities)
+        
+    #     DR = matrix(self._field, 0, num_sharps, sparse=True)
+    #     EDR = matrix(self._field, 0, num_sharps, sparse=True)
+                
+    #     sys.stdout.write("Constructing DR matrix")
+        
+    #     for j in density_indices:
+    #         new_row = matrix(QQ, [[self._densities[j][gi] for gi in self._sharp_graphs]], sparse=True)
+    #         if new_row.is_zero():
+    #             continue
+    #         try:
+    #             X = EDR.solve_left(new_row)
+    #             continue
+    #         except ValueError:
+    #             DR = DR.stack(new_row)
+    #             EDR = EDR.stack(new_row)
+    #             EDR.echelonize()
+    #             densities_to_use.append(j)
+    #             sys.stdout.write(".")
+    #             sys.stdout.flush()
+            
+    #     sys.stdout.write("\n")
+    #     sys.stdout.write("Rank is %d.\n" % DR.nrows())
+
+    #     sys.stdout.write("Densities: %s\n" % (densities_to_use,))
+
+    #     sys.stdout.write("Coefficients: %s\n" % ([self._sdp_density_coeffs[j] for j in densities_to_use],))
+
+        
+    def _augment_certificate(self, data):
+        
+        if len(self._axioms) == 0:
+            return
+        
+#         axiom_strings = []
+#         for axiom in self._axioms:
+#             axs = []
+#             for g, coeff in axiom[1]:
+#                 if coeff == 1:
+#                     axs.append(str(g))
+#                 else:
+#                     cs = str(coeff)
+#                     if " " in cs:
+#                         cs = "(%s)" % cs
+#                     axs.append("%s*%s" % (cs, g))
+#             axiom_strings.append("[%s] %s >= 0" % (axiom[0], " + ".join(axs)))
+
+        axiom_strings = ["[%s] %s >= 0" %
+            (axiom[0], self._flag_cls.format_combination(axiom[1]))
+            for axiom in self._axioms]
+        
+        data["axioms"] = axiom_strings
+        data["axiom_flags"] = self._axiom_flags
+        
+        data["admissible_graph_densities"] = self._densities
+        data["density_coefficients"] = self._exact_density_coeffs
+
+        
     def write_certificate(self, filename):
         r"""
         Writes a certificate in a (hopefully) clear format, in JSON, to the file specified
@@ -2484,27 +2658,7 @@ class Problem(SageObject):
         except IOError:
             sys.stdout.write("Cannot open file for writing.\n")
 
-    def convert_to_admissible(graph_str):
-        """
-        Expresses graph as a linear combination of admissible graphs. Returns
-        [(H_1, coeff_1),...,(H_m, coeff_m)]
-        Contains admissible graphs with densities 0.
 
-        INPUT:
-        - graph_str : flagmatic graph as a string, e.g. "3:123231" - cannot be labelled"
-        """
-        
-        try:
-            g = GraphFlag(graph_str)
-            lincomb_g = list()
-            
-            for ag in self.graphs: # use copy of self._graphs
-                lincomb_g.append((ag, ag.subgraph_density(g)))
-                
-            return lincomb_g
-        except ValueError:
-            print 'Invalid argument. Needs to be of the form e.g. "3:1213"'
-            
 def ThreeGraphProblem(order=None, **kwargs):
     r"""
     Returns a Problem object, that will represent a Turán-type 3-graph problem. For help
@@ -2553,308 +2707,3 @@ def ThreeMultigraphProblem(order=None, **kwargs):
     sage: help(Problem)
     """
     return Problem(ThreeMultigraphFlag, order, **kwargs)
-
-
-# ****************************************************************************************************
-#                                USEFUL FUNCTIONS
-# ****************************************************************************************************
-
-def get_index(block, i, j, block_sizes):
-    """
-    Get the index of the variable based on the block number and position int he block.
-    Variables are indexed by rows in the blocks:
-    x1 x2 x3
-       x4 x5
-          x6
-    In the whole matrix, variables are indexed cumulatively.
-
-    REMEMBER: block, i, j, are not numbered from 0, but from 1!
-    """
-
-    index = 0
-    for k in range(block-1):
-        block_k_size = block_sizes[k]
-        if block_k_size > 0:
-            index += (block_k_size*(block_k_size+1))/2 # cannot be non-integer, floored division is OK
-        else:
-            index -= block_k_size # size < 0, hence need to add -size
-
-    block_size = block_sizes[block-1]
-    if block_size > 0:
-        index += (block_size + block_size - i + 2)*(i-1)/2 + (j-i+1) # cannot be non-integer
-    else:
-        index += i
-
-    return index
-
-
-def humanise_input_file(fin=None):
-    """Output (to console) sdp.dat-s as a human readable SDP problem."""
-
-    if fin is None:
-        fin = os.path.join(unicode(SAGE_TMP), "sdp.dat-s")
-
-    filein = open(fin, 'r') # open file as datafile (filein)
-    num_constraints = int(filein.readline())
-    num_blocks = int(filein.readline())
-    block_sizes = [int(x) for x in filein.readline().split()]
-
-    rhs = [float(x) for x in filein.readline().split()] # right-hand side of the SD system
-    lhs = [""]*(num_constraints+1)
-    
-    # Make equations (constraints)
-    for line in filein:
-        data = line.split()
-        equation_num = int(data[0])
-        var_index = get_index(int(data[1]), int(data[2]), int(data[3]), block_sizes)
-
-        if not data[2] == data[3]: # if entry off diagonal, multiply by 2
-            data_4 = 2*float(data[4])
-        else:
-            data_4 = float(data[4])
-
-        if float(data_4) < 0:
-            lhs[equation_num] += " "+"%.5f" % data_4 +"*x"+str(var_index)
-        else:
-            if lhs[equation_num] == "":
-                lhs[equation_num] += " "+"%.5f" % data_4 +"*x"+str(var_index)
-            else:
-                lhs[equation_num] += " + "+"%.5f" % data_4 +"*x"+str(var_index)
-
-    # PRINTING
-    print "\nmax(" + lhs[0].strip() + ") subject to: "
-    for item in range(num_constraints):
-        print str(rhs[item]) + " = " + lhs[item+1]
-    print
-
-def humanise_output_file(fout=None, fin=None):
-    """Output (to console) sdp.out as a human readable SDP output. With variables synced with humanise_input_file()"""
-
-    if fout is None:
-        fout = os.path.join(unicode(SAGE_TMP), "sdp.out")
-    if fin is None:
-        fin = os.path.join(unicode(SAGE_TMP), "sdp.dat-s")
-
-    fileout = open(fout, 'r') # open SDP output file (of)
-    filein = open(fin, 'r') # open SDP input file (for some info needed later)
-
-    num_constraints = int(filein.readline())
-    num_blocks = int(filein.readline())
-    block_sizes = [int(x) for x in filein.readline().split()]
-
-    fileout.readline() # read off the first line
-    for line in fileout:
-
-        if not line[0] == '2':
-            pass # not interested in primal SDP
-        else:
-            data = line.split()
-            var_index = get_index(int(data[1]), int(data[2]), int(data[3]), block_sizes)
-            print 'x' + str(var_index) + " = " + "%.5f" % float(data[4]) # use 5 places of precision
-
-def humanise_all(fin=None,fout=None):
-    """Make human-readable both sdp.dat-s and sdp.out"""
-    humanise_input_file(fin)
-    humanise_output_file(fout,fin)
-
-def alphabetise(flag_str_representation, r):
-    """Return a representation of a flag in alphabetical form.
-
-    INPUT:
-    flag_str_representation: a string representation of a flag, together with edge size
-    
-    EXAMPLE:
-    sage: a = alphabetise("3:122313",2)
-    sage: a
-    sage: '3:121323'
-    """
-
-    nstr = edgesstr = tpstr = ""
-
-    try:
-        nstr, edgesstr = flag_str_representation.split(":")
-        if edgesstr[-1:] == ")" and edgesstr[-3:-2] == "(":
-            tpstr = edgesstr[-3:]
-            edgesstr = edgesstr[:-3]
-    except ValueError:
-        print "Wrong flag representation!"
-    
-    edges = list()
-
-    if not len(edgesstr)%r == 0:
-        raise ValueError
-    else:
-        for i in range(len(edgesstr)/r):
-            edges.append(edgesstr[i*r:(i+1)*r])
-
-    edges.sort()    
-    new_flag_repre = nstr + ":" + ''.join(edges) + tpstr
-
-    return new_flag_repre
-    
-def fpd(tp, flg1, flg2, grph):
-    """
-    Return the value of p(flg1,flg2;grph) if the given type is tp.
-    Function name stands for 'flag product density'.
-    
-    INPUT:
-    
-    Use strings. Make sure order of graph is |flg1|+|flg2|-|tp|
-    - tp # type on which both flags are based
-    
-    - flg1, flg2 # flags to be multiplied
-
-    - grph # graph with respect to which density will be taken
-
-    EXAMPLE:
-    
-    sage: fpd("2:", "3:13(2)", "3:23(2)", "4:1234")
-    sage: 1/3
-    """
-    
-    try:
-        # read imput and convert it to flagmatic's default representation
-        t = GraphFlag(tp)
-        t.make_minimal_isomorph()
-
-        f1 = GraphFlag(flg1)
-        f1.make_minimal_isomorph()
-
-        f2 = GraphFlag(flg2)
-        f2.make_minimal_isomorph()
-
-        gr = GraphFlag(grph)
-        gr.make_minimal_isomorph()
-
-    except ValueError:
-
-        print "You are feeding unhealthy things to the function!"
-    
-
-    #not a 100% way to avoid name collision, but good enough...    
-    the_most_ridiculous_name = GraphProblem() 
-    
-    gblock = make_graph_block([gr], gr.n)
-    fblock1 = make_graph_block([f1], f1.n)
-    fblock2 = make_graph_block([f2], f2.n)
-    
-    try:
-
-        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)
-
-    except ValueError:
-
-        print "Something went wrong when multiplying flags. Make sure your flag is on the right type etc."
-        sys.exit(1)
-
-    num_val = Rational((prod[0][3], prod[0][4]))
-
-    return num_val
-
-
-def fpds(tp, flg1, flg2, nn):
-    """
-    Return a linear combination of graphs on nn vertices that such
-    that p(flg1,flg2; graph) > 0 for each term in the combination
-    (here graph is on nn vertices).
-    Function name stands for 'flag product densities'
-    
-    INPUT:
-    
-    Use strings. Make sure nn is at least |flg1|+|flg2|-|tp|
-    
-    - tp # type on which both flags are based
-    
-    - flg1, flg2 # flags to be multiplied
-
-    - nn # order of the graph class
-
-    EXAMPLE:
-    
-    sage: fpds("2:", "3:13(2)", "3:23(2)", 4)
-    sage: [(4:1234, 1/3), (4:121324, 1/12)]
-    """
-    
-    try:
-        t = GraphFlag(tp)
-        f1 = GraphFlag(flg1)
-        f2 = GraphFlag(flg2)
-        n_gr = int(nn)
-
-        t.make_minimal_isomorph() # use the right flag representation
-        f1.make_minimal_isomorph()    
-        f2.make_minimal_isomorph()
-
-    except ValueError:
-        print "You are feeding unhealthy things to the function!"
-
-
-    # check for correct value input...
-    if t.n != f1.t or t.n != f2.t:
-        raise TypeError("Your input is inconsistent (flags must be on the type that you specify).")
-    
-    if nn < f1.n + f2.n - t.n:
-        raise TypeError("Your input violates |flg1|+|flg2|-|tp| <= nn.")
-
-    the_most_ridiculous_name = GraphProblem()
-    grphs = the_most_ridiculous_name._flag_cls.generate_graphs(n_gr)
-    
-    gblock = make_graph_block(grphs, n_gr)
-    fblock1 = make_graph_block([f1], f1.n)
-    fblock2 = make_graph_block([f2], f2.n)
-    
-    try:
-        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)       
-    except ValueError:
-        print "You are feeding unhealthy things to the function!"
-        sys.exit(1)
-    
-
-    # write product as list of 2-tuples, each being (graph, coeff)
-    lin_comb = list()
-    for item in prod:
-        lin_comb.append((grphs[item[0]], Rational((item[3],item[4]))))
-
-    return lin_comb
-
-def dens(graph, family_dimension):
-    """
-    Return the graph represented as a linear combination of graphs on
-    n = family_dimension vertices.
-
-    INPUT:
-    
-    - graph: graph to be represented as a lin combination. Any string
-      representation will do as input.
-
-    - family_dimension: order of graphs that form quantum graph
-      representation of the input graph.
-
-    EXAMPLE:
-    
-    sage: dens("3:121323", 4)
-    sage: [(4:121323, 1/4), (4:12131423, 1/4), (4:1213142324, 1/2), (4:121314232434, 1)]
-    """
-
-    try:
-
-        g = GraphFlag(graph)
-        g.make_minimal_isomorph()
-        
-        n_gr = Integer(family_dimension)
-        
-        the_most_ridiculous_name2 = GraphProblem();
-        grphs = the_most_ridiculous_name2._flag_cls.generate_graphs(n_gr)
-        
-    except ValueError:
-        print "You are feeding unhealthy things to the function!"
-        sys.exit(1)
-
-    quantum_graph = list()
-
-    for h in grphs:
-        dgh = h.subgraph_density(g)
-        if dgh > 0:
-            quantum_graph.append((h, dgh))
-            
-    return quantum_graph

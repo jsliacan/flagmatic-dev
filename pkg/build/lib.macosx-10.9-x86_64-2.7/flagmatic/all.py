@@ -35,11 +35,8 @@ from oriented_graph_flag import *
 from multigraph_flag import *
 
 from problem import *
-from assumptions_problem import *
 
 from construction import *
 from blowup_construction import *
 from random_graph_construction import *
 from random_tournament_construction import *
-
-from verify import *
