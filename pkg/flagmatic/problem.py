@@ -33,7 +33,7 @@ import numpy
 import pexpect
 
 from sage.structure.sage_object import SageObject
-from sage.rings.all import Integer, QQ, ZZ, RDF
+from sage.rings.all import Integer, Rational, QQ, ZZ, RDF
 from sage.functions.other import floor
 from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagonal_matrix
 from sage.modules.misc import gram_schmidt
@@ -731,10 +731,41 @@ class Problem(SageObject):
         # TODO: warn if already solved
     
 
-    def add_assumption(self, tg, terms, make_free=True):
+    def add_assumption(self, typegraph, lincomb, const=0, equality=False):
+    
+    	"""
+        Convert assumption from the general form:
+        [linear combination of flags on one type] >= c   OR
+        [linear combination of flags on one type] == c 
+
+        into an assumptions of the form
+        [linear combination of flags on one type] >= 0
+
+        INPUT:
+        
+        - typegraph: # it is the common type or the entire assumption,
+                     # e.g. "3:121323" for labelled triangle
+        
+        - lincomb: # this is the linear combination of terms (flag,
+                   # coef) as a list, i.e. LHS of the assumption
+        
+        - const: # RHS of the assumption (should be some rational in
+                 # form a/b or a)
+        
+        - equality: # whether the assumption is equality True or
+                    # inequality False; default is False
+
+        EXAMPLE:
+         
+        problem = GraphAssumptionsProblem(4)
+        problem.add_assumption("0:", [("2:12(0)", 1)], 1/2, equality=True)
+        
+        """
+        
 
         if self._mode == "plain":
-            sys.stdout.write("\n Cannot add assumptions in 'plain' mode. Change mode? (press corresponding number and then retur key)\n")
+            sys.stdout.write("\n Cannot add assumptions in 'plain' mode.\n")
+            sys.stdout.write("Change mode? (press the corresponding number and return)\n")
             sys.stdout.write("0 stay in 'plain' mode\n")
             sys.stdout.write("1 change to 'optimization' mode\n")
             sys.stdout.write("2 change to 'feasibility' mode\n")
@@ -744,15 +775,90 @@ class Problem(SageObject):
                 self._mode = "optimization"
             elif choice == '2':
                 self._mode = "feasibility"
-            elif not choice == '0':
+            elif choice == '0':
+                sys.stdout.write("Staying in 'plain mode'. Cannot add assumptions!\n")
+                return
+            else:
                 raise ValueError
-                
             
-        if not terms:
-            sys.stdout.write("Not adding any assumptions!\n")
-            return
+        if self._flag_cls().r == 2:
+
+            try:
+                tg = GraphFlag(typegraph)
+                tg.make_minimal_isomorph()
+
+                cst = Rational(const)
+                eq = equality
+                indep = False
+                
+                lcomb = [(GraphFlag(g), Rational(c)) for g,c in lincomb]
+                for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
+                
+                # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
+                if const:
+                    fg = GraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                    lcomb.append((fg, -cst))
+                    # maker RHS zero. (not necessary - not used again)
+                    cst = 0
+
+            except ValueError:
+                print "You are trying to feed 'add_assumption()' unhealthy things!"
+
+        elif self._flag_cls().r == 3:
+
+            try:
+                tg = ThreeGraphFlag(typegraph)
+                tg.make_minimal_isomorph()
+
+                cst = Rational(const)
+                eq = equality
+                indep = False
+                
+                lcomb = [(ThreeGraphFlag(g), Rational(c)) for g,c in lincomb]
+                for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
+
+                
+                # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
+                if const:
+                    fg = ThreeGraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                    lcomb.append((fg, -cst))
+                    # make RHS zero. (not necessary though, not used again)
+                    cst = 0
+
+            except ValueError:
+                print "You are trying to feed 'add_assumption()' unhealthy things!"
+            
+
+        # translate the assumption to the simple ones and add them one by one
+
+        if eq: # assumption is equality
+
+            indep = True # in this case assumption does not to go the objective function
+            minus_lcomb = [(g,-c) for g,c in lcomb]
+
+            self._add_assumption(tg, lcomb, independent=indep)
+            self._add_assumption(tg, minus_lcomb, independent=indep)
+
+
+        else: # assumption is already inequality
+
+            if self._mode == "optimization":
+                self._add_assumption(tg, lcomb, independent=True)
+            elif self._mode == "feasibility":
+                self._add_assumption(tg, lcomb, independent=indep)
 
         
+    def _add_assumption(self, tg, terms, independent=False):
+
+
+        if self._mode == "feasibility" and (not self._assumptions):
+            sys.stdout.write( "In feasibility mode now: not using density graphs.")
+            self.clear_densities()
+        elif self._mode == "optimization":
+            pass
+        else:
+            raise ValueError("Something wrong in _add_assumption() function!\n")
+            
         self.state("set_objective", "yes")
 
         m = self.n - max([t[0].n for t in terms]) + tg.n
@@ -796,9 +902,13 @@ class Problem(SageObject):
         new_density_indices = range(num_previous_densities, num_previous_densities + len(quantum_graphs))
         self._active_densities.extend(new_density_indices)
 
-        if not make_free:
-            self._density_coeff_blocks.append(new_density_indices)
-
+        if not independent: # never happens in optimization mode
+            # make assumptions look like one big assumption (some coeffs must be > 0)
+            if not self._density_coeff_blocks:
+                self._density_coeff_blocks.append(new_density_indices)
+            else:
+                self._density_coeff_blocks[0].extend(new_density_indices)
+                
         self._compute_densities()
 
 
@@ -1261,7 +1371,8 @@ class Problem(SageObject):
                 block_offsets.append(b[2])
 
         return num_blocks, block_sizes, block_offsets, block_indices
-
+        
+        
     def solve_sdp(self, show_output=False, solver="csdp",
         force_sharp_graphs=False, force_zero_eigenvectors=False,
         check_solution=True, tolerance=1e-5, show_sorted=False, show_all=False,
@@ -1382,9 +1493,13 @@ class Problem(SageObject):
 
         with open(self._sdp_input_filename, "w") as f:
 
+            # num constraints
             f.write("%d\n" % (num_graphs + num_density_coeff_blocks + num_extra_matrices,))
+
+            # num blocks in each constraint
             f.write("%d\n" % (total_num_blocks + 3 + (1 if force_zero_eigenvectors else 0),))
 
+            # block sizes
             f.write("1 ")
             for b in self._block_matrix_structure:
                 f.write("%d " % b[1])
@@ -1394,11 +1509,13 @@ class Problem(SageObject):
                 f.write(" -%d" % num_extra_matrices)
             f.write("\n")
 
+            # RHS of the SDP problem
             f.write("0.0 " * num_graphs)
             f.write("1.0 " * num_density_coeff_blocks)
             f.write("0.0 " * num_extra_matrices)
             f.write("\n")
 
+            # objective function (\delta)
             if not self._minimize:
                 f.write("0 1 1 1 -1.0\n")
             else:
@@ -1408,14 +1525,17 @@ class Problem(SageObject):
                 for mi in range(num_extra_matrices):
                     f.write("0 %d %d %d %s\n" % (total_num_blocks + 4, mi + 1, mi + 1, "1.0" if self._minimize else "-1.0"))
 
+            # buffer vars and bound c for each constraint
             for i in range(num_graphs):
                 if not self._minimize:
                     f.write("%d 1 1 1 -1.0\n" % (i + 1,))
                 else:
                     f.write("%d 1 1 1 1.0\n" % (i + 1,))
+                # if not graph sharp, add buffer var to make constraint equality
                 if not (force_sharp_graphs and i in self._sharp_graphs):
                     f.write("%d %d %d %d 1.0\n" % (i + 1, total_num_blocks + 2, i + 1, i + 1))
 
+            # add objective function to the SDP
             for i in range(num_graphs):
                 for j in range(num_active_densities):
                     d = self._densities[self._active_densities[j]][i]
@@ -1424,12 +1544,14 @@ class Problem(SageObject):
                             d *= -1
                         f.write("%d %d %d %d %s\n" % (i + 1, total_num_blocks + 3, j + 1, j + 1, d.n(digits=64)))
 
+            # set constant equal to 1
             for i in range(num_density_coeff_blocks):
                 for di in self._density_coeff_blocks[i]:
                     if di in self._active_densities:
                         j = self._active_densities.index(di)
                         f.write("%d %d %d %d 1.0\n" % (num_graphs + i + 1, total_num_blocks + 3, j + 1, j + 1))
 
+            # fill block_matrix with entries stored in product_densities_arrays
             for ti in self._active_types:
 
                 num_blocks, block_sizes, block_offsets, block_indices = self._get_block_matrix_structure(ti)
