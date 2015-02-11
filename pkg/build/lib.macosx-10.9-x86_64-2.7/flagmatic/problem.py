@@ -764,7 +764,7 @@ class Problem(SageObject):
         
 
         if self._mode == "plain":
-            sys.stdout.write("\n Cannot add assumptions in 'plain' mode.\n")
+            sys.stdout.write("\nCannot add assumptions in 'plain' mode.\n")
             sys.stdout.write("Change mode? (press the corresponding number and return)\n")
             sys.stdout.write("0 stay in 'plain' mode\n")
             sys.stdout.write("1 change to 'optimization' mode\n")
@@ -791,19 +791,44 @@ class Problem(SageObject):
                 eq = equality
                 indep = False
                 
-                lcomb = [(GraphFlag(g), Rational(c)) for g,c in lincomb]
+                lcomb = [[GraphFlag(g), Rational(c)] for g,c in lincomb]
                 for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
-                
-                # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
-                if const:
-                    fg = GraphFlag(tg._repr_() + "("+str(tg.n)+")")
-                    lcomb.append((fg, -cst))
-                    # maker RHS zero. (not necessary - not used again)
-                    cst = 0
 
+                # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
+                if cst:
+                    n = max([term[0].n for term in lcomb])
+                    if (tg.n == 0) and (n == self._n): # then convert constant into a family H
+                        for H in self._graphs:
+                            is_in_lcomb = False
+                            for term in lcomb:
+                                if H == term[0]:
+                                    is_in_lcomb = True
+                                    term[1] += -cst
+                            if not is_in_lcomb:
+                                lcomb.append([H,-cst])
+                    else:
+                        fg = ThreeGraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                        lcomb.append([fg, -cst])
+
+                cst = 0 # make RHS zero. (not necessary though, not used again)
+
+                to_throw_out = [0 for term in lcomb]
+                for i in range(len(lcomb)):
+                    if lcomb[i][1] == 0:
+                        to_throw_out[i] = 1
+
+                counter = 0
+                for i in range(len(to_throw_out)):
+                    if to_throw_out[i] == 1:
+                        lcomb.pop(i-counter) # remove terms with coeff=0
+                        counter += 1
+                        
+                lcomb = [tuple(x) for x in lcomb] # make [graph, coeff] into (graph, coeff)
+                
             except ValueError:
                 print "You are trying to feed 'add_assumption()' unhealthy things!"
 
+                
         elif self._flag_cls().r == 3:
 
             try:
@@ -814,17 +839,38 @@ class Problem(SageObject):
                 eq = equality
                 indep = False
                 
-                lcomb = [(ThreeGraphFlag(g), Rational(c)) for g,c in lincomb]
+                lcomb = [[ThreeGraphFlag(g), Rational(c)] for g,c in lincomb]
                 for term in lcomb: term[0].make_minimal_isomorph()  # convert flag to the one Flagmatic knows
 
                 
                 # if RHS nonzero, add a type to the LHS with -const coefficient (works with '0:' type as well)
-                if const:
-                    fg = ThreeGraphFlag(tg._repr_() + "("+str(tg.n)+")")
-                    lcomb.append((fg, -cst))
-                    # make RHS zero. (not necessary though, not used again)
-                    cst = 0
+                if cst:
+                    n = max([term[0].n for term in lcomb])
+                    if (tg.n == 0) and (n == self._n): # then convert constant into a family H
+                        for H in self._graphs:
+                            for term in lcomb:
+                                if H == term[0]:
+                                    term[1] -= cst
+                                else:
+                                    lcomb.append([H,-cst])
+                    else:
+                        fg = ThreeGraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                        lcomb.append([fg, -cst])
+                        # make RHS zero. (not necessary though, not used again)
 
+                cst = 0
+
+                to_throw_out = [0 for term in lcomb]
+                for i in range(len(lcomb)):
+                    if lcomb[i][1] == 0:
+                        to_throw_out[i] = 1
+
+                for i in to_throw_out:
+                    if i == 1:
+                        lcomb.pop(i) # remove terms with coeff=0
+
+                lcomb = [tuple(x) for x in lcomb] # make [graph, coeff] into (graph, coeff)
+                
             except ValueError:
                 print "You are trying to feed 'add_assumption()' unhealthy things!"
             
@@ -861,6 +907,10 @@ class Problem(SageObject):
             
         self.state("set_objective", "yes")
 
+        # treat 0 type separately
+        if tg.n == 0:
+            num_densities = 1
+            
         m = self.n - max([t[0].n for t in terms]) + tg.n
 
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
@@ -880,12 +930,14 @@ class Problem(SageObject):
             fg = terms[i][0]
             flags_block = make_graph_block([fg], fg.n)
             rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, assumption_flags_block)
+            
             for row in rarray:
                 gi = row[0]
                 j = row[1]  # always 0
                 k = row[2]
                 value = Integer(row[3]) / Integer(row[4])
                 quantum_graphs[k][gi] += value * terms[i][1]
+
         
         self._assumptions.append((tg, terms))
         self._assumption_flags.append(assumption_flags)
@@ -898,7 +950,7 @@ class Problem(SageObject):
                 if qg[gi] != 0:
                     dg.append((self._graphs[gi], qg[gi]))
             self._density_graphs.append(dg)
-
+        
         new_density_indices = range(num_previous_densities, num_previous_densities + len(quantum_graphs))
         self._active_densities.extend(new_density_indices)
 
@@ -2829,3 +2881,171 @@ def ThreeMultigraphProblem(order=None, **kwargs):
     sage: help(Problem)
     """
     return Problem(ThreeMultigraphFlag, order, **kwargs)
+
+
+def fpd(tp, flg1, flg2, grph):
+    """
+    Return the value of p(flg1,flg2;grph) if the given type is tp.
+    Function name stands for 'flag product density'.
+    
+    INPUT:
+    
+    Use strings. Make sure order of graph is |flg1|+|flg2|-|tp|
+    - tp # type on which both flags are based
+    
+    - flg1, flg2 # flags to be multiplied
+
+    - grph # graph with respect to which density will be taken
+
+    EXAMPLE:
+    
+    sage: fpd("2:", "3:13(2)", "3:23(2)", "4:1234")
+    sage: 1/3
+    """
+    
+    try:
+        # read imput and convert it to flagmatic's default representation
+        t = GraphFlag(tp)
+        t.make_minimal_isomorph()
+
+        f1 = GraphFlag(flg1)
+        f1.make_minimal_isomorph()
+
+        f2 = GraphFlag(flg2)
+        f2.make_minimal_isomorph()
+
+        gr = GraphFlag(grph)
+        gr.make_minimal_isomorph()
+
+    except ValueError:
+
+        print "You are feeding unhealthy things to the function!"
+    
+
+    #not a 100% way to avoid name collision, but good enough...    
+    the_most_ridiculous_name = GraphProblem() 
+    
+    gblock = make_graph_block([gr], gr.n)
+    fblock1 = make_graph_block([f1], f1.n)
+    fblock2 = make_graph_block([f2], f2.n)
+    
+    try:
+
+        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)
+
+    except ValueError:
+
+        print "Something went wrong when multiplying flags. Make sure your flag is on the right type etc."
+        sys.exit(1)
+
+    num_val = Rational((prod[0][3], prod[0][4]))
+
+    return num_val
+
+
+def fpds(tp, flg1, flg2, nn):
+    """
+    Return a linear combination of graphs on nn vertices that such
+    that p(flg1,flg2; graph) > 0 for each term in the combination
+    (here graph is on nn vertices).
+    Function name stands for 'flag product densities'
+    
+    INPUT:
+    
+    Use strings. Make sure nn is at least |flg1|+|flg2|-|tp|
+    
+    - tp # type on which both flags are based
+    
+    - flg1, flg2 # flags to be multiplied
+
+    - nn # order of the graph class
+
+    EXAMPLE:
+    
+    sage: fpds("2:", "3:13(2)", "3:23(2)", 4)
+    sage: [(4:1234, 1/3), (4:121324, 1/12)]
+    """
+    
+    try:
+        t = GraphFlag(tp)
+        f1 = GraphFlag(flg1)
+        f2 = GraphFlag(flg2)
+        n_gr = int(nn)
+
+        t.make_minimal_isomorph() # use the right flag representation
+        f1.make_minimal_isomorph()    
+        f2.make_minimal_isomorph()
+
+    except ValueError:
+        print "You are feeding unhealthy things to the function!"
+
+
+    # check for correct value input...
+    if t.n != f1.t or t.n != f2.t:
+        raise TypeError("Your input is inconsistent (flags must be on the type that you specify).")
+    
+    if nn < f1.n + f2.n - t.n:
+        raise TypeError("Your input violates |flg1|+|flg2|-|tp| <= nn.")
+
+    the_most_ridiculous_name = GraphProblem()
+    grphs = the_most_ridiculous_name._flag_cls.generate_graphs(n_gr)
+    
+    gblock = make_graph_block(grphs, n_gr)
+    fblock1 = make_graph_block([f1], f1.n)
+    fblock2 = make_graph_block([f2], f2.n)
+    
+    try:
+        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)       
+    except ValueError:
+        print "You are feeding unhealthy things to the function!"
+        sys.exit(1)
+    
+
+    # write product as list of 2-tuples, each being (graph, coeff)
+    lin_comb = list()
+    for item in prod:
+        lin_comb.append((grphs[item[0]], Rational((item[3],item[4]))))
+
+    return lin_comb
+
+def dens(graph, family_dimension):
+    """
+    Return the graph represented as a linear combination of graphs on
+    n = family_dimension vertices.
+
+    INPUT:
+    
+    - graph: graph to be represented as a lin combination. Any string
+      representation will do as input.
+
+    - family_dimension: order of graphs that form quantum graph
+      representation of the input graph.
+
+    EXAMPLE:
+    
+    sage: dens("3:121323", 4)
+    sage: [(4:121323, 1/4), (4:12131423, 1/4), (4:1213142324, 1/2), (4:121314232434, 1)]
+    """
+
+    try:
+
+        g = GraphFlag(graph)
+        g.make_minimal_isomorph()
+        
+        n_gr = Integer(family_dimension)
+        
+        the_most_ridiculous_name2 = GraphProblem();
+        grphs = the_most_ridiculous_name2._flag_cls.generate_graphs(n_gr)
+        
+    except ValueError:
+        print "You are feeding unhealthy things to the function!"
+        sys.exit(1)
+
+    quantum_graph = list()
+
+    for h in grphs:
+        dgh = h.subgraph_density(g)
+        if dgh > 0:
+            quantum_graph.append((h, dgh))
+            
+    return quantum_graph
