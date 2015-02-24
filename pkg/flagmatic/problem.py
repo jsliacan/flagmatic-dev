@@ -2297,7 +2297,7 @@ class Problem(SageObject):
                     D.set_immutable()
                     self._exact_diagonal_matrices.append(D)
                     self._exact_r_matrices.append(L)
-
+            
             row_div = self._sdp_Qdash_matrices[ti].subdivisions()[0]
             M.subdivide(row_div, row_div)
             self._exact_Qdash_matrices.append(matrix(self._field, M))
