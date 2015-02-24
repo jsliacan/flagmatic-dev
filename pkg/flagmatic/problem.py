@@ -149,6 +149,19 @@ class Problem(SageObject):
 
         sage: problem = Problem(GraphFlag)
 
+        INPUT:
+        
+        - order: order of admissible graphs
+        - forbid_induced: list of graph-strings specifying forbidden induced subgraphs
+        - forbid: list of graph-srings specifying forbidden subgraphs
+        - forbid_homomorphic_images:
+        - density: density quantum graph (linear combination of graphs)
+        - minimize: set to True if minimization problem, else maximization
+        - type_orders: list of orders for types to be used
+        - types: list of types to be used
+        - max_flags:
+        - compute_products: set to True if need to compute flag products
+        - mode: plain/optimization/feasibility (see Flagmatic documentation)
         """
 
         self._flagmatic_version = "2.0"
