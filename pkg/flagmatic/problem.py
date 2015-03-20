@@ -31,13 +31,15 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 import gzip, json, os, sys
 import numpy
 import pexpect
+import sage.all
 
 from sage.structure.sage_object import SageObject
 from sage.rings.all import Integer, Rational, QQ, ZZ, RDF
 from sage.functions.other import floor
 from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagonal_matrix
 from sage.modules.misc import gram_schmidt
-from sage.misc.misc import SAGE_TMP 
+from sage.misc.misc import SAGE_TMP
+from sage.combinat.all import Permutations
 from copy import copy
 
 from hypergraph_flag import make_graph_block
@@ -171,6 +173,8 @@ class Problem(SageObject):
         else:
             raise ValueError
 
+        self._stable = False
+        
         self._n = 0
         self._mode = "plain"
         
@@ -688,7 +692,7 @@ class Problem(SageObject):
 
     def forbid(self, *args):
         r"""
-        Sets the problem to be in the theory of graphs that do not have contain the given subgraphs.
+        Sets the problem to be in the theory of graphs that do not contain the given subgraphs.
 
         INPUT:
 
@@ -2788,12 +2792,115 @@ class Problem(SageObject):
         data["admissible_graph_densities"] = self._densities
         data["density_coefficients"] = self._exact_density_coeffs
 
+
+    def add_exact_matrices(self, types, qmatrices, rmatrices):
+        r"""
+        Adds Qdash and R matrices [possibly diagonal] (the ones such that R*Qdash*R^T = Q).
+        Not possible to do if Qdash matrices already exist.
+        Preferably, Qdash is diagonal, but not necessary -- if not diagonal, R will be
+        multiplied by a matrix P such that PQdashP^T is diagonal: (RP)D(RP)^T = Q
+
+        INPUT:
+        - types: list of types in respective order to matrices, i.e. ["2:", "2:12"]
+        - qmatrices: list of Qdash matrices in respective order to types
+                    matrices are assumed to have rational entries; each Q is a rational
+                    matrix.
+        - rmatrices: list of R matrices; form as for Qdash matrices
+        """
+
+        if len(qmatrices) == 0:
+            return
+
+        if not(len(qmatrices) == len(types) and len(qmatrices) == len(rmatrices)):
+            sys.stdout.write("Number of types must equal number of matrices.\n")
+            raise ValueError
+
+        if self._exact_Qdash_matrices or self._exact_diagonal_matrices:
+            sys.stdout.write("Qdash matrices already exist. Cannot add new matrices.\n")
+            raise ValueError
+        
+        self._exact_Qdash_matrices = [matrix() for t in types]
+        
+        for t in range(types):
+            tp = GraphFlag(types[t])
+            if tp in self.types:
+                indx = (self.types).index(tp)
+                self._exact_Qdash_matrices[indx] = qmatrices[t]
+                self._exact_r_matrices[indx] = rmatrices[t]
+                
+                
+    def write_manual_certificate(self, filename, bound):
+        r"""
+        Writes a certificate in a (hopefully) clear format, in JSON, to the file specified
+        by ``filename``. For more information about the contents of the certificates, see
+        the User's Guide.
+
+        Does NOT require exact bound to be computed. ONLY saves problem information.
+
+        INPUT:
+        
+        - filename: name of the file to store certificate 
+        - bound: exact bound (at this point exact bound is not known to Flagmatic)
+        """
+
+
+        # TODO: check whether add_exact_matrices was called
+
+        if self.state("write_sdp_input_file") != "yes":
+            sys.stdout.write("Cannot write pre-certificate. Not enough information about the Problem.\n")
+            raise ValueError
+
+        self._bound = Rational(bound) # set bound manually
+
+        def upper_triangular_matrix_to_list(M):
+            return [list(M.row(i))[i:] for i in range(M.nrows())]
+
+        def matrix_to_list(M):
+            return [list(M.row(i)) for i in range(M.nrows())]
+
+        data = {
+            "description": self.describe(),
+            "bound": self._bound, # needs to be passed manually (not yet available)
+            "order_of_admissible_graphs": self._n,
+            "number_of_admissible_graphs": len(self._graphs),
+            "admissible_graphs": self._graphs,
+            "number_of_types": len(self._types),
+            "types": self._types,
+            "numbers_of_flags": [len(L) for L in self._flags],
+            "flags": self._flags,
+            "qdash_matrices": [upper_triangular_matrix_to_list(M) for M in qdash_matrices],
+            "r_matrices": [matrix_to_list(M) for M in r_matrices],
+        }
+
+        if len(self._density_graphs) == 1:
+            data["admissible_graph_densities"] = self._densities[0]
+
+        # Allow subclasses to add more things (like assumptions)
+        self._augment_certificate(data)
+
+        def default_handler(O):
+            # Only output an int if it is less than 2^53 (to be valid JSON).
+            if O in ZZ and O < 9007199254740992:
+                return int(Integer(O))
+            return repr(O)
+
+        try:
+            with open(filename, "w") as f:
+                json.dump(data, f, indent=4, default=default_handler)
+            sys.stdout.write("Written pre-certificate.\n")
+
+        except IOError:
+            sys.stdout.write("Cannot open file for writing.\n")
+        
+
         
     def write_certificate(self, filename):
         r"""
         Writes a certificate in a (hopefully) clear format, in JSON, to the file specified
         by ``filename``. For more information about the contents of the certificates, see
         the User's Guide.
+
+        Does require exact bound to be computed beforehand.
         """
 
         self.state("write_certificate", "yes")
@@ -2845,6 +2952,173 @@ class Problem(SageObject):
         except IOError:
             sys.stdout.write("Cannot open file for writing.\n")
 
+
+    def verify_stability(self, tgraph, fgraph):
+
+        """
+        INPUT:
+        - "tgraph": graph string of the type that we want to use in the proof
+        - "fgraph": usually the minimum graph that will be blown up (F in PDF file)
+        
+        """
+
+        # check if construction set
+        # check if density met
+
+        # 1. check if forbidding a type gives strictly worse bound
+        #    - find the type automatically
+        #    - let user specify the type
+        # 2. check if Q_tau has rank 1 less than dimension
+        # 3. unique embeddability
+        # 4. every sharp graph of order N admits a strong homomorphism into F
+
+        # start off modestly
+        claim1 = False # forbidding type gives strictly worse bound
+        claim2 = False # rk(Q) = dim(Q)-1
+        claim3 = False # uniquely embeddable && different vertices attach differently to type
+        claim4 = False # every sharp graphs strongly embeds into F
+
+        
+        # first check if the bound obtained is exact and sharp??
+        if self.state("check_exact") != "yes":
+            sys.stdout.write("Exact bound was not verified. Call make_exact() first.\n")
+            return
+
+        self.write_certificate("cert1.js")
+        
+        thebound = self._bound
+        print "The problem is exact with a sharp bound of", str(thebound)+".\n"
+
+        Tgraph = None
+        try:
+            Tgraph = GraphFlag(tgraph)
+            tindex = (self.types).index(Tgraph)
+            print "You selected the following type:", tgraph, "\n"
+        except:
+            raise ValueError
+
+        # check the rank/dim of Q
+        theQ = self._exact_Q_matrices[tindex]
+        if theQ.dimensions()[0] - theQ.rank() == 1:
+            print "dim(Q)-rank(Q) = 1"
+            claim2 = True
+            
+        # every sharp graph of order N admits a strong homomorphism into F
+        Fgraph = None
+        try:
+            Fgraph = GraphFlag(fgraph)
+        except:
+            raise ValueError
+
+        num_sharps = len(self._sharp_graphs)
+        c_subgraphs = self._construction.subgraphs(self._n)
+        count_embeddable = 0
+        for gi in self._sharp_graphs:
+            g = self.graphs[gi]
+            if g in c_subgraphs:
+                count_embeddable += 1
+            else:
+                break
+        if count_embeddable == num_sharps:
+            print "Every sharp graph is embeddable into a blowup of", fgraph+".\n"
+            claim4 = True
+
+        # check if type is uniquely embeddable into F
+        claim3a = False # unique embeddability
+        claim3b = False # distinct attachment
+
+        # Tgraph --> Fblowup is a unique embedding if:
+        # p(Tgraph,Fgraph)*(Fgraph.n choose Tgraph.n)*|Aut(Tgraph)|/|Aut(Fgraph)|
+        dens = Fgraph.subgraph_density(Tgraph)
+        sageT = Graph(Tgraph.n)
+        for e in Tgraph.edges:
+            sageT.add_edge(e)
+        sageF = Graph(Fgraph.n)
+        for e in Fgraph.edges:
+            sageF.add_edge(e)
+        Taut_group_order = sageT.automorphism_group().order()
+        Faut_group_order = sageF.automorphism_group().order()
+        if dens*binomial(Fgraph.n,Tgraph.n)*Taut_group_order/Faut_group_order == 1:
+            claim3a = True
+            
+
+        # work towards claim3b:
+        
+        Flabelled = copy(Fgraph)
+        Flabelled.t = Fgraph.n # now the copy is fully labelled
+        perms = Permutations(range(1,Fgraph.n+1))
+
+        # first retrieve how to embed Tgraph into Fgraph
+        if claim3a:
+            for perm in perms:
+                Ffresh = copy(Flabelled)
+                Ffresh.relabel(perm)
+                is_embeddable = True
+                for i in range(1,Tgraph.n+1):
+                    for j in range(1,Tgraph.n+1):
+                        e = [i,j]
+                        e.sort()
+                        e = tuple(e)
+                        if (e in Tgraph.edges and e in Ffresh.edges) or (not(e in Tgraph.edges) and not(e in Ffresh.edges)):
+                            continue
+                        else:
+                            is_embeddable = False # could break after this, improve once correct
+                        
+                if is_embeddable:
+                    Flabelled = copy(Ffresh)
+                    break
+                
+        # have our Ffresh with Tgraph as an induced subgraph on first Tgraph.n vertices of Ffresh
+        # now check if attachments are all distinct
+        restricted_neighbourhoods = [[] for x in range(Flabelled.n)]
+        nn = Tgraph.n
+        for x,y in Flabelled.edges:
+            print Flabelled.edges
+            print Tgraph.edges
+            # if (x,y) edge has x in Tgraph
+            if x < nn+1: restricted_neighbourhoods[y-1].append(x)
+            # if (x,y) edge has y in Tgraph
+            if y < nn+1: restricted_neighbourhoods[x-1].append(y)
+
+        if len(restricted_neighbourhoods) == len(set(map(tuple,restricted_neighbourhoods) )):
+            claim3b = True
+
+        claim3 = claim3a and claim3b
+        if claim3:
+            print tgraph, "is uniquely embeddable into", fgraph, "and different vertices of", fgraph, "attach differently to", tgraph+".\n"
+
+        self.forbid(tgraph)
+        # reset states
+        for state_name, state_value in self._states.items():
+            if state_name == 'specify':
+                self._states[state_name] = "yes"
+            else:
+                self._states[state_name] = "no"
+        self.generate_flags(order=self._n)
+        self.write_sdp_input_file()
+        self.solve_sdp(import_solution_file=None)
+        self.make_exact()
+        
+        if self._bound < thebound:
+            print "Forbidding", Tgraph, "yields a bound of", self._bound, "which is strictly less than", str(thebound)+"."
+            claim1 = True
+
+        if claim1: print "Claim 1: verified."
+        else: print "Claim 1: NOT verified."
+        if claim2: print "Claim 2: verified."
+        else: print "Claim 2: NOT verified."
+        if claim3: print "Claim 3: verified."
+        else: print "Claim 3: NOT verified."
+        if claim4: print "Claim 4: verified."
+        else: print "Claim 4: NOT verified."
+                    
+        if claim1 and claim2 and claim3 and claim4:
+            self._stable = True
+            print "\nOooh la la - early Christmas! The problem is stable!\n"
+            self.write_certificate("cert2.js")
+            print "Certificates written into 'cert1.js' and 'cert2.js'."
+        return
+        
 
 def ThreeGraphProblem(order=None, **kwargs):
     r"""
@@ -3062,3 +3336,5 @@ def dens(graph, family_dimension):
             quantum_graph.append((h, dgh))
             
     return quantum_graph
+
+
