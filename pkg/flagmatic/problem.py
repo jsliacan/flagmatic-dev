@@ -26,6 +26,9 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
+Further development of Flagmatic is supported by ERC.
+http://cordis.europa.eu/project/rcn/104324_en.html
 """
 
 import gzip, json, os, sys
@@ -194,7 +197,9 @@ class Problem(SageObject):
         if density is None:
             self.set_density(flag_cls.default_density_graph())
         else:
+            print "was here!"
             self.set_density(density)
+        
 
         if not forbid_induced is None:
             self.forbid_induced(forbid_induced)
@@ -202,7 +207,7 @@ class Problem(SageObject):
         if not mode is None:
             if mode == "optimization": self._mode = mode
             elif mode == "feasibility": self._mode = mode
-            elif not mode == "plain":
+            elif not (mode == "plain"):
                 raise ValueError
                 
             
@@ -782,11 +787,11 @@ class Problem(SageObject):
 
         if self._mode == "plain":
             sys.stdout.write("\nCannot add assumptions in 'plain' mode.\n")
-            sys.stdout.write("Change mode? (press the corresponding number and return)\n")
-            sys.stdout.write("0 stay in 'plain' mode\n")
-            sys.stdout.write("1 change to 'optimization' mode\n")
-            sys.stdout.write("2 change to 'feasibility' mode\n")
-            choice = raw_input("Enter your choice now: ")
+            sys.stdout.write("Change mode?\n")
+            sys.stdout.write("\t0\t stay in 'plain' mode\n")
+            sys.stdout.write("\t1\t change to 'optimization' mode\n")
+            sys.stdout.write("\t2\t change to 'feasibility' mode\n")
+            choice = raw_input("Enter your choice now and press return: ")
 
             if choice == '1':
                 self._mode = "optimization"
@@ -797,7 +802,9 @@ class Problem(SageObject):
                 return
             else:
                 raise ValueError
-            
+
+        # PARSING ASSUMPTIONS FROM INPUT
+        
         if self._flag_cls().r == 2:
 
             try:
@@ -915,12 +922,14 @@ class Problem(SageObject):
 
 
         if self._mode == "feasibility" and (not self._assumptions):
-            sys.stdout.write( "In feasibility mode now: not using density graphs.")
+            sys.stdout.write( "In feasibility mode now: not using density graphs.\n")
             self.clear_densities()
+        elif self._mode == "feasibility":
+            pass
         elif self._mode == "optimization":
             pass
         else:
-            raise ValueError("Something wrong in _add_assumption() function!\n")
+            raise ValueError("Something is wrong!\n")
             
         self.state("set_objective", "yes")
 

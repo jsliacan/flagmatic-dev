@@ -194,7 +194,9 @@ class Problem(SageObject):
         if density is None:
             self.set_density(flag_cls.default_density_graph())
         else:
+            print "was here!"
             self.set_density(density)
+        
 
         if not forbid_induced is None:
             self.forbid_induced(forbid_induced)
@@ -202,7 +204,7 @@ class Problem(SageObject):
         if not mode is None:
             if mode == "optimization": self._mode = mode
             elif mode == "feasibility": self._mode = mode
-            elif not mode == "plain":
+            elif not (mode == "plain"):
                 raise ValueError
                 
             
@@ -782,11 +784,11 @@ class Problem(SageObject):
 
         if self._mode == "plain":
             sys.stdout.write("\nCannot add assumptions in 'plain' mode.\n")
-            sys.stdout.write("Change mode? (press the corresponding number and return)\n")
-            sys.stdout.write("0 stay in 'plain' mode\n")
-            sys.stdout.write("1 change to 'optimization' mode\n")
-            sys.stdout.write("2 change to 'feasibility' mode\n")
-            choice = raw_input("Enter your choice now: ")
+            sys.stdout.write("Change mode?\n")
+            sys.stdout.write("\t0\t stay in 'plain' mode\n")
+            sys.stdout.write("\t1\t change to 'optimization' mode\n")
+            sys.stdout.write("\t2\t change to 'feasibility' mode\n")
+            choice = raw_input("Enter your choice now and press return: ")
 
             if choice == '1':
                 self._mode = "optimization"
@@ -797,7 +799,9 @@ class Problem(SageObject):
                 return
             else:
                 raise ValueError
-            
+
+        # PARSING ASSUMPTIONS FROM INPUT
+        
         if self._flag_cls().r == 2:
 
             try:
@@ -915,12 +919,14 @@ class Problem(SageObject):
 
 
         if self._mode == "feasibility" and (not self._assumptions):
-            sys.stdout.write( "In feasibility mode now: not using density graphs.")
+            sys.stdout.write( "In feasibility mode now: not using density graphs.\n")
             self.clear_densities()
+        elif self._mode == "feasibility":
+            pass
         elif self._mode == "optimization":
             pass
         else:
-            raise ValueError("Something wrong in _add_assumption() function!\n")
+            raise ValueError("Something is wrong!\n")
             
         self.state("set_objective", "yes")
 
@@ -2956,7 +2962,10 @@ class Problem(SageObject):
     def verify_stability(self, tgraph, fgraph):
 
         """
-        tgraph: graph string
+        INPUT:
+        - "tgraph": graph string of the type that we want to use in the proof
+        - "fgraph": usually the minimum graph that will be blown up (F in PDF file)
+        
         """
 
         # check if construction set
@@ -3025,8 +3034,7 @@ class Problem(SageObject):
         claim3b = False # distinct attachment
 
         # Tgraph --> Fblowup is a unique embedding if:
-        # ind(Tgraph,Fblowup) = |Aut(Tgraph)|/(Tgraph.n)! * p(Tgraph,Fblowup),
-        # where ind(Tgraph,Fblowup) == 1/(Tgraph.n)!
+        # p(Tgraph,Fgraph)*(Fgraph.n choose Tgraph.n)*|Aut(Tgraph)|/|Aut(Fgraph)|
         dens = Fgraph.subgraph_density(Tgraph)
         sageT = Graph(Tgraph.n)
         for e in Tgraph.edges:
@@ -3078,12 +3086,9 @@ class Problem(SageObject):
             # if (x,y) edge has y in Tgraph
             if y < nn+1: restricted_neighbourhoods[x-1].append(y)
 
-        print restricted_neighbourhoods
         if len(restricted_neighbourhoods) == len(set(map(tuple,restricted_neighbourhoods) )):
             claim3b = True
 
-        print "claim3a=",claim3a
-        print "claim3b=",claim3b
         claim3 = claim3a and claim3b
         if claim3:
             print tgraph, "is uniquely embeddable into", fgraph, "and different vertices of", fgraph, "attach differently to", tgraph+".\n"
