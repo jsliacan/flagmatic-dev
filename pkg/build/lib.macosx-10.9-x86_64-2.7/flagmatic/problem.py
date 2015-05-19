@@ -26,6 +26,9 @@ ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
+Further development of Flagmatic is supported by ERC.
+http://cordis.europa.eu/project/rcn/104324_en.html
 """
 
 import gzip, json, os, sys
@@ -194,7 +197,6 @@ class Problem(SageObject):
         if density is None:
             self.set_density(flag_cls.default_density_graph())
         else:
-            print "was here!"
             self.set_density(density)
         
 
@@ -939,7 +941,7 @@ class Problem(SageObject):
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
                                                     forbidden_graphs=self._forbidden_graphs,
                                                     forbidden_induced_graphs=self._forbidden_induced_graphs)
-        
+        print "assumption flags: ", assumption_flags
         num_densities = len(assumption_flags)
         sys.stdout.write("Added %d quantum graphs.\n" % num_densities)
         
@@ -951,9 +953,12 @@ class Problem(SageObject):
 
         for i in range(len(terms)):
             fg = terms[i][0]
-            flags_block = make_graph_block([fg], fg.n)
-            rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, assumption_flags_block)
-            
+            if fg.n == 0:
+                rarray = [[x+1, 0, 0, 1, 1] for x in range(len(self.graphs))]
+            else:
+                flags_block = make_graph_block([fg], fg.n)
+                rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, assumption_flags_block)
+
             for row in rarray:
                 gi = row[0]
                 j = row[1]  # always 0
@@ -961,7 +966,7 @@ class Problem(SageObject):
                 value = Integer(row[3]) / Integer(row[4])
                 quantum_graphs[k][gi] += value * terms[i][1]
 
-        
+        print quantum_graphs
         self._assumptions.append((tg, terms))
         self._assumption_flags.append(assumption_flags)
         
@@ -973,7 +978,8 @@ class Problem(SageObject):
                 if qg[gi] != 0:
                     dg.append((self._graphs[gi], qg[gi]))
             self._density_graphs.append(dg)
-        
+
+        #print quantum_graphs
         new_density_indices = range(num_previous_densities, num_previous_densities + len(quantum_graphs))
         self._active_densities.extend(new_density_indices)
 
