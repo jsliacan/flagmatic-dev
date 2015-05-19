@@ -933,40 +933,46 @@ class Problem(SageObject):
         self.state("set_objective", "yes")
 
         # treat 0 type separately
+        # for the optimization mode
+        """
         if tg.n == 0:
             num_densities = 1
-            
+        """ 
+        print "=="*10, tg, terms, "=="*10
         m = self.n - max([t[0].n for t in terms]) + tg.n
+        print "m = ", m
 
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
                                                     forbidden_graphs=self._forbidden_graphs,
                                                     forbidden_induced_graphs=self._forbidden_induced_graphs)
         print "assumption flags: ", assumption_flags
         num_densities = len(assumption_flags)
+        print "num_densities: ", num_densities
         sys.stdout.write("Added %d quantum graphs.\n" % num_densities)
         
         num_graphs = len(self._graphs)
+        print "num_graphs: ", num_graphs
         quantum_graphs = [[Integer(0) for i in range(num_graphs)] for j in range(num_densities)]
+        print "quantum_graphs (init): ", quantum_graphs
         
         assumption_flags_block = make_graph_block(assumption_flags, m)
         graph_block = make_graph_block(self._graphs, self.n)
 
         for i in range(len(terms)):
             fg = terms[i][0]
-            if fg.n == 0:
-                rarray = [[x+1, 0, 0, 1, 1] for x in range(len(self.graphs))]
-            else:
-                flags_block = make_graph_block([fg], fg.n)
-                rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, assumption_flags_block)
+            flags_block = make_graph_block([fg], fg.n)
+            rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, assumption_flags_block)
+            print rarray
 
             for row in rarray:
                 gi = row[0]
                 j = row[1]  # always 0
                 k = row[2]
                 value = Integer(row[3]) / Integer(row[4])
+                print "k=", k, "gi=", gi
                 quantum_graphs[k][gi] += value * terms[i][1]
 
-        print quantum_graphs
+        print "quantum_graphs (loaded): ", quantum_graphs
         self._assumptions.append((tg, terms))
         self._assumption_flags.append(assumption_flags)
         
