@@ -45,7 +45,7 @@ from sage.misc.misc import SAGE_TMP
 from sage.combinat.all import Permutations
 from copy import copy
 
-from hypergraph_flag import make_graph_block
+from hypergraph_flag import make_graph_block, print_graph_block
 from flag import *
 from three_graph_flag import *
 from graph_flag import *
@@ -830,7 +830,7 @@ class Problem(SageObject):
                             if not is_in_lcomb:
                                 lcomb.append([H,-cst])
                     else:
-                        fg = ThreeGraphFlag(tg._repr_() + "("+str(tg.n)+")")
+                        fg = GraphFlag(tg._repr_() + "("+str(tg.n)+")")
                         lcomb.append([fg, -cst])
 
                 cst = 0 # make RHS zero. (not necessary though, not used again)
@@ -937,23 +937,19 @@ class Problem(SageObject):
         """
         if tg.n == 0:
             num_densities = 1
-        """ 
-        print "=="*10, tg, terms, "=="*10
+        """
+        
         m = self.n - max([t[0].n for t in terms]) + tg.n
-        print "m = ", m
 
         assumption_flags = self._flag_cls.generate_flags(m, tg, forbidden_edge_numbers=self._forbidden_edge_numbers,
                                                     forbidden_graphs=self._forbidden_graphs,
                                                     forbidden_induced_graphs=self._forbidden_induced_graphs)
-        print "assumption flags: ", assumption_flags
+
         num_densities = len(assumption_flags)
-        print "num_densities: ", num_densities
         sys.stdout.write("Added %d quantum graphs.\n" % num_densities)
         
         num_graphs = len(self._graphs)
-        print "num_graphs: ", num_graphs
         quantum_graphs = [[Integer(0) for i in range(num_graphs)] for j in range(num_densities)]
-        print "quantum_graphs (init): ", quantum_graphs
         
         assumption_flags_block = make_graph_block(assumption_flags, m)
         graph_block = make_graph_block(self._graphs, self.n)
@@ -962,20 +958,17 @@ class Problem(SageObject):
             fg = terms[i][0]
             flags_block = make_graph_block([fg], fg.n)
             rarray = self._flag_cls.flag_products(graph_block, tg, flags_block, assumption_flags_block)
-            print rarray
-
+            
             for row in rarray:
                 gi = row[0]
                 j = row[1]  # always 0
                 k = row[2]
                 value = Integer(row[3]) / Integer(row[4])
-                print "k=", k, "gi=", gi
                 quantum_graphs[k][gi] += value * terms[i][1]
 
-        print "quantum_graphs (loaded): ", quantum_graphs
         self._assumptions.append((tg, terms))
         self._assumption_flags.append(assumption_flags)
-        
+
         num_previous_densities = len(self._density_graphs)
         
         for qg in quantum_graphs:
@@ -985,7 +978,6 @@ class Problem(SageObject):
                     dg.append((self._graphs[gi], qg[gi]))
             self._density_graphs.append(dg)
 
-        #print quantum_graphs
         new_density_indices = range(num_previous_densities, num_previous_densities + len(quantum_graphs))
         self._active_densities.extend(new_density_indices)
 
@@ -3300,7 +3292,8 @@ def fpds(tp, flg1, flg2, nn):
     fblock2 = make_graph_block([f2], f2.n)
     
     try:
-        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)       
+        prod = the_most_ridiculous_name._flag_cls.flag_products(gblock, t, fblock1, fblock2)
+        print prod
     except ValueError:
         print "You are feeding unhealthy things to the function!"
         sys.exit(1)
