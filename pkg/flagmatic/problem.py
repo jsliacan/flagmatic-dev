@@ -33,6 +33,7 @@ http://cordis.europa.eu/project/rcn/104324_en.html
 
 import gzip, json, os, sys
 import numpy
+import itertools
 import pexpect
 import sage.all
 
@@ -3204,6 +3205,7 @@ class Problem(SageObject):
         try:
             if self._flag_cls().r == 2:
                 Tgraph = GraphFlag(tgraph)
+                self.tgraph = Tgraph
                 if not (fgraph is None):
                     Fgraph = GraphFlag(fgraph)
                     print "You selected the following type:", tgraph, "and the following F graph:", fgraph, "\n"
@@ -3621,7 +3623,39 @@ class Problem(SageObject):
             print "Did you know that an ant colony is also called formicary? Anyway, theorem proved! The problem is perfectly stable by Thm 5.9."
             print "\n","*"*20, "PERFECT STABILITY -- OK", "*"*20,"\n"
             self._perfectly_stable = True
+
+
+        # construct matrix M
+        C = self._construction
+        B = C.graph
+        tau = self.tgraph
+
+        maps_tau_B = itertools.product(range(1,B.n+1), repeat=tau.n) # generates all tau.n-tuples with entries in [1,...,B.n]
         
+        # for each map h in maps_tau_B
+        # check if "(i,j) edge/nonedge in tau" implies "(h(i),h(j)) edge/nonedge in B"
+        # if yes, add it to shoms_tau_B
+        homs_tau_B = list()
+        for h in maps_tau_B:
+            is_hom = True
+            for e in tau.edges:
+                he = (h[e[0]],h[e[1]])
+                if not he in B.edges:
+                    # h not homomorphism
+                    is_hom = False
+                    break
+            if is_hom:
+                tauc = tau.complement()
+                for ec in tauc.edges:
+                    hec = (h[ec[0]], h[ec[1]])
+                    if hec in B.edges:
+                        # h not homomorphism
+                        is_hom = False
+                        break
+            if is_hom:
+                homs_tau_B.append(h)
+
+            
     
 def ThreeGraphProblem(order=None, **kwargs):
     r"""
