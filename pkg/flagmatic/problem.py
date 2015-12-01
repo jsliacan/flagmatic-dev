@@ -229,9 +229,10 @@ class Problem(SageObject):
         if forbid_homomorphic_images:
             self.forbid_homomorphic_images()
 
-        if not order is None:
-            self.generate_flags(order, type_orders=type_orders, types=types, max_flags=max_flags,
-                                compute_products=compute_products)
+        if perm is False:
+            if not order is None:
+                self.generate_flags(order, type_orders=type_orders, types=types, max_flags=max_flags, compute_products=compute_products)
+            
 
     def state(self, state_name=None, action=None):
         r"""
@@ -3624,7 +3625,7 @@ class Problem(SageObject):
             print "\n","*"*20, "PERFECT STABILITY -- OK", "*"*20,"\n"
             self._perfectly_stable = True
 
-
+            
         # construct matrix M
         C = self._construction
         B = C.graph
@@ -3655,6 +3656,13 @@ class Problem(SageObject):
             if is_hom:
                 homs_tau_B.append(h)
 
+        tau_index = self.types.index(tau)
+        tau_flags = self.flags[tau_index]
+
+        # for each h in homs_tau_B, construct matrix Mh
+        numflags = len(self.flags)
+        Mh = matrix(QQ, numflags, B.n)
+        
             
     
 def ThreeGraphProblem(order=None, **kwargs):

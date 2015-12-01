@@ -33,6 +33,7 @@ http://cordis.europa.eu/project/rcn/104324_en.html
 
 import gzip, json, os, sys
 import numpy
+import itertools
 import pexpect
 import sage.all
 
@@ -1617,7 +1618,7 @@ class Problem(SageObject):
                 for mi in range(num_extra_matrices):
                     f.write("0 %d %d %d %s\n" % (total_num_blocks + 4, mi + 1, mi + 1, "1.0" if self._minimize else "-1.0"))
 
-            # buffer vars and bound c for each constraint
+            # slack vars and bound c for each constraint
             for i in range(num_graphs):
                 if not self._minimize:
                     f.write("%d 1 1 1 -1.0\n" % (i + 1,))
@@ -3204,6 +3205,7 @@ class Problem(SageObject):
         try:
             if self._flag_cls().r == 2:
                 Tgraph = GraphFlag(tgraph)
+                self.tgraph = Tgraph
                 if not (fgraph is None):
                     Fgraph = GraphFlag(fgraph)
                     print "You selected the following type:", tgraph, "and the following F graph:", fgraph, "\n"
@@ -3428,7 +3430,6 @@ class Problem(SageObject):
         # CONDITION 2, THM 4.1
         if claim1 and claim2:
             print "Condition 2 of Thm 4.1 verified."
-            self.write_certificate("cert_flag_alg.js")
         elif claim1 and not claim2:
             print "Condition 2 of Thm 4.1 NOT verified."
             print "Forbidding your type graph", Tgraph, "does yield a strictly worse bound, but the rest of Condition 2 in Thm 4.1 does NOT hold."
@@ -3454,7 +3455,7 @@ class Problem(SageObject):
                 print "Certificates written into 'cert_flag_alg.js' and 'cert_robust_stab.js'."
             else: # newproblem is None
                 print "Certificate is trivial, since everything is forbidden in a graph that avoids a 1-vertex subgraph.\n"
-
+            self.write_certificate("cert_flag_alg.js")
         return
     
 
@@ -3473,7 +3474,7 @@ class Problem(SageObject):
         (c) problem is classically fgraph-stable (follows from robust stability)
         
         CLAIM 1: all forbidden graphs are twin-free
-        CLAIM 2: fgraph is \lambda-minimal
+        CLAIM 2: fgraph is \lambda-minimal is implied from forbidding B resulting in a smaller extremal value
 
 
         INPUT
@@ -3622,7 +3623,47 @@ class Problem(SageObject):
             print "Did you know that an ant colony is also called formicary? Anyway, theorem proved! The problem is perfectly stable by Thm 5.9."
             print "\n","*"*20, "PERFECT STABILITY -- OK", "*"*20,"\n"
             self._perfectly_stable = True
+
+            
+        # construct matrix M
+        C = self._construction
+        B = C.graph
+        tau = self.tgraph
+
+        maps_tau_B = itertools.product(range(1,B.n+1), repeat=tau.n) # generates all tau.n-tuples with entries in [1,...,B.n]
         
+        # for each map h in maps_tau_B
+        # check if "(i,j) edge/nonedge in tau" implies "(h(i),h(j)) edge/nonedge in B"
+        # if yes, add it to shoms_tau_B
+        homs_tau_B = list()
+        for h in maps_tau_B:
+            is_hom = True
+            for e in tau.edges:
+                he = (h[e[0]],h[e[1]])
+                if not he in B.edges:
+                    # h not homomorphism
+                    is_hom = False
+                    break
+            if is_hom:
+                tauc = tau.complement()
+                for ec in tauc.edges:
+                    hec = (h[ec[0]], h[ec[1]])
+                    if hec in B.edges:
+                        # h not homomorphism
+                        is_hom = False
+                        break
+            if is_hom:
+                homs_tau_B.append(h)
+
+        tau_index = self.types.index(tau)
+        tau_flags = self.flags[tau_index]
+
+        # for each h in homs_tau_B, construct matrix Mh
+        numflags = len(self.flags)
+        Mh = matrix(QQ, numflags, B.n)
+
+            
+            
     
 def ThreeGraphProblem(order=None, **kwargs):
     r"""
