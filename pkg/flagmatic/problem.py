@@ -66,7 +66,7 @@ dsdp_cmd = "dsdp"
 
 
 def block_structure(M):
-    r"""
+    """
     Given a matrix, this function returns a tuple. The first entry is the number of
     row subdivisions that the matrix has. The second entry is a list of the sizes of the
     row subdivisions, and the third entry is a list containing the rows at which each
@@ -84,7 +84,7 @@ def block_structure(M):
 
 
 def safe_gram_schmidt(M):
-    r"""
+    """
     Performs Gram Schmidt orthogonalization using Sage functions. The returned matrix
     will have the same subdivisions are the input matrix, and it will be sparse if and
     only if the input matrix is sparse.
