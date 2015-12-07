@@ -229,9 +229,10 @@ class Problem(SageObject):
         if forbid_homomorphic_images:
             self.forbid_homomorphic_images()
 
+            
         if not order is None:
-            self.generate_flags(order, type_orders=type_orders, types=types, max_flags=max_flags,
-                                compute_products=compute_products)
+            self.generate_flags(order, type_orders=type_orders, types=types, max_flags=max_flags, compute_products=compute_products)
+            
 
     def state(self, state_name=None, action=None):
         r"""
@@ -1111,7 +1112,8 @@ class Problem(SageObject):
             self._construction = None
             self._field = field
             sys.stdout.write("Field is \"%s\" with embedding x=%s.\n" %
-                (str(self._field), self._field.gen_embedding().n(digits=10)))
+                            #(str(self._field), self._field.gen_embedding().n(digits=10)))
+                             (str(self._field), self._field.gen().n(digits=10)))
             self._target_bound = target_bound
             sys.stdout.write("Set target bound to be %s (%s).\n" %
                 (self._target_bound, self._target_bound.n(digits=10)))
@@ -3354,7 +3356,7 @@ class Problem(SageObject):
         
         if Tgraph.n > 1:
             newproblem = GraphProblem(order=self._n,
-                                       forbid_induced=self._forbidden_induced_graphs.append(tgraph),
+                                       forbid_induced=self._forbidden_induced_graphs+[tgraph],
                                        forbid=self._forbidden_graphs,
                                        forbid_homomorphic_images=self._forbid_homomorphic_images,
                                        density=self._density_graphs[0],
@@ -3383,33 +3385,33 @@ class Problem(SageObject):
             
 
             if not self._minimize:
-                if newproblem._bound > thebound:
-                    print "Forbidding", Tgraph, "yields a bound of", newproblem._bound, "which is strictly more than", str(thebound)+"."
-                    claim1 = True
-                else:
-                    print "Forbidding", Tgraph, "yields a bound of", newproblem._bound, "which is at most", str(thebound)+"."
-
-            else:
                 if newproblem._bound < thebound:
                     print "Forbidding", Tgraph, "yields a bound of", newproblem._bound, "which is strictly less than", str(thebound)+"."
                     claim1 = True
                 else:
                     print "Forbidding", Tgraph, "yields a bound of", newproblem._bound, "which is at least", str(thebound)+"."
 
-        else: #case: Tgraph.n <= 1
-            if not self._minimize:
-                if 1 > thebound:
-                    print "Forbidding", Tgraph, "yields a bound of", 0, "which is strictly more than", str(thebound)+"."
+            else:
+                if newproblem._bound > thebound:
+                    print "Forbidding", Tgraph, "yields a bound of", newproblem._bound, "which is strictly more than", str(thebound)+"."
                     claim1 = True
                 else:
-                    print "Forbidding", Tgraph, "yields a bound of", 0, "which is at most", str(thebound)+"."
+                    print "Forbidding", Tgraph, "yields a bound of", newproblem._bound, "which is at most", str(thebound)+"."
 
-            else: 
+        else: #case: Tgraph.n <= 1
+            if not self._minimize:
                 if 0 < thebound:
                     print "Forbidding", Tgraph, "yields a bound of", 0, "which is strictly less than", str(thebound)+"."
                     claim1 = True
                 else:
                     print "Forbidding", Tgraph, "yields a bound of", 0, "which is at least", str(thebound)+"."
+
+            else: 
+                if 1 > thebound:
+                    print "Forbidding", Tgraph, "yields a bound of", 0, "which is strictly more than", str(thebound)+"."
+                    claim1 = True
+                else:
+                    print "Forbidding", Tgraph, "yields a bound of", 0, "which is at most", str(thebound)+"."
                     
         
 
@@ -3554,7 +3556,7 @@ class Problem(SageObject):
 
         # ----------- CLAIM 2 ------------
         # F is \lambda-minimal
-        # \lambda-minimal: F without any vertex blown-up reduces \lambda
+        # \lambda-minimal: F without any vertex, and blown-up reduces \lambda
         # --------------------------------
 
         Fgraph = None
@@ -3566,65 +3568,51 @@ class Problem(SageObject):
             except ValueError:
                 print "Ooops! F graph could not be initialized. Try providing a nicer one. More pink!"
 
+
         original_bound = self._bound
-        density_quantum_graph = self.density_graphs[0] # list of tuples (graph, coef)
-
-        # convert density qantum grpah into lin comb of graphs on the same num of verts
-        max_order = 0
-        for g,coef in density_quantum_graph:
-            if g.n > max_order:
-                max_order = g.n
-
+        perfstabproblem = GraphProblem(order=self._n,
+                                  forbid_induced=self._forbidden_induced_graphs+[str(Fgraph)],
+                                  forbid=self._forbidden_graphs,
+                                  forbid_homomorphic_images=self._forbid_homomorphic_images,
+                                  density=self._density_graphs[0],
+                                  minimize=self._minimize,
+                                  type_orders=self._type_orders,
+                                  types=self._types_from_input,
+                                  max_flags=self._max_flags,
+                                  compute_products=self._compute_products,
+                                  mode=self._mode)
         
-        graphs_max_order = Fgraph.generate_graphs(max_order) # just use the class of Fgraph to generate graphs on max_order verts    
+        perfstabproblem.solve_sdp(solver="csdp")
+        perfstabproblem.make_exact()
 
-        better_bound_graph = None
-        better_bound = None
+        new_bound = perfstabproblem._bound
 
-        for sg in graphs_max_order:
-            if Fgraph.subgraph_density(sg) == 0: # want only sg which are subgraphs of Fgraph
-                continue
-            new_bound = 0
-            csg = GraphBlowupConstruction(sg) # construction made of this sg subgraph
-            max_order_densities_in_csg = csg.subgraph_densities(max_order)
-            for gi in graphs_max_order:
-                for dg,coef in density_quantum_graph:
-                    dens_dg_in_gi = gi.subgraph_density(dg)
-                    if dens_dg_in_gi > 0:
-                        coef_gi_in_csg = 0
-                        for a,b in max_order_densities_in_csg:
-                            if a == gi:
-                                coef_gi_in_csg = b
-                                break
-                        new_bound += dens_dg_in_gi*coef*coef_gi_in_csg
-
-            if self._minimize == True:
-                if new_bound > original_bound:
-                    better_bound_graph = sg
-                    better_bound = new_bound
-                    break # claim2 is false
-                else:
-                    claim2 = True
+        if self._minimize == False:
+            if new_bound < original_bound:
+                print "The bound of", new_bound, "is strictly less than the original bound of", original_bound, ", OK."
+                claim2 = True
             else:
-                if new_bound < original_bound:
-                    better_bound_graph = sg
-                    better_bound = new_bound
-                    break # claim2 is false
-                else:
-                    claim2 = True
+                print "The bound of", new_bound, "is NOT strictly less than the original bound of", original_bound, "."
+        else:
+            if new_bound > original_bound:
+                print "The bound of", new_bound, "is strictly more than the original bound of", original_bound, ", OK."
+                claim2 = True
+            else:
+                print "The bound of", new_bound, "is NOT strictly more than the original bound of", original_bound,"."
 
         if claim2 == True:
             print "CLAIM 2 verified: fgraph is \lambda-minimal.\n"
         else:
-            print "CLAIM 2 NOT verified.\n(Subgraph", better_bound_graph, "of", Fgraph, "yields a \lambda (extremal value)", str(better_bound)+".\n"
-            
+            print "CLAIM 2 NOT verified.\n(With "+str(Fgraph)+" forbidden, the bound is  not strictly smaller than the current bound."
+ 
 
         if claim1 and claim2:
             print "Did you know that an ant colony is also called formicary? Anyway, theorem proved! The problem is perfectly stable by Thm 5.9."
             print "\n","*"*20, "PERFECT STABILITY -- OK", "*"*20,"\n"
             self._perfectly_stable = True
+            perfstabproblem.write_certificate("cert_perf_stab.js")
 
-            
+        """            
         # construct matrix M
         C = self._construction
         B = C.graph
@@ -3661,8 +3649,7 @@ class Problem(SageObject):
         # for each h in homs_tau_B, construct matrix Mh
         numflags = len(self.flags)
         Mh = matrix(QQ, numflags, B.n)
-
-            
+        """
             
     
 def ThreeGraphProblem(order=None, **kwargs):
