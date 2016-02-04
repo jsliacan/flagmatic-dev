@@ -1887,18 +1887,17 @@ previous_equal_pair_combinations = {}
 cdef int *generate_equal_pair_combinations(int n, int s, int m, int *number_of):
 
 	cdef int *p, fac, i, j, smallest
-
+        
 	# see if we've already generated it!
 	key = (n, s, m)
 	if key in previous_equal_pair_combinations.iterkeys():
-	
+                
 		cib = <combinatorial_info_block>previous_equal_pair_combinations[key]
 		fac = cib.np
 		p = cib.p
-	
+
 	else:
-	
-		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s) / 2
+		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2
 		p = <int *> malloc (sizeof(int) * n * fac)
 		i = 0
 		vertices = range(1, n + 1)

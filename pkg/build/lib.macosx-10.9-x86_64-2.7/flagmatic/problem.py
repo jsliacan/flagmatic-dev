@@ -44,6 +44,7 @@ from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagona
 from sage.modules.misc import gram_schmidt
 from sage.misc.misc import SAGE_TMP
 from sage.combinat.all import Permutations
+from sage.matrix.constructor import ones_matrix, vector
 from copy import copy
 
 from hypergraph_flag import make_graph_block, print_graph_block
@@ -66,7 +67,7 @@ dsdp_cmd = "dsdp"
 
 
 def block_structure(M):
-    r"""
+    """
     Given a matrix, this function returns a tuple. The first entry is the number of
     row subdivisions that the matrix has. The second entry is a list of the sizes of the
     row subdivisions, and the third entry is a list containing the rows at which each
@@ -84,7 +85,7 @@ def block_structure(M):
 
 
 def safe_gram_schmidt(M):
-    r"""
+    """
     Performs Gram Schmidt orthogonalization using Sage functions. The returned matrix
     will have the same subdivisions are the input matrix, and it will be sparse if and
     only if the input matrix is sparse.
@@ -3612,18 +3613,23 @@ class Problem(SageObject):
             self._perfectly_stable = True
             perfstabproblem.write_certificate("cert_perf_stab.js")
 
-        """            
+
+        #==========================================================
         # construct matrix M
+        #==========================================================
+        
         C = self._construction
         B = C.graph
         tau = self.tgraph
+        tau_index = self.types.index(tau)
+        tau_flags = self.flags[tau_index]
 
-        maps_tau_B = itertools.product(range(1,B.n+1), repeat=tau.n) # generates all tau.n-tuples with entries in [1,...,B.n]
+        maps_tau_B = itertools.product(range(1,B.n+1), repeat=tau.n) # generates all (tau.n)-tuples with entries in [1,...,B.n]
         
         # for each map h in maps_tau_B
         # check if "(i,j) edge/nonedge in tau" implies "(h(i),h(j)) edge/nonedge in B"
-        # if yes, add it to shoms_tau_B
-        homs_tau_B = list()
+        # if yes, add it to X
+        X = list()
         for h in maps_tau_B:
             is_hom = True
             for e in tau.edges:
@@ -3641,15 +3647,59 @@ class Problem(SageObject):
                         is_hom = False
                         break
             if is_hom:
-                homs_tau_B.append(h)
+                X.append(h)
 
-        tau_index = self.types.index(tau)
-        tau_flags = self.flags[tau_index]
+        # for each f in X, construct matrix Mf
+        numflags = len(self.flags[tau_index])
+        D = matrix(QQ, ones_matrix(1,B.n))
+        Q_tau = self._sdp_Q_matrices[tau_index]
+        
+        for f_tuple in X:
+            f = list(f_tuple)
+            Mf = [[0 for x in range(numflags)] for y in range(B.n)]
 
-        # for each h in homs_tau_B, construct matrix Mh
-        numflags = len(self.flags)
-        Mh = matrix(QQ, numflags, B.n)
-        """
+            for j in range(numflags): # rows of Mf
+                Fj = self.flags[tau_index][j]
+                for w in range(1,B.n+1): # columns of Mf
+                    f = f+[w]
+                    edges_match_so_far = True
+                    for i in range(tau.n):
+                        if not edges_match_so_far:
+                            break
+                        pairF = [i+1,tau.n+1]
+                        pairB = [f[i],w]
+                        pairF.sort()
+                        pairB.sort()
+                        pairF = tuple(pairF)
+                        pairB = tuple(pairB)
+                        if (pairB in B.edges and pairF in Fj.edges) or (pairB not in B.edges and pairF not in Fj.edges):
+                            continue
+                        else:
+                            edges_match_so_far = False
+
+                    if edges_match_so_far:
+                        Mf[j][w-1] = 1
+
+            Mf = matrix(Mf)
+            Mf_dash = Mf.transpose()*self._exact_Q_matrices[tau_index]*Mf
+            D = D.transpose().augment(Mf_dash.transpose()).transpose()
+
+        b = [0 for x in range(numflags*len(X)+1)]
+        b[0] = 1
+        b = vector(b)
+        print D
+        print
+        a = D.solve_right(b)
+        print a
+                        
+                        
+                        
+                            
+                                
+                        
+                        
+            
+
             
     
 def ThreeGraphProblem(order=None, **kwargs):

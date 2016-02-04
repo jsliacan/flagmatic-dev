@@ -27018,18 +27018,18 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   }
   /*else*/ {
 
-    /* "flagmatic/hypergraph_flag.pyx":1901
- * 	else:
+    /* "flagmatic/hypergraph_flag.pyx":1900
  * 
- * 		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s) / 2             # <<<<<<<<<<<<<<
+ * 	else:
+ * 		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2             # <<<<<<<<<<<<<<
  * 		p = <int *> malloc (sizeof(int) * n * fac)
  * 		i = 0
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_falling_factorial); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_falling_factorial); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_9 = NULL;
     __pyx_t_10 = 0;
@@ -27043,7 +27043,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_11);
     if (__pyx_t_9) {
       PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __Pyx_GIVEREF(__pyx_t_9); __pyx_t_9 = NULL;
@@ -27054,15 +27054,15 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __Pyx_GIVEREF(__pyx_t_1);
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_s)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_s)); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_9 = NULL;
     __pyx_t_10 = 0;
@@ -27076,7 +27076,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_9) {
       PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_9); __Pyx_GIVEREF(__pyx_t_9); __pyx_t_9 = NULL;
@@ -27087,19 +27087,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_1 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_11 = PyNumber_Multiply(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_11 = PyNumber_Multiply(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_12 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_m)); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_12 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_m)); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = NULL;
     __pyx_t_10 = 0;
@@ -27113,7 +27113,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_1) {
       PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_1); __Pyx_GIVEREF(__pyx_t_1); __pyx_t_1 = NULL;
@@ -27124,32 +27124,32 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __Pyx_GIVEREF(__pyx_t_3);
     __pyx_t_12 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PyNumber_Multiply(__pyx_t_11, __pyx_t_2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyNumber_Multiply(__pyx_t_11, __pyx_t_2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_int_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_int_2); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1901; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1900; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_fac = __pyx_t_7;
 
-    /* "flagmatic/hypergraph_flag.pyx":1902
- * 
- * 		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s) / 2
+    /* "flagmatic/hypergraph_flag.pyx":1901
+ * 	else:
+ * 		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2
  * 		p = <int *> malloc (sizeof(int) * n * fac)             # <<<<<<<<<<<<<<
  * 		i = 0
  * 		vertices = range(1, n + 1)
  */
     __pyx_v_p = ((int *)malloc((((sizeof(int)) * __pyx_v_n) * __pyx_v_fac)));
 
-    /* "flagmatic/hypergraph_flag.pyx":1903
- * 		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s) / 2
+    /* "flagmatic/hypergraph_flag.pyx":1902
+ * 		fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2
  * 		p = <int *> malloc (sizeof(int) * n * fac)
  * 		i = 0             # <<<<<<<<<<<<<<
  * 		vertices = range(1, n + 1)
@@ -27157,16 +27157,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_i = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1904
+    /* "flagmatic/hypergraph_flag.pyx":1903
  * 		p = <int *> malloc (sizeof(int) * n * fac)
  * 		i = 0
  * 		vertices = range(1, n + 1)             # <<<<<<<<<<<<<<
  * 		perms = Permutations(vertices, s)
  * 		for perm in perms:
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1903; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1903; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_int_1);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_int_1);
@@ -27174,22 +27174,22 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1903; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_vertices = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1905
+    /* "flagmatic/hypergraph_flag.pyx":1904
  * 		i = 0
  * 		vertices = range(1, n + 1)
  * 		perms = Permutations(vertices, s)             # <<<<<<<<<<<<<<
  * 		for perm in perms:
  * 			available_verts = [v for v in vertices if not v in perm]
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_t_9 = NULL;
     __pyx_t_10 = 0;
@@ -27203,7 +27203,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_9) {
       PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9); __Pyx_GIVEREF(__pyx_t_9); __pyx_t_9 = NULL;
@@ -27214,14 +27214,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_10, __pyx_t_11);
     __Pyx_GIVEREF(__pyx_t_11);
     __pyx_t_11 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1904; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_perms = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1906
+    /* "flagmatic/hypergraph_flag.pyx":1905
  * 		vertices = range(1, n + 1)
  * 		perms = Permutations(vertices, s)
  * 		for perm in perms:             # <<<<<<<<<<<<<<
@@ -27232,25 +27232,25 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       __pyx_t_2 = __pyx_v_perms; __Pyx_INCREF(__pyx_t_2); __pyx_t_10 = 0;
       __pyx_t_13 = NULL;
     } else {
-      __pyx_t_10 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_perms); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_10 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_perms); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_13 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_13 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_13)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     }
     for (;;) {
       if (likely(!__pyx_t_13)) {
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         } else {
           if (__pyx_t_10 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
         }
       } else {
@@ -27259,7 +27259,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1905; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           }
           break;
         }
@@ -27268,38 +27268,38 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       __Pyx_XDECREF_SET(__pyx_v_perm, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1907
+      /* "flagmatic/hypergraph_flag.pyx":1906
  * 		perms = Permutations(vertices, s)
  * 		for perm in perms:
  * 			available_verts = [v for v in vertices if not v in perm]             # <<<<<<<<<<<<<<
  * 			combs1 = Combinations(available_verts, m - s)
  * 			first_one = True
  */
-      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       if (likely(PyList_CheckExact(__pyx_v_vertices)) || PyTuple_CheckExact(__pyx_v_vertices)) {
         __pyx_t_3 = __pyx_v_vertices; __Pyx_INCREF(__pyx_t_3); __pyx_t_14 = 0;
         __pyx_t_15 = NULL;
       } else {
-        __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_vertices); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_vertices); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_15 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_15 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       for (;;) {
         if (likely(!__pyx_t_15)) {
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_11 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_11 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           } else {
             if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           }
         } else {
@@ -27308,7 +27308,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             }
             break;
           }
@@ -27316,10 +27316,10 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         }
         __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_6 = (__Pyx_PySequence_Contains(__pyx_v_v, __pyx_v_perm, Py_NE)); if (unlikely(__pyx_t_6 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_6 = (__Pyx_PySequence_Contains(__pyx_v_v, __pyx_v_perm, Py_NE)); if (unlikely(__pyx_t_6 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __pyx_t_5 = (__pyx_t_6 != 0);
         if (__pyx_t_5) {
-          if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_v))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_v))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1906; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           goto __pyx_L8;
         }
         __pyx_L8:;
@@ -27328,16 +27328,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       __Pyx_XDECREF_SET(__pyx_v_available_verts, ((PyObject*)__pyx_t_4));
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1908
+      /* "flagmatic/hypergraph_flag.pyx":1907
  * 		for perm in perms:
  * 			available_verts = [v for v in vertices if not v in perm]
  * 			combs1 = Combinations(available_verts, m - s)             # <<<<<<<<<<<<<<
  * 			first_one = True
  * 			for comb1 in combs1:
  */
-      __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1908; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1908; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_t_9 = NULL;
       __pyx_t_14 = 0;
@@ -27351,7 +27351,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           __pyx_t_14 = 1;
         }
       }
-      __pyx_t_12 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1908; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_12 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_12);
       if (__pyx_t_9) {
         PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_9); __Pyx_GIVEREF(__pyx_t_9); __pyx_t_9 = NULL;
@@ -27362,14 +27362,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_14, __pyx_t_11);
       __Pyx_GIVEREF(__pyx_t_11);
       __pyx_t_11 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1908; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1907; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF_SET(__pyx_v_combs1, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1909
+      /* "flagmatic/hypergraph_flag.pyx":1908
  * 			available_verts = [v for v in vertices if not v in perm]
  * 			combs1 = Combinations(available_verts, m - s)
  * 			first_one = True             # <<<<<<<<<<<<<<
@@ -27378,7 +27378,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
       __pyx_v_first_one = 1;
 
-      /* "flagmatic/hypergraph_flag.pyx":1910
+      /* "flagmatic/hypergraph_flag.pyx":1909
  * 			combs1 = Combinations(available_verts, m - s)
  * 			first_one = True
  * 			for comb1 in combs1:             # <<<<<<<<<<<<<<
@@ -27389,25 +27389,25 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_4 = __pyx_v_combs1; __Pyx_INCREF(__pyx_t_4); __pyx_t_14 = 0;
         __pyx_t_15 = NULL;
       } else {
-        __pyx_t_14 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_combs1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_14 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_combs1); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_15 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_15 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_15)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       }
       for (;;) {
         if (likely(!__pyx_t_15)) {
           if (likely(PyList_CheckExact(__pyx_t_4))) {
             if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_4)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           } else {
             if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #else
-            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             #endif
           }
         } else {
@@ -27416,7 +27416,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1909; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             }
             break;
           }
@@ -27425,29 +27425,29 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __Pyx_XDECREF_SET(__pyx_v_comb1, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1911
+        /* "flagmatic/hypergraph_flag.pyx":1910
  * 			first_one = True
  * 			for comb1 in combs1:
  * 				remaining_verts = [v for v in available_verts if not v in comb1]             # <<<<<<<<<<<<<<
  * 				combs2 = Combinations(remaining_verts, m - s)
  * 				smallest = min(comb1)
  */
-        __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
         __pyx_t_12 = __pyx_v_available_verts; __Pyx_INCREF(__pyx_t_12); __pyx_t_16 = 0;
         for (;;) {
           if (__pyx_t_16 >= PyList_GET_SIZE(__pyx_t_12)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_11); __pyx_t_16++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_11); __pyx_t_16++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #else
-          __pyx_t_11 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_11 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           #endif
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_11);
           __pyx_t_11 = 0;
-          __pyx_t_5 = (__Pyx_PySequence_Contains(__pyx_v_v, __pyx_v_comb1, Py_NE)); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_5 = (__Pyx_PySequence_Contains(__pyx_v_v, __pyx_v_comb1, Py_NE)); if (unlikely(__pyx_t_5 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __pyx_t_6 = (__pyx_t_5 != 0);
           if (__pyx_t_6) {
-            if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_v_v))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_v_v))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1910; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             goto __pyx_L13;
           }
           __pyx_L13:;
@@ -27456,16 +27456,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __Pyx_XDECREF_SET(__pyx_v_remaining_verts, ((PyObject*)__pyx_t_3));
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1912
+        /* "flagmatic/hypergraph_flag.pyx":1911
  * 			for comb1 in combs1:
  * 				remaining_verts = [v for v in available_verts if not v in comb1]
  * 				combs2 = Combinations(remaining_verts, m - s)             # <<<<<<<<<<<<<<
  * 				smallest = min(comb1)
  * 				first_two = True
  */
-        __pyx_t_12 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_12 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_9 = NULL;
         __pyx_t_16 = 0;
@@ -27479,7 +27479,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_t_16 = 1;
           }
         }
-        __pyx_t_1 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_1 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_1);
         if (__pyx_t_9) {
           PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_9); __Pyx_GIVEREF(__pyx_t_9); __pyx_t_9 = NULL;
@@ -27490,33 +27490,33 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_16, __pyx_t_11);
         __Pyx_GIVEREF(__pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1911; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF_SET(__pyx_v_combs2, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1913
+        /* "flagmatic/hypergraph_flag.pyx":1912
  * 				remaining_verts = [v for v in available_verts if not v in comb1]
  * 				combs2 = Combinations(remaining_verts, m - s)
  * 				smallest = min(comb1)             # <<<<<<<<<<<<<<
  * 				first_two = True
  * 				for comb2 in combs2:
  */
-        __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1913; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_v_comb1);
         PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_comb1);
         __Pyx_GIVEREF(__pyx_v_comb1);
-        __pyx_t_12 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1913; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_12 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1913; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_smallest = __pyx_t_7;
 
-        /* "flagmatic/hypergraph_flag.pyx":1914
+        /* "flagmatic/hypergraph_flag.pyx":1913
  * 				combs2 = Combinations(remaining_verts, m - s)
  * 				smallest = min(comb1)
  * 				first_two = True             # <<<<<<<<<<<<<<
@@ -27525,7 +27525,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
         __pyx_v_first_two = 1;
 
-        /* "flagmatic/hypergraph_flag.pyx":1915
+        /* "flagmatic/hypergraph_flag.pyx":1914
  * 				smallest = min(comb1)
  * 				first_two = True
  * 				for comb2 in combs2:             # <<<<<<<<<<<<<<
@@ -27536,25 +27536,25 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           __pyx_t_12 = __pyx_v_combs2; __Pyx_INCREF(__pyx_t_12); __pyx_t_16 = 0;
           __pyx_t_17 = NULL;
         } else {
-          __pyx_t_16 = -1; __pyx_t_12 = PyObject_GetIter(__pyx_v_combs2); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_16 = -1; __pyx_t_12 = PyObject_GetIter(__pyx_v_combs2); if (unlikely(!__pyx_t_12)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_17 = Py_TYPE(__pyx_t_12)->tp_iternext; if (unlikely(!__pyx_t_17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_17 = Py_TYPE(__pyx_t_12)->tp_iternext; if (unlikely(!__pyx_t_17)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
         }
         for (;;) {
           if (likely(!__pyx_t_17)) {
             if (likely(PyList_CheckExact(__pyx_t_12))) {
               if (__pyx_t_16 >= PyList_GET_SIZE(__pyx_t_12)) break;
               #if CYTHON_COMPILING_IN_CPYTHON
-              __pyx_t_3 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              __pyx_t_3 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               #else
-              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               #endif
             } else {
               if (__pyx_t_16 >= PyTuple_GET_SIZE(__pyx_t_12)) break;
               #if CYTHON_COMPILING_IN_CPYTHON
-              __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               #else
-              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               #endif
             }
           } else {
@@ -27563,7 +27563,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
               PyObject* exc_type = PyErr_Occurred();
               if (exc_type) {
                 if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+                else {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1914; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               }
               break;
             }
@@ -27572,31 +27572,31 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           __Pyx_XDECREF_SET(__pyx_v_comb2, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1916
+          /* "flagmatic/hypergraph_flag.pyx":1915
  * 				first_two = True
  * 				for comb2 in combs2:
  * 					if min(comb2) < smallest:             # <<<<<<<<<<<<<<
  * 						continue
  * 					for j in range(s):
  */
-          __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1916; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_INCREF(__pyx_v_comb2);
           PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_comb2);
           __Pyx_GIVEREF(__pyx_v_comb2);
-          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1916; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_smallest); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1916; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_smallest); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_11 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1916; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_11 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_6 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1916; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+          __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_6 < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1915; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           if (__pyx_t_6) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1917
+            /* "flagmatic/hypergraph_flag.pyx":1916
  * 				for comb2 in combs2:
  * 					if min(comb2) < smallest:
  * 						continue             # <<<<<<<<<<<<<<
@@ -27606,7 +27606,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             goto __pyx_L14_continue;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1918
+          /* "flagmatic/hypergraph_flag.pyx":1917
  * 					if min(comb2) < smallest:
  * 						continue
  * 					for j in range(s):             # <<<<<<<<<<<<<<
@@ -27617,7 +27617,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1919
+            /* "flagmatic/hypergraph_flag.pyx":1918
  * 						continue
  * 					for j in range(s):
  * 						if first_one:             # <<<<<<<<<<<<<<
@@ -27627,23 +27627,23 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_t_6 = (__pyx_v_first_one != 0);
             if (__pyx_t_6) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1920
+              /* "flagmatic/hypergraph_flag.pyx":1919
  * 					for j in range(s):
  * 						if first_one:
  * 							p[(i * n) + j] = <int> perm[j]             # <<<<<<<<<<<<<<
  * 						else:
  * 							p[(i * n) + j] = <int> 0
  */
-              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_perm, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_11 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1920; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_perm, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_11 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1919; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1920; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1919; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
               (__pyx_v_p[((__pyx_v_i * __pyx_v_n) + __pyx_v_j)]) = ((int)__pyx_t_19);
               goto __pyx_L19;
             }
             /*else*/ {
 
-              /* "flagmatic/hypergraph_flag.pyx":1922
+              /* "flagmatic/hypergraph_flag.pyx":1921
  * 							p[(i * n) + j] = <int> perm[j]
  * 						else:
  * 							p[(i * n) + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -27655,7 +27655,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_L19:;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1923
+          /* "flagmatic/hypergraph_flag.pyx":1922
  * 						else:
  * 							p[(i * n) + j] = <int> 0
  * 					for j in range(m - s):             # <<<<<<<<<<<<<<
@@ -27666,7 +27666,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1924
+            /* "flagmatic/hypergraph_flag.pyx":1923
  * 							p[(i * n) + j] = <int> 0
  * 					for j in range(m - s):
  * 						if first_two:             # <<<<<<<<<<<<<<
@@ -27676,23 +27676,23 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_t_6 = (__pyx_v_first_two != 0);
             if (__pyx_t_6) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1925
+              /* "flagmatic/hypergraph_flag.pyx":1924
  * 					for j in range(m - s):
  * 						if first_two:
  * 							p[(i * n) + s + j] = <int> comb1[j]             # <<<<<<<<<<<<<<
  * 						else:
  * 							p[(i * n) + s + j] = <int> 0
  */
-              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb1, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_11 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1925; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb1, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_11 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1924; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1925; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1924; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
               (__pyx_v_p[(((__pyx_v_i * __pyx_v_n) + __pyx_v_s) + __pyx_v_j)]) = ((int)__pyx_t_19);
               goto __pyx_L22;
             }
             /*else*/ {
 
-              /* "flagmatic/hypergraph_flag.pyx":1927
+              /* "flagmatic/hypergraph_flag.pyx":1926
  * 							p[(i * n) + s + j] = <int> comb1[j]
  * 						else:
  * 							p[(i * n) + s + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -27704,7 +27704,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_L22:;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1928
+          /* "flagmatic/hypergraph_flag.pyx":1927
  * 						else:
  * 							p[(i * n) + s + j] = <int> 0
  * 					for j in range(m - s):             # <<<<<<<<<<<<<<
@@ -27715,21 +27715,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1929
+            /* "flagmatic/hypergraph_flag.pyx":1928
  * 							p[(i * n) + s + j] = <int> 0
  * 					for j in range(m - s):
  * 						p[(i * n) + m + j] = <int> comb2[j]             # <<<<<<<<<<<<<<
  * 					for j in range(n - m - m + s):
  * 						p[(i * n) + m + m - s + j] = <int> 0
  */
-            __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb2, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_11 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1929; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+            __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb2, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_11 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1928; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
             __Pyx_GOTREF(__pyx_t_11);
-            __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1929; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+            __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1928; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
             (__pyx_v_p[(((__pyx_v_i * __pyx_v_n) + __pyx_v_m) + __pyx_v_j)]) = ((int)__pyx_t_19);
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1930
+          /* "flagmatic/hypergraph_flag.pyx":1929
  * 					for j in range(m - s):
  * 						p[(i * n) + m + j] = <int> comb2[j]
  * 					for j in range(n - m - m + s):             # <<<<<<<<<<<<<<
@@ -27740,7 +27740,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1931
+            /* "flagmatic/hypergraph_flag.pyx":1930
  * 						p[(i * n) + m + j] = <int> comb2[j]
  * 					for j in range(n - m - m + s):
  * 						p[(i * n) + m + m - s + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -27750,7 +27750,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             (__pyx_v_p[(((((__pyx_v_i * __pyx_v_n) + __pyx_v_m) + __pyx_v_m) - __pyx_v_s) + __pyx_v_j)]) = ((int)0);
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1932
+          /* "flagmatic/hypergraph_flag.pyx":1931
  * 					for j in range(n - m - m + s):
  * 						p[(i * n) + m + m - s + j] = <int> 0
  * 					first_one = False             # <<<<<<<<<<<<<<
@@ -27759,7 +27759,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           __pyx_v_first_one = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1933
+          /* "flagmatic/hypergraph_flag.pyx":1932
  * 						p[(i * n) + m + m - s + j] = <int> 0
  * 					first_one = False
  * 					first_two = False             # <<<<<<<<<<<<<<
@@ -27768,7 +27768,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           __pyx_v_first_two = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1934
+          /* "flagmatic/hypergraph_flag.pyx":1933
  * 					first_one = False
  * 					first_two = False
  * 					i += 1             # <<<<<<<<<<<<<<
@@ -27777,7 +27777,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1915
+          /* "flagmatic/hypergraph_flag.pyx":1914
  * 				smallest = min(comb1)
  * 				first_two = True
  * 				for comb2 in combs2:             # <<<<<<<<<<<<<<
@@ -27788,7 +27788,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         }
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1910
+        /* "flagmatic/hypergraph_flag.pyx":1909
  * 			combs1 = Combinations(available_verts, m - s)
  * 			first_one = True
  * 			for comb1 in combs1:             # <<<<<<<<<<<<<<
@@ -27798,7 +27798,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1906
+      /* "flagmatic/hypergraph_flag.pyx":1905
  * 		vertices = range(1, n + 1)
  * 		perms = Permutations(vertices, s)
  * 		for perm in perms:             # <<<<<<<<<<<<<<
@@ -27808,19 +27808,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1936
+    /* "flagmatic/hypergraph_flag.pyx":1935
  * 					i += 1
  * 
  * 		cib = combinatorial_info_block()             # <<<<<<<<<<<<<<
  * 		cib.np = fac
  * 		cib.p = p
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1936; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1935; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1937
+    /* "flagmatic/hypergraph_flag.pyx":1936
  * 
  * 		cib = combinatorial_info_block()
  * 		cib.np = fac             # <<<<<<<<<<<<<<
@@ -27829,7 +27829,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_cib->np = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1938
+    /* "flagmatic/hypergraph_flag.pyx":1937
  * 		cib = combinatorial_info_block()
  * 		cib.np = fac
  * 		cib.p = p             # <<<<<<<<<<<<<<
@@ -27838,21 +27838,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_cib->p = __pyx_v_p;
 
-    /* "flagmatic/hypergraph_flag.pyx":1939
+    /* "flagmatic/hypergraph_flag.pyx":1938
  * 		cib.np = fac
  * 		cib.p = p
  * 		previous_equal_pair_combinations[key] = cib             # <<<<<<<<<<<<<<
  * 
  * 	if number_of:
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1939; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_2)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1938; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1939; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1938; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1941
+  /* "flagmatic/hypergraph_flag.pyx":1940
  * 		previous_equal_pair_combinations[key] = cib
  * 
  * 	if number_of:             # <<<<<<<<<<<<<<
@@ -27862,7 +27862,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   __pyx_t_6 = (__pyx_v_number_of != 0);
   if (__pyx_t_6) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1942
+    /* "flagmatic/hypergraph_flag.pyx":1941
  * 
  * 	if number_of:
  * 		number_of[0] = fac             # <<<<<<<<<<<<<<
@@ -27874,7 +27874,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   }
   __pyx_L27:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1944
+  /* "flagmatic/hypergraph_flag.pyx":1943
  * 		number_of[0] = fac
  * 
  * 	return p             # <<<<<<<<<<<<<<
@@ -27920,7 +27920,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1946
+/* "flagmatic/hypergraph_flag.pyx":1945
  * 	return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
@@ -27962,16 +27962,16 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_9get_equal_pair_combinati
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_s)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 2); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_equal_pair_combinations") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_equal_pair_combinations") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -27986,7 +27986,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_9get_equal_pair_combinati
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.get_equal_pair_combinations", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -28021,19 +28021,19 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_8get_equal_pair_combinati
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("get_equal_pair_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1949
+  /* "flagmatic/hypergraph_flag.pyx":1948
  * 
  * 	cdef int *p, np, i, j
  * 	p = generate_equal_pair_combinations(n, s, m, &np)             # <<<<<<<<<<<<<<
  * 	return [[p[(i * n) + j] for j in range(n)] for i in range(np)]
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1948; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1948; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1948; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combinations(__pyx_t_1, __pyx_t_2, __pyx_t_3, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1950
+  /* "flagmatic/hypergraph_flag.pyx":1949
  * 	cdef int *p, np, i, j
  * 	p = generate_equal_pair_combinations(n, s, m, &np)
  * 	return [[p[(i * n) + j] for j in range(n)] for i in range(np)]             # <<<<<<<<<<<<<<
@@ -28041,42 +28041,42 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_8get_equal_pair_combinati
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __pyx_v_np;
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_3; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
-    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_6 == (long)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_6 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_6 == (long)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     for (__pyx_t_1 = 0; __pyx_t_1 < __pyx_t_6; __pyx_t_1+=1) {
       __pyx_v_j = __pyx_t_1;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_n); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_n); if (unlikely(!__pyx_t_8)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_GOTREF(__pyx_t_9);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_9))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_9))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_5))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1950; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_5))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1949; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1946
+  /* "flagmatic/hypergraph_flag.pyx":1945
  * 	return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
@@ -28099,7 +28099,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_8get_equal_pair_combinati
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1957
+/* "flagmatic/hypergraph_flag.pyx":1956
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
@@ -28139,11 +28139,11 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_11make_graph_block(PyObje
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+          __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, 1); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "make_graph_block") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "make_graph_block") < 0)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -28156,7 +28156,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_11make_graph_block(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
+  __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L3_error;}
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.make_graph_block", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -28183,39 +28183,39 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("make_graph_block", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1959
+  /* "flagmatic/hypergraph_flag.pyx":1958
  * def make_graph_block(graphs, n):
  * 
  * 	gb = graph_block()             # <<<<<<<<<<<<<<
  * 	gb.n = n
  * 	gb.len = len(graphs)
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_9flagmatic_15hypergraph_flag_graph_block)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1959; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)__pyx_ptype_9flagmatic_15hypergraph_flag_graph_block)), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1958; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_gb = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_graph_block *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1960
+  /* "flagmatic/hypergraph_flag.pyx":1959
  * 
  * 	gb = graph_block()
  * 	gb.n = n             # <<<<<<<<<<<<<<
  * 	gb.len = len(graphs)
  * 	gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  */
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1960; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1959; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_gb->n = __pyx_t_2;
 
-  /* "flagmatic/hypergraph_flag.pyx":1961
+  /* "flagmatic/hypergraph_flag.pyx":1960
  * 	gb = graph_block()
  * 	gb.n = n
  * 	gb.len = len(graphs)             # <<<<<<<<<<<<<<
  * 	gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  * 	for i in range(gb.len):
  */
-  __pyx_t_3 = PyObject_Length(__pyx_v_graphs); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1961; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_3 = PyObject_Length(__pyx_v_graphs); if (unlikely(__pyx_t_3 == -1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1960; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_v_gb->len = __pyx_t_3;
 
-  /* "flagmatic/hypergraph_flag.pyx":1962
+  /* "flagmatic/hypergraph_flag.pyx":1961
  * 	gb.n = n
  * 	gb.len = len(graphs)
  * 	gb.graphs = <void **> malloc(gb.len * sizeof(void *))             # <<<<<<<<<<<<<<
@@ -28224,7 +28224,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
  */
   __pyx_v_gb->graphs = ((void **)malloc((__pyx_v_gb->len * (sizeof(void *)))));
 
-  /* "flagmatic/hypergraph_flag.pyx":1963
+  /* "flagmatic/hypergraph_flag.pyx":1962
  * 	gb.len = len(graphs)
  * 	gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  * 	for i in range(gb.len):             # <<<<<<<<<<<<<<
@@ -28235,20 +28235,20 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_2; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "flagmatic/hypergraph_flag.pyx":1964
+    /* "flagmatic/hypergraph_flag.pyx":1963
  * 	gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  * 	for i in range(gb.len):
  * 		gb.graphs[i] = <void *> graphs[i]             # <<<<<<<<<<<<<<
  * 	return gb
  * 
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_graphs, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1964; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_graphs, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(__pyx_t_1 == NULL)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1963; __pyx_clineno = __LINE__; goto __pyx_L1_error;};
     __Pyx_GOTREF(__pyx_t_1);
     (__pyx_v_gb->graphs[__pyx_v_i]) = ((void *)__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1965
+  /* "flagmatic/hypergraph_flag.pyx":1964
  * 	for i in range(gb.len):
  * 		gb.graphs[i] = <void *> graphs[i]
  * 	return gb             # <<<<<<<<<<<<<<
@@ -28260,7 +28260,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   __pyx_r = ((PyObject *)__pyx_v_gb);
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1957
+  /* "flagmatic/hypergraph_flag.pyx":1956
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
@@ -28280,7 +28280,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1968
+/* "flagmatic/hypergraph_flag.pyx":1967
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
@@ -28298,7 +28298,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_13print_graph_block(PyObj
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("print_graph_block (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gb), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "gb", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gb), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "gb", 0))) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_r = __pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(__pyx_self, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_graph_block *)__pyx_v_gb));
 
   /* function exit code */
@@ -28324,7 +28324,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(CYTHO
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("print_graph_block", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1970
+  /* "flagmatic/hypergraph_flag.pyx":1969
  * def print_graph_block(graph_block gb):
  * 
  * 	for i in range(gb.len):             # <<<<<<<<<<<<<<
@@ -28335,7 +28335,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(CYTHO
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "flagmatic/hypergraph_flag.pyx":1971
+    /* "flagmatic/hypergraph_flag.pyx":1970
  * 
  * 	for i in range(gb.len):
  * 		g = <HypergraphFlag ?> gb.graphs[i]             # <<<<<<<<<<<<<<
@@ -28346,24 +28346,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(CYTHO
     __Pyx_XDECREF_SET(__pyx_v_g, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1972
+    /* "flagmatic/hypergraph_flag.pyx":1971
  * 	for i in range(gb.len):
  * 		g = <HypergraphFlag ?> gb.graphs[i]
  * 		print str(g)             # <<<<<<<<<<<<<<
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1972; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1971; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(((PyObject *)__pyx_v_g));
     PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)__pyx_v_g));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_g));
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyString_Type))), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1972; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)((PyObject*)(&PyString_Type))), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1971; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PrintOne(0, __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1972; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+    if (__Pyx_PrintOne(0, __pyx_t_4) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1971; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1968
+  /* "flagmatic/hypergraph_flag.pyx":1967
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
@@ -31335,7 +31335,7 @@ static int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_sum = __Pyx_GetBuiltinName(__pyx_n_s_sum); if (!__pyx_builtin_sum) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 544; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_n_s_max); if (!__pyx_builtin_max) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 550; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_any = __Pyx_GetBuiltinName(__pyx_n_s_any); if (!__pyx_builtin_any) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 559; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
-  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_n_s_min); if (!__pyx_builtin_min) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1913; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_n_s_min); if (!__pyx_builtin_min) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1912; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) {__pyx_filename = __pyx_f[2]; __pyx_lineno = 799; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   return 0;
   __pyx_L1_error:;
@@ -31879,41 +31879,41 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GIVEREF(__pyx_tuple__56);
   __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_pair_combinations, 1878, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1878; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "flagmatic/hypergraph_flag.pyx":1946
+  /* "flagmatic/hypergraph_flag.pyx":1945
  * 	return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
  * 
  * 	cdef int *p, np, i, j
  */
-  __pyx_tuple__58 = PyTuple_Pack(7, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_m, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__58)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__58 = PyTuple_Pack(7, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_m, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__58)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__58);
   __Pyx_GIVEREF(__pyx_tuple__58);
-  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_equal_pair_combinations, 1946, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_equal_pair_combinations, 1945, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "flagmatic/hypergraph_flag.pyx":1957
+  /* "flagmatic/hypergraph_flag.pyx":1956
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
  * 
  * 	gb = graph_block()
  */
-  __pyx_tuple__60 = PyTuple_Pack(4, __pyx_n_s_graphs, __pyx_n_s_n, __pyx_n_s_gb, __pyx_n_s_i); if (unlikely(!__pyx_tuple__60)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__60 = PyTuple_Pack(4, __pyx_n_s_graphs, __pyx_n_s_n, __pyx_n_s_gb, __pyx_n_s_i); if (unlikely(!__pyx_tuple__60)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__60);
   __Pyx_GIVEREF(__pyx_tuple__60);
-  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_make_graph_block, 1957, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_make_graph_block, 1956, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
 
-  /* "flagmatic/hypergraph_flag.pyx":1968
+  /* "flagmatic/hypergraph_flag.pyx":1967
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
  * 
  * 	for i in range(gb.len):
  */
-  __pyx_tuple__62 = PyTuple_Pack(3, __pyx_n_s_gb, __pyx_n_s_i, __pyx_n_s_g); if (unlikely(!__pyx_tuple__62)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_tuple__62 = PyTuple_Pack(3, __pyx_n_s_gb, __pyx_n_s_i, __pyx_n_s_g); if (unlikely(!__pyx_tuple__62)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_tuple__62);
   __Pyx_GIVEREF(__pyx_tuple__62);
-  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_print_graph_block, 1968, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_print_graph_block, 1967, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -32038,9 +32038,9 @@ PyMODINIT_FUNC PyInit_hypergraph_flag(void)
   __pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block.tp_print = 0;
   if (PyObject_SetAttrString(__pyx_m, "combinatorial_info_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1687; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block = &__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block;
-  if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1953; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1952; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_9flagmatic_15hypergraph_flag_graph_block.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "graph_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1953; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyObject_SetAttrString(__pyx_m, "graph_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1952; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block = &__pyx_type_9flagmatic_15hypergraph_flag_graph_block;
   if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag___pyx_scope_struct__generate_flags) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 479; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __pyx_type_9flagmatic_15hypergraph_flag___pyx_scope_struct__generate_flags.tp_print = 0;
@@ -32511,40 +32511,40 @@ PyMODINIT_FUNC PyInit_hypergraph_flag(void)
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_equal_pair_combinations, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1885; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1946
+  /* "flagmatic/hypergraph_flag.pyx":1945
  * 	return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
  * 
  * 	cdef int *p, np, i, j
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_9get_equal_pair_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_9get_equal_pair_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_equal_pair_combinations, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1946; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_equal_pair_combinations, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1945; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1957
+  /* "flagmatic/hypergraph_flag.pyx":1956
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
  * 
  * 	gb = graph_block()
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_11make_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_11make_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_make_graph_block, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1957; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_make_graph_block, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1956; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1968
+  /* "flagmatic/hypergraph_flag.pyx":1967
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
  * 
  * 	for i in range(gb.len):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_13print_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_13print_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_print_graph_block, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1968; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_print_graph_block, __pyx_t_1) < 0) {__pyx_filename = __pyx_f[0]; __pyx_lineno = 1967; __pyx_clineno = __LINE__; goto __pyx_L1_error;}
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "flagmatic/hypergraph_flag.pyx":1
