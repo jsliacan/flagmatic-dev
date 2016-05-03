@@ -43,7 +43,7 @@ from sage.functions.other import floor
 from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagonal_matrix
 from sage.modules.misc import gram_schmidt
 from sage.misc.misc import SAGE_TMP
-from sage.combinat.all import Permutations
+from sage.combinat.all import Permutations, Combinations
 from sage.matrix.constructor import ones_matrix, vector
 from copy import copy
 
@@ -3266,9 +3266,31 @@ class Problem(SageObject):
         claim0 = claim0a and claim0b
         
 
+
+        # ---------- CLAIM 3 -----------
+        # every sharp graph of order N admits a strong homomorphism into F
+        # ------------------------------
+        
+
+        num_sharps = len(self._sharp_graphs)
+        c_subgraphs = self._construction.subgraphs(self._n)
+        count_embeddable = 0
+        for gi in self._sharp_graphs:
+            g = self.graphs[gi]
+            if g in c_subgraphs:
+                count_embeddable += 1
+            else:
+                break
+        if count_embeddable == num_sharps:
+            print "Every sharp graph is embeddable into a blowup of", Fgraph, ".\n"
+            claim3 = True
+
+
+
         # ---------- CLAIM 2 -----------
-        # tgraph is uniquely embeddable && different vertices attach differently to tgraph
-        # claim2a and claim2b
+        # claim2a: tgraph is uniquely embeddable
+        # claim2b: different vertices of F attach differently to tgraph (when embedded in F)
+        
         # ------------------------------
         claim2a = False # unique embeddability
         claim2b = False # distinct attachment
@@ -3286,10 +3308,62 @@ class Problem(SageObject):
         Faut_group_order = sageF.automorphism_group().order()
         if dens*binomial(Fgraph.n,Tgraph.n)*Taut_group_order/Faut_group_order == 1:
             claim2a = True
-            
+            sys.stdout.write("Claim 2a is True.\n\n")
+            sys.stdout.flush()
 
         # work towards claim2b:
+
+        # find how to strongly embed Tgraph into Fgraph == (find induced copy in B(Fgraph) )
+
+        NF = Fgraph.n
+        NT = Tgraph.n
+        Fgraph_vertex_set = range(1,NF+1)
         
+        combs = Combinations(range(1,NF+1), NT)
+        neighbourhoods_in_TinF = list()
+        
+        for comb in combs:
+            TinF = Fgraph.degenerate_induced_subgraph(comb)
+
+            if TinF == Tgraph:
+                comb_c = copy(Fgraph_vertex_set)
+                for x in comb:
+                    comb_c.remove(x)
+
+                for v in comb_c:
+                    v_neighbourhood_in_TinF = list()
+                    for u in comb:
+                        if (u,v) in Fgraph.edges or (v,u) in Fgraph.edges:
+                            v_neighbourhood_in_TinF.append(u)
+                    neighbourhoods_in_TinF.append(v_neighbourhood_in_TinF)
+            break
+
+        num_neighbourhoods_in_TinF = len(neighbourhoods_in_TinF)
+                         
+        for nbhd in neighbourhoods_in_TinF:
+            nbhd.sort()
+            
+
+        all_pairs_are_ok = True
+        for nbhd1_i in range(num_neighbourhoods_in_TinF-1):
+            this_pair_is_ok = True # to begin with
+            for nbhd2_i in range(nghd1_i+1, neighbourhoods_in_TinF):
+                if neighbourhoods_in_TinF[nbhd1_i] == neighbourhoods_in_TinF[nbhd2_i]:
+                    this_pair_is_ok = False
+                    break
+            if this_pair_is_ok == False:
+                all_pairs_ar_ok = False
+                break
+
+        if all_pairs_are_ok == True:
+            claim2b = True
+            sys.stdout.write("Claim 2b is True. All vertices of F attach differently to T.\n")
+            sys.stdout.flush()
+        else:
+            sys.stdout.write("Claim 2b is False.\n")
+            sys.stdout.flush()
+            
+        """
         Flabelled = copy(Fgraph)
         Flabelled.t = Fgraph.n # now the copy is fully labelled
         perms = Permutations(range(1,Fgraph.n+1))
@@ -3313,7 +3387,8 @@ class Problem(SageObject):
                 if is_embeddable:
                     Flabelled = copy(Ffresh)
                     break
-                
+
+        
         # have our Ffresh with Tgraph as an induced subgraph on first Tgraph.n vertices of Ffresh
         # now check if attachments are all distinct
         restricted_neighbourhoods = [[] for x in range(Flabelled.n)]
@@ -3326,29 +3401,14 @@ class Problem(SageObject):
 
         if len(restricted_neighbourhoods) == len(set(map(tuple,restricted_neighbourhoods) )):
             claim2b = True
-
+        """
+        
         claim2 = claim2a and claim2b
         if claim2:
             print Tgraph, "is uniquely embeddable into", Fgraph, "and different vertices of", Fgraph, "attach differently to", str(Tgraph)+".\n"
 
-        # ---------- CLAIM 3 -----------
-        # every sharp graph of order N admits a strong homomorphism into F
-        # ------------------------------
-        
 
-        num_sharps = len(self._sharp_graphs)
-        c_subgraphs = self._construction.subgraphs(self._n)
-        count_embeddable = 0
-        for gi in self._sharp_graphs:
-            g = self.graphs[gi]
-            if g in c_subgraphs:
-                count_embeddable += 1
-            else:
-                break
-        if count_embeddable == num_sharps:
-            print "Every sharp graph is embeddable into a blowup of", Fgraph, ".\n"
-            claim3 = True
-
+            
         # ---------- CLAIM 1 -----------
         # forbidding Tgraph will decrease objective function
         # ------------------------------
@@ -3414,6 +3474,8 @@ class Problem(SageObject):
                 else:
                     print "Forbidding", Tgraph, "yields a bound of", 0, "which is at most", str(thebound)+"."
                     
+
+
         
 
         print # newline
@@ -3608,11 +3670,12 @@ class Problem(SageObject):
  
 
         if claim1 and claim2:
-            print "Did you know that an ant colony is also called formicary? Anyway, theorem proved! The problem is perfectly stable by Thm 5.9."
             print "\n","*"*20, "PERFECT STABILITY -- OK", "*"*20,"\n"
             self._perfectly_stable = True
             perfstabproblem.write_certificate("cert_perf_stab.js")
 
+         
+                        
 
         #==========================================================
         # construct matrix M
@@ -3620,6 +3683,8 @@ class Problem(SageObject):
         
         C = self._construction
         B = C.graph
+        B.make_minimal_isomorph()
+        Bc = B.complement()
         tau = self.tgraph
         tau_index = self.types.index(tau)
         tau_flags = self.flags[tau_index]
@@ -3632,8 +3697,11 @@ class Problem(SageObject):
         X = list()
         for h in maps_tau_B:
             is_hom = True
+            
             for e in tau.edges:
-                he = (h[e[0]],h[e[1]])
+                he = [h[e[0]-1],h[e[1]-1]]
+                he.sort()
+                he = tuple(he)
                 if not he in B.edges:
                     # h not homomorphism
                     is_hom = False
@@ -3641,60 +3709,70 @@ class Problem(SageObject):
             if is_hom:
                 tauc = tau.complement()
                 for ec in tauc.edges:
-                    hec = (h[ec[0]], h[ec[1]])
-                    if hec in B.edges:
+                    hec = [h[ec[0]-1], h[ec[1]-1]]
+                    hec.sort()
+                    hec = tuple(hec)
+                    if not hec in Bc.edges:
                         # h not homomorphism
                         is_hom = False
                         break
             if is_hom:
                 X.append(h)
-
+        
         # for each f in X, construct matrix Mf
         numflags = len(self.flags[tau_index])
         D = matrix(QQ, ones_matrix(1,B.n))
         Q_tau = self._sdp_Q_matrices[tau_index]
-        
+
+        count = 0
         for f_tuple in X:
             f = list(f_tuple)
-            Mf = [[0 for x in range(numflags)] for y in range(B.n)]
+
+            Mf = [[0 for x in range(B.n)] for y in range(numflags)]
 
             for j in range(numflags): # rows of Mf
                 Fj = self.flags[tau_index][j]
+                
                 for w in range(1,B.n+1): # columns of Mf
-                    f = f+[w]
+                    fj = f+[w]
                     edges_match_so_far = True
                     for i in range(tau.n):
                         if not edges_match_so_far:
                             break
                         pairF = [i+1,tau.n+1]
-                        pairB = [f[i],w]
+                        pairB = [fj[i],w]
                         pairF.sort()
                         pairB.sort()
                         pairF = tuple(pairF)
                         pairB = tuple(pairB)
-                        if (pairB in B.edges and pairF in Fj.edges) or (pairB not in B.edges and pairF not in Fj.edges):
+
+                        if pairB in B.edges and pairF in Fj.edges:
+                            continue
+                        elif not (pairB in B.edges) and not (pairF in Fj.edges):
                             continue
                         else:
+                            if f_tuple == (4,3,1):
+                                print "true C", pairF, pairB, w, Fj, B
                             edges_match_so_far = False
 
                     if edges_match_so_far:
                         Mf[j][w-1] = 1
 
             Mf = matrix(Mf)
+            """
+            print f_tuple, Mf
+            print
+            """
             Mf_dash = Mf.transpose()*self._exact_Q_matrices[tau_index]*Mf
             D = D.transpose().augment(Mf_dash.transpose()).transpose()
 
-        b = [0 for x in range(numflags*len(X)+1)]
+
+        b = [0 for x in range(D.dimensions()[0])]
         b[0] = 1
         b = vector(b)
-        print D
-        print
         a = D.solve_right(b)
         print a
-                        
-                        
-                        
-                            
+                                           
                                 
                         
                         
