@@ -43,7 +43,7 @@ from sage.functions.other import floor
 from sage.matrix.all import matrix, identity_matrix, block_matrix, block_diagonal_matrix
 from sage.modules.misc import gram_schmidt
 from sage.misc.misc import SAGE_TMP
-from sage.combinat.all import Permutations, Combinations
+from sage.combinat.all import Permutations, Combinations, Tuples
 from sage.matrix.constructor import ones_matrix, vector
 from copy import copy
 
@@ -3295,22 +3295,54 @@ class Problem(SageObject):
         claim2a = False # unique embeddability
         claim2b = False # distinct attachment
 
-        # Tgraph --> Fblowup is a unique embedding if:
-        # p(Tgraph,Fgraph)*(Fgraph.n choose Tgraph.n)*|Aut(Tgraph)|/|Aut(Fgraph)|
-        dens = Fgraph.subgraph_density(Tgraph)
-        sageT = Graph(Tgraph.n)
-        for e in Tgraph.edges:
-            sageT.add_edge(e)
+        otuples = Tuples(range(1,Fgraph.n+1), Tgraph.n)        
+        coTgraph = Tgraph.complement()
+        coFgraph = Fgraph.complement()
         sageF = Graph(Fgraph.n)
         for e in Fgraph.edges:
             sageF.add_edge(e)
-        Taut_group_order = sageT.automorphism_group().order()
         Faut_group_order = sageF.automorphism_group().order()
-        if dens*binomial(Fgraph.n,Tgraph.n)*Taut_group_order/Faut_group_order == 1:
-            claim2a = True
-            sys.stdout.write("Claim 2a is True.\n\n")
-            sys.stdout.flush()
-
+        
+        strong_hom_count = 0
+        for tpl in otuples:
+            # for each map into F, check if it induces T
+            edge_missing = False
+            for edge in Tgraph.edges:
+                if edge_missing == True:
+                    break
+                imedge1 = (tpl[edge[0]-1],tpl[edge[1]-1])
+                imedge2 = (tpl[edge[1]-1],tpl[edge[0]-1])
+                if imedge1 in Fgraph.edges or imedge2 in Fgraph.edges:
+                    continue
+                else:
+                    edge_missing = True
+                    break
+            if edge_missing==True:
+                continue # go to next perm
+            coedge_missing = False
+            for coedge in coTgraph.edges:
+                if coedge_missing == True:
+                    break
+                imcoedge1 = (tpl[coedge[0]-1],tpl[coedge[1]-1])
+                imcoedge2 = (tpl[coedge[1]-1],tpl[coedge[0]-1])
+                if imcoedge1 in coFgraph.edges or imcoedge2 in coFgraph.edges:
+                    continue
+                else:
+                    coedge_missing = True
+                    break
+                
+            if coedge_missing or edge_missing:
+                continue # this wasn't a strong hom embedding of T into F
+            else:
+                strong_hom_count += 1
+                #sys.stdout.write("%s\n" %str(tpl))
+                
+        claim2a = strong_hom_count == Faut_group_order
+        # sys.stdout.write("Order of Aut(F) is %d.\n" % Faut_group_order)
+        # sys.stdout.write("Number of strong homs of T into F is %d.\n\n" % strong_hom_count)
+                    
+            
+                
         # work towards claim2b:
 
         # find how to strongly embed Tgraph into Fgraph == (find induced copy in B(Fgraph) )
