@@ -16216,7 +16216,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_56induce
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
- *                 cdef int i, *c_verts, num_verts
+ *                 cdef int i
  */
     __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__34, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 984, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
@@ -16233,17 +16233,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_56induce
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":988
- *                 cdef int i, *c_verts, num_verts
+  /* "flagmatic/hypergraph_flag.pyx":990
+ *                 cdef int num_verts
  * 
  *                 num_verts = len(verts)             # <<<<<<<<<<<<<<
  *                 c_verts = <int *> malloc(num_verts * sizeof(int))
  * 
  */
-  __pyx_t_3 = PyObject_Length(__pyx_v_verts); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 988, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_v_verts); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 990, __pyx_L1_error)
   __pyx_v_num_verts = __pyx_t_3;
 
-  /* "flagmatic/hypergraph_flag.pyx":989
+  /* "flagmatic/hypergraph_flag.pyx":991
  * 
  *                 num_verts = len(verts)
  *                 c_verts = <int *> malloc(num_verts * sizeof(int))             # <<<<<<<<<<<<<<
@@ -16252,7 +16252,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_56induce
  */
   __pyx_v_c_verts = ((int *)malloc((__pyx_v_num_verts * (sizeof(int)))));
 
-  /* "flagmatic/hypergraph_flag.pyx":991
+  /* "flagmatic/hypergraph_flag.pyx":993
  *                 c_verts = <int *> malloc(num_verts * sizeof(int))
  * 
  *                 for i in range(num_verts):             # <<<<<<<<<<<<<<
@@ -16263,21 +16263,21 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_56induce
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "flagmatic/hypergraph_flag.pyx":992
+    /* "flagmatic/hypergraph_flag.pyx":994
  * 
  *                 for i in range(num_verts):
  *                         c_verts[i] = <int ?> verts[i]             # <<<<<<<<<<<<<<
  * 
  *                 return self.c_induced_subgraph(c_verts, num_verts)
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_verts, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 992, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_verts, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 994, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 992, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 994, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     (__pyx_v_c_verts[__pyx_v_i]) = ((int)__pyx_t_6);
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":994
+  /* "flagmatic/hypergraph_flag.pyx":996
  *                         c_verts[i] = <int ?> verts[i]
  * 
  *                 return self.c_induced_subgraph(c_verts, num_verts)             # <<<<<<<<<<<<<<
@@ -16285,7 +16285,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_56induce
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_self->__pyx_vtab)->c_induced_subgraph(__pyx_v_self, __pyx_v_c_verts, __pyx_v_num_verts)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 994, __pyx_L1_error)
+  __pyx_t_2 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_self->__pyx_vtab)->c_induced_subgraph(__pyx_v_self, __pyx_v_c_verts, __pyx_v_num_verts)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 996, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
@@ -16310,12 +16310,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_56induce
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":997
+/* "flagmatic/hypergraph_flag.pyx":999
  * 
  * 
  *         cdef HypergraphFlag c_induced_subgraph(self, int *verts, int num_verts):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int nm = 0, i, j, *e, got, te[3]
+ *                 cdef int nm = 0, i, j
  */
 
 static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_induced_subgraph(struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_v_self, int *__pyx_v_verts, int __pyx_v_num_verts) {
@@ -16338,18 +16338,18 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
   int __pyx_t_8;
   __Pyx_RefNannySetupContext("c_induced_subgraph", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":999
+  /* "flagmatic/hypergraph_flag.pyx":1001
  *         cdef HypergraphFlag c_induced_subgraph(self, int *verts, int num_verts):
  * 
- *                 cdef int nm = 0, i, j, *e, got, te[3]             # <<<<<<<<<<<<<<
- *                 cdef HypergraphFlag ig = type(self)()
- * 
+ *                 cdef int nm = 0, i, j             # <<<<<<<<<<<<<<
+ *                 cdef int *e
+ *                 cdef int got
  */
   __pyx_v_nm = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1000
+  /* "flagmatic/hypergraph_flag.pyx":1006
+ *                 cdef int te[3]
  * 
- *                 cdef int nm = 0, i, j, *e, got, te[3]
  *                 cdef HypergraphFlag ig = type(self)()             # <<<<<<<<<<<<<<
  * 
  *                 if self.is_degenerate:
@@ -16366,18 +16366,18 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1000, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1006, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1000, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1006, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag))))) __PYX_ERR(0, 1000, __pyx_L1_error)
+  if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag))))) __PYX_ERR(0, 1006, __pyx_L1_error)
   __pyx_v_ig = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1002
+  /* "flagmatic/hypergraph_flag.pyx":1008
  *                 cdef HypergraphFlag ig = type(self)()
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -16387,20 +16387,20 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
   __pyx_t_4 = (__pyx_v_self->is_degenerate != 0);
   if (__pyx_t_4) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1003
+    /* "flagmatic/hypergraph_flag.pyx":1009
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 ig.n = num_verts
  */
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1003, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__35, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1009, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_Raise(__pyx_t_1, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    __PYX_ERR(0, 1003, __pyx_L1_error)
+    __PYX_ERR(0, 1009, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1002
+    /* "flagmatic/hypergraph_flag.pyx":1008
  *                 cdef HypergraphFlag ig = type(self)()
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -16409,64 +16409,64 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1005
+  /* "flagmatic/hypergraph_flag.pyx":1011
  *                         raise NotImplementedError("degenerate graphs are not supported.")
  * 
  *                 ig.n = num_verts             # <<<<<<<<<<<<<<
  *                 ig.r = self._r
  *                 ig.oriented = self._oriented
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_num_verts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1005, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_num_verts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_n, __pyx_t_1) < 0) __PYX_ERR(0, 1005, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_n, __pyx_t_1) < 0) __PYX_ERR(0, 1011, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1006
+  /* "flagmatic/hypergraph_flag.pyx":1012
  * 
  *                 ig.n = num_verts
  *                 ig.r = self._r             # <<<<<<<<<<<<<<
  *                 ig.oriented = self._oriented
  *                 ig.multiplicity = self._multiplicity
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_r); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1006, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_r); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1012, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_r, __pyx_t_1) < 0) __PYX_ERR(0, 1006, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_r, __pyx_t_1) < 0) __PYX_ERR(0, 1012, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1007
+  /* "flagmatic/hypergraph_flag.pyx":1013
  *                 ig.n = num_verts
  *                 ig.r = self._r
  *                 ig.oriented = self._oriented             # <<<<<<<<<<<<<<
  *                 ig.multiplicity = self._multiplicity
  *                 ig.t = 0
  */
-  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_oriented); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1007, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyBool_FromLong(__pyx_v_self->_oriented); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1013, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_oriented, __pyx_t_1) < 0) __PYX_ERR(0, 1007, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_oriented, __pyx_t_1) < 0) __PYX_ERR(0, 1013, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1008
+  /* "flagmatic/hypergraph_flag.pyx":1014
  *                 ig.r = self._r
  *                 ig.oriented = self._oriented
  *                 ig.multiplicity = self._multiplicity             # <<<<<<<<<<<<<<
  *                 ig.t = 0
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_multiplicity); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1008, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_self->_multiplicity); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_multiplicity, __pyx_t_1) < 0) __PYX_ERR(0, 1008, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_multiplicity, __pyx_t_1) < 0) __PYX_ERR(0, 1014, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1009
+  /* "flagmatic/hypergraph_flag.pyx":1015
  *                 ig.oriented = self._oriented
  *                 ig.multiplicity = self._multiplicity
  *                 ig.t = 0             # <<<<<<<<<<<<<<
  * 
  *                 if self._r == 3:
  */
-  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_t, __pyx_int_0) < 0) __PYX_ERR(0, 1009, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_t, __pyx_int_0) < 0) __PYX_ERR(0, 1015, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1011
+  /* "flagmatic/hypergraph_flag.pyx":1017
  *                 ig.t = 0
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -16476,7 +16476,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
   switch (__pyx_v_self->_r) {
     case 3:
 
-    /* "flagmatic/hypergraph_flag.pyx":1013
+    /* "flagmatic/hypergraph_flag.pyx":1019
  *                 if self._r == 3:
  * 
  *                         for i in range(self.ne):             # <<<<<<<<<<<<<<
@@ -16487,7 +16487,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "flagmatic/hypergraph_flag.pyx":1014
+      /* "flagmatic/hypergraph_flag.pyx":1020
  * 
  *                         for i in range(self.ne):
  *                                 e = &self._edges[3 * i]             # <<<<<<<<<<<<<<
@@ -16496,7 +16496,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
       __pyx_v_e = (&(__pyx_v_self->_edges[(3 * __pyx_v_i)]));
 
-      /* "flagmatic/hypergraph_flag.pyx":1015
+      /* "flagmatic/hypergraph_flag.pyx":1021
  *                         for i in range(self.ne):
  *                                 e = &self._edges[3 * i]
  *                                 got = 0             # <<<<<<<<<<<<<<
@@ -16505,7 +16505,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
       __pyx_v_got = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1016
+      /* "flagmatic/hypergraph_flag.pyx":1022
  *                                 e = &self._edges[3 * i]
  *                                 got = 0
  *                                 for j in range(num_verts):             # <<<<<<<<<<<<<<
@@ -16516,7 +16516,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
       for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "flagmatic/hypergraph_flag.pyx":1017
+        /* "flagmatic/hypergraph_flag.pyx":1023
  *                                 got = 0
  *                                 for j in range(num_verts):
  *                                         if e[0] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16526,7 +16526,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_t_4 = (((__pyx_v_e[0]) == (__pyx_v_verts[__pyx_v_j])) != 0);
         if (__pyx_t_4) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1018
+          /* "flagmatic/hypergraph_flag.pyx":1024
  *                                 for j in range(num_verts):
  *                                         if e[0] == verts[j]:
  *                                                 got += 1             # <<<<<<<<<<<<<<
@@ -16535,7 +16535,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           __pyx_v_got = (__pyx_v_got + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1019
+          /* "flagmatic/hypergraph_flag.pyx":1025
  *                                         if e[0] == verts[j]:
  *                                                 got += 1
  *                                                 te[0] = j + 1             # <<<<<<<<<<<<<<
@@ -16544,7 +16544,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           (__pyx_v_te[0]) = (__pyx_v_j + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1017
+          /* "flagmatic/hypergraph_flag.pyx":1023
  *                                 got = 0
  *                                 for j in range(num_verts):
  *                                         if e[0] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16554,7 +16554,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
           goto __pyx_L8;
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1020
+        /* "flagmatic/hypergraph_flag.pyx":1026
  *                                                 got += 1
  *                                                 te[0] = j + 1
  *                                         elif e[1] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16564,7 +16564,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_t_4 = (((__pyx_v_e[1]) == (__pyx_v_verts[__pyx_v_j])) != 0);
         if (__pyx_t_4) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1021
+          /* "flagmatic/hypergraph_flag.pyx":1027
  *                                                 te[0] = j + 1
  *                                         elif e[1] == verts[j]:
  *                                                 got += 1             # <<<<<<<<<<<<<<
@@ -16573,7 +16573,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           __pyx_v_got = (__pyx_v_got + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1022
+          /* "flagmatic/hypergraph_flag.pyx":1028
  *                                         elif e[1] == verts[j]:
  *                                                 got += 1
  *                                                 te[1] = j + 1             # <<<<<<<<<<<<<<
@@ -16582,7 +16582,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           (__pyx_v_te[1]) = (__pyx_v_j + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1020
+          /* "flagmatic/hypergraph_flag.pyx":1026
  *                                                 got += 1
  *                                                 te[0] = j + 1
  *                                         elif e[1] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16592,7 +16592,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
           goto __pyx_L8;
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1023
+        /* "flagmatic/hypergraph_flag.pyx":1029
  *                                                 got += 1
  *                                                 te[1] = j + 1
  *                                         elif e[2] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16602,7 +16602,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_t_4 = (((__pyx_v_e[2]) == (__pyx_v_verts[__pyx_v_j])) != 0);
         if (__pyx_t_4) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1024
+          /* "flagmatic/hypergraph_flag.pyx":1030
  *                                                 te[1] = j + 1
  *                                         elif e[2] == verts[j]:
  *                                                 got += 1             # <<<<<<<<<<<<<<
@@ -16611,7 +16611,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           __pyx_v_got = (__pyx_v_got + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1025
+          /* "flagmatic/hypergraph_flag.pyx":1031
  *                                         elif e[2] == verts[j]:
  *                                                 got += 1
  *                                                 te[2] = j + 1             # <<<<<<<<<<<<<<
@@ -16620,7 +16620,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           (__pyx_v_te[2]) = (__pyx_v_j + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1023
+          /* "flagmatic/hypergraph_flag.pyx":1029
  *                                                 got += 1
  *                                                 te[1] = j + 1
  *                                         elif e[2] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16631,7 +16631,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_L8:;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1026
+      /* "flagmatic/hypergraph_flag.pyx":1032
  *                                                 got += 1
  *                                                 te[2] = j + 1
  *                                 if got == 3:             # <<<<<<<<<<<<<<
@@ -16641,7 +16641,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
       __pyx_t_4 = ((__pyx_v_got == 3) != 0);
       if (__pyx_t_4) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1027
+        /* "flagmatic/hypergraph_flag.pyx":1033
  *                                                 te[2] = j + 1
  *                                 if got == 3:
  *                                         e = &ig._edges[3 * nm]             # <<<<<<<<<<<<<<
@@ -16650,7 +16650,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         __pyx_v_e = (&(__pyx_v_ig->_edges[(3 * __pyx_v_nm)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1028
+        /* "flagmatic/hypergraph_flag.pyx":1034
  *                                 if got == 3:
  *                                         e = &ig._edges[3 * nm]
  *                                         e[0] = te[0]             # <<<<<<<<<<<<<<
@@ -16659,7 +16659,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         (__pyx_v_e[0]) = (__pyx_v_te[0]);
 
-        /* "flagmatic/hypergraph_flag.pyx":1029
+        /* "flagmatic/hypergraph_flag.pyx":1035
  *                                         e = &ig._edges[3 * nm]
  *                                         e[0] = te[0]
  *                                         e[1] = te[1]             # <<<<<<<<<<<<<<
@@ -16668,7 +16668,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         (__pyx_v_e[1]) = (__pyx_v_te[1]);
 
-        /* "flagmatic/hypergraph_flag.pyx":1030
+        /* "flagmatic/hypergraph_flag.pyx":1036
  *                                         e[0] = te[0]
  *                                         e[1] = te[1]
  *                                         e[2] = te[2]             # <<<<<<<<<<<<<<
@@ -16677,7 +16677,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         (__pyx_v_e[2]) = (__pyx_v_te[2]);
 
-        /* "flagmatic/hypergraph_flag.pyx":1031
+        /* "flagmatic/hypergraph_flag.pyx":1037
  *                                         e[1] = te[1]
  *                                         e[2] = te[2]
  *                                         nm += 1             # <<<<<<<<<<<<<<
@@ -16686,7 +16686,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         __pyx_v_nm = (__pyx_v_nm + 1);
 
-        /* "flagmatic/hypergraph_flag.pyx":1026
+        /* "flagmatic/hypergraph_flag.pyx":1032
  *                                                 got += 1
  *                                                 te[2] = j + 1
  *                                 if got == 3:             # <<<<<<<<<<<<<<
@@ -16696,7 +16696,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
       }
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1011
+    /* "flagmatic/hypergraph_flag.pyx":1017
  *                 ig.t = 0
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -16705,7 +16705,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
     break;
 
-    /* "flagmatic/hypergraph_flag.pyx":1033
+    /* "flagmatic/hypergraph_flag.pyx":1039
  *                                         nm += 1
  * 
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -16714,7 +16714,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
     case 2:
 
-    /* "flagmatic/hypergraph_flag.pyx":1035
+    /* "flagmatic/hypergraph_flag.pyx":1041
  *                 elif self._r == 2:
  * 
  *                         for i in range(self.ne):             # <<<<<<<<<<<<<<
@@ -16725,7 +16725,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_i = __pyx_t_6;
 
-      /* "flagmatic/hypergraph_flag.pyx":1036
+      /* "flagmatic/hypergraph_flag.pyx":1042
  * 
  *                         for i in range(self.ne):
  *                                 e = &self._edges[2 * i]             # <<<<<<<<<<<<<<
@@ -16734,7 +16734,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
       __pyx_v_e = (&(__pyx_v_self->_edges[(2 * __pyx_v_i)]));
 
-      /* "flagmatic/hypergraph_flag.pyx":1037
+      /* "flagmatic/hypergraph_flag.pyx":1043
  *                         for i in range(self.ne):
  *                                 e = &self._edges[2 * i]
  *                                 got = 0             # <<<<<<<<<<<<<<
@@ -16743,7 +16743,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
       __pyx_v_got = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1038
+      /* "flagmatic/hypergraph_flag.pyx":1044
  *                                 e = &self._edges[2 * i]
  *                                 got = 0
  *                                 for j in range(num_verts):             # <<<<<<<<<<<<<<
@@ -16754,7 +16754,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
       for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
         __pyx_v_j = __pyx_t_8;
 
-        /* "flagmatic/hypergraph_flag.pyx":1039
+        /* "flagmatic/hypergraph_flag.pyx":1045
  *                                 got = 0
  *                                 for j in range(num_verts):
  *                                         if e[0] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16764,7 +16764,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_t_4 = (((__pyx_v_e[0]) == (__pyx_v_verts[__pyx_v_j])) != 0);
         if (__pyx_t_4) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1040
+          /* "flagmatic/hypergraph_flag.pyx":1046
  *                                 for j in range(num_verts):
  *                                         if e[0] == verts[j]:
  *                                                 got += 1             # <<<<<<<<<<<<<<
@@ -16773,7 +16773,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           __pyx_v_got = (__pyx_v_got + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1041
+          /* "flagmatic/hypergraph_flag.pyx":1047
  *                                         if e[0] == verts[j]:
  *                                                 got += 1
  *                                                 te[0] = j + 1             # <<<<<<<<<<<<<<
@@ -16782,7 +16782,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           (__pyx_v_te[0]) = (__pyx_v_j + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1039
+          /* "flagmatic/hypergraph_flag.pyx":1045
  *                                 got = 0
  *                                 for j in range(num_verts):
  *                                         if e[0] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16792,7 +16792,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
           goto __pyx_L14;
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1042
+        /* "flagmatic/hypergraph_flag.pyx":1048
  *                                                 got += 1
  *                                                 te[0] = j + 1
  *                                         elif e[1] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16802,7 +16802,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_t_4 = (((__pyx_v_e[1]) == (__pyx_v_verts[__pyx_v_j])) != 0);
         if (__pyx_t_4) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1043
+          /* "flagmatic/hypergraph_flag.pyx":1049
  *                                                 te[0] = j + 1
  *                                         elif e[1] == verts[j]:
  *                                                 got += 1             # <<<<<<<<<<<<<<
@@ -16811,7 +16811,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           __pyx_v_got = (__pyx_v_got + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1044
+          /* "flagmatic/hypergraph_flag.pyx":1050
  *                                         elif e[1] == verts[j]:
  *                                                 got += 1
  *                                                 te[1] = j + 1             # <<<<<<<<<<<<<<
@@ -16820,7 +16820,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
           (__pyx_v_te[1]) = (__pyx_v_j + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1042
+          /* "flagmatic/hypergraph_flag.pyx":1048
  *                                                 got += 1
  *                                                 te[0] = j + 1
  *                                         elif e[1] == verts[j]:             # <<<<<<<<<<<<<<
@@ -16831,7 +16831,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
         __pyx_L14:;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1045
+      /* "flagmatic/hypergraph_flag.pyx":1051
  *                                                 got += 1
  *                                                 te[1] = j + 1
  *                                 if got == 2:             # <<<<<<<<<<<<<<
@@ -16841,7 +16841,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
       __pyx_t_4 = ((__pyx_v_got == 2) != 0);
       if (__pyx_t_4) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1046
+        /* "flagmatic/hypergraph_flag.pyx":1052
  *                                                 te[1] = j + 1
  *                                 if got == 2:
  *                                         e = &ig._edges[2 * nm]             # <<<<<<<<<<<<<<
@@ -16850,7 +16850,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         __pyx_v_e = (&(__pyx_v_ig->_edges[(2 * __pyx_v_nm)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1047
+        /* "flagmatic/hypergraph_flag.pyx":1053
  *                                 if got == 2:
  *                                         e = &ig._edges[2 * nm]
  *                                         e[0] = te[0]             # <<<<<<<<<<<<<<
@@ -16859,7 +16859,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         (__pyx_v_e[0]) = (__pyx_v_te[0]);
 
-        /* "flagmatic/hypergraph_flag.pyx":1048
+        /* "flagmatic/hypergraph_flag.pyx":1054
  *                                         e = &ig._edges[2 * nm]
  *                                         e[0] = te[0]
  *                                         e[1] = te[1]             # <<<<<<<<<<<<<<
@@ -16868,7 +16868,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         (__pyx_v_e[1]) = (__pyx_v_te[1]);
 
-        /* "flagmatic/hypergraph_flag.pyx":1049
+        /* "flagmatic/hypergraph_flag.pyx":1055
  *                                         e[0] = te[0]
  *                                         e[1] = te[1]
  *                                         nm += 1             # <<<<<<<<<<<<<<
@@ -16877,7 +16877,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
         __pyx_v_nm = (__pyx_v_nm + 1);
 
-        /* "flagmatic/hypergraph_flag.pyx":1045
+        /* "flagmatic/hypergraph_flag.pyx":1051
  *                                                 got += 1
  *                                                 te[1] = j + 1
  *                                 if got == 2:             # <<<<<<<<<<<<<<
@@ -16887,7 +16887,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
       }
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1033
+    /* "flagmatic/hypergraph_flag.pyx":1039
  *                                         nm += 1
  * 
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -16898,7 +16898,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
     default: break;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1051
+  /* "flagmatic/hypergraph_flag.pyx":1057
  *                                         nm += 1
  * 
  *                 ig.ne = nm             # <<<<<<<<<<<<<<
@@ -16907,14 +16907,14 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
  */
   __pyx_v_ig->ne = __pyx_v_nm;
 
-  /* "flagmatic/hypergraph_flag.pyx":1052
+  /* "flagmatic/hypergraph_flag.pyx":1058
  * 
  *                 ig.ne = nm
  *                 ig.minimize_edges()             # <<<<<<<<<<<<<<
  *                 return ig
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_minimize_edges); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1052, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_ig), __pyx_n_s_minimize_edges); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1058, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -16927,16 +16927,16 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1058, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1052, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1058, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1053
+  /* "flagmatic/hypergraph_flag.pyx":1059
  *                 ig.ne = nm
  *                 ig.minimize_edges()
  *                 return ig             # <<<<<<<<<<<<<<
@@ -16948,12 +16948,12 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
   __pyx_r = __pyx_v_ig;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":997
+  /* "flagmatic/hypergraph_flag.pyx":999
  * 
  * 
  *         cdef HypergraphFlag c_induced_subgraph(self, int *verts, int num_verts):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int nm = 0, i, j, *e, got, te[3]
+ *                 cdef int nm = 0, i, j
  */
 
   /* function exit code */
@@ -16970,7 +16970,7 @@ static struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_f_9fl
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1056
+/* "flagmatic/hypergraph_flag.pyx":1062
  * 
  * 
  *         cdef int c_has_subgraph (self, HypergraphFlag h):             # <<<<<<<<<<<<<<
@@ -17004,8 +17004,8 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
   int __pyx_t_10;
   __Pyx_RefNannySetupContext("c_has_subgraph", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1063
- *                 cdef int i, j, k, l, *p, np, *new_edges, *can_use, got_all, got_edge, got
+  /* "flagmatic/hypergraph_flag.pyx":1074
+ *                 cdef int got_all, got_edge, got
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("degenerate graphs are not supported.")
@@ -17014,21 +17014,21 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
   __pyx_t_1 = (__pyx_v_self->is_degenerate != 0);
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1064
+    /* "flagmatic/hypergraph_flag.pyx":1075
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 if self._r != h._r or self._oriented != h._oriented:
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1064, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__36, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1075, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1064, __pyx_L1_error)
+    __PYX_ERR(0, 1075, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1063
- *                 cdef int i, j, k, l, *p, np, *new_edges, *can_use, got_all, got_edge, got
+    /* "flagmatic/hypergraph_flag.pyx":1074
+ *                 cdef int got_all, got_edge, got
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("degenerate graphs are not supported.")
@@ -17036,7 +17036,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1066
+  /* "flagmatic/hypergraph_flag.pyx":1077
  *                         raise NotImplementedError("degenerate graphs are not supported.")
  * 
  *                 if self._r != h._r or self._oriented != h._oriented:             # <<<<<<<<<<<<<<
@@ -17054,7 +17054,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
   __pyx_L5_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1067
+    /* "flagmatic/hypergraph_flag.pyx":1078
  * 
  *                 if self._r != h._r or self._oriented != h._oriented:
  *                         raise ValueError             # <<<<<<<<<<<<<<
@@ -17062,9 +17062,9 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  *                 new_edges = <int *> malloc (sizeof(int) * self._r * self.ne)
  */
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
-    __PYX_ERR(0, 1067, __pyx_L1_error)
+    __PYX_ERR(0, 1078, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1066
+    /* "flagmatic/hypergraph_flag.pyx":1077
  *                         raise NotImplementedError("degenerate graphs are not supported.")
  * 
  *                 if self._r != h._r or self._oriented != h._oriented:             # <<<<<<<<<<<<<<
@@ -17073,7 +17073,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1069
+  /* "flagmatic/hypergraph_flag.pyx":1080
  *                         raise ValueError
  * 
  *                 new_edges = <int *> malloc (sizeof(int) * self._r * self.ne)             # <<<<<<<<<<<<<<
@@ -17082,7 +17082,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
   __pyx_v_new_edges = ((int *)malloc((((sizeof(int)) * __pyx_v_self->_r) * __pyx_v_self->ne)));
 
-  /* "flagmatic/hypergraph_flag.pyx":1070
+  /* "flagmatic/hypergraph_flag.pyx":1081
  * 
  *                 new_edges = <int *> malloc (sizeof(int) * self._r * self.ne)
  *                 can_use = <int *> malloc (sizeof(int) * self.ne)             # <<<<<<<<<<<<<<
@@ -17091,7 +17091,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
   __pyx_v_can_use = ((int *)malloc(((sizeof(int)) * __pyx_v_self->ne)));
 
-  /* "flagmatic/hypergraph_flag.pyx":1072
+  /* "flagmatic/hypergraph_flag.pyx":1083
  *                 can_use = <int *> malloc (sizeof(int) * self.ne)
  * 
  *                 p = generate_permutations(self._n, &np)             # <<<<<<<<<<<<<<
@@ -17100,7 +17100,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_permutations(__pyx_v_self->_n, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1074
+  /* "flagmatic/hypergraph_flag.pyx":1085
  *                 p = generate_permutations(self._n, &np)
  * 
  *                 for i in range(np):             # <<<<<<<<<<<<<<
@@ -17111,7 +17111,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
 
-    /* "flagmatic/hypergraph_flag.pyx":1076
+    /* "flagmatic/hypergraph_flag.pyx":1087
  *                 for i in range(np):
  * 
  *                         for j in range(self._r * self.ne):             # <<<<<<<<<<<<<<
@@ -17122,7 +17122,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_j = __pyx_t_7;
 
-      /* "flagmatic/hypergraph_flag.pyx":1077
+      /* "flagmatic/hypergraph_flag.pyx":1088
  * 
  *                         for j in range(self._r * self.ne):
  *                                 new_edges[j] = p[self._n * i + self._edges[j] - 1]             # <<<<<<<<<<<<<<
@@ -17132,7 +17132,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
       (__pyx_v_new_edges[__pyx_v_j]) = (__pyx_v_p[(((__pyx_v_self->_n * __pyx_v_i) + (__pyx_v_self->_edges[__pyx_v_j])) - 1)]);
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1079
+    /* "flagmatic/hypergraph_flag.pyx":1090
  *                                 new_edges[j] = p[self._n * i + self._edges[j] - 1]
  * 
  *                         for j in range(self.ne):             # <<<<<<<<<<<<<<
@@ -17143,7 +17143,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_j = __pyx_t_7;
 
-      /* "flagmatic/hypergraph_flag.pyx":1080
+      /* "flagmatic/hypergraph_flag.pyx":1091
  * 
  *                         for j in range(self.ne):
  *                                 can_use[j] = 1             # <<<<<<<<<<<<<<
@@ -17153,7 +17153,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
       (__pyx_v_can_use[__pyx_v_j]) = 1;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1082
+    /* "flagmatic/hypergraph_flag.pyx":1093
  *                                 can_use[j] = 1
  * 
  *                         got_all = 1             # <<<<<<<<<<<<<<
@@ -17162,7 +17162,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
     __pyx_v_got_all = 1;
 
-    /* "flagmatic/hypergraph_flag.pyx":1083
+    /* "flagmatic/hypergraph_flag.pyx":1094
  * 
  *                         got_all = 1
  *                         for j in range(h.ne):             # <<<<<<<<<<<<<<
@@ -17173,7 +17173,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_j = __pyx_t_7;
 
-      /* "flagmatic/hypergraph_flag.pyx":1084
+      /* "flagmatic/hypergraph_flag.pyx":1095
  *                         got_all = 1
  *                         for j in range(h.ne):
  *                                 got_edge = 0             # <<<<<<<<<<<<<<
@@ -17182,7 +17182,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
       __pyx_v_got_edge = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1086
+      /* "flagmatic/hypergraph_flag.pyx":1097
  *                                 got_edge = 0
  * 
  *                                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -17192,7 +17192,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
       switch (__pyx_v_self->_r) {
         case 3:
 
-        /* "flagmatic/hypergraph_flag.pyx":1087
+        /* "flagmatic/hypergraph_flag.pyx":1098
  * 
  *                                 if self._r == 3:
  *                                         for k in range(self.ne):             # <<<<<<<<<<<<<<
@@ -17203,7 +17203,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
         for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
           __pyx_v_k = __pyx_t_9;
 
-          /* "flagmatic/hypergraph_flag.pyx":1088
+          /* "flagmatic/hypergraph_flag.pyx":1099
  *                                 if self._r == 3:
  *                                         for k in range(self.ne):
  *                                                 if can_use[k] == 0:             # <<<<<<<<<<<<<<
@@ -17213,7 +17213,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           __pyx_t_1 = (((__pyx_v_can_use[__pyx_v_k]) == 0) != 0);
           if (__pyx_t_1) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1089
+            /* "flagmatic/hypergraph_flag.pyx":1100
  *                                         for k in range(self.ne):
  *                                                 if can_use[k] == 0:
  *                                                         continue             # <<<<<<<<<<<<<<
@@ -17222,7 +17222,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             goto __pyx_L15_continue;
 
-            /* "flagmatic/hypergraph_flag.pyx":1088
+            /* "flagmatic/hypergraph_flag.pyx":1099
  *                                 if self._r == 3:
  *                                         for k in range(self.ne):
  *                                                 if can_use[k] == 0:             # <<<<<<<<<<<<<<
@@ -17231,7 +17231,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1090
+          /* "flagmatic/hypergraph_flag.pyx":1101
  *                                                 if can_use[k] == 0:
  *                                                         continue
  *                                                 got = 0             # <<<<<<<<<<<<<<
@@ -17240,7 +17240,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           __pyx_v_got = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1091
+          /* "flagmatic/hypergraph_flag.pyx":1102
  *                                                         continue
  *                                                 got = 0
  *                                                 for l in range(3):             # <<<<<<<<<<<<<<
@@ -17250,7 +17250,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           for (__pyx_t_10 = 0; __pyx_t_10 < 3; __pyx_t_10+=1) {
             __pyx_v_l = __pyx_t_10;
 
-            /* "flagmatic/hypergraph_flag.pyx":1092
+            /* "flagmatic/hypergraph_flag.pyx":1103
  *                                                 got = 0
  *                                                 for l in range(3):
  *                                                         if (h._edges[3 * j] == new_edges[(3 * k) + l] or             # <<<<<<<<<<<<<<
@@ -17264,7 +17264,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
               goto __pyx_L21_bool_binop_done;
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1093
+            /* "flagmatic/hypergraph_flag.pyx":1104
  *                                                 for l in range(3):
  *                                                         if (h._edges[3 * j] == new_edges[(3 * k) + l] or
  *                                                                 h._edges[(3 * j) + 1] == new_edges[(3 * k) + l] or             # <<<<<<<<<<<<<<
@@ -17278,7 +17278,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
               goto __pyx_L21_bool_binop_done;
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1094
+            /* "flagmatic/hypergraph_flag.pyx":1105
  *                                                         if (h._edges[3 * j] == new_edges[(3 * k) + l] or
  *                                                                 h._edges[(3 * j) + 1] == new_edges[(3 * k) + l] or
  *                                                                 h._edges[(3 * j) + 2] == new_edges[(3 * k) + l]):             # <<<<<<<<<<<<<<
@@ -17289,7 +17289,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
             __pyx_t_1 = __pyx_t_3;
             __pyx_L21_bool_binop_done:;
 
-            /* "flagmatic/hypergraph_flag.pyx":1092
+            /* "flagmatic/hypergraph_flag.pyx":1103
  *                                                 got = 0
  *                                                 for l in range(3):
  *                                                         if (h._edges[3 * j] == new_edges[(3 * k) + l] or             # <<<<<<<<<<<<<<
@@ -17298,7 +17298,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1095
+              /* "flagmatic/hypergraph_flag.pyx":1106
  *                                                                 h._edges[(3 * j) + 1] == new_edges[(3 * k) + l] or
  *                                                                 h._edges[(3 * j) + 2] == new_edges[(3 * k) + l]):
  *                                                                 got += 1             # <<<<<<<<<<<<<<
@@ -17307,7 +17307,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
               __pyx_v_got = (__pyx_v_got + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1092
+              /* "flagmatic/hypergraph_flag.pyx":1103
  *                                                 got = 0
  *                                                 for l in range(3):
  *                                                         if (h._edges[3 * j] == new_edges[(3 * k) + l] or             # <<<<<<<<<<<<<<
@@ -17317,7 +17317,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
             }
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1096
+          /* "flagmatic/hypergraph_flag.pyx":1107
  *                                                                 h._edges[(3 * j) + 2] == new_edges[(3 * k) + l]):
  *                                                                 got += 1
  *                                                 if got == 3:             # <<<<<<<<<<<<<<
@@ -17327,7 +17327,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           __pyx_t_1 = ((__pyx_v_got == 3) != 0);
           if (__pyx_t_1) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1097
+            /* "flagmatic/hypergraph_flag.pyx":1108
  *                                                                 got += 1
  *                                                 if got == 3:
  *                                                         got_edge = 1             # <<<<<<<<<<<<<<
@@ -17336,7 +17336,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             __pyx_v_got_edge = 1;
 
-            /* "flagmatic/hypergraph_flag.pyx":1098
+            /* "flagmatic/hypergraph_flag.pyx":1109
  *                                                 if got == 3:
  *                                                         got_edge = 1
  *                                                         can_use[k] = 0             # <<<<<<<<<<<<<<
@@ -17345,7 +17345,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             (__pyx_v_can_use[__pyx_v_k]) = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1099
+            /* "flagmatic/hypergraph_flag.pyx":1110
  *                                                         got_edge = 1
  *                                                         can_use[k] = 0
  *                                                         break             # <<<<<<<<<<<<<<
@@ -17354,7 +17354,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             goto __pyx_L16_break;
 
-            /* "flagmatic/hypergraph_flag.pyx":1096
+            /* "flagmatic/hypergraph_flag.pyx":1107
  *                                                                 h._edges[(3 * j) + 2] == new_edges[(3 * k) + l]):
  *                                                                 got += 1
  *                                                 if got == 3:             # <<<<<<<<<<<<<<
@@ -17366,7 +17366,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
         }
         __pyx_L16_break:;
 
-        /* "flagmatic/hypergraph_flag.pyx":1100
+        /* "flagmatic/hypergraph_flag.pyx":1111
  *                                                         can_use[k] = 0
  *                                                         break
  *                                         if got_edge == 0:             # <<<<<<<<<<<<<<
@@ -17376,7 +17376,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
         __pyx_t_1 = ((__pyx_v_got_edge == 0) != 0);
         if (__pyx_t_1) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1101
+          /* "flagmatic/hypergraph_flag.pyx":1112
  *                                                         break
  *                                         if got_edge == 0:
  *                                                 got_all = 0             # <<<<<<<<<<<<<<
@@ -17385,7 +17385,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           __pyx_v_got_all = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1102
+          /* "flagmatic/hypergraph_flag.pyx":1113
  *                                         if got_edge == 0:
  *                                                 got_all = 0
  *                                                 break             # <<<<<<<<<<<<<<
@@ -17394,7 +17394,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           goto __pyx_L14_break;
 
-          /* "flagmatic/hypergraph_flag.pyx":1100
+          /* "flagmatic/hypergraph_flag.pyx":1111
  *                                                         can_use[k] = 0
  *                                                         break
  *                                         if got_edge == 0:             # <<<<<<<<<<<<<<
@@ -17403,7 +17403,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1086
+        /* "flagmatic/hypergraph_flag.pyx":1097
  *                                 got_edge = 0
  * 
  *                                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -17412,7 +17412,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
         break;
 
-        /* "flagmatic/hypergraph_flag.pyx":1104
+        /* "flagmatic/hypergraph_flag.pyx":1115
  *                                                 break
  * 
  *                                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -17421,7 +17421,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
         case 2:
 
-        /* "flagmatic/hypergraph_flag.pyx":1105
+        /* "flagmatic/hypergraph_flag.pyx":1116
  * 
  *                                 elif self._r == 2:
  *                                         for k in range(self.ne):             # <<<<<<<<<<<<<<
@@ -17432,7 +17432,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
         for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_8; __pyx_t_9+=1) {
           __pyx_v_k = __pyx_t_9;
 
-          /* "flagmatic/hypergraph_flag.pyx":1106
+          /* "flagmatic/hypergraph_flag.pyx":1117
  *                                 elif self._r == 2:
  *                                         for k in range(self.ne):
  *                                                 if can_use[k] == 0:             # <<<<<<<<<<<<<<
@@ -17442,7 +17442,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           __pyx_t_1 = (((__pyx_v_can_use[__pyx_v_k]) == 0) != 0);
           if (__pyx_t_1) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1107
+            /* "flagmatic/hypergraph_flag.pyx":1118
  *                                         for k in range(self.ne):
  *                                                 if can_use[k] == 0:
  *                                                         continue             # <<<<<<<<<<<<<<
@@ -17451,7 +17451,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             goto __pyx_L26_continue;
 
-            /* "flagmatic/hypergraph_flag.pyx":1106
+            /* "flagmatic/hypergraph_flag.pyx":1117
  *                                 elif self._r == 2:
  *                                         for k in range(self.ne):
  *                                                 if can_use[k] == 0:             # <<<<<<<<<<<<<<
@@ -17460,7 +17460,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1108
+          /* "flagmatic/hypergraph_flag.pyx":1119
  *                                                 if can_use[k] == 0:
  *                                                         continue
  *                                                 if (h._edges[2 * j] == new_edges[2 * k]             # <<<<<<<<<<<<<<
@@ -17473,7 +17473,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           } else {
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1109
+          /* "flagmatic/hypergraph_flag.pyx":1120
  *                                                         continue
  *                                                 if (h._edges[2 * j] == new_edges[2 * k]
  *                                                         and h._edges[2 * j + 1] == new_edges[2 * k + 1]) or (             # <<<<<<<<<<<<<<
@@ -17488,7 +17488,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           }
           __pyx_L31_next_or:;
 
-          /* "flagmatic/hypergraph_flag.pyx":1110
+          /* "flagmatic/hypergraph_flag.pyx":1121
  *                                                 if (h._edges[2 * j] == new_edges[2 * k]
  *                                                         and h._edges[2 * j + 1] == new_edges[2 * k + 1]) or (
  *                                                         not self._oriented and (h._edges[2 * j] == new_edges[2 * k + 1]             # <<<<<<<<<<<<<<
@@ -17502,7 +17502,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
             goto __pyx_L30_bool_binop_done;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1111
+          /* "flagmatic/hypergraph_flag.pyx":1122
  *                                                         and h._edges[2 * j + 1] == new_edges[2 * k + 1]) or (
  *                                                         not self._oriented and (h._edges[2 * j] == new_edges[2 * k + 1]
  *                                                         and h._edges[2 * j + 1] == new_edges[2 * k])):             # <<<<<<<<<<<<<<
@@ -17519,7 +17519,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
           __pyx_t_1 = __pyx_t_3;
           __pyx_L30_bool_binop_done:;
 
-          /* "flagmatic/hypergraph_flag.pyx":1108
+          /* "flagmatic/hypergraph_flag.pyx":1119
  *                                                 if can_use[k] == 0:
  *                                                         continue
  *                                                 if (h._edges[2 * j] == new_edges[2 * k]             # <<<<<<<<<<<<<<
@@ -17528,7 +17528,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           if (__pyx_t_1) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1112
+            /* "flagmatic/hypergraph_flag.pyx":1123
  *                                                         not self._oriented and (h._edges[2 * j] == new_edges[2 * k + 1]
  *                                                         and h._edges[2 * j + 1] == new_edges[2 * k])):
  *                                                         got_edge = 1             # <<<<<<<<<<<<<<
@@ -17537,7 +17537,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             __pyx_v_got_edge = 1;
 
-            /* "flagmatic/hypergraph_flag.pyx":1113
+            /* "flagmatic/hypergraph_flag.pyx":1124
  *                                                         and h._edges[2 * j + 1] == new_edges[2 * k])):
  *                                                         got_edge = 1
  *                                                         can_use[k] = 0             # <<<<<<<<<<<<<<
@@ -17546,7 +17546,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             (__pyx_v_can_use[__pyx_v_k]) = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1114
+            /* "flagmatic/hypergraph_flag.pyx":1125
  *                                                         got_edge = 1
  *                                                         can_use[k] = 0
  *                                                         break             # <<<<<<<<<<<<<<
@@ -17555,7 +17555,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
             goto __pyx_L27_break;
 
-            /* "flagmatic/hypergraph_flag.pyx":1108
+            /* "flagmatic/hypergraph_flag.pyx":1119
  *                                                 if can_use[k] == 0:
  *                                                         continue
  *                                                 if (h._edges[2 * j] == new_edges[2 * k]             # <<<<<<<<<<<<<<
@@ -17567,7 +17567,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
         }
         __pyx_L27_break:;
 
-        /* "flagmatic/hypergraph_flag.pyx":1115
+        /* "flagmatic/hypergraph_flag.pyx":1126
  *                                                         can_use[k] = 0
  *                                                         break
  *                                         if got_edge == 0:             # <<<<<<<<<<<<<<
@@ -17577,7 +17577,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
         __pyx_t_1 = ((__pyx_v_got_edge == 0) != 0);
         if (__pyx_t_1) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1116
+          /* "flagmatic/hypergraph_flag.pyx":1127
  *                                                         break
  *                                         if got_edge == 0:
  *                                                 got_all = 0             # <<<<<<<<<<<<<<
@@ -17586,7 +17586,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           __pyx_v_got_all = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1117
+          /* "flagmatic/hypergraph_flag.pyx":1128
  *                                         if got_edge == 0:
  *                                                 got_all = 0
  *                                                 break             # <<<<<<<<<<<<<<
@@ -17595,7 +17595,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
           goto __pyx_L14_break;
 
-          /* "flagmatic/hypergraph_flag.pyx":1115
+          /* "flagmatic/hypergraph_flag.pyx":1126
  *                                                         can_use[k] = 0
  *                                                         break
  *                                         if got_edge == 0:             # <<<<<<<<<<<<<<
@@ -17604,7 +17604,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1104
+        /* "flagmatic/hypergraph_flag.pyx":1115
  *                                                 break
  * 
  *                                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -17617,7 +17617,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
     }
     __pyx_L14_break:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1119
+    /* "flagmatic/hypergraph_flag.pyx":1130
  *                                                 break
  * 
  *                         if got_all:             # <<<<<<<<<<<<<<
@@ -17627,7 +17627,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
     __pyx_t_1 = (__pyx_v_got_all != 0);
     if (__pyx_t_1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1120
+      /* "flagmatic/hypergraph_flag.pyx":1131
  * 
  *                         if got_all:
  *                                 free(new_edges)             # <<<<<<<<<<<<<<
@@ -17636,7 +17636,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
       free(__pyx_v_new_edges);
 
-      /* "flagmatic/hypergraph_flag.pyx":1121
+      /* "flagmatic/hypergraph_flag.pyx":1132
  *                         if got_all:
  *                                 free(new_edges)
  *                                 return 1             # <<<<<<<<<<<<<<
@@ -17646,7 +17646,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
       __pyx_r = 1;
       goto __pyx_L0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1119
+      /* "flagmatic/hypergraph_flag.pyx":1130
  *                                                 break
  * 
  *                         if got_all:             # <<<<<<<<<<<<<<
@@ -17656,7 +17656,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
     }
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1123
+  /* "flagmatic/hypergraph_flag.pyx":1134
  *                                 return 1
  * 
  *                 free(new_edges)             # <<<<<<<<<<<<<<
@@ -17665,7 +17665,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
  */
   free(__pyx_v_new_edges);
 
-  /* "flagmatic/hypergraph_flag.pyx":1124
+  /* "flagmatic/hypergraph_flag.pyx":1135
  * 
  *                 free(new_edges)
  *                 return 0             # <<<<<<<<<<<<<<
@@ -17675,7 +17675,7 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
   __pyx_r = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1056
+  /* "flagmatic/hypergraph_flag.pyx":1062
  * 
  * 
  *         cdef int c_has_subgraph (self, HypergraphFlag h):             # <<<<<<<<<<<<<<
@@ -17693,12 +17693,12 @@ static int __pyx_f_9flagmatic_15hypergraph_flag_14HypergraphFlag_c_has_subgraph(
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1129
+/* "flagmatic/hypergraph_flag.pyx":1140
  *         # TODO: ValueError on invalid forbidden_edge_numbers (currently they are ignored)
  * 
  *         def has_forbidden_edge_numbers(self, forbidden_edge_numbers, must_have_highest=False):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *c, nc, i, j, k, l, fe, *edges, *e, got, *comb, num_e, max_e, ceiling
+ *                 cdef int *c
  */
 
 /* Python wrapper */
@@ -17734,7 +17734,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_59has_fo
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "has_forbidden_edge_numbers") < 0)) __PYX_ERR(0, 1129, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "has_forbidden_edge_numbers") < 0)) __PYX_ERR(0, 1140, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -17749,7 +17749,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_59has_fo
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("has_forbidden_edge_numbers", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1129, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("has_forbidden_edge_numbers", 0, 1, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1140, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.HypergraphFlag.has_forbidden_edge_numbers", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -17798,8 +17798,8 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
   int __pyx_t_16;
   __Pyx_RefNannySetupContext("has_forbidden_edge_numbers", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1133
- *                 cdef int *c, nc, i, j, k, l, fe, *edges, *e, got, *comb, num_e, max_e, ceiling
+  /* "flagmatic/hypergraph_flag.pyx":1150
+ *                 cdef int num_e, max_e, ceiling
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("degenerate graphs are not supported.")
@@ -17808,21 +17808,21 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
   __pyx_t_1 = (__pyx_v_self->is_degenerate != 0);
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1134
+    /* "flagmatic/hypergraph_flag.pyx":1151
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 forb_k = [pair[0] for pair in forbidden_edge_numbers]
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1134, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__37, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1151, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1134, __pyx_L1_error)
+    __PYX_ERR(0, 1151, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1133
- *                 cdef int *c, nc, i, j, k, l, fe, *edges, *e, got, *comb, num_e, max_e, ceiling
+    /* "flagmatic/hypergraph_flag.pyx":1150
+ *                 cdef int num_e, max_e, ceiling
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("degenerate graphs are not supported.")
@@ -17830,39 +17830,39 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1136
+  /* "flagmatic/hypergraph_flag.pyx":1153
  *                         raise NotImplementedError("degenerate graphs are not supported.")
  * 
  *                 forb_k = [pair[0] for pair in forbidden_edge_numbers]             # <<<<<<<<<<<<<<
  * 
  *                 for k in range(self._r, self._n + 1): # only conditions in this range make sense
  */
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1136, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1153, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (likely(PyList_CheckExact(__pyx_v_forbidden_edge_numbers)) || PyTuple_CheckExact(__pyx_v_forbidden_edge_numbers)) {
     __pyx_t_3 = __pyx_v_forbidden_edge_numbers; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
     __pyx_t_5 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_forbidden_edge_numbers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1136, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_forbidden_edge_numbers); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1136, __pyx_L1_error)
+    __pyx_t_5 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1153, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_5)) {
       if (likely(PyList_CheckExact(__pyx_t_3))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_6 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_6); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1136, __pyx_L1_error)
+        __pyx_t_6 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_6); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1153, __pyx_L1_error)
         #else
-        __pyx_t_6 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1136, __pyx_L1_error)
+        __pyx_t_6 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1153, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_6 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_6); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1136, __pyx_L1_error)
+        __pyx_t_6 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_6); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1153, __pyx_L1_error)
         #else
-        __pyx_t_6 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1136, __pyx_L1_error)
+        __pyx_t_6 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1153, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_6);
         #endif
       }
@@ -17872,7 +17872,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 1136, __pyx_L1_error)
+          else __PYX_ERR(0, 1153, __pyx_L1_error)
         }
         break;
       }
@@ -17880,16 +17880,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     }
     __Pyx_XDECREF_SET(__pyx_v_pair, __pyx_t_6);
     __pyx_t_6 = 0;
-    __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_pair, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1136, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_GetItemInt(__pyx_v_pair, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1153, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_6))) __PYX_ERR(0, 1136, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_6))) __PYX_ERR(0, 1153, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_forb_k = ((PyObject*)__pyx_t_2);
   __pyx_t_2 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1138
+  /* "flagmatic/hypergraph_flag.pyx":1155
  *                 forb_k = [pair[0] for pair in forbidden_edge_numbers]
  * 
  *                 for k in range(self._r, self._n + 1): # only conditions in this range make sense             # <<<<<<<<<<<<<<
@@ -17900,21 +17900,21 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
   for (__pyx_t_8 = __pyx_v_self->_r; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_k = __pyx_t_8;
 
-    /* "flagmatic/hypergraph_flag.pyx":1140
+    /* "flagmatic/hypergraph_flag.pyx":1157
  *                 for k in range(self._r, self._n + 1): # only conditions in this range make sense
  * 
  *                         if not k in forb_k:             # <<<<<<<<<<<<<<
  *                                 continue
  * 
  */
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1140, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1157, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_v_forb_k, Py_NE)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1140, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_2, __pyx_v_forb_k, Py_NE)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1157, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_t_9 = (__pyx_t_1 != 0);
     if (__pyx_t_9) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1141
+      /* "flagmatic/hypergraph_flag.pyx":1158
  * 
  *                         if not k in forb_k:
  *                                 continue             # <<<<<<<<<<<<<<
@@ -17923,7 +17923,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
       goto __pyx_L6_continue;
 
-      /* "flagmatic/hypergraph_flag.pyx":1140
+      /* "flagmatic/hypergraph_flag.pyx":1157
  *                 for k in range(self._r, self._n + 1): # only conditions in this range make sense
  * 
  *                         if not k in forb_k:             # <<<<<<<<<<<<<<
@@ -17932,7 +17932,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1143
+    /* "flagmatic/hypergraph_flag.pyx":1160
  *                                 continue
  * 
  *                         if self._r == 3:             # <<<<<<<<<<<<<<
@@ -17942,7 +17942,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     __pyx_t_9 = ((__pyx_v_self->_r == 3) != 0);
     if (__pyx_t_9) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1144
+      /* "flagmatic/hypergraph_flag.pyx":1161
  * 
  *                         if self._r == 3:
  *                                 max_e = k * (k - 1) * (k - 2) / 6             # <<<<<<<<<<<<<<
@@ -17951,7 +17951,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
       __pyx_v_max_e = __Pyx_div_long(((__pyx_v_k * (__pyx_v_k - 1)) * (__pyx_v_k - 2)), 6);
 
-      /* "flagmatic/hypergraph_flag.pyx":1143
+      /* "flagmatic/hypergraph_flag.pyx":1160
  *                                 continue
  * 
  *                         if self._r == 3:             # <<<<<<<<<<<<<<
@@ -17961,7 +17961,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       goto __pyx_L9;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1146
+    /* "flagmatic/hypergraph_flag.pyx":1163
  *                                 max_e = k * (k - 1) * (k - 2) / 6
  *                         else:
  *                                 max_e = k * (k - 1) / 2             # <<<<<<<<<<<<<<
@@ -17973,7 +17973,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     }
     __pyx_L9:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1148
+    /* "flagmatic/hypergraph_flag.pyx":1165
  *                                 max_e = k * (k - 1) / 2
  * 
  *                         forbidden_edge_nums = <int *> calloc(max_e + 1, sizeof(int))             # <<<<<<<<<<<<<<
@@ -17982,7 +17982,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
     __pyx_v_forbidden_edge_nums = ((int *)calloc((__pyx_v_max_e + 1), (sizeof(int))));
 
-    /* "flagmatic/hypergraph_flag.pyx":1150
+    /* "flagmatic/hypergraph_flag.pyx":1167
  *                         forbidden_edge_nums = <int *> calloc(max_e + 1, sizeof(int))
  * 
  *                         for i in range(max_e + 1):             # <<<<<<<<<<<<<<
@@ -17993,18 +17993,18 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     for (__pyx_t_11 = 0; __pyx_t_11 < __pyx_t_10; __pyx_t_11+=1) {
       __pyx_v_i = __pyx_t_11;
 
-      /* "flagmatic/hypergraph_flag.pyx":1151
+      /* "flagmatic/hypergraph_flag.pyx":1168
  * 
  *                         for i in range(max_e + 1):
  *                                 if (k, i) in forbidden_edge_numbers:             # <<<<<<<<<<<<<<
  *                                         forbidden_edge_nums[i] = 1
  * 
  */
-      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1151, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1151, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1151, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1168, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_2);
       PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2);
@@ -18012,12 +18012,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_3);
       __pyx_t_2 = 0;
       __pyx_t_3 = 0;
-      __pyx_t_9 = (__Pyx_PySequence_ContainsTF(__pyx_t_6, __pyx_v_forbidden_edge_numbers, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 1151, __pyx_L1_error)
+      __pyx_t_9 = (__Pyx_PySequence_ContainsTF(__pyx_t_6, __pyx_v_forbidden_edge_numbers, Py_EQ)); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 1168, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __pyx_t_1 = (__pyx_t_9 != 0);
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1152
+        /* "flagmatic/hypergraph_flag.pyx":1169
  *                         for i in range(max_e + 1):
  *                                 if (k, i) in forbidden_edge_numbers:
  *                                         forbidden_edge_nums[i] = 1             # <<<<<<<<<<<<<<
@@ -18026,7 +18026,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
         (__pyx_v_forbidden_edge_nums[__pyx_v_i]) = 1;
 
-        /* "flagmatic/hypergraph_flag.pyx":1151
+        /* "flagmatic/hypergraph_flag.pyx":1168
  * 
  *                         for i in range(max_e + 1):
  *                                 if (k, i) in forbidden_edge_numbers:             # <<<<<<<<<<<<<<
@@ -18036,7 +18036,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       }
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1154
+    /* "flagmatic/hypergraph_flag.pyx":1171
  *                                         forbidden_edge_nums[i] = 1
  * 
  *                         ceiling = max_e + 1             # <<<<<<<<<<<<<<
@@ -18045,7 +18045,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
     __pyx_v_ceiling = (__pyx_v_max_e + 1);
 
-    /* "flagmatic/hypergraph_flag.pyx":1155
+    /* "flagmatic/hypergraph_flag.pyx":1172
  * 
  *                         ceiling = max_e + 1
  *                         for i in range(max_e, -1, -1):             # <<<<<<<<<<<<<<
@@ -18055,7 +18055,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     for (__pyx_t_11 = __pyx_v_max_e; __pyx_t_11 > -1L; __pyx_t_11-=1) {
       __pyx_v_i = __pyx_t_11;
 
-      /* "flagmatic/hypergraph_flag.pyx":1156
+      /* "flagmatic/hypergraph_flag.pyx":1173
  *                         ceiling = max_e + 1
  *                         for i in range(max_e, -1, -1):
  *                                 if forbidden_edge_nums[i] == 1:             # <<<<<<<<<<<<<<
@@ -18065,7 +18065,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       __pyx_t_1 = (((__pyx_v_forbidden_edge_nums[__pyx_v_i]) == 1) != 0);
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1157
+        /* "flagmatic/hypergraph_flag.pyx":1174
  *                         for i in range(max_e, -1, -1):
  *                                 if forbidden_edge_nums[i] == 1:
  *                                         ceiling = i             # <<<<<<<<<<<<<<
@@ -18074,7 +18074,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
         __pyx_v_ceiling = __pyx_v_i;
 
-        /* "flagmatic/hypergraph_flag.pyx":1156
+        /* "flagmatic/hypergraph_flag.pyx":1173
  *                         ceiling = max_e + 1
  *                         for i in range(max_e, -1, -1):
  *                                 if forbidden_edge_nums[i] == 1:             # <<<<<<<<<<<<<<
@@ -18084,7 +18084,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         goto __pyx_L15;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1159
+      /* "flagmatic/hypergraph_flag.pyx":1176
  *                                         ceiling = i
  *                                 else:
  *                                         break             # <<<<<<<<<<<<<<
@@ -18098,17 +18098,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     }
     __pyx_L14_break:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1161
+    /* "flagmatic/hypergraph_flag.pyx":1178
  *                                         break
  * 
  *                         if must_have_highest:             # <<<<<<<<<<<<<<
  * 
  *                                 c = generate_combinations(self._n - 1, k - 1, &nc)
  */
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_must_have_highest); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1161, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_must_have_highest); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1178, __pyx_L1_error)
     if (__pyx_t_1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1163
+      /* "flagmatic/hypergraph_flag.pyx":1180
  *                         if must_have_highest:
  * 
  *                                 c = generate_combinations(self._n - 1, k - 1, &nc)             # <<<<<<<<<<<<<<
@@ -18117,7 +18117,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
       __pyx_v_c = __pyx_f_9flagmatic_15hypergraph_flag_generate_combinations((__pyx_v_self->_n - 1), (__pyx_v_k - 1), (&__pyx_v_nc));
 
-      /* "flagmatic/hypergraph_flag.pyx":1165
+      /* "flagmatic/hypergraph_flag.pyx":1182
  *                                 c = generate_combinations(self._n - 1, k - 1, &nc)
  * 
  *                                 for i in range(nc):             # <<<<<<<<<<<<<<
@@ -18128,7 +18128,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_i = __pyx_t_12;
 
-        /* "flagmatic/hypergraph_flag.pyx":1166
+        /* "flagmatic/hypergraph_flag.pyx":1183
  * 
  *                                 for i in range(nc):
  *                                         comb = &c[(k - 1) * i]             # <<<<<<<<<<<<<<
@@ -18137,7 +18137,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
         __pyx_v_comb = (&(__pyx_v_c[((__pyx_v_k - 1) * __pyx_v_i)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1167
+        /* "flagmatic/hypergraph_flag.pyx":1184
  *                                 for i in range(nc):
  *                                         comb = &c[(k - 1) * i]
  *                                         num_e = 0             # <<<<<<<<<<<<<<
@@ -18146,7 +18146,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
         __pyx_v_num_e = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1168
+        /* "flagmatic/hypergraph_flag.pyx":1185
  *                                         comb = &c[(k - 1) * i]
  *                                         num_e = 0
  *                                         for j in range(self.ne):             # <<<<<<<<<<<<<<
@@ -18157,7 +18157,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1169
+          /* "flagmatic/hypergraph_flag.pyx":1186
  *                                         num_e = 0
  *                                         for j in range(self.ne):
  *                                                 got = 0             # <<<<<<<<<<<<<<
@@ -18166,7 +18166,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
           __pyx_v_got = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1170
+          /* "flagmatic/hypergraph_flag.pyx":1187
  *                                         for j in range(self.ne):
  *                                                 got = 0
  *                                                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -18176,7 +18176,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
           switch (__pyx_v_self->_r) {
             case 3:
 
-            /* "flagmatic/hypergraph_flag.pyx":1171
+            /* "flagmatic/hypergraph_flag.pyx":1188
  *                                                 got = 0
  *                                                 if self._r == 3:
  *                                                         e = &self._edges[3 * j]             # <<<<<<<<<<<<<<
@@ -18185,7 +18185,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             __pyx_v_e = (&(__pyx_v_self->_edges[(3 * __pyx_v_j)]));
 
-            /* "flagmatic/hypergraph_flag.pyx":1172
+            /* "flagmatic/hypergraph_flag.pyx":1189
  *                                                 if self._r == 3:
  *                                                         e = &self._edges[3 * j]
  *                                                         for l in range(k - 1):             # <<<<<<<<<<<<<<
@@ -18196,7 +18196,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_10; __pyx_t_15+=1) {
               __pyx_v_l = __pyx_t_15;
 
-              /* "flagmatic/hypergraph_flag.pyx":1173
+              /* "flagmatic/hypergraph_flag.pyx":1190
  *                                                         e = &self._edges[3 * j]
  *                                                         for l in range(k - 1):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:             # <<<<<<<<<<<<<<
@@ -18220,7 +18220,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_L24_bool_binop_done:;
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1174
+                /* "flagmatic/hypergraph_flag.pyx":1191
  *                                                         for l in range(k - 1):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:
  *                                                                         got += 1             # <<<<<<<<<<<<<<
@@ -18229,7 +18229,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
                 __pyx_v_got = (__pyx_v_got + 1);
 
-                /* "flagmatic/hypergraph_flag.pyx":1173
+                /* "flagmatic/hypergraph_flag.pyx":1190
  *                                                         e = &self._edges[3 * j]
  *                                                         for l in range(k - 1):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:             # <<<<<<<<<<<<<<
@@ -18239,7 +18239,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               }
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1175
+            /* "flagmatic/hypergraph_flag.pyx":1192
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:
  *                                                                         got += 1
  *                                                         if self._n == e[0] or self._n == e[1] or self._n == e[2]:             # <<<<<<<<<<<<<<
@@ -18263,7 +18263,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             __pyx_L28_bool_binop_done:;
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1176
+              /* "flagmatic/hypergraph_flag.pyx":1193
  *                                                                         got += 1
  *                                                         if self._n == e[0] or self._n == e[1] or self._n == e[2]:
  *                                                                         got += 1             # <<<<<<<<<<<<<<
@@ -18272,7 +18272,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               __pyx_v_got = (__pyx_v_got + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1175
+              /* "flagmatic/hypergraph_flag.pyx":1192
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:
  *                                                                         got += 1
  *                                                         if self._n == e[0] or self._n == e[1] or self._n == e[2]:             # <<<<<<<<<<<<<<
@@ -18281,7 +18281,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1177
+            /* "flagmatic/hypergraph_flag.pyx":1194
  *                                                         if self._n == e[0] or self._n == e[1] or self._n == e[2]:
  *                                                                         got += 1
  *                                                         if got == 3:             # <<<<<<<<<<<<<<
@@ -18291,7 +18291,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             __pyx_t_1 = ((__pyx_v_got == 3) != 0);
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1178
+              /* "flagmatic/hypergraph_flag.pyx":1195
  *                                                                         got += 1
  *                                                         if got == 3:
  *                                                                 num_e += 1             # <<<<<<<<<<<<<<
@@ -18300,7 +18300,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               __pyx_v_num_e = (__pyx_v_num_e + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1179
+              /* "flagmatic/hypergraph_flag.pyx":1196
  *                                                         if got == 3:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18310,7 +18310,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_t_1 = ((__pyx_v_num_e == __pyx_v_ceiling) != 0);
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1180
+                /* "flagmatic/hypergraph_flag.pyx":1197
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:
  *                                                                         return True             # <<<<<<<<<<<<<<
@@ -18322,7 +18322,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
                 __pyx_r = Py_True;
                 goto __pyx_L0;
 
-                /* "flagmatic/hypergraph_flag.pyx":1179
+                /* "flagmatic/hypergraph_flag.pyx":1196
  *                                                         if got == 3:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18331,7 +18331,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               }
 
-              /* "flagmatic/hypergraph_flag.pyx":1177
+              /* "flagmatic/hypergraph_flag.pyx":1194
  *                                                         if self._n == e[0] or self._n == e[1] or self._n == e[2]:
  *                                                                         got += 1
  *                                                         if got == 3:             # <<<<<<<<<<<<<<
@@ -18340,7 +18340,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1170
+            /* "flagmatic/hypergraph_flag.pyx":1187
  *                                         for j in range(self.ne):
  *                                                 got = 0
  *                                                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -18349,7 +18349,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             break;
 
-            /* "flagmatic/hypergraph_flag.pyx":1181
+            /* "flagmatic/hypergraph_flag.pyx":1198
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -18358,7 +18358,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             case 2:
 
-            /* "flagmatic/hypergraph_flag.pyx":1182
+            /* "flagmatic/hypergraph_flag.pyx":1199
  *                                                                         return True
  *                                                 elif self._r == 2:
  *                                                         e = &self._edges[2 * j]             # <<<<<<<<<<<<<<
@@ -18367,7 +18367,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             __pyx_v_e = (&(__pyx_v_self->_edges[(2 * __pyx_v_j)]));
 
-            /* "flagmatic/hypergraph_flag.pyx":1183
+            /* "flagmatic/hypergraph_flag.pyx":1200
  *                                                 elif self._r == 2:
  *                                                         e = &self._edges[2 * j]
  *                                                         for l in range(k - 1):             # <<<<<<<<<<<<<<
@@ -18378,7 +18378,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_10; __pyx_t_15+=1) {
               __pyx_v_l = __pyx_t_15;
 
-              /* "flagmatic/hypergraph_flag.pyx":1184
+              /* "flagmatic/hypergraph_flag.pyx":1201
  *                                                         e = &self._edges[2 * j]
  *                                                         for l in range(k - 1):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:             # <<<<<<<<<<<<<<
@@ -18396,7 +18396,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_L36_bool_binop_done:;
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1185
+                /* "flagmatic/hypergraph_flag.pyx":1202
  *                                                         for l in range(k - 1):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:
  *                                                                         got += 1             # <<<<<<<<<<<<<<
@@ -18405,7 +18405,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
                 __pyx_v_got = (__pyx_v_got + 1);
 
-                /* "flagmatic/hypergraph_flag.pyx":1184
+                /* "flagmatic/hypergraph_flag.pyx":1201
  *                                                         e = &self._edges[2 * j]
  *                                                         for l in range(k - 1):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:             # <<<<<<<<<<<<<<
@@ -18415,7 +18415,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               }
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1186
+            /* "flagmatic/hypergraph_flag.pyx":1203
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:
  *                                                                         got += 1
  *                                                         if self._n == e[0] or self._n == e[1]:             # <<<<<<<<<<<<<<
@@ -18433,7 +18433,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             __pyx_L39_bool_binop_done:;
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1187
+              /* "flagmatic/hypergraph_flag.pyx":1204
  *                                                                         got += 1
  *                                                         if self._n == e[0] or self._n == e[1]:
  *                                                                         got += 1             # <<<<<<<<<<<<<<
@@ -18442,7 +18442,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               __pyx_v_got = (__pyx_v_got + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1186
+              /* "flagmatic/hypergraph_flag.pyx":1203
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:
  *                                                                         got += 1
  *                                                         if self._n == e[0] or self._n == e[1]:             # <<<<<<<<<<<<<<
@@ -18451,7 +18451,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1188
+            /* "flagmatic/hypergraph_flag.pyx":1205
  *                                                         if self._n == e[0] or self._n == e[1]:
  *                                                                         got += 1
  *                                                         if got == 2:             # <<<<<<<<<<<<<<
@@ -18461,7 +18461,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             __pyx_t_1 = ((__pyx_v_got == 2) != 0);
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1189
+              /* "flagmatic/hypergraph_flag.pyx":1206
  *                                                                         got += 1
  *                                                         if got == 2:
  *                                                                 num_e += 1             # <<<<<<<<<<<<<<
@@ -18470,7 +18470,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               __pyx_v_num_e = (__pyx_v_num_e + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1190
+              /* "flagmatic/hypergraph_flag.pyx":1207
  *                                                         if got == 2:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18480,7 +18480,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_t_1 = ((__pyx_v_num_e == __pyx_v_ceiling) != 0);
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1191
+                /* "flagmatic/hypergraph_flag.pyx":1208
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:
  *                                                                         return True             # <<<<<<<<<<<<<<
@@ -18492,7 +18492,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
                 __pyx_r = Py_True;
                 goto __pyx_L0;
 
-                /* "flagmatic/hypergraph_flag.pyx":1190
+                /* "flagmatic/hypergraph_flag.pyx":1207
  *                                                         if got == 2:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18501,7 +18501,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               }
 
-              /* "flagmatic/hypergraph_flag.pyx":1188
+              /* "flagmatic/hypergraph_flag.pyx":1205
  *                                                         if self._n == e[0] or self._n == e[1]:
  *                                                                         got += 1
  *                                                         if got == 2:             # <<<<<<<<<<<<<<
@@ -18510,7 +18510,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1181
+            /* "flagmatic/hypergraph_flag.pyx":1198
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -18522,7 +18522,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
           }
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1192
+        /* "flagmatic/hypergraph_flag.pyx":1209
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                         if forbidden_edge_nums[num_e] == 1:             # <<<<<<<<<<<<<<
@@ -18532,7 +18532,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         __pyx_t_1 = (((__pyx_v_forbidden_edge_nums[__pyx_v_num_e]) == 1) != 0);
         if (__pyx_t_1) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1193
+          /* "flagmatic/hypergraph_flag.pyx":1210
  *                                                                         return True
  *                                         if forbidden_edge_nums[num_e] == 1:
  *                                                 return True             # <<<<<<<<<<<<<<
@@ -18544,7 +18544,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
           __pyx_r = Py_True;
           goto __pyx_L0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1192
+          /* "flagmatic/hypergraph_flag.pyx":1209
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                         if forbidden_edge_nums[num_e] == 1:             # <<<<<<<<<<<<<<
@@ -18554,7 +18554,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         }
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1161
+      /* "flagmatic/hypergraph_flag.pyx":1178
  *                                         break
  * 
  *                         if must_have_highest:             # <<<<<<<<<<<<<<
@@ -18564,7 +18564,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       goto __pyx_L16;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1197
+    /* "flagmatic/hypergraph_flag.pyx":1214
  *                         else:
  * 
  *                                 c = generate_combinations(self._n, k, &nc)             # <<<<<<<<<<<<<<
@@ -18574,7 +18574,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     /*else*/ {
       __pyx_v_c = __pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(__pyx_v_self->_n, __pyx_v_k, (&__pyx_v_nc));
 
-      /* "flagmatic/hypergraph_flag.pyx":1199
+      /* "flagmatic/hypergraph_flag.pyx":1216
  *                                 c = generate_combinations(self._n, k, &nc)
  * 
  *                                 for i in range(nc):             # <<<<<<<<<<<<<<
@@ -18585,7 +18585,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_11; __pyx_t_12+=1) {
         __pyx_v_i = __pyx_t_12;
 
-        /* "flagmatic/hypergraph_flag.pyx":1200
+        /* "flagmatic/hypergraph_flag.pyx":1217
  * 
  *                                 for i in range(nc):
  *                                         comb = &c[k * i]             # <<<<<<<<<<<<<<
@@ -18594,7 +18594,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
         __pyx_v_comb = (&(__pyx_v_c[(__pyx_v_k * __pyx_v_i)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1201
+        /* "flagmatic/hypergraph_flag.pyx":1218
  *                                 for i in range(nc):
  *                                         comb = &c[k * i]
  *                                         num_e = 0             # <<<<<<<<<<<<<<
@@ -18603,7 +18603,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
         __pyx_v_num_e = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1202
+        /* "flagmatic/hypergraph_flag.pyx":1219
  *                                         comb = &c[k * i]
  *                                         num_e = 0
  *                                         for j in range(self.ne):             # <<<<<<<<<<<<<<
@@ -18614,7 +18614,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1203
+          /* "flagmatic/hypergraph_flag.pyx":1220
  *                                         num_e = 0
  *                                         for j in range(self.ne):
  *                                                 got = 0             # <<<<<<<<<<<<<<
@@ -18623,7 +18623,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
           __pyx_v_got = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1204
+          /* "flagmatic/hypergraph_flag.pyx":1221
  *                                         for j in range(self.ne):
  *                                                 got = 0
  *                                                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -18633,7 +18633,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
           switch (__pyx_v_self->_r) {
             case 3:
 
-            /* "flagmatic/hypergraph_flag.pyx":1205
+            /* "flagmatic/hypergraph_flag.pyx":1222
  *                                                 got = 0
  *                                                 if self._r == 3:
  *                                                         e = &self._edges[3 * j]             # <<<<<<<<<<<<<<
@@ -18642,7 +18642,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             __pyx_v_e = (&(__pyx_v_self->_edges[(3 * __pyx_v_j)]));
 
-            /* "flagmatic/hypergraph_flag.pyx":1206
+            /* "flagmatic/hypergraph_flag.pyx":1223
  *                                                 if self._r == 3:
  *                                                         e = &self._edges[3 * j]
  *                                                         for l in range(k):             # <<<<<<<<<<<<<<
@@ -18653,7 +18653,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
               __pyx_v_l = __pyx_t_16;
 
-              /* "flagmatic/hypergraph_flag.pyx":1207
+              /* "flagmatic/hypergraph_flag.pyx":1224
  *                                                         e = &self._edges[3 * j]
  *                                                         for l in range(k):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:             # <<<<<<<<<<<<<<
@@ -18677,7 +18677,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_L51_bool_binop_done:;
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1208
+                /* "flagmatic/hypergraph_flag.pyx":1225
  *                                                         for l in range(k):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:
  *                                                                         got += 1             # <<<<<<<<<<<<<<
@@ -18686,7 +18686,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
                 __pyx_v_got = (__pyx_v_got + 1);
 
-                /* "flagmatic/hypergraph_flag.pyx":1207
+                /* "flagmatic/hypergraph_flag.pyx":1224
  *                                                         e = &self._edges[3 * j]
  *                                                         for l in range(k):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:             # <<<<<<<<<<<<<<
@@ -18696,7 +18696,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               }
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1209
+            /* "flagmatic/hypergraph_flag.pyx":1226
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:
  *                                                                         got += 1
  *                                                         if got == 3:             # <<<<<<<<<<<<<<
@@ -18706,7 +18706,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             __pyx_t_1 = ((__pyx_v_got == 3) != 0);
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1210
+              /* "flagmatic/hypergraph_flag.pyx":1227
  *                                                                         got += 1
  *                                                         if got == 3:
  *                                                                 num_e += 1             # <<<<<<<<<<<<<<
@@ -18715,7 +18715,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               __pyx_v_num_e = (__pyx_v_num_e + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1211
+              /* "flagmatic/hypergraph_flag.pyx":1228
  *                                                         if got == 3:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18725,7 +18725,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_t_1 = ((__pyx_v_num_e == __pyx_v_ceiling) != 0);
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1212
+                /* "flagmatic/hypergraph_flag.pyx":1229
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:
  *                                                                         return True             # <<<<<<<<<<<<<<
@@ -18737,7 +18737,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
                 __pyx_r = Py_True;
                 goto __pyx_L0;
 
-                /* "flagmatic/hypergraph_flag.pyx":1211
+                /* "flagmatic/hypergraph_flag.pyx":1228
  *                                                         if got == 3:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18746,7 +18746,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               }
 
-              /* "flagmatic/hypergraph_flag.pyx":1209
+              /* "flagmatic/hypergraph_flag.pyx":1226
  *                                                                 if comb[l] == e[0] or comb[l] == e[1] or comb[l] == e[2]:
  *                                                                         got += 1
  *                                                         if got == 3:             # <<<<<<<<<<<<<<
@@ -18755,7 +18755,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1204
+            /* "flagmatic/hypergraph_flag.pyx":1221
  *                                         for j in range(self.ne):
  *                                                 got = 0
  *                                                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -18764,7 +18764,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             break;
 
-            /* "flagmatic/hypergraph_flag.pyx":1213
+            /* "flagmatic/hypergraph_flag.pyx":1230
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -18773,7 +18773,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             case 2:
 
-            /* "flagmatic/hypergraph_flag.pyx":1214
+            /* "flagmatic/hypergraph_flag.pyx":1231
  *                                                                         return True
  *                                                 elif self._r == 2:
  *                                                         e = &self._edges[2 * j]             # <<<<<<<<<<<<<<
@@ -18782,7 +18782,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             __pyx_v_e = (&(__pyx_v_self->_edges[(2 * __pyx_v_j)]));
 
-            /* "flagmatic/hypergraph_flag.pyx":1215
+            /* "flagmatic/hypergraph_flag.pyx":1232
  *                                                 elif self._r == 2:
  *                                                         e = &self._edges[2 * j]
  *                                                         for l in range(k):             # <<<<<<<<<<<<<<
@@ -18793,7 +18793,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             for (__pyx_t_16 = 0; __pyx_t_16 < __pyx_t_15; __pyx_t_16+=1) {
               __pyx_v_l = __pyx_t_16;
 
-              /* "flagmatic/hypergraph_flag.pyx":1216
+              /* "flagmatic/hypergraph_flag.pyx":1233
  *                                                         e = &self._edges[2 * j]
  *                                                         for l in range(k):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:             # <<<<<<<<<<<<<<
@@ -18811,7 +18811,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_L59_bool_binop_done:;
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1217
+                /* "flagmatic/hypergraph_flag.pyx":1234
  *                                                         for l in range(k):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:
  *                                                                         got += 1             # <<<<<<<<<<<<<<
@@ -18820,7 +18820,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
                 __pyx_v_got = (__pyx_v_got + 1);
 
-                /* "flagmatic/hypergraph_flag.pyx":1216
+                /* "flagmatic/hypergraph_flag.pyx":1233
  *                                                         e = &self._edges[2 * j]
  *                                                         for l in range(k):
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:             # <<<<<<<<<<<<<<
@@ -18830,7 +18830,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               }
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1218
+            /* "flagmatic/hypergraph_flag.pyx":1235
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:
  *                                                                         got += 1
  *                                                         if got == 2:             # <<<<<<<<<<<<<<
@@ -18840,7 +18840,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
             __pyx_t_1 = ((__pyx_v_got == 2) != 0);
             if (__pyx_t_1) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1219
+              /* "flagmatic/hypergraph_flag.pyx":1236
  *                                                                         got += 1
  *                                                         if got == 2:
  *                                                                 num_e += 1             # <<<<<<<<<<<<<<
@@ -18849,7 +18849,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               __pyx_v_num_e = (__pyx_v_num_e + 1);
 
-              /* "flagmatic/hypergraph_flag.pyx":1220
+              /* "flagmatic/hypergraph_flag.pyx":1237
  *                                                         if got == 2:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18859,7 +18859,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
               __pyx_t_1 = ((__pyx_v_num_e == __pyx_v_ceiling) != 0);
               if (__pyx_t_1) {
 
-                /* "flagmatic/hypergraph_flag.pyx":1221
+                /* "flagmatic/hypergraph_flag.pyx":1238
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:
  *                                                                         return True             # <<<<<<<<<<<<<<
@@ -18871,7 +18871,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
                 __pyx_r = Py_True;
                 goto __pyx_L0;
 
-                /* "flagmatic/hypergraph_flag.pyx":1220
+                /* "flagmatic/hypergraph_flag.pyx":1237
  *                                                         if got == 2:
  *                                                                 num_e += 1
  *                                                                 if num_e == ceiling:             # <<<<<<<<<<<<<<
@@ -18880,7 +18880,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
               }
 
-              /* "flagmatic/hypergraph_flag.pyx":1218
+              /* "flagmatic/hypergraph_flag.pyx":1235
  *                                                                 if comb[l] == e[0] or comb[l] == e[1]:
  *                                                                         got += 1
  *                                                         if got == 2:             # <<<<<<<<<<<<<<
@@ -18889,7 +18889,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1213
+            /* "flagmatic/hypergraph_flag.pyx":1230
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -18901,7 +18901,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
           }
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1222
+        /* "flagmatic/hypergraph_flag.pyx":1239
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                         if forbidden_edge_nums[num_e] == 1:             # <<<<<<<<<<<<<<
@@ -18911,7 +18911,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
         __pyx_t_1 = (((__pyx_v_forbidden_edge_nums[__pyx_v_num_e]) == 1) != 0);
         if (__pyx_t_1) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1223
+          /* "flagmatic/hypergraph_flag.pyx":1240
  *                                                                         return True
  *                                         if forbidden_edge_nums[num_e] == 1:
  *                                                 return True             # <<<<<<<<<<<<<<
@@ -18923,7 +18923,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
           __pyx_r = Py_True;
           goto __pyx_L0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1222
+          /* "flagmatic/hypergraph_flag.pyx":1239
  *                                                                 if num_e == ceiling:
  *                                                                         return True
  *                                         if forbidden_edge_nums[num_e] == 1:             # <<<<<<<<<<<<<<
@@ -18937,7 +18937,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
     __pyx_L6_continue:;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1225
+  /* "flagmatic/hypergraph_flag.pyx":1242
  *                                                 return True
  * 
  *                 return False             # <<<<<<<<<<<<<<
@@ -18949,12 +18949,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1129
+  /* "flagmatic/hypergraph_flag.pyx":1140
  *         # TODO: ValueError on invalid forbidden_edge_numbers (currently they are ignored)
  * 
  *         def has_forbidden_edge_numbers(self, forbidden_edge_numbers, must_have_highest=False):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *c, nc, i, j, k, l, fe, *edges, *e, got, *comb, num_e, max_e, ceiling
+ *                 cdef int *c
  */
 
   /* function exit code */
@@ -18972,12 +18972,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_58has_fo
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1228
+/* "flagmatic/hypergraph_flag.pyx":1245
  * 
  * 
  *         def has_forbidden_graphs(self, graphs, must_have_highest=False, induced=False):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *c, nc, i, j
+ *                 cdef int *c
  */
 
 /* Python wrapper */
@@ -19021,7 +19021,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_61has_fo
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "has_forbidden_graphs") < 0)) __PYX_ERR(0, 1228, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "has_forbidden_graphs") < 0)) __PYX_ERR(0, 1245, __pyx_L3_error)
       }
     } else {
       switch (PyTuple_GET_SIZE(__pyx_args)) {
@@ -19038,7 +19038,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_61has_fo
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("has_forbidden_graphs", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1228, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("has_forbidden_graphs", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1245, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.HypergraphFlag.has_forbidden_graphs", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -19070,7 +19070,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
   int __pyx_t_8;
   __Pyx_RefNannySetupContext("has_forbidden_graphs", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1233
+  /* "flagmatic/hypergraph_flag.pyx":1251
  *                 cdef HypergraphFlag h, ig
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -19080,20 +19080,20 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
   __pyx_t_1 = (__pyx_v_self->is_degenerate != 0);
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1234
+    /* "flagmatic/hypergraph_flag.pyx":1252
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 for i in range(len(graphs)):
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__38, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1234, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__38, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1252, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1234, __pyx_L1_error)
+    __PYX_ERR(0, 1252, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1233
+    /* "flagmatic/hypergraph_flag.pyx":1251
  *                 cdef HypergraphFlag h, ig
  * 
  *                 if self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -19102,34 +19102,34 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1236
+  /* "flagmatic/hypergraph_flag.pyx":1254
  *                         raise NotImplementedError("degenerate graphs are not supported.")
  * 
  *                 for i in range(len(graphs)):             # <<<<<<<<<<<<<<
  * 
  *                         h = <HypergraphFlag ?> graphs[i]
  */
-  __pyx_t_3 = PyObject_Length(__pyx_v_graphs); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 1236, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_v_graphs); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 1254, __pyx_L1_error)
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_3; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "flagmatic/hypergraph_flag.pyx":1238
+    /* "flagmatic/hypergraph_flag.pyx":1256
  *                 for i in range(len(graphs)):
  * 
  *                         h = <HypergraphFlag ?> graphs[i]             # <<<<<<<<<<<<<<
  * 
  *                         if h._n > self._n:
  */
-    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_graphs, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1238, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_graphs, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1256, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (!(likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag)))) __PYX_ERR(0, 1238, __pyx_L1_error)
+    if (!(likely(__Pyx_TypeTest(__pyx_t_2, __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag)))) __PYX_ERR(0, 1256, __pyx_L1_error)
     __pyx_t_5 = __pyx_t_2;
     __Pyx_INCREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_XDECREF_SET(__pyx_v_h, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1240
+    /* "flagmatic/hypergraph_flag.pyx":1258
  *                         h = <HypergraphFlag ?> graphs[i]
  * 
  *                         if h._n > self._n:             # <<<<<<<<<<<<<<
@@ -19139,7 +19139,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
     __pyx_t_1 = ((__pyx_v_h->_n > __pyx_v_self->_n) != 0);
     if (__pyx_t_1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1241
+      /* "flagmatic/hypergraph_flag.pyx":1259
  * 
  *                         if h._n > self._n:
  *                                 continue # vacuous condition             # <<<<<<<<<<<<<<
@@ -19148,7 +19148,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
       goto __pyx_L4_continue;
 
-      /* "flagmatic/hypergraph_flag.pyx":1240
+      /* "flagmatic/hypergraph_flag.pyx":1258
  *                         h = <HypergraphFlag ?> graphs[i]
  * 
  *                         if h._n > self._n:             # <<<<<<<<<<<<<<
@@ -19157,17 +19157,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1243
+    /* "flagmatic/hypergraph_flag.pyx":1261
  *                                 continue # vacuous condition
  * 
  *                         if must_have_highest:             # <<<<<<<<<<<<<<
  *                                 c = generate_combinations_plus(self._n, h._n, &nc)
  *                         else:
  */
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_must_have_highest); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1243, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_v_must_have_highest); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1261, __pyx_L1_error)
     if (__pyx_t_1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1244
+      /* "flagmatic/hypergraph_flag.pyx":1262
  * 
  *                         if must_have_highest:
  *                                 c = generate_combinations_plus(self._n, h._n, &nc)             # <<<<<<<<<<<<<<
@@ -19176,7 +19176,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
       __pyx_v_c = __pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(__pyx_v_self->_n, __pyx_v_h->_n, (&__pyx_v_nc));
 
-      /* "flagmatic/hypergraph_flag.pyx":1243
+      /* "flagmatic/hypergraph_flag.pyx":1261
  *                                 continue # vacuous condition
  * 
  *                         if must_have_highest:             # <<<<<<<<<<<<<<
@@ -19186,7 +19186,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
       goto __pyx_L7;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1246
+    /* "flagmatic/hypergraph_flag.pyx":1264
  *                                 c = generate_combinations_plus(self._n, h._n, &nc)
  *                         else:
  *                                 c = generate_combinations(self._n, h._n, &nc)             # <<<<<<<<<<<<<<
@@ -19198,7 +19198,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
     }
     __pyx_L7:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1248
+    /* "flagmatic/hypergraph_flag.pyx":1266
  *                                 c = generate_combinations(self._n, h._n, &nc)
  * 
  *                         for j in range(nc):             # <<<<<<<<<<<<<<
@@ -19209,19 +19209,19 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
     for (__pyx_t_7 = 0; __pyx_t_7 < __pyx_t_6; __pyx_t_7+=1) {
       __pyx_v_j = __pyx_t_7;
 
-      /* "flagmatic/hypergraph_flag.pyx":1250
+      /* "flagmatic/hypergraph_flag.pyx":1268
  *                         for j in range(nc):
  * 
  *                                 ig = self.c_induced_subgraph(&c[j * h._n], h._n)             # <<<<<<<<<<<<<<
  * 
  *                                 if ig.ne < h.ne:
  */
-      __pyx_t_5 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_self->__pyx_vtab)->c_induced_subgraph(__pyx_v_self, (&(__pyx_v_c[(__pyx_v_j * __pyx_v_h->_n)])), __pyx_v_h->_n)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1250, __pyx_L1_error)
+      __pyx_t_5 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_self->__pyx_vtab)->c_induced_subgraph(__pyx_v_self, (&(__pyx_v_c[(__pyx_v_j * __pyx_v_h->_n)])), __pyx_v_h->_n)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1268, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_XDECREF_SET(__pyx_v_ig, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5));
       __pyx_t_5 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1252
+      /* "flagmatic/hypergraph_flag.pyx":1270
  *                                 ig = self.c_induced_subgraph(&c[j * h._n], h._n)
  * 
  *                                 if ig.ne < h.ne:             # <<<<<<<<<<<<<<
@@ -19231,7 +19231,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
       __pyx_t_1 = ((__pyx_v_ig->ne < __pyx_v_h->ne) != 0);
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1253
+        /* "flagmatic/hypergraph_flag.pyx":1271
  * 
  *                                 if ig.ne < h.ne:
  *                                         continue             # <<<<<<<<<<<<<<
@@ -19240,7 +19240,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
         goto __pyx_L8_continue;
 
-        /* "flagmatic/hypergraph_flag.pyx":1252
+        /* "flagmatic/hypergraph_flag.pyx":1270
  *                                 ig = self.c_induced_subgraph(&c[j * h._n], h._n)
  * 
  *                                 if ig.ne < h.ne:             # <<<<<<<<<<<<<<
@@ -19249,14 +19249,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1255
+      /* "flagmatic/hypergraph_flag.pyx":1273
  *                                         continue
  * 
  *                                 if induced and ig.ne > h.ne:             # <<<<<<<<<<<<<<
  *                                         continue
  * 
  */
-      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_v_induced); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1255, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_v_induced); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1273, __pyx_L1_error)
       if (__pyx_t_8) {
       } else {
         __pyx_t_1 = __pyx_t_8;
@@ -19267,7 +19267,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
       __pyx_L12_bool_binop_done:;
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1256
+        /* "flagmatic/hypergraph_flag.pyx":1274
  * 
  *                                 if induced and ig.ne > h.ne:
  *                                         continue             # <<<<<<<<<<<<<<
@@ -19276,7 +19276,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
         goto __pyx_L8_continue;
 
-        /* "flagmatic/hypergraph_flag.pyx":1255
+        /* "flagmatic/hypergraph_flag.pyx":1273
  *                                         continue
  * 
  *                                 if induced and ig.ne > h.ne:             # <<<<<<<<<<<<<<
@@ -19285,7 +19285,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1258
+      /* "flagmatic/hypergraph_flag.pyx":1276
  *                                         continue
  * 
  *                                 if ig.c_has_subgraph(h):             # <<<<<<<<<<<<<<
@@ -19295,7 +19295,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
       __pyx_t_1 = (((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_ig->__pyx_vtab)->c_has_subgraph(__pyx_v_ig, __pyx_v_h) != 0);
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1259
+        /* "flagmatic/hypergraph_flag.pyx":1277
  * 
  *                                 if ig.c_has_subgraph(h):
  *                                         return True             # <<<<<<<<<<<<<<
@@ -19307,7 +19307,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
         __pyx_r = Py_True;
         goto __pyx_L0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1258
+        /* "flagmatic/hypergraph_flag.pyx":1276
  *                                         continue
  * 
  *                                 if ig.c_has_subgraph(h):             # <<<<<<<<<<<<<<
@@ -19320,7 +19320,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
     __pyx_L4_continue:;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1261
+  /* "flagmatic/hypergraph_flag.pyx":1279
  *                                         return True
  * 
  *                 return False             # <<<<<<<<<<<<<<
@@ -19332,12 +19332,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
   __pyx_r = Py_False;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1228
+  /* "flagmatic/hypergraph_flag.pyx":1245
  * 
  * 
  *         def has_forbidden_graphs(self, graphs, must_have_highest=False, induced=False):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *c, nc, i, j
+ *                 cdef int *c
  */
 
   /* function exit code */
@@ -19354,7 +19354,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_60has_fo
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1264
+/* "flagmatic/hypergraph_flag.pyx":1282
  * 
  * 
  *         def split_vertex (self, x):             # <<<<<<<<<<<<<<
@@ -19399,7 +19399,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
   PyObject *__pyx_t_12 = NULL;
   __Pyx_RefNannySetupContext("split_vertex", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1270
+  /* "flagmatic/hypergraph_flag.pyx":1288
  *                 """
  * 
  *                 if self._oriented and self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -19417,7 +19417,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1271
+    /* "flagmatic/hypergraph_flag.pyx":1289
  * 
  *                 if self._oriented and self.is_degenerate:
  *                         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -19425,9 +19425,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  *                 if self.multiplicity != 1:
  */
     __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-    __PYX_ERR(0, 1271, __pyx_L1_error)
+    __PYX_ERR(0, 1289, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1270
+    /* "flagmatic/hypergraph_flag.pyx":1288
  *                 """
  * 
  *                 if self._oriented and self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -19436,35 +19436,35 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1273
+  /* "flagmatic/hypergraph_flag.pyx":1291
  *                         raise NotImplementedError
  * 
  *                 if self.multiplicity != 1:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("Cannot split vertices of multigraphs.")
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_multiplicity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1273, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_multiplicity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1291, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_int_1, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1273, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_int_1, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1291, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1273, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1291, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1274
+    /* "flagmatic/hypergraph_flag.pyx":1292
  * 
  *                 if self.multiplicity != 1:
  *                         raise NotImplementedError("Cannot split vertices of multigraphs.")             # <<<<<<<<<<<<<<
  * 
  *                 if x < 1 or x > self._n:
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__39, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1274, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__39, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1292, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 1274, __pyx_L1_error)
+    __PYX_ERR(0, 1292, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1273
+    /* "flagmatic/hypergraph_flag.pyx":1291
  *                         raise NotImplementedError
  * 
  *                 if self.multiplicity != 1:             # <<<<<<<<<<<<<<
@@ -19473,32 +19473,32 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1276
+  /* "flagmatic/hypergraph_flag.pyx":1294
  *                         raise NotImplementedError("Cannot split vertices of multigraphs.")
  * 
  *                 if x < 1 or x > self._n:             # <<<<<<<<<<<<<<
  *                         raise ValueError
  * 
  */
-  __pyx_t_4 = PyObject_RichCompare(__pyx_v_x, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1276, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1276, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_v_x, __pyx_int_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1294, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (!__pyx_t_2) {
   } else {
     __pyx_t_1 = __pyx_t_2;
     goto __pyx_L8_bool_binop_done;
   }
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1276, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1294, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = PyObject_RichCompare(__pyx_v_x, __pyx_t_4, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1276, __pyx_L1_error)
+  __pyx_t_3 = PyObject_RichCompare(__pyx_v_x, __pyx_t_4, Py_GT); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1276, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1294, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_1 = __pyx_t_2;
   __pyx_L8_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1277
+    /* "flagmatic/hypergraph_flag.pyx":1295
  * 
  *                 if x < 1 or x > self._n:
  *                         raise ValueError             # <<<<<<<<<<<<<<
@@ -19506,9 +19506,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  *                 ng = self.__copy__()
  */
     __Pyx_Raise(__pyx_builtin_ValueError, 0, 0, 0);
-    __PYX_ERR(0, 1277, __pyx_L1_error)
+    __PYX_ERR(0, 1295, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1276
+    /* "flagmatic/hypergraph_flag.pyx":1294
  *                         raise NotImplementedError("Cannot split vertices of multigraphs.")
  * 
  *                 if x < 1 or x > self._n:             # <<<<<<<<<<<<<<
@@ -19517,14 +19517,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1279
+  /* "flagmatic/hypergraph_flag.pyx":1297
  *                         raise ValueError
  * 
  *                 ng = self.__copy__()             # <<<<<<<<<<<<<<
  *                 ng.n += 1
  *                 nv = self._n + 1
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1279, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_copy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1297, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
@@ -19537,32 +19537,32 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
     }
   }
   if (__pyx_t_5) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1279, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1297, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1279, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1297, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_ng = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1280
+  /* "flagmatic/hypergraph_flag.pyx":1298
  * 
  *                 ng = self.__copy__()
  *                 ng.n += 1             # <<<<<<<<<<<<<<
  *                 nv = self._n + 1
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1280, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1280, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1298, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_n, __pyx_t_4) < 0) __PYX_ERR(0, 1280, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_n, __pyx_t_4) < 0) __PYX_ERR(0, 1298, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1281
+  /* "flagmatic/hypergraph_flag.pyx":1299
  *                 ng = self.__copy__()
  *                 ng.n += 1
  *                 nv = self._n + 1             # <<<<<<<<<<<<<<
@@ -19571,7 +19571,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  */
   __pyx_v_nv = (__pyx_v_self->_n + 1);
 
-  /* "flagmatic/hypergraph_flag.pyx":1283
+  /* "flagmatic/hypergraph_flag.pyx":1301
  *                 nv = self._n + 1
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -19581,22 +19581,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
   switch (__pyx_v_self->_r) {
     case 3:
 
-    /* "flagmatic/hypergraph_flag.pyx":1285
+    /* "flagmatic/hypergraph_flag.pyx":1303
  *                 if self._r == 3:
  * 
  *                         for e in self.edges:             # <<<<<<<<<<<<<<
  * 
  *                                 le = list(e)
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_edges); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1285, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_edges); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1303, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
       __pyx_t_3 = __pyx_t_4; __Pyx_INCREF(__pyx_t_3); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1285, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1303, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1285, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1303, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     for (;;) {
@@ -19604,17 +19604,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1285, __pyx_L1_error)
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1303, __pyx_L1_error)
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1285, __pyx_L1_error)
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1303, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1285, __pyx_L1_error)
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1303, __pyx_L1_error)
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1285, __pyx_L1_error)
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1303, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -19624,7 +19624,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 1285, __pyx_L1_error)
+            else __PYX_ERR(0, 1303, __pyx_L1_error)
           }
           break;
         }
@@ -19633,26 +19633,26 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
       __Pyx_XDECREF_SET(__pyx_v_e, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1287
+      /* "flagmatic/hypergraph_flag.pyx":1305
  *                         for e in self.edges:
  * 
  *                                 le = list(e)             # <<<<<<<<<<<<<<
  *                                 if le.count(x) == 1:
  *                                         nle = [y for y in le if y != x]
  */
-      __pyx_t_4 = PySequence_List(__pyx_v_e); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1287, __pyx_L1_error)
+      __pyx_t_4 = PySequence_List(__pyx_v_e); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1305, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_XDECREF_SET(__pyx_v_le, ((PyObject*)__pyx_t_4));
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1288
+      /* "flagmatic/hypergraph_flag.pyx":1306
  * 
  *                                 le = list(e)
  *                                 if le.count(x) == 1:             # <<<<<<<<<<<<<<
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [nv])
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_le, __pyx_n_s_count); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1288, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_le, __pyx_n_s_count); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1306, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_8 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -19665,75 +19665,75 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         }
       }
       if (!__pyx_t_8) {
-        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1288, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1306, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       } else {
-        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1288, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1306, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
         PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_v_x);
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1288, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1306, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1288, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1306, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1288, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1306, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1289
+        /* "flagmatic/hypergraph_flag.pyx":1307
  *                                 le = list(e)
  *                                 if le.count(x) == 1:
  *                                         nle = [y for y in le if y != x]             # <<<<<<<<<<<<<<
  *                                         ng.add_edge(nle + [nv])
  *                                 elif le.count(x) == 2:
  */
-        __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1289, __pyx_L1_error)
+        __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1307, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __pyx_t_4 = __pyx_v_le; __Pyx_INCREF(__pyx_t_4); __pyx_t_10 = 0;
         for (;;) {
           if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_4)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_9 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_10); __Pyx_INCREF(__pyx_t_9); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1289, __pyx_L1_error)
+          __pyx_t_9 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_10); __Pyx_INCREF(__pyx_t_9); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1307, __pyx_L1_error)
           #else
-          __pyx_t_9 = PySequence_ITEM(__pyx_t_4, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1289, __pyx_L1_error)
+          __pyx_t_9 = PySequence_ITEM(__pyx_t_4, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1307, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           #endif
           __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_9 = PyObject_RichCompare(__pyx_v_y, __pyx_v_x, Py_NE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1289, __pyx_L1_error)
-          __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1289, __pyx_L1_error)
+          __pyx_t_9 = PyObject_RichCompare(__pyx_v_y, __pyx_v_x, Py_NE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1307, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1307, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           if (__pyx_t_1) {
-            if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_v_y))) __PYX_ERR(0, 1289, __pyx_L1_error)
+            if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_v_y))) __PYX_ERR(0, 1307, __pyx_L1_error)
           }
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_XDECREF_SET(__pyx_v_nle, ((PyObject*)__pyx_t_5));
         __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1290
+        /* "flagmatic/hypergraph_flag.pyx":1308
  *                                 if le.count(x) == 1:
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [nv])             # <<<<<<<<<<<<<<
  *                                 elif le.count(x) == 2:
  *                                         nle = [y for y in le if y != x]
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1290, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1290, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1290, __pyx_L1_error)
+        __pyx_t_8 = PyList_New(1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_GIVEREF(__pyx_t_9);
         PyList_SET_ITEM(__pyx_t_8, 0, __pyx_t_9);
         __pyx_t_9 = 0;
-        __pyx_t_9 = PyNumber_Add(__pyx_v_nle, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1290, __pyx_L1_error)
+        __pyx_t_9 = PyNumber_Add(__pyx_v_nle, __pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1308, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         __pyx_t_8 = NULL;
@@ -19747,24 +19747,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_8) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1290, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1308, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else {
-          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1290, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1308, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_8); __pyx_t_8 = NULL;
           __Pyx_GIVEREF(__pyx_t_9);
           PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1290, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1308, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1288
+        /* "flagmatic/hypergraph_flag.pyx":1306
  * 
  *                                 le = list(e)
  *                                 if le.count(x) == 1:             # <<<<<<<<<<<<<<
@@ -19774,14 +19774,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         goto __pyx_L12;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1291
+      /* "flagmatic/hypergraph_flag.pyx":1309
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [nv])
  *                                 elif le.count(x) == 2:             # <<<<<<<<<<<<<<
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [x, nv])
  */
-      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_le, __pyx_n_s_count); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1291, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_le, __pyx_n_s_count); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1309, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __pyx_t_11 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
@@ -19794,70 +19794,70 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         }
       }
       if (!__pyx_t_11) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1291, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1309, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
       } else {
-        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1291, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1309, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_11); __pyx_t_11 = NULL;
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
         PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_v_x);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1291, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1309, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_t_5, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1291, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_EqObjC(__pyx_t_5, __pyx_int_2, 2, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1309, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1291, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1309, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1292
+        /* "flagmatic/hypergraph_flag.pyx":1310
  *                                         ng.add_edge(nle + [nv])
  *                                 elif le.count(x) == 2:
  *                                         nle = [y for y in le if y != x]             # <<<<<<<<<<<<<<
  *                                         ng.add_edge(nle + [x, nv])
  *                                         ng.add_edge(nle + [nv, nv])
  */
-        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1292, __pyx_L1_error)
+        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1310, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_5 = __pyx_v_le; __Pyx_INCREF(__pyx_t_5); __pyx_t_10 = 0;
         for (;;) {
           if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_9 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_10); __Pyx_INCREF(__pyx_t_9); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1292, __pyx_L1_error)
+          __pyx_t_9 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_10); __Pyx_INCREF(__pyx_t_9); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1310, __pyx_L1_error)
           #else
-          __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1292, __pyx_L1_error)
+          __pyx_t_9 = PySequence_ITEM(__pyx_t_5, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1310, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           #endif
           __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_9 = PyObject_RichCompare(__pyx_v_y, __pyx_v_x, Py_NE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1292, __pyx_L1_error)
-          __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1292, __pyx_L1_error)
+          __pyx_t_9 = PyObject_RichCompare(__pyx_v_y, __pyx_v_x, Py_NE); __Pyx_XGOTREF(__pyx_t_9); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1310, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_9); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1310, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           if (__pyx_t_1) {
-            if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_y))) __PYX_ERR(0, 1292, __pyx_L1_error)
+            if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_y))) __PYX_ERR(0, 1310, __pyx_L1_error)
           }
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_XDECREF_SET(__pyx_v_nle, ((PyObject*)__pyx_t_4));
         __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1293
+        /* "flagmatic/hypergraph_flag.pyx":1311
  *                                 elif le.count(x) == 2:
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [x, nv])             # <<<<<<<<<<<<<<
  *                                         ng.add_edge(nle + [nv, nv])
  *                                 elif le.count(x) == 3:
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1293, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1311, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1293, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1311, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_11 = PyList_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1293, __pyx_L1_error)
+        __pyx_t_11 = PyList_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1311, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
@@ -19865,7 +19865,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         __Pyx_GIVEREF(__pyx_t_9);
         PyList_SET_ITEM(__pyx_t_11, 1, __pyx_t_9);
         __pyx_t_9 = 0;
-        __pyx_t_9 = PyNumber_Add(__pyx_v_nle, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1293, __pyx_L1_error)
+        __pyx_t_9 = PyNumber_Add(__pyx_v_nle, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1311, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_11 = NULL;
@@ -19879,37 +19879,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_11) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1293, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1311, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_4);
         } else {
-          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1293, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1311, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_11); __pyx_t_11 = NULL;
           __Pyx_GIVEREF(__pyx_t_9);
           PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1293, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1311, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1294
+        /* "flagmatic/hypergraph_flag.pyx":1312
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [x, nv])
  *                                         ng.add_edge(nle + [nv, nv])             # <<<<<<<<<<<<<<
  *                                 elif le.count(x) == 3:
  *                                         ng.add_edge((x, x, nv))
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1294, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1312, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1294, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1312, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1294, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1312, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_11 = PyList_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1294, __pyx_L1_error)
+        __pyx_t_11 = PyList_New(2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1312, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __Pyx_GIVEREF(__pyx_t_8);
         PyList_SET_ITEM(__pyx_t_11, 0, __pyx_t_8);
@@ -19917,7 +19917,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         PyList_SET_ITEM(__pyx_t_11, 1, __pyx_t_9);
         __pyx_t_8 = 0;
         __pyx_t_9 = 0;
-        __pyx_t_9 = PyNumber_Add(__pyx_v_nle, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1294, __pyx_L1_error)
+        __pyx_t_9 = PyNumber_Add(__pyx_v_nle, __pyx_t_11); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1312, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         __pyx_t_11 = NULL;
@@ -19931,24 +19931,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_11) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1294, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1312, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_4);
         } else {
-          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1294, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1312, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_11); __pyx_t_11 = NULL;
           __Pyx_GIVEREF(__pyx_t_9);
           PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1294, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1312, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1291
+        /* "flagmatic/hypergraph_flag.pyx":1309
  *                                         nle = [y for y in le if y != x]
  *                                         ng.add_edge(nle + [nv])
  *                                 elif le.count(x) == 2:             # <<<<<<<<<<<<<<
@@ -19958,14 +19958,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         goto __pyx_L12;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1295
+      /* "flagmatic/hypergraph_flag.pyx":1313
  *                                         ng.add_edge(nle + [x, nv])
  *                                         ng.add_edge(nle + [nv, nv])
  *                                 elif le.count(x) == 3:             # <<<<<<<<<<<<<<
  *                                         ng.add_edge((x, x, nv))
  *                                         ng.add_edge((x, nv, nv))
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_le, __pyx_n_s_count); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1295, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_le, __pyx_n_s_count); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1313, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_8 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -19978,39 +19978,39 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         }
       }
       if (!__pyx_t_8) {
-        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1295, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_v_x); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
       } else {
-        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1295, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
         PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_v_x);
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1295, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1313, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-      __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_4, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1295, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyInt_EqObjC(__pyx_t_4, __pyx_int_3, 3, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1313, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1295, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1313, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1296
+        /* "flagmatic/hypergraph_flag.pyx":1314
  *                                         ng.add_edge(nle + [nv, nv])
  *                                 elif le.count(x) == 3:
  *                                         ng.add_edge((x, x, nv))             # <<<<<<<<<<<<<<
  *                                         ng.add_edge((x, nv, nv))
  *                                         ng.add_edge((nv, nv, nv))
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1296, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1314, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1296, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1314, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1296, __pyx_L1_error)
+        __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1314, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
@@ -20032,37 +20032,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_9) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1296, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_8); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1314, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else {
-          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1296, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1314, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
           __Pyx_GIVEREF(__pyx_t_8);
           PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_8);
           __pyx_t_8 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1296, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1314, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1297
+        /* "flagmatic/hypergraph_flag.pyx":1315
  *                                 elif le.count(x) == 3:
  *                                         ng.add_edge((x, x, nv))
  *                                         ng.add_edge((x, nv, nv))             # <<<<<<<<<<<<<<
  *                                         ng.add_edge((nv, nv, nv))
  * 
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1297, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_11 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1297, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1297, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1297, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(3); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1315, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
@@ -20084,39 +20084,39 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_8) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1297, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1315, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else {
-          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1297, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1315, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_8); __pyx_t_8 = NULL;
           __Pyx_GIVEREF(__pyx_t_9);
           PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1297, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1315, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1298
+        /* "flagmatic/hypergraph_flag.pyx":1316
  *                                         ng.add_edge((x, x, nv))
  *                                         ng.add_edge((x, nv, nv))
  *                                         ng.add_edge((nv, nv, nv))             # <<<<<<<<<<<<<<
  * 
  *                 elif self._r == 2:
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1298, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1316, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_11 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1298, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1316, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
-        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1298, __pyx_L1_error)
+        __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1316, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
-        __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1298, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1316, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1298, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1316, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_GIVEREF(__pyx_t_11);
         PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11);
@@ -20138,24 +20138,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_8) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1298, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1316, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else {
-          __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1298, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1316, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8); __pyx_t_8 = NULL;
           __Pyx_GIVEREF(__pyx_t_12);
           PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_t_12);
           __pyx_t_12 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1298, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1316, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1295
+        /* "flagmatic/hypergraph_flag.pyx":1313
  *                                         ng.add_edge(nle + [x, nv])
  *                                         ng.add_edge(nle + [nv, nv])
  *                                 elif le.count(x) == 3:             # <<<<<<<<<<<<<<
@@ -20165,7 +20165,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
       }
       __pyx_L12:;
 
-      /* "flagmatic/hypergraph_flag.pyx":1285
+      /* "flagmatic/hypergraph_flag.pyx":1303
  *                 if self._r == 3:
  * 
  *                         for e in self.edges:             # <<<<<<<<<<<<<<
@@ -20175,7 +20175,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1283
+    /* "flagmatic/hypergraph_flag.pyx":1301
  *                 nv = self._n + 1
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -20184,7 +20184,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  */
     break;
 
-    /* "flagmatic/hypergraph_flag.pyx":1300
+    /* "flagmatic/hypergraph_flag.pyx":1318
  *                                         ng.add_edge((nv, nv, nv))
  * 
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -20193,22 +20193,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  */
     case 2:
 
-    /* "flagmatic/hypergraph_flag.pyx":1302
+    /* "flagmatic/hypergraph_flag.pyx":1320
  *                 elif self._r == 2:
  * 
  *                         for e in self.edges:             # <<<<<<<<<<<<<<
  *                                 if e[0] == x:
  *                                         if e[1] == x:
  */
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_edges); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1302, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_edges); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1320, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
       __pyx_t_5 = __pyx_t_3; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1302, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1320, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1302, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1320, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     for (;;) {
@@ -20216,17 +20216,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         if (likely(PyList_CheckExact(__pyx_t_5))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1302, __pyx_L1_error)
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1320, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1302, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1320, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1302, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1320, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1302, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1320, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -20236,7 +20236,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 1302, __pyx_L1_error)
+            else __PYX_ERR(0, 1320, __pyx_L1_error)
           }
           break;
         }
@@ -20245,48 +20245,48 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
       __Pyx_XDECREF_SET(__pyx_v_e, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1303
+      /* "flagmatic/hypergraph_flag.pyx":1321
  * 
  *                         for e in self.edges:
  *                                 if e[0] == x:             # <<<<<<<<<<<<<<
  *                                         if e[1] == x:
  *                                                 ng.add_edge((x, nv))
  */
-      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1303, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1321, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_v_x, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1303, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_v_x, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1321, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1303, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1321, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1304
+        /* "flagmatic/hypergraph_flag.pyx":1322
  *                         for e in self.edges:
  *                                 if e[0] == x:
  *                                         if e[1] == x:             # <<<<<<<<<<<<<<
  *                                                 ng.add_edge((x, nv))
  *                                                 ng.add_edge((nv, nv))
  */
-        __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1304, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1322, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_3 = PyObject_RichCompare(__pyx_t_4, __pyx_v_x, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1304, __pyx_L1_error)
+        __pyx_t_3 = PyObject_RichCompare(__pyx_t_4, __pyx_v_x, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1322, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1304, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1322, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         if (__pyx_t_1) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1305
+          /* "flagmatic/hypergraph_flag.pyx":1323
  *                                 if e[0] == x:
  *                                         if e[1] == x:
  *                                                 ng.add_edge((x, nv))             # <<<<<<<<<<<<<<
  *                                                 ng.add_edge((nv, nv))
  *                                         else:
  */
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1305, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1323, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1305, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1323, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1305, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1323, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_x);
           __Pyx_GIVEREF(__pyx_v_x);
@@ -20305,37 +20305,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
             }
           }
           if (!__pyx_t_9) {
-            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1305, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1323, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_GOTREF(__pyx_t_3);
           } else {
-            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1305, __pyx_L1_error)
+            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1323, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9); __pyx_t_9 = NULL;
             __Pyx_GIVEREF(__pyx_t_12);
             PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_12);
             __pyx_t_12 = 0;
-            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1305, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1323, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           }
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1306
+          /* "flagmatic/hypergraph_flag.pyx":1324
  *                                         if e[1] == x:
  *                                                 ng.add_edge((x, nv))
  *                                                 ng.add_edge((nv, nv))             # <<<<<<<<<<<<<<
  *                                         else:
  *                                                 ng.add_edge((nv, e[1]))
  */
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1306, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1324, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1306, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1324, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_12 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1306, __pyx_L1_error)
+          __pyx_t_12 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1324, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1306, __pyx_L1_error)
+          __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1324, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
           __Pyx_GIVEREF(__pyx_t_8);
           PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8);
@@ -20354,24 +20354,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
             }
           }
           if (!__pyx_t_12) {
-            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1306, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_9); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1324, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
             __Pyx_GOTREF(__pyx_t_3);
           } else {
-            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1306, __pyx_L1_error)
+            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1324, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_12); __pyx_t_12 = NULL;
             __Pyx_GIVEREF(__pyx_t_9);
             PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_9);
             __pyx_t_9 = 0;
-            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1306, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1324, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           }
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1304
+          /* "flagmatic/hypergraph_flag.pyx":1322
  *                         for e in self.edges:
  *                                 if e[0] == x:
  *                                         if e[1] == x:             # <<<<<<<<<<<<<<
@@ -20381,7 +20381,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           goto __pyx_L22;
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1308
+        /* "flagmatic/hypergraph_flag.pyx":1326
  *                                                 ng.add_edge((nv, nv))
  *                                         else:
  *                                                 ng.add_edge((nv, e[1]))             # <<<<<<<<<<<<<<
@@ -20389,13 +20389,13 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
  *                                         ng.add_edge((e[0], nv))
  */
         /*else*/ {
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1308, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1326, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1308, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1326, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
-          __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1308, __pyx_L1_error)
+          __pyx_t_9 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1326, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_9);
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1308, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1326, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_GIVEREF(__pyx_t_8);
           PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_8);
@@ -20414,17 +20414,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
             }
           }
           if (!__pyx_t_9) {
-            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1308, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1326, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_GOTREF(__pyx_t_3);
           } else {
-            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1308, __pyx_L1_error)
+            __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1326, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_8);
             __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_9); __pyx_t_9 = NULL;
             __Pyx_GIVEREF(__pyx_t_12);
             PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_12);
             __pyx_t_12 = 0;
-            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1308, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_8, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1326, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
           }
@@ -20433,7 +20433,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         }
         __pyx_L22:;
 
-        /* "flagmatic/hypergraph_flag.pyx":1303
+        /* "flagmatic/hypergraph_flag.pyx":1321
  * 
  *                         for e in self.edges:
  *                                 if e[0] == x:             # <<<<<<<<<<<<<<
@@ -20443,35 +20443,35 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
         goto __pyx_L21;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1309
+      /* "flagmatic/hypergraph_flag.pyx":1327
  *                                         else:
  *                                                 ng.add_edge((nv, e[1]))
  *                                 elif e[1] == x:             # <<<<<<<<<<<<<<
  *                                         ng.add_edge((e[0], nv))
  * 
  */
-      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1309, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1327, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_v_x, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1309, __pyx_L1_error)
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_v_x, Py_EQ); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1327, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1309, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1327, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       if (__pyx_t_1) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1310
+        /* "flagmatic/hypergraph_flag.pyx":1328
  *                                                 ng.add_edge((nv, e[1]))
  *                                 elif e[1] == x:
  *                                         ng.add_edge((e[0], nv))             # <<<<<<<<<<<<<<
  * 
  *                 return ng
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1328, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_8 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1328, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_8);
-        __pyx_t_12 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyInt_From_long(__pyx_v_nv); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1328, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1310, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1328, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GIVEREF(__pyx_t_8);
         PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_8);
@@ -20490,24 +20490,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
           }
         }
         if (!__pyx_t_12) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1310, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1328, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
           __Pyx_GOTREF(__pyx_t_4);
         } else {
-          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1310, __pyx_L1_error)
+          __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1328, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_8);
           __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_12); __pyx_t_12 = NULL;
           __Pyx_GIVEREF(__pyx_t_9);
           PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_9);
           __pyx_t_9 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1310, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_8, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1328, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1309
+        /* "flagmatic/hypergraph_flag.pyx":1327
  *                                         else:
  *                                                 ng.add_edge((nv, e[1]))
  *                                 elif e[1] == x:             # <<<<<<<<<<<<<<
@@ -20517,7 +20517,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
       }
       __pyx_L21:;
 
-      /* "flagmatic/hypergraph_flag.pyx":1302
+      /* "flagmatic/hypergraph_flag.pyx":1320
  *                 elif self._r == 2:
  * 
  *                         for e in self.edges:             # <<<<<<<<<<<<<<
@@ -20527,7 +20527,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1300
+    /* "flagmatic/hypergraph_flag.pyx":1318
  *                                         ng.add_edge((nv, nv, nv))
  * 
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -20538,7 +20538,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
     default: break;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1312
+  /* "flagmatic/hypergraph_flag.pyx":1330
  *                                         ng.add_edge((e[0], nv))
  * 
  *                 return ng             # <<<<<<<<<<<<<<
@@ -20550,7 +20550,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
   __pyx_r = __pyx_v_ng;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1264
+  /* "flagmatic/hypergraph_flag.pyx":1282
  * 
  * 
  *         def split_vertex (self, x):             # <<<<<<<<<<<<<<
@@ -20580,7 +20580,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_62split_
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1315
+/* "flagmatic/hypergraph_flag.pyx":1333
  * 
  * 
  *         def degenerate_induced_subgraph(self, verts):             # <<<<<<<<<<<<<<
@@ -20628,7 +20628,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   int __pyx_t_14;
   __Pyx_RefNannySetupContext("degenerate_induced_subgraph", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1317
+  /* "flagmatic/hypergraph_flag.pyx":1335
  *         def degenerate_induced_subgraph(self, verts):
  * 
  *                 if self._oriented and self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -20646,7 +20646,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1318
+    /* "flagmatic/hypergraph_flag.pyx":1336
  * 
  *                 if self._oriented and self.is_degenerate:
  *                         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -20654,9 +20654,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  *                 if self.multiplicity != 1:
  */
     __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-    __PYX_ERR(0, 1318, __pyx_L1_error)
+    __PYX_ERR(0, 1336, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1317
+    /* "flagmatic/hypergraph_flag.pyx":1335
  *         def degenerate_induced_subgraph(self, verts):
  * 
  *                 if self._oriented and self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -20665,35 +20665,35 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1320
+  /* "flagmatic/hypergraph_flag.pyx":1338
  *                         raise NotImplementedError
  * 
  *                 if self.multiplicity != 1:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("Multigraphs not supported.")
  * 
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_multiplicity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1320, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_multiplicity); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1338, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_int_1, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1320, __pyx_L1_error)
+  __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_int_1, Py_NE); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1338, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1320, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1338, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1321
+    /* "flagmatic/hypergraph_flag.pyx":1339
  * 
  *                 if self.multiplicity != 1:
  *                         raise NotImplementedError("Multigraphs not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 cg = self.__copy__()
  */
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__40, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1321, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__40, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1339, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_Raise(__pyx_t_4, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __PYX_ERR(0, 1321, __pyx_L1_error)
+    __PYX_ERR(0, 1339, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1320
+    /* "flagmatic/hypergraph_flag.pyx":1338
  *                         raise NotImplementedError
  * 
  *                 if self.multiplicity != 1:             # <<<<<<<<<<<<<<
@@ -20702,14 +20702,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1323
+  /* "flagmatic/hypergraph_flag.pyx":1341
  *                         raise NotImplementedError("Multigraphs not supported.")
  * 
  *                 cg = self.__copy__()             # <<<<<<<<<<<<<<
  * 
  *                 # Remove all edges incident with vertices that are not used.
  */
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_copy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1323, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_copy); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_5 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -20722,29 +20722,29 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     }
   }
   if (__pyx_t_5) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1323, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1341, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1323, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1341, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_v_cg = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1326
+  /* "flagmatic/hypergraph_flag.pyx":1344
  * 
  *                 # Remove all edges incident with vertices that are not used.
  *                 for v in range(1, cg.n + 1):             # <<<<<<<<<<<<<<
  *                         if not v in verts:
  *                                 for e in cg.edges:
  */
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1326, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1326, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1326, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -20752,16 +20752,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   __Pyx_GIVEREF(__pyx_t_3);
   PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_3);
   __pyx_t_3 = 0;
-  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1326, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
     __pyx_t_4 = __pyx_t_3; __Pyx_INCREF(__pyx_t_4); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1326, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1344, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1326, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1344, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   for (;;) {
@@ -20769,17 +20769,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
       if (likely(PyList_CheckExact(__pyx_t_4))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_4)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1326, __pyx_L1_error)
+        __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1344, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1326, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1344, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1326, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1344, __pyx_L1_error)
         #else
-        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1326, __pyx_L1_error)
+        __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1344, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         #endif
       }
@@ -20789,7 +20789,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 1326, __pyx_L1_error)
+          else __PYX_ERR(0, 1344, __pyx_L1_error)
         }
         break;
       }
@@ -20798,33 +20798,33 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1327
+    /* "flagmatic/hypergraph_flag.pyx":1345
  *                 # Remove all edges incident with vertices that are not used.
  *                 for v in range(1, cg.n + 1):
  *                         if not v in verts:             # <<<<<<<<<<<<<<
  *                                 for e in cg.edges:
  *                                         if v in e:
  */
-    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_verts, Py_NE)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1327, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_verts, Py_NE)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1345, __pyx_L1_error)
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1328
+      /* "flagmatic/hypergraph_flag.pyx":1346
  *                 for v in range(1, cg.n + 1):
  *                         if not v in verts:
  *                                 for e in cg.edges:             # <<<<<<<<<<<<<<
  *                                         if v in e:
  *                                                 cg.delete_edge(e)
  */
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_edges); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1328, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_edges); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1346, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (likely(PyList_CheckExact(__pyx_t_3)) || PyTuple_CheckExact(__pyx_t_3)) {
         __pyx_t_5 = __pyx_t_3; __Pyx_INCREF(__pyx_t_5); __pyx_t_8 = 0;
         __pyx_t_9 = NULL;
       } else {
-        __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1328, __pyx_L1_error)
+        __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1346, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_9 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1328, __pyx_L1_error)
+        __pyx_t_9 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1346, __pyx_L1_error)
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       for (;;) {
@@ -20832,17 +20832,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           if (likely(PyList_CheckExact(__pyx_t_5))) {
             if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_5)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1328, __pyx_L1_error)
+            __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1346, __pyx_L1_error)
             #else
-            __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1328, __pyx_L1_error)
+            __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1346, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             #endif
           } else {
             if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1328, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_3); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1346, __pyx_L1_error)
             #else
-            __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1328, __pyx_L1_error)
+            __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1346, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             #endif
           }
@@ -20852,7 +20852,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 1328, __pyx_L1_error)
+              else __PYX_ERR(0, 1346, __pyx_L1_error)
             }
             break;
           }
@@ -20861,25 +20861,25 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         __Pyx_XDECREF_SET(__pyx_v_e, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1329
+        /* "flagmatic/hypergraph_flag.pyx":1347
  *                         if not v in verts:
  *                                 for e in cg.edges:
  *                                         if v in e:             # <<<<<<<<<<<<<<
  *                                                 cg.delete_edge(e)
  * 
  */
-        __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_e, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1329, __pyx_L1_error)
+        __pyx_t_2 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_e, Py_EQ)); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1347, __pyx_L1_error)
         __pyx_t_1 = (__pyx_t_2 != 0);
         if (__pyx_t_1) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1330
+          /* "flagmatic/hypergraph_flag.pyx":1348
  *                                 for e in cg.edges:
  *                                         if v in e:
  *                                                 cg.delete_edge(e)             # <<<<<<<<<<<<<<
  * 
  *                 vertices = []
  */
-          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_delete_edge); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1330, __pyx_L1_error)
+          __pyx_t_10 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_delete_edge); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1348, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __pyx_t_11 = NULL;
           if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_10))) {
@@ -20892,23 +20892,23 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
             }
           }
           if (!__pyx_t_11) {
-            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_v_e); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1330, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_v_e); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1348, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
           } else {
-            __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1330, __pyx_L1_error)
+            __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1348, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
             __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
             __Pyx_INCREF(__pyx_v_e);
             __Pyx_GIVEREF(__pyx_v_e);
             PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_v_e);
-            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1330, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1348, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           }
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1329
+          /* "flagmatic/hypergraph_flag.pyx":1347
  *                         if not v in verts:
  *                                 for e in cg.edges:
  *                                         if v in e:             # <<<<<<<<<<<<<<
@@ -20917,7 +20917,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1328
+        /* "flagmatic/hypergraph_flag.pyx":1346
  *                 for v in range(1, cg.n + 1):
  *                         if not v in verts:
  *                                 for e in cg.edges:             # <<<<<<<<<<<<<<
@@ -20927,7 +20927,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
       }
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1327
+      /* "flagmatic/hypergraph_flag.pyx":1345
  *                 # Remove all edges incident with vertices that are not used.
  *                 for v in range(1, cg.n + 1):
  *                         if not v in verts:             # <<<<<<<<<<<<<<
@@ -20936,7 +20936,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1326
+    /* "flagmatic/hypergraph_flag.pyx":1344
  * 
  *                 # Remove all edges incident with vertices that are not used.
  *                 for v in range(1, cg.n + 1):             # <<<<<<<<<<<<<<
@@ -20946,19 +20946,19 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1332
+  /* "flagmatic/hypergraph_flag.pyx":1350
  *                                                 cg.delete_edge(e)
  * 
  *                 vertices = []             # <<<<<<<<<<<<<<
  *                 for x in verts:
  *                         if not x in vertices:
  */
-  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1332, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1350, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_v_vertices = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1333
+  /* "flagmatic/hypergraph_flag.pyx":1351
  * 
  *                 vertices = []
  *                 for x in verts:             # <<<<<<<<<<<<<<
@@ -20969,26 +20969,26 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     __pyx_t_4 = __pyx_v_verts; __Pyx_INCREF(__pyx_t_4); __pyx_t_6 = 0;
     __pyx_t_7 = NULL;
   } else {
-    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_verts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1333, __pyx_L1_error)
+    __pyx_t_6 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_verts); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1351, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1333, __pyx_L1_error)
+    __pyx_t_7 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1351, __pyx_L1_error)
   }
   for (;;) {
     if (likely(!__pyx_t_7)) {
       if (likely(PyList_CheckExact(__pyx_t_4))) {
         if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_4)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1333, __pyx_L1_error)
+        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1351, __pyx_L1_error)
         #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1333, __pyx_L1_error)
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1351, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         #endif
       } else {
         if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1333, __pyx_L1_error)
+        __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1351, __pyx_L1_error)
         #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1333, __pyx_L1_error)
+        __pyx_t_5 = PySequence_ITEM(__pyx_t_4, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1351, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         #endif
       }
@@ -20998,7 +20998,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 1333, __pyx_L1_error)
+          else __PYX_ERR(0, 1351, __pyx_L1_error)
         }
         break;
       }
@@ -21007,27 +21007,27 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1334
+    /* "flagmatic/hypergraph_flag.pyx":1352
  *                 vertices = []
  *                 for x in verts:
  *                         if not x in vertices:             # <<<<<<<<<<<<<<
  *                                 vertices.append(x)
  *                         else:
  */
-    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_x, __pyx_v_vertices, Py_NE)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1334, __pyx_L1_error)
+    __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_v_x, __pyx_v_vertices, Py_NE)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1352, __pyx_L1_error)
     __pyx_t_2 = (__pyx_t_1 != 0);
     if (__pyx_t_2) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1335
+      /* "flagmatic/hypergraph_flag.pyx":1353
  *                 for x in verts:
  *                         if not x in vertices:
  *                                 vertices.append(x)             # <<<<<<<<<<<<<<
  *                         else:
  *                                 cg = cg.split_vertex(x)
  */
-      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_vertices, __pyx_v_x); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 1335, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_vertices, __pyx_v_x); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 1353, __pyx_L1_error)
 
-      /* "flagmatic/hypergraph_flag.pyx":1334
+      /* "flagmatic/hypergraph_flag.pyx":1352
  *                 vertices = []
  *                 for x in verts:
  *                         if not x in vertices:             # <<<<<<<<<<<<<<
@@ -21037,7 +21037,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
       goto __pyx_L15;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1337
+    /* "flagmatic/hypergraph_flag.pyx":1355
  *                                 vertices.append(x)
  *                         else:
  *                                 cg = cg.split_vertex(x)             # <<<<<<<<<<<<<<
@@ -21045,7 +21045,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  * 
  */
     /*else*/ {
-      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_split_vertex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1337, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_split_vertex); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1355, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __pyx_t_10 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -21058,16 +21058,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         }
       }
       if (!__pyx_t_10) {
-        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1337, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_v_x); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
       } else {
-        __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1337, __pyx_L1_error)
+        __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10); __pyx_t_10 = NULL;
         __Pyx_INCREF(__pyx_v_x);
         __Pyx_GIVEREF(__pyx_v_x);
         PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_v_x);
-        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1337, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1355, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       }
@@ -21075,21 +21075,21 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
       __Pyx_DECREF_SET(__pyx_v_cg, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1338
+      /* "flagmatic/hypergraph_flag.pyx":1356
  *                         else:
  *                                 cg = cg.split_vertex(x)
  *                                 vertices.append(cg.n)             # <<<<<<<<<<<<<<
  * 
  *                 ng = type(self)()
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1338, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1356, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_vertices, __pyx_t_5); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 1338, __pyx_L1_error)
+      __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_vertices, __pyx_t_5); if (unlikely(__pyx_t_13 == -1)) __PYX_ERR(0, 1356, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
     __pyx_L15:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1333
+    /* "flagmatic/hypergraph_flag.pyx":1351
  * 
  *                 vertices = []
  *                 for x in verts:             # <<<<<<<<<<<<<<
@@ -21099,7 +21099,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1340
+  /* "flagmatic/hypergraph_flag.pyx":1358
  *                                 vertices.append(cg.n)
  * 
  *                 ng = type(self)()             # <<<<<<<<<<<<<<
@@ -21118,63 +21118,63 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1340, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1358, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1340, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1358, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_ng = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1341
+  /* "flagmatic/hypergraph_flag.pyx":1359
  * 
  *                 ng = type(self)()
  *                 ng.n = len(vertices)             # <<<<<<<<<<<<<<
  *                 ng.r = self._r
  *                 ng.oriented = self._oriented
  */
-  __pyx_t_6 = PyList_GET_SIZE(__pyx_v_vertices); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 1341, __pyx_L1_error)
-  __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1341, __pyx_L1_error)
+  __pyx_t_6 = PyList_GET_SIZE(__pyx_v_vertices); if (unlikely(__pyx_t_6 == -1)) __PYX_ERR(0, 1359, __pyx_L1_error)
+  __pyx_t_4 = PyInt_FromSsize_t(__pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1359, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_n, __pyx_t_4) < 0) __PYX_ERR(0, 1341, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_n, __pyx_t_4) < 0) __PYX_ERR(0, 1359, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1342
+  /* "flagmatic/hypergraph_flag.pyx":1360
  *                 ng = type(self)()
  *                 ng.n = len(vertices)
  *                 ng.r = self._r             # <<<<<<<<<<<<<<
  *                 ng.oriented = self._oriented
  *                 ng.t = 0
  */
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->_r); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1342, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_self->_r); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1360, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_r, __pyx_t_4) < 0) __PYX_ERR(0, 1342, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_r, __pyx_t_4) < 0) __PYX_ERR(0, 1360, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1343
+  /* "flagmatic/hypergraph_flag.pyx":1361
  *                 ng.n = len(vertices)
  *                 ng.r = self._r
  *                 ng.oriented = self._oriented             # <<<<<<<<<<<<<<
  *                 ng.t = 0
  * 
  */
-  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->_oriented); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1343, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyBool_FromLong(__pyx_v_self->_oriented); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1361, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_oriented, __pyx_t_4) < 0) __PYX_ERR(0, 1343, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_oriented, __pyx_t_4) < 0) __PYX_ERR(0, 1361, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1344
+  /* "flagmatic/hypergraph_flag.pyx":1362
  *                 ng.r = self._r
  *                 ng.oriented = self._oriented
  *                 ng.t = 0             # <<<<<<<<<<<<<<
  * 
  *                 if self._r == 3:
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_t, __pyx_int_0) < 0) __PYX_ERR(0, 1344, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_ng, __pyx_n_s_t, __pyx_int_0) < 0) __PYX_ERR(0, 1362, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1346
+  /* "flagmatic/hypergraph_flag.pyx":1364
  *                 ng.t = 0
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -21184,22 +21184,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   switch (__pyx_v_self->_r) {
     case 3:
 
-    /* "flagmatic/hypergraph_flag.pyx":1347
+    /* "flagmatic/hypergraph_flag.pyx":1365
  * 
  *                 if self._r == 3:
  *                         for e in cg.edges:             # <<<<<<<<<<<<<<
  *                                 if e[0] in vertices and e[1] in vertices and e[2] in vertices:
  *                                         x = vertices.index(e[0]) + 1
  */
-    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_edges); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1347, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_edges); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1365, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (likely(PyList_CheckExact(__pyx_t_4)) || PyTuple_CheckExact(__pyx_t_4)) {
       __pyx_t_5 = __pyx_t_4; __Pyx_INCREF(__pyx_t_5); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1347, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1365, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1347, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1365, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     for (;;) {
@@ -21207,17 +21207,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         if (likely(PyList_CheckExact(__pyx_t_5))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1347, __pyx_L1_error)
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1365, __pyx_L1_error)
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1347, __pyx_L1_error)
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1365, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1347, __pyx_L1_error)
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_6); __Pyx_INCREF(__pyx_t_4); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1365, __pyx_L1_error)
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1347, __pyx_L1_error)
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1365, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -21227,7 +21227,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 1347, __pyx_L1_error)
+            else __PYX_ERR(0, 1365, __pyx_L1_error)
           }
           break;
         }
@@ -21236,16 +21236,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
       __Pyx_XDECREF_SET(__pyx_v_e, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1348
+      /* "flagmatic/hypergraph_flag.pyx":1366
  *                 if self._r == 3:
  *                         for e in cg.edges:
  *                                 if e[0] in vertices and e[1] in vertices and e[2] in vertices:             # <<<<<<<<<<<<<<
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1
  */
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1348, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_4, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1348, __pyx_L1_error)
+      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_4, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1366, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_14 = (__pyx_t_1 != 0);
       if (__pyx_t_14) {
@@ -21253,9 +21253,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         __pyx_t_2 = __pyx_t_14;
         goto __pyx_L19_bool_binop_done;
       }
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1348, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_14 = (__Pyx_PySequence_ContainsTF(__pyx_t_4, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1348, __pyx_L1_error)
+      __pyx_t_14 = (__Pyx_PySequence_ContainsTF(__pyx_t_4, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1366, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_1 = (__pyx_t_14 != 0);
       if (__pyx_t_1) {
@@ -21263,25 +21263,25 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         __pyx_t_2 = __pyx_t_1;
         goto __pyx_L19_bool_binop_done;
       }
-      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1348, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetItemInt(__pyx_v_e, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1366, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_4, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1348, __pyx_L1_error)
+      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_4, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1366, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_14 = (__pyx_t_1 != 0);
       __pyx_t_2 = __pyx_t_14;
       __pyx_L19_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1349
+        /* "flagmatic/hypergraph_flag.pyx":1367
  *                         for e in cg.edges:
  *                                 if e[0] in vertices and e[1] in vertices and e[2] in vertices:
  *                                         x = vertices.index(e[0]) + 1             # <<<<<<<<<<<<<<
  *                                         y = vertices.index(e[1]) + 1
  *                                         z = vertices.index(e[2]) + 1
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1349, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1367, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1349, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1367, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __pyx_t_10 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -21294,37 +21294,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           }
         }
         if (!__pyx_t_10) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1349, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_12); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1367, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
           __Pyx_GOTREF(__pyx_t_4);
         } else {
-          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1349, __pyx_L1_error)
+          __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1367, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10); __pyx_t_10 = NULL;
           __Pyx_GIVEREF(__pyx_t_12);
           PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_12);
           __pyx_t_12 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1349, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1367, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1349, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1367, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1350
+        /* "flagmatic/hypergraph_flag.pyx":1368
  *                                 if e[0] in vertices and e[1] in vertices and e[2] in vertices:
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1             # <<<<<<<<<<<<<<
  *                                         z = vertices.index(e[2]) + 1
  *                                         if x != y and x != z and y != z:
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1350, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1368, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1350, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1368, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_12 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
@@ -21337,37 +21337,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           }
         }
         if (!__pyx_t_12) {
-          __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1350, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_11); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1368, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_3);
         } else {
-          __pyx_t_10 = PyTuple_New(1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1350, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1368, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_12); __pyx_t_12 = NULL;
           __Pyx_GIVEREF(__pyx_t_11);
           PyTuple_SET_ITEM(__pyx_t_10, 0+1, __pyx_t_11);
           __pyx_t_11 = 0;
-          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1350, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_10, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1368, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1350, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_3, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1368, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1351
+        /* "flagmatic/hypergraph_flag.pyx":1369
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1
  *                                         z = vertices.index(e[2]) + 1             # <<<<<<<<<<<<<<
  *                                         if x != y and x != z and y != z:
  *                                                 ng.add_edge((x, y, z))
  */
-        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1351, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1369, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_e, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1351, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_e, 2, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1369, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_11 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -21380,67 +21380,67 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           }
         }
         if (!__pyx_t_11) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1351, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1369, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_GOTREF(__pyx_t_4);
         } else {
-          __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1351, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1369, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
           __Pyx_GIVEREF(__pyx_t_10);
           PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_10);
           __pyx_t_10 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1351, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1369, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         }
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1351, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1369, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_XDECREF_SET(__pyx_v_z, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1352
+        /* "flagmatic/hypergraph_flag.pyx":1370
  *                                         y = vertices.index(e[1]) + 1
  *                                         z = vertices.index(e[2]) + 1
  *                                         if x != y and x != z and y != z:             # <<<<<<<<<<<<<<
  *                                                 ng.add_edge((x, y, z))
  * 
  */
-        __pyx_t_3 = PyObject_RichCompare(__pyx_v_x, __pyx_v_y, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1352, __pyx_L1_error)
-        __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1352, __pyx_L1_error)
+        __pyx_t_3 = PyObject_RichCompare(__pyx_v_x, __pyx_v_y, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1370, __pyx_L1_error)
+        __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1370, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         if (__pyx_t_14) {
         } else {
           __pyx_t_2 = __pyx_t_14;
           goto __pyx_L23_bool_binop_done;
         }
-        __pyx_t_3 = PyObject_RichCompare(__pyx_v_x, __pyx_v_z, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1352, __pyx_L1_error)
-        __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1352, __pyx_L1_error)
+        __pyx_t_3 = PyObject_RichCompare(__pyx_v_x, __pyx_v_z, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1370, __pyx_L1_error)
+        __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1370, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         if (__pyx_t_14) {
         } else {
           __pyx_t_2 = __pyx_t_14;
           goto __pyx_L23_bool_binop_done;
         }
-        __pyx_t_3 = PyObject_RichCompare(__pyx_v_y, __pyx_v_z, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1352, __pyx_L1_error)
-        __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1352, __pyx_L1_error)
+        __pyx_t_3 = PyObject_RichCompare(__pyx_v_y, __pyx_v_z, Py_NE); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1370, __pyx_L1_error)
+        __pyx_t_14 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1370, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_t_2 = __pyx_t_14;
         __pyx_L23_bool_binop_done:;
         if (__pyx_t_2) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1353
+          /* "flagmatic/hypergraph_flag.pyx":1371
  *                                         z = vertices.index(e[2]) + 1
  *                                         if x != y and x != z and y != z:
  *                                                 ng.add_edge((x, y, z))             # <<<<<<<<<<<<<<
  * 
  *                 elif self._r == 2:
  */
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1353, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1371, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1353, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1371, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_x);
           __Pyx_GIVEREF(__pyx_v_x);
@@ -21462,24 +21462,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
             }
           }
           if (!__pyx_t_10) {
-            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1353, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1371, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_GOTREF(__pyx_t_3);
           } else {
-            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1353, __pyx_L1_error)
+            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1371, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10); __pyx_t_10 = NULL;
             __Pyx_GIVEREF(__pyx_t_12);
             PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_12);
             __pyx_t_12 = 0;
-            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1353, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1371, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1352
+          /* "flagmatic/hypergraph_flag.pyx":1370
  *                                         y = vertices.index(e[1]) + 1
  *                                         z = vertices.index(e[2]) + 1
  *                                         if x != y and x != z and y != z:             # <<<<<<<<<<<<<<
@@ -21488,7 +21488,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1348
+        /* "flagmatic/hypergraph_flag.pyx":1366
  *                 if self._r == 3:
  *                         for e in cg.edges:
  *                                 if e[0] in vertices and e[1] in vertices and e[2] in vertices:             # <<<<<<<<<<<<<<
@@ -21497,7 +21497,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1347
+      /* "flagmatic/hypergraph_flag.pyx":1365
  * 
  *                 if self._r == 3:
  *                         for e in cg.edges:             # <<<<<<<<<<<<<<
@@ -21507,7 +21507,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1346
+    /* "flagmatic/hypergraph_flag.pyx":1364
  *                 ng.t = 0
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -21516,7 +21516,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
     break;
 
-    /* "flagmatic/hypergraph_flag.pyx":1355
+    /* "flagmatic/hypergraph_flag.pyx":1373
  *                                                 ng.add_edge((x, y, z))
  * 
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -21525,22 +21525,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
     case 2:
 
-    /* "flagmatic/hypergraph_flag.pyx":1356
+    /* "flagmatic/hypergraph_flag.pyx":1374
  * 
  *                 elif self._r == 2:
  *                         for e in cg.edges:             # <<<<<<<<<<<<<<
  *                                 if e[0] in vertices and e[1] in vertices:
  *                                         x = vertices.index(e[0]) + 1
  */
-    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_edges); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1356, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_cg, __pyx_n_s_edges); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1374, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (likely(PyList_CheckExact(__pyx_t_5)) || PyTuple_CheckExact(__pyx_t_5)) {
       __pyx_t_3 = __pyx_t_5; __Pyx_INCREF(__pyx_t_3); __pyx_t_6 = 0;
       __pyx_t_7 = NULL;
     } else {
-      __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1356, __pyx_L1_error)
+      __pyx_t_6 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1374, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1356, __pyx_L1_error)
+      __pyx_t_7 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1374, __pyx_L1_error)
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     for (;;) {
@@ -21548,17 +21548,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         if (likely(PyList_CheckExact(__pyx_t_3))) {
           if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1356, __pyx_L1_error)
+          __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1374, __pyx_L1_error)
           #else
-          __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1356, __pyx_L1_error)
+          __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1374, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           #endif
         } else {
           if (__pyx_t_6 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1356, __pyx_L1_error)
+          __pyx_t_5 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_6); __Pyx_INCREF(__pyx_t_5); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 1374, __pyx_L1_error)
           #else
-          __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1356, __pyx_L1_error)
+          __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1374, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           #endif
         }
@@ -21568,7 +21568,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 1356, __pyx_L1_error)
+            else __PYX_ERR(0, 1374, __pyx_L1_error)
           }
           break;
         }
@@ -21577,16 +21577,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
       __Pyx_XDECREF_SET(__pyx_v_e, __pyx_t_5);
       __pyx_t_5 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1357
+      /* "flagmatic/hypergraph_flag.pyx":1375
  *                 elif self._r == 2:
  *                         for e in cg.edges:
  *                                 if e[0] in vertices and e[1] in vertices:             # <<<<<<<<<<<<<<
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1
  */
-      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1357, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1375, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_14 = (__Pyx_PySequence_ContainsTF(__pyx_t_5, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1357, __pyx_L1_error)
+      __pyx_t_14 = (__Pyx_PySequence_ContainsTF(__pyx_t_5, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_14 < 0)) __PYX_ERR(0, 1375, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_1 = (__pyx_t_14 != 0);
       if (__pyx_t_1) {
@@ -21594,25 +21594,25 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
         __pyx_t_2 = __pyx_t_1;
         goto __pyx_L29_bool_binop_done;
       }
-      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1357, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1375, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_5, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1357, __pyx_L1_error)
+      __pyx_t_1 = (__Pyx_PySequence_ContainsTF(__pyx_t_5, __pyx_v_vertices, Py_EQ)); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1375, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_t_14 = (__pyx_t_1 != 0);
       __pyx_t_2 = __pyx_t_14;
       __pyx_L29_bool_binop_done:;
       if (__pyx_t_2) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1358
+        /* "flagmatic/hypergraph_flag.pyx":1376
  *                         for e in cg.edges:
  *                                 if e[0] in vertices and e[1] in vertices:
  *                                         x = vertices.index(e[0]) + 1             # <<<<<<<<<<<<<<
  *                                         y = vertices.index(e[1]) + 1
  *                                         if x != y:
  */
-        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1358, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1376, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1358, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_e, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1376, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_12 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_4))) {
@@ -21625,37 +21625,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           }
         }
         if (!__pyx_t_12) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1358, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_11); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1376, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           __Pyx_GOTREF(__pyx_t_5);
         } else {
-          __pyx_t_10 = PyTuple_New(1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1358, __pyx_L1_error)
+          __pyx_t_10 = PyTuple_New(1+1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1376, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_10);
           __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_12); __pyx_t_12 = NULL;
           __Pyx_GIVEREF(__pyx_t_11);
           PyTuple_SET_ITEM(__pyx_t_10, 0+1, __pyx_t_11);
           __pyx_t_11 = 0;
-          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_10, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1358, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_10, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1376, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_5);
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_5, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1358, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_t_5, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1376, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         __Pyx_XDECREF_SET(__pyx_v_x, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1359
+        /* "flagmatic/hypergraph_flag.pyx":1377
  *                                 if e[0] in vertices and e[1] in vertices:
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1             # <<<<<<<<<<<<<<
  *                                         if x != y:
  *                                                 ng.add_edge((x, y))
  */
-        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1359, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_vertices, __pyx_n_s_index); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1377, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1359, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt(__pyx_v_e, 1, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1377, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __pyx_t_11 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -21668,49 +21668,49 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
           }
         }
         if (!__pyx_t_11) {
-          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1359, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1377, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
           __Pyx_GOTREF(__pyx_t_4);
         } else {
-          __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1359, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(1+1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1377, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
           __Pyx_GIVEREF(__pyx_t_10);
           PyTuple_SET_ITEM(__pyx_t_12, 0+1, __pyx_t_10);
           __pyx_t_10 = 0;
-          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1359, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1377, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         }
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1359, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_AddObjC(__pyx_t_4, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1377, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
         __Pyx_XDECREF_SET(__pyx_v_y, __pyx_t_5);
         __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1360
+        /* "flagmatic/hypergraph_flag.pyx":1378
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1
  *                                         if x != y:             # <<<<<<<<<<<<<<
  *                                                 ng.add_edge((x, y))
  * 
  */
-        __pyx_t_5 = PyObject_RichCompare(__pyx_v_x, __pyx_v_y, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1360, __pyx_L1_error)
-        __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1360, __pyx_L1_error)
+        __pyx_t_5 = PyObject_RichCompare(__pyx_v_x, __pyx_v_y, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1378, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_2 < 0)) __PYX_ERR(0, 1378, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (__pyx_t_2) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1361
+          /* "flagmatic/hypergraph_flag.pyx":1379
  *                                         y = vertices.index(e[1]) + 1
  *                                         if x != y:
  *                                                 ng.add_edge((x, y))             # <<<<<<<<<<<<<<
  * 
  *                 ng.minimize_edges()
  */
-          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1361, __pyx_L1_error)
+          __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_add_edge); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1379, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1361, __pyx_L1_error)
+          __pyx_t_12 = PyTuple_New(2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1379, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
           __Pyx_INCREF(__pyx_v_x);
           __Pyx_GIVEREF(__pyx_v_x);
@@ -21729,24 +21729,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
             }
           }
           if (!__pyx_t_10) {
-            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1361, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_12); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1379, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             __Pyx_GOTREF(__pyx_t_5);
           } else {
-            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1361, __pyx_L1_error)
+            __pyx_t_11 = PyTuple_New(1+1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1379, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_10); __pyx_t_10 = NULL;
             __Pyx_GIVEREF(__pyx_t_12);
             PyTuple_SET_ITEM(__pyx_t_11, 0+1, __pyx_t_12);
             __pyx_t_12 = 0;
-            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1361, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1379, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           }
           __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1360
+          /* "flagmatic/hypergraph_flag.pyx":1378
  *                                         x = vertices.index(e[0]) + 1
  *                                         y = vertices.index(e[1]) + 1
  *                                         if x != y:             # <<<<<<<<<<<<<<
@@ -21755,7 +21755,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1357
+        /* "flagmatic/hypergraph_flag.pyx":1375
  *                 elif self._r == 2:
  *                         for e in cg.edges:
  *                                 if e[0] in vertices and e[1] in vertices:             # <<<<<<<<<<<<<<
@@ -21764,7 +21764,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1356
+      /* "flagmatic/hypergraph_flag.pyx":1374
  * 
  *                 elif self._r == 2:
  *                         for e in cg.edges:             # <<<<<<<<<<<<<<
@@ -21774,7 +21774,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1355
+    /* "flagmatic/hypergraph_flag.pyx":1373
  *                                                 ng.add_edge((x, y, z))
  * 
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -21785,14 +21785,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     default: break;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1363
+  /* "flagmatic/hypergraph_flag.pyx":1381
  *                                                 ng.add_edge((x, y))
  * 
  *                 ng.minimize_edges()             # <<<<<<<<<<<<<<
  *                 return ng
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_minimize_edges); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1363, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_ng, __pyx_n_s_minimize_edges); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1381, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -21805,16 +21805,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1363, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1381, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1363, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1381, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1364
+  /* "flagmatic/hypergraph_flag.pyx":1382
  * 
  *                 ng.minimize_edges()
  *                 return ng             # <<<<<<<<<<<<<<
@@ -21826,7 +21826,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   __pyx_r = __pyx_v_ng;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1315
+  /* "flagmatic/hypergraph_flag.pyx":1333
  * 
  * 
  *         def degenerate_induced_subgraph(self, verts):             # <<<<<<<<<<<<<<
@@ -21858,7 +21858,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_64degene
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1367
+/* "flagmatic/hypergraph_flag.pyx":1385
  * 
  * 
  *         def degenerate_edge_density(self):             # <<<<<<<<<<<<<<
@@ -21890,7 +21890,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
   PyObject *__pyx_t_6 = NULL;
   __Pyx_RefNannySetupContext("degenerate_edge_density", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1369
+  /* "flagmatic/hypergraph_flag.pyx":1387
  *         def degenerate_edge_density(self):
  * 
  *                 if self._oriented:             # <<<<<<<<<<<<<<
@@ -21900,7 +21900,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
   __pyx_t_1 = (__pyx_v_self->_oriented != 0);
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1370
+    /* "flagmatic/hypergraph_flag.pyx":1388
  * 
  *                 if self._oriented:
  *                         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -21908,9 +21908,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  *                 if self._r == 3:
  */
     __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-    __PYX_ERR(0, 1370, __pyx_L1_error)
+    __PYX_ERR(0, 1388, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1369
+    /* "flagmatic/hypergraph_flag.pyx":1387
  *         def degenerate_edge_density(self):
  * 
  *                 if self._oriented:             # <<<<<<<<<<<<<<
@@ -21919,7 +21919,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1372
+  /* "flagmatic/hypergraph_flag.pyx":1390
  *                         raise NotImplementedError
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -21929,7 +21929,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
   switch (__pyx_v_self->_r) {
     case 3:
 
-    /* "flagmatic/hypergraph_flag.pyx":1373
+    /* "flagmatic/hypergraph_flag.pyx":1391
  * 
  *                 if self._r == 3:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("3:123"))             # <<<<<<<<<<<<<<
@@ -21937,9 +21937,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  *                         return self.degenerate_subgraph_density(HypergraphFlag("2:12", 2))
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_subgraph_density); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1373, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_subgraph_density); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1391, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_tuple__41, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1373, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_tuple__41, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1391, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_5 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -21952,17 +21952,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
       }
     }
     if (!__pyx_t_5) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1373, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1391, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else {
-      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1373, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1391, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_5); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_5); __pyx_t_5 = NULL;
       __Pyx_GIVEREF(__pyx_t_4);
       PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_4);
       __pyx_t_4 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1373, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_6, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1391, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
@@ -21971,7 +21971,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1372
+    /* "flagmatic/hypergraph_flag.pyx":1390
  *                         raise NotImplementedError
  * 
  *                 if self._r == 3:             # <<<<<<<<<<<<<<
@@ -21980,7 +21980,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  */
     break;
 
-    /* "flagmatic/hypergraph_flag.pyx":1374
+    /* "flagmatic/hypergraph_flag.pyx":1392
  *                 if self._r == 3:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("3:123"))
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -21989,7 +21989,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  */
     case 2:
 
-    /* "flagmatic/hypergraph_flag.pyx":1375
+    /* "flagmatic/hypergraph_flag.pyx":1393
  *                         return self.degenerate_subgraph_density(HypergraphFlag("3:123"))
  *                 elif self._r == 2:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("2:12", 2))             # <<<<<<<<<<<<<<
@@ -21997,9 +21997,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_subgraph_density); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1375, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_subgraph_density); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1393, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_6 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_tuple__42, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1375, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag), __pyx_tuple__42, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1393, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_4 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_3))) {
@@ -22012,17 +22012,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
       }
     }
     if (!__pyx_t_4) {
-      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1375, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_6); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1393, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
       __Pyx_GOTREF(__pyx_t_2);
     } else {
-      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1375, __pyx_L1_error)
+      __pyx_t_5 = PyTuple_New(1+1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1393, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_GIVEREF(__pyx_t_4); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_4); __pyx_t_4 = NULL;
       __Pyx_GIVEREF(__pyx_t_6);
       PyTuple_SET_ITEM(__pyx_t_5, 0+1, __pyx_t_6);
       __pyx_t_6 = 0;
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1375, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1393, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     }
@@ -22031,7 +22031,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
     __pyx_t_2 = 0;
     goto __pyx_L0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1374
+    /* "flagmatic/hypergraph_flag.pyx":1392
  *                 if self._r == 3:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("3:123"))
  *                 elif self._r == 2:             # <<<<<<<<<<<<<<
@@ -22042,7 +22042,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
     default: break;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1367
+  /* "flagmatic/hypergraph_flag.pyx":1385
  * 
  * 
  *         def degenerate_edge_density(self):             # <<<<<<<<<<<<<<
@@ -22067,7 +22067,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_66degene
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1378
+/* "flagmatic/hypergraph_flag.pyx":1396
  * 
  * 
  *         def degenerate_subgraph_density(self, h):             # <<<<<<<<<<<<<<
@@ -22109,16 +22109,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   PyObject *(*__pyx_t_10)(PyObject *);
   __Pyx_RefNannySetupContext("degenerate_subgraph_density", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1384
+  /* "flagmatic/hypergraph_flag.pyx":1402
  *                 """
  * 
  *                 if self.oriented and self.is_degenerate:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_oriented); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1384, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_oriented); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1402, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 1384, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 1402, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
   } else {
@@ -22130,7 +22130,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1385
+    /* "flagmatic/hypergraph_flag.pyx":1403
  * 
  *                 if self.oriented and self.is_degenerate:
  *                         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -22138,9 +22138,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  *                 if h.is_degenerate:
  */
     __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-    __PYX_ERR(0, 1385, __pyx_L1_error)
+    __PYX_ERR(0, 1403, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1384
+    /* "flagmatic/hypergraph_flag.pyx":1402
  *                 """
  * 
  *                 if self.oriented and self.is_degenerate:             # <<<<<<<<<<<<<<
@@ -22149,20 +22149,20 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1387
+  /* "flagmatic/hypergraph_flag.pyx":1405
  *                         raise NotImplementedError
  * 
  *                 if h.is_degenerate:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_is_degenerate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1387, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_is_degenerate); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1405, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1387, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1405, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1388
+    /* "flagmatic/hypergraph_flag.pyx":1406
  * 
  *                 if h.is_degenerate:
  *                         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -22170,9 +22170,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  *                 if self.r != h.r:
  */
     __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-    __PYX_ERR(0, 1388, __pyx_L1_error)
+    __PYX_ERR(0, 1406, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1387
+    /* "flagmatic/hypergraph_flag.pyx":1405
  *                         raise NotImplementedError
  * 
  *                 if h.is_degenerate:             # <<<<<<<<<<<<<<
@@ -22181,25 +22181,25 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1390
+  /* "flagmatic/hypergraph_flag.pyx":1408
  *                         raise NotImplementedError
  * 
  *                 if self.r != h.r:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_r); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1390, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_r); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_r); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1390, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_r); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1408, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1390, __pyx_L1_error)
+  __pyx_t_5 = PyObject_RichCompare(__pyx_t_2, __pyx_t_4, Py_NE); __Pyx_XGOTREF(__pyx_t_5); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1408, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1390, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1408, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   if (__pyx_t_1) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1391
+    /* "flagmatic/hypergraph_flag.pyx":1409
  * 
  *                 if self.r != h.r:
  *                         raise NotImplementedError             # <<<<<<<<<<<<<<
@@ -22207,9 +22207,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  *                 found, total = 0, 0
  */
     __Pyx_Raise(__pyx_builtin_NotImplementedError, 0, 0, 0);
-    __PYX_ERR(0, 1391, __pyx_L1_error)
+    __PYX_ERR(0, 1409, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1390
+    /* "flagmatic/hypergraph_flag.pyx":1408
  *                         raise NotImplementedError
  * 
  *                 if self.r != h.r:             # <<<<<<<<<<<<<<
@@ -22218,7 +22218,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1393
+  /* "flagmatic/hypergraph_flag.pyx":1411
  *                         raise NotImplementedError
  * 
  *                 found, total = 0, 0             # <<<<<<<<<<<<<<
@@ -22234,14 +22234,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   __pyx_v_total = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1394
+  /* "flagmatic/hypergraph_flag.pyx":1412
  * 
  *                 found, total = 0, 0
  *                 minh = h.__copy__()             # <<<<<<<<<<<<<<
  *                 minh.t = 0
  *                 minh.make_minimal_isomorph()
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1394, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_copy); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_2 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -22254,33 +22254,33 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
     }
   }
   if (__pyx_t_2) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1394, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1412, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1394, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1412, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_minh = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1395
+  /* "flagmatic/hypergraph_flag.pyx":1413
  *                 found, total = 0, 0
  *                 minh = h.__copy__()
  *                 minh.t = 0             # <<<<<<<<<<<<<<
  *                 minh.make_minimal_isomorph()
  * 
  */
-  if (__Pyx_PyObject_SetAttrStr(__pyx_v_minh, __pyx_n_s_t, __pyx_int_0) < 0) __PYX_ERR(0, 1395, __pyx_L1_error)
+  if (__Pyx_PyObject_SetAttrStr(__pyx_v_minh, __pyx_n_s_t, __pyx_int_0) < 0) __PYX_ERR(0, 1413, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1396
+  /* "flagmatic/hypergraph_flag.pyx":1414
  *                 minh = h.__copy__()
  *                 minh.t = 0
  *                 minh.make_minimal_isomorph()             # <<<<<<<<<<<<<<
  * 
  *                 for hv in Tuples(range(1, self.n + 1), h.n):
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_minh, __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1396, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_minh, __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1414, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_2 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -22293,30 +22293,30 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
     }
   }
   if (__pyx_t_2) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1396, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1414, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1396, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1414, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1398
+  /* "flagmatic/hypergraph_flag.pyx":1416
  *                 minh.make_minimal_isomorph()
  * 
  *                 for hv in Tuples(range(1, self.n + 1), h.n):             # <<<<<<<<<<<<<<
  *                         ig = self.degenerate_induced_subgraph(hv)
  *                         ig.make_minimal_isomorph()
  */
-  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_Tuples); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_Tuples); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_AddObjC(__pyx_t_2, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_2 = PyTuple_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -22324,10 +22324,10 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_2, 1, __pyx_t_6);
   __pyx_t_6 = 0;
-  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_2, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_h, __pyx_n_s_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = NULL;
   __pyx_t_8 = 0;
@@ -22341,7 +22341,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
       __pyx_t_8 = 1;
     }
   }
-  __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_9 = PyTuple_New(2+__pyx_t_8); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   if (__pyx_t_7) {
     __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_7); __pyx_t_7 = NULL;
@@ -22352,7 +22352,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_8, __pyx_t_2);
   __pyx_t_6 = 0;
   __pyx_t_2 = 0;
-  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1398, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_9, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -22360,9 +22360,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
     __pyx_t_5 = __pyx_t_4; __Pyx_INCREF(__pyx_t_5); __pyx_t_8 = 0;
     __pyx_t_10 = NULL;
   } else {
-    __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1398, __pyx_L1_error)
+    __pyx_t_8 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1416, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_10 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1398, __pyx_L1_error)
+    __pyx_t_10 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1416, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   for (;;) {
@@ -22370,17 +22370,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
       if (likely(PyList_CheckExact(__pyx_t_5))) {
         if (__pyx_t_8 >= PyList_GET_SIZE(__pyx_t_5)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1398, __pyx_L1_error)
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1416, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1398, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1416, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       } else {
         if (__pyx_t_8 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1398, __pyx_L1_error)
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_8); __Pyx_INCREF(__pyx_t_4); __pyx_t_8++; if (unlikely(0 < 0)) __PYX_ERR(0, 1416, __pyx_L1_error)
         #else
-        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1398, __pyx_L1_error)
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_5, __pyx_t_8); __pyx_t_8++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1416, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         #endif
       }
@@ -22390,7 +22390,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 1398, __pyx_L1_error)
+          else __PYX_ERR(0, 1416, __pyx_L1_error)
         }
         break;
       }
@@ -22399,14 +22399,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
     __Pyx_XDECREF_SET(__pyx_v_hv, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1399
+    /* "flagmatic/hypergraph_flag.pyx":1417
  * 
  *                 for hv in Tuples(range(1, self.n + 1), h.n):
  *                         ig = self.degenerate_induced_subgraph(hv)             # <<<<<<<<<<<<<<
  *                         ig.make_minimal_isomorph()
  *                         if minh.is_labelled_isomorphic(ig):
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_induced_subgraph); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1399, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_induced_subgraph); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1417, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_2 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_9))) {
@@ -22419,16 +22419,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
       }
     }
     if (!__pyx_t_2) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_hv); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1399, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_hv); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1399, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_2); __pyx_t_2 = NULL;
       __Pyx_INCREF(__pyx_v_hv);
       __Pyx_GIVEREF(__pyx_v_hv);
       PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_v_hv);
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1399, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_6, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1417, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
@@ -22436,14 +22436,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
     __Pyx_XDECREF_SET(__pyx_v_ig, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1400
+    /* "flagmatic/hypergraph_flag.pyx":1418
  *                 for hv in Tuples(range(1, self.n + 1), h.n):
  *                         ig = self.degenerate_induced_subgraph(hv)
  *                         ig.make_minimal_isomorph()             # <<<<<<<<<<<<<<
  *                         if minh.is_labelled_isomorphic(ig):
  *                                 found += 1
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_ig, __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1400, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_ig, __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1418, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_6 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_9))) {
@@ -22456,23 +22456,23 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
       }
     }
     if (__pyx_t_6) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1400, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_t_6); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1418, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     } else {
-      __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1400, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_9); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1418, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1401
+    /* "flagmatic/hypergraph_flag.pyx":1419
  *                         ig = self.degenerate_induced_subgraph(hv)
  *                         ig.make_minimal_isomorph()
  *                         if minh.is_labelled_isomorphic(ig):             # <<<<<<<<<<<<<<
  *                                 found += 1
  *                         total += 1
  */
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_minh, __pyx_n_s_is_labelled_isomorphic); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1401, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_v_minh, __pyx_n_s_is_labelled_isomorphic); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1419, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_6 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_9))) {
@@ -22485,37 +22485,37 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
       }
     }
     if (!__pyx_t_6) {
-      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_ig); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1401, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_9, __pyx_v_ig); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1419, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
     } else {
-      __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1401, __pyx_L1_error)
+      __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1419, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_6); __pyx_t_6 = NULL;
       __Pyx_INCREF(__pyx_v_ig);
       __Pyx_GIVEREF(__pyx_v_ig);
       PyTuple_SET_ITEM(__pyx_t_2, 0+1, __pyx_v_ig);
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1401, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1419, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     }
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1401, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_1 < 0)) __PYX_ERR(0, 1419, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     if (__pyx_t_1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1402
+      /* "flagmatic/hypergraph_flag.pyx":1420
  *                         ig.make_minimal_isomorph()
  *                         if minh.is_labelled_isomorphic(ig):
  *                                 found += 1             # <<<<<<<<<<<<<<
  *                         total += 1
  * 
  */
-      __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_v_found, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1402, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_v_found, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1420, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF_SET(__pyx_v_found, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1401
+      /* "flagmatic/hypergraph_flag.pyx":1419
  *                         ig = self.degenerate_induced_subgraph(hv)
  *                         ig.make_minimal_isomorph()
  *                         if minh.is_labelled_isomorphic(ig):             # <<<<<<<<<<<<<<
@@ -22524,19 +22524,19 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  */
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1403
+    /* "flagmatic/hypergraph_flag.pyx":1421
  *                         if minh.is_labelled_isomorphic(ig):
  *                                 found += 1
  *                         total += 1             # <<<<<<<<<<<<<<
  * 
  *                 return Integer(found) / total
  */
-    __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_v_total, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1403, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_AddObjC(__pyx_v_total, __pyx_int_1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1421, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF_SET(__pyx_v_total, __pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1398
+    /* "flagmatic/hypergraph_flag.pyx":1416
  *                 minh.make_minimal_isomorph()
  * 
  *                 for hv in Tuples(range(1, self.n + 1), h.n):             # <<<<<<<<<<<<<<
@@ -22546,7 +22546,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   }
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1405
+  /* "flagmatic/hypergraph_flag.pyx":1423
  *                         total += 1
  * 
  *                 return Integer(found) / total             # <<<<<<<<<<<<<<
@@ -22554,7 +22554,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Integer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1405, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Integer); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_9 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_4))) {
@@ -22567,28 +22567,28 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
     }
   }
   if (!__pyx_t_9) {
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_found); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1405, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_v_found); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1423, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
   } else {
-    __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1405, __pyx_L1_error)
+    __pyx_t_2 = PyTuple_New(1+1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1423, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_9); __pyx_t_9 = NULL;
     __Pyx_INCREF(__pyx_v_found);
     __Pyx_GIVEREF(__pyx_v_found);
     PyTuple_SET_ITEM(__pyx_t_2, 0+1, __pyx_v_found);
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1405, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_2, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1423, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_v_total); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1405, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyNumber_Divide(__pyx_t_5, __pyx_v_total); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1378
+  /* "flagmatic/hypergraph_flag.pyx":1396
  * 
  * 
  *         def degenerate_subgraph_density(self, h):             # <<<<<<<<<<<<<<
@@ -22617,7 +22617,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_68degene
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1408
+/* "flagmatic/hypergraph_flag.pyx":1426
  * 
  * 
  *         def degenerate_flag_density(self, tg, flags, type_verts):             # <<<<<<<<<<<<<<
@@ -22656,16 +22656,16 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_71degene
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_flags)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("degenerate_flag_density", 1, 3, 3, 1); __PYX_ERR(0, 1408, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("degenerate_flag_density", 1, 3, 3, 1); __PYX_ERR(0, 1426, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_type_verts)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("degenerate_flag_density", 1, 3, 3, 2); __PYX_ERR(0, 1408, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("degenerate_flag_density", 1, 3, 3, 2); __PYX_ERR(0, 1426, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "degenerate_flag_density") < 0)) __PYX_ERR(0, 1408, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "degenerate_flag_density") < 0)) __PYX_ERR(0, 1426, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -22680,7 +22680,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_71degene
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("degenerate_flag_density", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1408, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("degenerate_flag_density", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1426, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.HypergraphFlag.degenerate_flag_density", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -22721,35 +22721,35 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   Py_ssize_t __pyx_t_13;
   __Pyx_RefNannySetupContext("degenerate_flag_density", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1412
+  /* "flagmatic/hypergraph_flag.pyx":1430
  *                 Note that flags must be minimal isomorphs. tg must not contain any labelled vertices.
  *                 """
  *                 if tg.t != 0:             # <<<<<<<<<<<<<<
  *                         raise NotImplementedError("type should not contain labelled vertices.")
  * 
  */
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_tg, __pyx_n_s_t); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1412, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_tg, __pyx_n_s_t); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1430, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1412, __pyx_L1_error)
+  __pyx_t_2 = PyObject_RichCompare(__pyx_t_1, __pyx_int_0, Py_NE); __Pyx_XGOTREF(__pyx_t_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1430, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 1412, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_2); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 1430, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   if (__pyx_t_3) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1413
+    /* "flagmatic/hypergraph_flag.pyx":1431
  *                 """
  *                 if tg.t != 0:
  *                         raise NotImplementedError("type should not contain labelled vertices.")             # <<<<<<<<<<<<<<
  * 
  *                 s = tg.n
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__43, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1413, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_NotImplementedError, __pyx_tuple__43, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1431, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 1413, __pyx_L1_error)
+    __PYX_ERR(0, 1431, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1412
+    /* "flagmatic/hypergraph_flag.pyx":1430
  *                 Note that flags must be minimal isomorphs. tg must not contain any labelled vertices.
  *                 """
  *                 if tg.t != 0:             # <<<<<<<<<<<<<<
@@ -22758,51 +22758,51 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1415
+  /* "flagmatic/hypergraph_flag.pyx":1433
  *                         raise NotImplementedError("type should not contain labelled vertices.")
  * 
  *                 s = tg.n             # <<<<<<<<<<<<<<
  *                 m = flags[0].n   # TODO: Check all flags are the same size, and are minimal isomorphs
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_tg, __pyx_n_s_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1415, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_tg, __pyx_n_s_n); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1433, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_v_s = __pyx_t_2;
   __pyx_t_2 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1416
+  /* "flagmatic/hypergraph_flag.pyx":1434
  * 
  *                 s = tg.n
  *                 m = flags[0].n   # TODO: Check all flags are the same size, and are minimal isomorphs             # <<<<<<<<<<<<<<
  * 
  *                 count = [0 for i in range(len(flags))]
  */
-  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_flags, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1416, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt(__pyx_v_flags, 0, long, 1, __Pyx_PyInt_From_long, 0, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1416, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_v_m = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1418
+  /* "flagmatic/hypergraph_flag.pyx":1436
  *                 m = flags[0].n   # TODO: Check all flags are the same size, and are minimal isomorphs
  * 
  *                 count = [0 for i in range(len(flags))]             # <<<<<<<<<<<<<<
  *                 total = 0
  * 
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1418, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = PyObject_Length(__pyx_v_flags); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 1418, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_flags); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 1436, __pyx_L1_error)
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_int_0))) __PYX_ERR(0, 1418, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_1, (PyObject*)__pyx_int_0))) __PYX_ERR(0, 1436, __pyx_L1_error)
   }
   __pyx_v_count = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1419
+  /* "flagmatic/hypergraph_flag.pyx":1437
  * 
  *                 count = [0 for i in range(len(flags))]
  *                 total = 0             # <<<<<<<<<<<<<<
@@ -22812,14 +22812,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   __Pyx_INCREF(__pyx_int_0);
   __pyx_v_total = __pyx_int_0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1421
+  /* "flagmatic/hypergraph_flag.pyx":1439
  *                 total = 0
  * 
  *                 it = self.degenerate_induced_subgraph(type_verts)             # <<<<<<<<<<<<<<
  *                 if not tg.is_labelled_isomorphic(it):
  *                         return count
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_induced_subgraph); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1421, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_induced_subgraph); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_6 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22832,16 +22832,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     }
   }
   if (!__pyx_t_6) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_type_verts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1421, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_type_verts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1421, __pyx_L1_error)
+    __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
     __Pyx_INCREF(__pyx_v_type_verts);
     __Pyx_GIVEREF(__pyx_v_type_verts);
     PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_v_type_verts);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1421, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_7, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1439, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
   }
@@ -22849,14 +22849,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   __pyx_v_it = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1422
+  /* "flagmatic/hypergraph_flag.pyx":1440
  * 
  *                 it = self.degenerate_induced_subgraph(type_verts)
  *                 if not tg.is_labelled_isomorphic(it):             # <<<<<<<<<<<<<<
  *                         return count
  * 
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_tg, __pyx_n_s_is_labelled_isomorphic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1422, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_tg, __pyx_n_s_is_labelled_isomorphic); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1440, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_7 = NULL;
   if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_2))) {
@@ -22869,26 +22869,26 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     }
   }
   if (!__pyx_t_7) {
-    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_it); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1422, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_v_it); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
   } else {
-    __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1422, __pyx_L1_error)
+    __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_7); __pyx_t_7 = NULL;
     __Pyx_INCREF(__pyx_v_it);
     __Pyx_GIVEREF(__pyx_v_it);
     PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_v_it);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1422, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1440, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 1422, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 1440, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_8 = ((!__pyx_t_3) != 0);
   if (__pyx_t_8) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1423
+    /* "flagmatic/hypergraph_flag.pyx":1441
  *                 it = self.degenerate_induced_subgraph(type_verts)
  *                 if not tg.is_labelled_isomorphic(it):
  *                         return count             # <<<<<<<<<<<<<<
@@ -22900,7 +22900,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     __pyx_r = __pyx_v_count;
     goto __pyx_L0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1422
+    /* "flagmatic/hypergraph_flag.pyx":1440
  * 
  *                 it = self.degenerate_induced_subgraph(type_verts)
  *                 if not tg.is_labelled_isomorphic(it):             # <<<<<<<<<<<<<<
@@ -22909,21 +22909,21 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1433
+  /* "flagmatic/hypergraph_flag.pyx":1451
  * #                               factor /= factorial(pf.count(i))
  * 
  *                 for pf in Tuples(range(1, self.n + 1), m - s):             # <<<<<<<<<<<<<<
  *                         factor = 1
  * 
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Tuples); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Tuples); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_n); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_n); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __Pyx_PyInt_AddObjC(__pyx_t_6, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyInt_AddObjC(__pyx_t_6, __pyx_int_1, 1, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_6 = PyTuple_New(2); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -22931,10 +22931,10 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   __Pyx_GIVEREF(__pyx_t_7);
   PyTuple_SET_ITEM(__pyx_t_6, 1, __pyx_t_7);
   __pyx_t_7 = 0;
-  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_7 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_6, NULL); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-  __pyx_t_6 = PyNumber_Subtract(__pyx_v_m, __pyx_v_s); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_6 = PyNumber_Subtract(__pyx_v_m, __pyx_v_s); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_9 = NULL;
   __pyx_t_4 = 0;
@@ -22948,7 +22948,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
       __pyx_t_4 = 1;
     }
   }
-  __pyx_t_10 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   if (__pyx_t_9) {
     __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -22959,7 +22959,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   PyTuple_SET_ITEM(__pyx_t_10, 1+__pyx_t_4, __pyx_t_6);
   __pyx_t_7 = 0;
   __pyx_t_6 = 0;
-  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1433, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_10, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1451, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
@@ -22967,9 +22967,9 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     __pyx_t_2 = __pyx_t_1; __Pyx_INCREF(__pyx_t_2); __pyx_t_4 = 0;
     __pyx_t_11 = NULL;
   } else {
-    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1433, __pyx_L1_error)
+    __pyx_t_4 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1451, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_11 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1433, __pyx_L1_error)
+    __pyx_t_11 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1451, __pyx_L1_error)
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   for (;;) {
@@ -22977,17 +22977,17 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
       if (likely(PyList_CheckExact(__pyx_t_2))) {
         if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1433, __pyx_L1_error)
+        __pyx_t_1 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1451, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1433, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       } else {
         if (__pyx_t_4 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
         #if CYTHON_COMPILING_IN_CPYTHON
-        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1433, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_4); __Pyx_INCREF(__pyx_t_1); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 1451, __pyx_L1_error)
         #else
-        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1433, __pyx_L1_error)
+        __pyx_t_1 = PySequence_ITEM(__pyx_t_2, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1451, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         #endif
       }
@@ -22997,7 +22997,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
         PyObject* exc_type = PyErr_Occurred();
         if (exc_type) {
           if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-          else __PYX_ERR(0, 1433, __pyx_L1_error)
+          else __PYX_ERR(0, 1451, __pyx_L1_error)
         }
         break;
       }
@@ -23006,7 +23006,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     __Pyx_XDECREF_SET(__pyx_v_pf, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1434
+    /* "flagmatic/hypergraph_flag.pyx":1452
  * 
  *                 for pf in Tuples(range(1, self.n + 1), m - s):
  *                         factor = 1             # <<<<<<<<<<<<<<
@@ -23016,29 +23016,29 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_XDECREF_SET(__pyx_v_factor, __pyx_int_1);
 
-    /* "flagmatic/hypergraph_flag.pyx":1436
+    /* "flagmatic/hypergraph_flag.pyx":1454
  *                         factor = 1
  * 
  *                         p = list(type_verts) + pf             # <<<<<<<<<<<<<<
  *                         ig = self.degenerate_induced_subgraph(p)
  *                         ig.t = s
  */
-    __pyx_t_1 = PySequence_List(__pyx_v_type_verts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1436, __pyx_L1_error)
+    __pyx_t_1 = PySequence_List(__pyx_v_type_verts); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1454, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_10 = PyNumber_Add(__pyx_t_1, __pyx_v_pf); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1436, __pyx_L1_error)
+    __pyx_t_10 = PyNumber_Add(__pyx_t_1, __pyx_v_pf); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1454, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_XDECREF_SET(__pyx_v_p, __pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1437
+    /* "flagmatic/hypergraph_flag.pyx":1455
  * 
  *                         p = list(type_verts) + pf
  *                         ig = self.degenerate_induced_subgraph(p)             # <<<<<<<<<<<<<<
  *                         ig.t = s
  *                         ig.make_minimal_isomorph()
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_induced_subgraph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1437, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_degenerate_induced_subgraph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1455, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_6 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
@@ -23051,16 +23051,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
       }
     }
     if (!__pyx_t_6) {
-      __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_p); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1437, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_v_p); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1455, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
     } else {
-      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1437, __pyx_L1_error)
+      __pyx_t_7 = PyTuple_New(1+1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1455, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_7, 0, __pyx_t_6); __pyx_t_6 = NULL;
       __Pyx_INCREF(__pyx_v_p);
       __Pyx_GIVEREF(__pyx_v_p);
       PyTuple_SET_ITEM(__pyx_t_7, 0+1, __pyx_v_p);
-      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1437, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_7, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1455, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     }
@@ -23068,23 +23068,23 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     __Pyx_XDECREF_SET(__pyx_v_ig, __pyx_t_10);
     __pyx_t_10 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1438
+    /* "flagmatic/hypergraph_flag.pyx":1456
  *                         p = list(type_verts) + pf
  *                         ig = self.degenerate_induced_subgraph(p)
  *                         ig.t = s             # <<<<<<<<<<<<<<
  *                         ig.make_minimal_isomorph()
  *                         for i in range(len(flags)):
  */
-    if (__Pyx_PyObject_SetAttrStr(__pyx_v_ig, __pyx_n_s_t, __pyx_v_s) < 0) __PYX_ERR(0, 1438, __pyx_L1_error)
+    if (__Pyx_PyObject_SetAttrStr(__pyx_v_ig, __pyx_n_s_t, __pyx_v_s) < 0) __PYX_ERR(0, 1456, __pyx_L1_error)
 
-    /* "flagmatic/hypergraph_flag.pyx":1439
+    /* "flagmatic/hypergraph_flag.pyx":1457
  *                         ig = self.degenerate_induced_subgraph(p)
  *                         ig.t = s
  *                         ig.make_minimal_isomorph()             # <<<<<<<<<<<<<<
  *                         for i in range(len(flags)):
  *                                 if ig.is_labelled_isomorphic(flags[i]):
  */
-    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ig, __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1439, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ig, __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1457, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_7 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
@@ -23097,36 +23097,36 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
       }
     }
     if (__pyx_t_7) {
-      __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1439, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1457, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
     } else {
-      __pyx_t_10 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1439, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1457, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1440
+    /* "flagmatic/hypergraph_flag.pyx":1458
  *                         ig.t = s
  *                         ig.make_minimal_isomorph()
  *                         for i in range(len(flags)):             # <<<<<<<<<<<<<<
  *                                 if ig.is_labelled_isomorphic(flags[i]):
  *                                         count[i] += factor
  */
-    __pyx_t_5 = PyObject_Length(__pyx_v_flags); if (unlikely(__pyx_t_5 == -1)) __PYX_ERR(0, 1440, __pyx_L1_error)
+    __pyx_t_5 = PyObject_Length(__pyx_v_flags); if (unlikely(__pyx_t_5 == -1)) __PYX_ERR(0, 1458, __pyx_L1_error)
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_5; __pyx_t_12+=1) {
       __pyx_v_i = __pyx_t_12;
 
-      /* "flagmatic/hypergraph_flag.pyx":1441
+      /* "flagmatic/hypergraph_flag.pyx":1459
  *                         ig.make_minimal_isomorph()
  *                         for i in range(len(flags)):
  *                                 if ig.is_labelled_isomorphic(flags[i]):             # <<<<<<<<<<<<<<
  *                                         count[i] += factor
  *                                         break
  */
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ig, __pyx_n_s_is_labelled_isomorphic); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1441, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_ig, __pyx_n_s_is_labelled_isomorphic); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1459, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_flags, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1441, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_GetItemInt(__pyx_v_flags, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 0, 1, 1); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1459, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __pyx_t_6 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
@@ -23139,26 +23139,26 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
         }
       }
       if (!__pyx_t_6) {
-        __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1441, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_7); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1459, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
         __Pyx_GOTREF(__pyx_t_10);
       } else {
-        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1441, __pyx_L1_error)
+        __pyx_t_9 = PyTuple_New(1+1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1459, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_9);
         __Pyx_GIVEREF(__pyx_t_6); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_6); __pyx_t_6 = NULL;
         __Pyx_GIVEREF(__pyx_t_7);
         PyTuple_SET_ITEM(__pyx_t_9, 0+1, __pyx_t_7);
         __pyx_t_7 = 0;
-        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1441, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_PyObject_Call(__pyx_t_1, __pyx_t_9, NULL); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1459, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
         __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       }
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1441, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_10); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1459, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
       if (__pyx_t_8) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1442
+        /* "flagmatic/hypergraph_flag.pyx":1460
  *                         for i in range(len(flags)):
  *                                 if ig.is_labelled_isomorphic(flags[i]):
  *                                         count[i] += factor             # <<<<<<<<<<<<<<
@@ -23166,15 +23166,15 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
  * 
  */
         __pyx_t_13 = __pyx_v_i;
-        __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_count, __pyx_t_13, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1442, __pyx_L1_error)
+        __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_count, __pyx_t_13, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1460, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_10);
-        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_t_10, __pyx_v_factor); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1442, __pyx_L1_error)
+        __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_t_10, __pyx_v_factor); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1460, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-        if (unlikely(__Pyx_SetItemInt(__pyx_v_count, __pyx_t_13, __pyx_t_1, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1) < 0)) __PYX_ERR(0, 1442, __pyx_L1_error)
+        if (unlikely(__Pyx_SetItemInt(__pyx_v_count, __pyx_t_13, __pyx_t_1, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1) < 0)) __PYX_ERR(0, 1460, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1443
+        /* "flagmatic/hypergraph_flag.pyx":1461
  *                                 if ig.is_labelled_isomorphic(flags[i]):
  *                                         count[i] += factor
  *                                         break             # <<<<<<<<<<<<<<
@@ -23183,7 +23183,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
  */
         goto __pyx_L10_break;
 
-        /* "flagmatic/hypergraph_flag.pyx":1441
+        /* "flagmatic/hypergraph_flag.pyx":1459
  *                         ig.make_minimal_isomorph()
  *                         for i in range(len(flags)):
  *                                 if ig.is_labelled_isomorphic(flags[i]):             # <<<<<<<<<<<<<<
@@ -23194,19 +23194,19 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
     }
     __pyx_L10_break:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1445
+    /* "flagmatic/hypergraph_flag.pyx":1463
  *                                         break
  * 
  *                         total += factor             # <<<<<<<<<<<<<<
  * 
  *                 return [Integer(count[i]) / total for i in range(len(flags))]
  */
-    __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_total, __pyx_v_factor); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1445, __pyx_L1_error)
+    __pyx_t_1 = PyNumber_InPlaceAdd(__pyx_v_total, __pyx_v_factor); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1463, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF_SET(__pyx_v_total, __pyx_t_1);
     __pyx_t_1 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1433
+    /* "flagmatic/hypergraph_flag.pyx":1451
  * #                               factor /= factorial(pf.count(i))
  * 
  *                 for pf in Tuples(range(1, self.n + 1), m - s):             # <<<<<<<<<<<<<<
@@ -23216,7 +23216,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   }
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1447
+  /* "flagmatic/hypergraph_flag.pyx":1465
  *                         total += factor
  * 
  *                 return [Integer(count[i]) / total for i in range(len(flags))]             # <<<<<<<<<<<<<<
@@ -23224,14 +23224,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1447, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1465, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_4 = PyObject_Length(__pyx_v_flags); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 1447, __pyx_L1_error)
+  __pyx_t_4 = PyObject_Length(__pyx_v_flags); if (unlikely(__pyx_t_4 == -1)) __PYX_ERR(0, 1465, __pyx_L1_error)
   for (__pyx_t_5 = 0; __pyx_t_5 < __pyx_t_4; __pyx_t_5+=1) {
     __pyx_v_i = __pyx_t_5;
-    __pyx_t_10 = __Pyx_GetModuleGlobalName(__pyx_n_s_Integer); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1447, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetModuleGlobalName(__pyx_n_s_Integer); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1465, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
-    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_count, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1447, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_count, __pyx_v_i, Py_ssize_t, 1, PyInt_FromSsize_t, 1, 1, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1465, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_7 = NULL;
     if (CYTHON_COMPILING_IN_CPYTHON && unlikely(PyMethod_Check(__pyx_t_10))) {
@@ -23244,32 +23244,32 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
       }
     }
     if (!__pyx_t_7) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1447, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_10, __pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1465, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1447, __pyx_L1_error)
+      __pyx_t_6 = PyTuple_New(1+1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_GIVEREF(__pyx_t_7); PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_t_7); __pyx_t_7 = NULL;
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_6, 0+1, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1447, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_10, __pyx_t_6, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1465, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
     }
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-    __pyx_t_10 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_v_total); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1447, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_PyNumber_Divide(__pyx_t_1, __pyx_v_total); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1465, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_10))) __PYX_ERR(0, 1447, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_10))) __PYX_ERR(0, 1465, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   }
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1408
+  /* "flagmatic/hypergraph_flag.pyx":1426
  * 
  * 
  *         def degenerate_flag_density(self, tg, flags, type_verts):             # <<<<<<<<<<<<<<
@@ -23302,12 +23302,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_70degene
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1455
+/* "flagmatic/hypergraph_flag.pyx":1473
  * 
  *         @classmethod
  *         def flag_products (cls, graph_block gb, HypergraphFlag tg, graph_block flags1, graph_block flags2):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *p, np, *pp, *pf1, *pf2, *edges, *cur_edges
+ *                 cdef int *p
  */
 
 /* Python wrapper */
@@ -23342,21 +23342,21 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_73flag_p
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_tg)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, 1); __PYX_ERR(0, 1455, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, 1); __PYX_ERR(0, 1473, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_flags1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, 2); __PYX_ERR(0, 1455, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, 2); __PYX_ERR(0, 1473, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_flags2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, 3); __PYX_ERR(0, 1455, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, 3); __PYX_ERR(0, 1473, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "flag_products") < 0)) __PYX_ERR(0, 1455, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "flag_products") < 0)) __PYX_ERR(0, 1473, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -23373,16 +23373,16 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_14HypergraphFlag_73flag_p
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1455, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("flag_products", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1473, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.HypergraphFlag.flag_products", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gb), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "gb", 0))) __PYX_ERR(0, 1455, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_tg), __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag, 1, "tg", 0))) __PYX_ERR(0, 1455, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_flags1), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "flags1", 0))) __PYX_ERR(0, 1455, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_flags2), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "flags2", 0))) __PYX_ERR(0, 1455, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gb), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "gb", 0))) __PYX_ERR(0, 1473, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_tg), __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag, 1, "tg", 0))) __PYX_ERR(0, 1473, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_flags1), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "flags1", 0))) __PYX_ERR(0, 1473, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_flags2), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "flags2", 0))) __PYX_ERR(0, 1473, __pyx_L1_error)
   __pyx_r = __pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_products(((PyTypeObject*)__pyx_v_cls), __pyx_v_gb, __pyx_v_tg, __pyx_v_flags1, __pyx_v_flags2);
 
   /* function exit code */
@@ -23415,10 +23415,10 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   int __pyx_v_has_f1;
   int __pyx_v_f1index;
   int __pyx_v_f2index;
-  int *__pyx_v_grb;
   int __pyx_v_equal_flags_mode;
   int __pyx_v_nzcount;
   int __pyx_v_row;
+  int *__pyx_v_grb;
   struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_v_g = 0;
   struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_v_t = 0;
   struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *__pyx_v_f1 = 0;
@@ -23444,19 +23444,19 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __Pyx_RefNannySetupContext("flag_products", 0);
   __Pyx_INCREF((PyObject *)__pyx_v_flags2);
 
-  /* "flagmatic/hypergraph_flag.pyx":1464
+  /* "flagmatic/hypergraph_flag.pyx":1490
  *                 cdef HypergraphFlag g, t, f1, f2
  * 
  *                 rarray = numpy.zeros([0, 5], dtype=numpy.int)             # <<<<<<<<<<<<<<
  *                 row = 0
  * 
  */
-  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_numpy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetModuleGlobalName(__pyx_n_s_numpy); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_zeros); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_int_0);
   __Pyx_GIVEREF(__pyx_int_0);
@@ -23464,21 +23464,21 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __Pyx_INCREF(__pyx_int_5);
   __Pyx_GIVEREF(__pyx_int_5);
   PyList_SET_ITEM(__pyx_t_1, 1, __pyx_int_5);
-  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
   __pyx_t_1 = 0;
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_numpy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_numpy); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_int); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 1464, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_dtype, __pyx_t_5) < 0) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1464, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_3, __pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1490, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -23486,7 +23486,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __pyx_v_rarray = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1465
+  /* "flagmatic/hypergraph_flag.pyx":1491
  * 
  *                 rarray = numpy.zeros([0, 5], dtype=numpy.int)
  *                 row = 0             # <<<<<<<<<<<<<<
@@ -23495,7 +23495,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   __pyx_v_row = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1469
+  /* "flagmatic/hypergraph_flag.pyx":1495
  *                 #sig_on()
  * 
  *                 n = gb.n             # <<<<<<<<<<<<<<
@@ -23505,20 +23505,20 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __pyx_t_6 = __pyx_v_gb->n;
   __pyx_v_n = __pyx_t_6;
 
-  /* "flagmatic/hypergraph_flag.pyx":1470
+  /* "flagmatic/hypergraph_flag.pyx":1496
  * 
  *                 n = gb.n
  *                 s = tg.n             # <<<<<<<<<<<<<<
  *                 m1 = flags1.n
  * 
  */
-  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_tg), __pyx_n_s_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1470, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_tg), __pyx_n_s_n); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1496, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1470, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_6 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1496, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_v_s = __pyx_t_6;
 
-  /* "flagmatic/hypergraph_flag.pyx":1471
+  /* "flagmatic/hypergraph_flag.pyx":1497
  *                 n = gb.n
  *                 s = tg.n
  *                 m1 = flags1.n             # <<<<<<<<<<<<<<
@@ -23528,7 +23528,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __pyx_t_6 = __pyx_v_flags1->n;
   __pyx_v_m1 = __pyx_t_6;
 
-  /* "flagmatic/hypergraph_flag.pyx":1473
+  /* "flagmatic/hypergraph_flag.pyx":1499
  *                 m1 = flags1.n
  * 
  *                 if not flags2 is None:             # <<<<<<<<<<<<<<
@@ -23539,7 +23539,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __pyx_t_8 = (__pyx_t_7 != 0);
   if (__pyx_t_8) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1475
+    /* "flagmatic/hypergraph_flag.pyx":1501
  *                 if not flags2 is None:
  * 
  *                         equal_flags_mode = 0             # <<<<<<<<<<<<<<
@@ -23548,7 +23548,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
     __pyx_v_equal_flags_mode = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1476
+    /* "flagmatic/hypergraph_flag.pyx":1502
  * 
  *                         equal_flags_mode = 0
  *                         m2 = flags2.n             # <<<<<<<<<<<<<<
@@ -23558,7 +23558,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __pyx_t_6 = __pyx_v_flags2->n;
     __pyx_v_m2 = __pyx_t_6;
 
-    /* "flagmatic/hypergraph_flag.pyx":1477
+    /* "flagmatic/hypergraph_flag.pyx":1503
  *                         equal_flags_mode = 0
  *                         m2 = flags2.n
  *                         p = generate_pair_combinations(n, s, m1, m2, &np)             # <<<<<<<<<<<<<<
@@ -23567,7 +23567,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
     __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(__pyx_v_n, __pyx_v_s, __pyx_v_m1, __pyx_v_m2, (&__pyx_v_np));
 
-    /* "flagmatic/hypergraph_flag.pyx":1473
+    /* "flagmatic/hypergraph_flag.pyx":1499
  *                 m1 = flags1.n
  * 
  *                 if not flags2 is None:             # <<<<<<<<<<<<<<
@@ -23577,7 +23577,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     goto __pyx_L3;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1481
+  /* "flagmatic/hypergraph_flag.pyx":1507
  *                 else:
  * 
  *                         equal_flags_mode = 1             # <<<<<<<<<<<<<<
@@ -23587,7 +23587,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   /*else*/ {
     __pyx_v_equal_flags_mode = 1;
 
-    /* "flagmatic/hypergraph_flag.pyx":1482
+    /* "flagmatic/hypergraph_flag.pyx":1508
  * 
  *                         equal_flags_mode = 1
  *                         m2 = flags1.n             # <<<<<<<<<<<<<<
@@ -23597,7 +23597,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __pyx_t_6 = __pyx_v_flags1->n;
     __pyx_v_m2 = __pyx_t_6;
 
-    /* "flagmatic/hypergraph_flag.pyx":1483
+    /* "flagmatic/hypergraph_flag.pyx":1509
  *                         equal_flags_mode = 1
  *                         m2 = flags1.n
  *                         flags2 = flags1             # <<<<<<<<<<<<<<
@@ -23607,7 +23607,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __Pyx_INCREF(((PyObject *)__pyx_v_flags1));
     __Pyx_DECREF_SET(__pyx_v_flags2, __pyx_v_flags1);
 
-    /* "flagmatic/hypergraph_flag.pyx":1484
+    /* "flagmatic/hypergraph_flag.pyx":1510
  *                         m2 = flags1.n
  *                         flags2 = flags1
  *                         p = generate_equal_pair_combinations(n, s, m1, &np)             # <<<<<<<<<<<<<<
@@ -23618,7 +23618,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1486
+  /* "flagmatic/hypergraph_flag.pyx":1512
  *                         p = generate_equal_pair_combinations(n, s, m1, &np)
  * 
  *                 cur_edges = <int *> malloc (sizeof(int) * MAX_NUMBER_OF_EDGE_INTS)             # <<<<<<<<<<<<<<
@@ -23627,7 +23627,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   __pyx_v_cur_edges = ((int *)malloc(((sizeof(int)) * 0x100)));
 
-  /* "flagmatic/hypergraph_flag.pyx":1487
+  /* "flagmatic/hypergraph_flag.pyx":1513
  * 
  *                 cur_edges = <int *> malloc (sizeof(int) * MAX_NUMBER_OF_EDGE_INTS)
  *                 pf1 = <int *> malloc (sizeof(int) * m1)             # <<<<<<<<<<<<<<
@@ -23636,7 +23636,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   __pyx_v_pf1 = ((int *)malloc(((sizeof(int)) * __pyx_v_m1)));
 
-  /* "flagmatic/hypergraph_flag.pyx":1488
+  /* "flagmatic/hypergraph_flag.pyx":1514
  *                 cur_edges = <int *> malloc (sizeof(int) * MAX_NUMBER_OF_EDGE_INTS)
  *                 pf1 = <int *> malloc (sizeof(int) * m1)
  *                 pf2 = <int *> malloc (sizeof(int) * m2)             # <<<<<<<<<<<<<<
@@ -23645,7 +23645,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   __pyx_v_pf2 = ((int *)malloc(((sizeof(int)) * __pyx_v_m2)));
 
-  /* "flagmatic/hypergraph_flag.pyx":1489
+  /* "flagmatic/hypergraph_flag.pyx":1515
  *                 pf1 = <int *> malloc (sizeof(int) * m1)
  *                 pf2 = <int *> malloc (sizeof(int) * m2)
  *                 grb = <int *> malloc (flags1.len * flags2.len * sizeof(int))             # <<<<<<<<<<<<<<
@@ -23654,7 +23654,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   __pyx_v_grb = ((int *)malloc(((__pyx_v_flags1->len * __pyx_v_flags2->len) * (sizeof(int)))));
 
-  /* "flagmatic/hypergraph_flag.pyx":1491
+  /* "flagmatic/hypergraph_flag.pyx":1517
  *                 grb = <int *> malloc (flags1.len * flags2.len * sizeof(int))
  * 
  *                 for gi in range(gb.len):             # <<<<<<<<<<<<<<
@@ -23665,7 +23665,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   for (__pyx_t_9 = 0; __pyx_t_9 < __pyx_t_6; __pyx_t_9+=1) {
     __pyx_v_gi = __pyx_t_9;
 
-    /* "flagmatic/hypergraph_flag.pyx":1495
+    /* "flagmatic/hypergraph_flag.pyx":1521
  *                         #sig_on()
  * 
  *                         g = <HypergraphFlag> gb.graphs[gi]             # <<<<<<<<<<<<<<
@@ -23677,7 +23677,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __Pyx_XDECREF_SET(__pyx_v_g, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5));
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1497
+    /* "flagmatic/hypergraph_flag.pyx":1523
  *                         g = <HypergraphFlag> gb.graphs[gi]
  * 
  *                         memset(grb, 0, flags1.len * flags2.len * sizeof(int))             # <<<<<<<<<<<<<<
@@ -23686,7 +23686,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
     memset(__pyx_v_grb, 0, ((__pyx_v_flags1->len * __pyx_v_flags2->len) * (sizeof(int))));
 
-    /* "flagmatic/hypergraph_flag.pyx":1499
+    /* "flagmatic/hypergraph_flag.pyx":1525
  *                         memset(grb, 0, flags1.len * flags2.len * sizeof(int))
  * 
  *                         ne = g.ne             # <<<<<<<<<<<<<<
@@ -23696,7 +23696,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __pyx_t_10 = __pyx_v_g->ne;
     __pyx_v_ne = __pyx_t_10;
 
-    /* "flagmatic/hypergraph_flag.pyx":1500
+    /* "flagmatic/hypergraph_flag.pyx":1526
  * 
  *                         ne = g.ne
  *                         edges = g._edges             # <<<<<<<<<<<<<<
@@ -23706,7 +23706,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __pyx_t_11 = __pyx_v_g->_edges;
     __pyx_v_edges = __pyx_t_11;
 
-    /* "flagmatic/hypergraph_flag.pyx":1502
+    /* "flagmatic/hypergraph_flag.pyx":1528
  *                         edges = g._edges
  * 
  *                         has_type = 0             # <<<<<<<<<<<<<<
@@ -23715,7 +23715,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
     __pyx_v_has_type = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1503
+    /* "flagmatic/hypergraph_flag.pyx":1529
  * 
  *                         has_type = 0
  *                         has_f1 = 0             # <<<<<<<<<<<<<<
@@ -23724,7 +23724,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
     __pyx_v_has_f1 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1505
+    /* "flagmatic/hypergraph_flag.pyx":1531
  *                         has_f1 = 0
  * 
  *                         for i in range(np):             # <<<<<<<<<<<<<<
@@ -23735,7 +23735,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_10; __pyx_t_12+=1) {
       __pyx_v_i = __pyx_t_12;
 
-      /* "flagmatic/hypergraph_flag.pyx":1507
+      /* "flagmatic/hypergraph_flag.pyx":1533
  *                         for i in range(np):
  * 
  *                                 pp = &p[(i * n)]             # <<<<<<<<<<<<<<
@@ -23744,7 +23744,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
       __pyx_v_pp = (&(__pyx_v_p[(__pyx_v_i * __pyx_v_n)]));
 
-      /* "flagmatic/hypergraph_flag.pyx":1509
+      /* "flagmatic/hypergraph_flag.pyx":1535
  *                                 pp = &p[(i * n)]
  * 
  *                                 if pp[0] != 0:             # <<<<<<<<<<<<<<
@@ -23754,7 +23754,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __pyx_t_8 = (((__pyx_v_pp[0]) != 0) != 0);
       if (__pyx_t_8) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1511
+        /* "flagmatic/hypergraph_flag.pyx":1537
  *                                 if pp[0] != 0:
  * 
  *                                         for j in range(s):             # <<<<<<<<<<<<<<
@@ -23765,7 +23765,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1512
+          /* "flagmatic/hypergraph_flag.pyx":1538
  * 
  *                                         for j in range(s):
  *                                                 pf1[j] = pp[j]             # <<<<<<<<<<<<<<
@@ -23774,7 +23774,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           (__pyx_v_pf1[__pyx_v_j]) = (__pyx_v_pp[__pyx_v_j]);
 
-          /* "flagmatic/hypergraph_flag.pyx":1513
+          /* "flagmatic/hypergraph_flag.pyx":1539
  *                                         for j in range(s):
  *                                                 pf1[j] = pp[j]
  *                                                 pf2[j] = pp[j]             # <<<<<<<<<<<<<<
@@ -23784,7 +23784,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           (__pyx_v_pf2[__pyx_v_j]) = (__pyx_v_pp[__pyx_v_j]);
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1515
+        /* "flagmatic/hypergraph_flag.pyx":1541
  *                                                 pf2[j] = pp[j]
  * 
  *                                         has_type = 0             # <<<<<<<<<<<<<<
@@ -23793,32 +23793,32 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
         __pyx_v_has_type = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1516
+        /* "flagmatic/hypergraph_flag.pyx":1542
  * 
  *                                         has_type = 0
  *                                         t = g.c_induced_subgraph(pf1, s)             # <<<<<<<<<<<<<<
  *                                         if tg.is_labelled_isomorphic(t):
  *                                                 has_type = 1
  */
-        __pyx_t_5 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_g->__pyx_vtab)->c_induced_subgraph(__pyx_v_g, __pyx_v_pf1, __pyx_v_s)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1516, __pyx_L1_error)
+        __pyx_t_5 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_g->__pyx_vtab)->c_induced_subgraph(__pyx_v_g, __pyx_v_pf1, __pyx_v_s)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1542, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_XDECREF_SET(__pyx_v_t, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5));
         __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1517
+        /* "flagmatic/hypergraph_flag.pyx":1543
  *                                         has_type = 0
  *                                         t = g.c_induced_subgraph(pf1, s)
  *                                         if tg.is_labelled_isomorphic(t):             # <<<<<<<<<<<<<<
  *                                                 has_type = 1
  * 
  */
-        __pyx_t_5 = ((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_tg->__pyx_vtab)->is_labelled_isomorphic(__pyx_v_tg, __pyx_v_t, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1517, __pyx_L1_error)
+        __pyx_t_5 = ((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_tg->__pyx_vtab)->is_labelled_isomorphic(__pyx_v_tg, __pyx_v_t, 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1543, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1517, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1543, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (__pyx_t_8) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1518
+          /* "flagmatic/hypergraph_flag.pyx":1544
  *                                         t = g.c_induced_subgraph(pf1, s)
  *                                         if tg.is_labelled_isomorphic(t):
  *                                                 has_type = 1             # <<<<<<<<<<<<<<
@@ -23827,7 +23827,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_v_has_type = 1;
 
-          /* "flagmatic/hypergraph_flag.pyx":1517
+          /* "flagmatic/hypergraph_flag.pyx":1543
  *                                         has_type = 0
  *                                         t = g.c_induced_subgraph(pf1, s)
  *                                         if tg.is_labelled_isomorphic(t):             # <<<<<<<<<<<<<<
@@ -23836,7 +23836,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1509
+        /* "flagmatic/hypergraph_flag.pyx":1535
  *                                 pp = &p[(i * n)]
  * 
  *                                 if pp[0] != 0:             # <<<<<<<<<<<<<<
@@ -23845,7 +23845,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1520
+      /* "flagmatic/hypergraph_flag.pyx":1546
  *                                                 has_type = 1
  * 
  *                                 if has_type == 0:             # <<<<<<<<<<<<<<
@@ -23855,7 +23855,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __pyx_t_8 = ((__pyx_v_has_type == 0) != 0);
       if (__pyx_t_8) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1521
+        /* "flagmatic/hypergraph_flag.pyx":1547
  * 
  *                                 if has_type == 0:
  *                                         continue             # <<<<<<<<<<<<<<
@@ -23864,7 +23864,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
         goto __pyx_L6_continue;
 
-        /* "flagmatic/hypergraph_flag.pyx":1520
+        /* "flagmatic/hypergraph_flag.pyx":1546
  *                                                 has_type = 1
  * 
  *                                 if has_type == 0:             # <<<<<<<<<<<<<<
@@ -23873,7 +23873,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1523
+      /* "flagmatic/hypergraph_flag.pyx":1549
  *                                         continue
  * 
  *                                 if has_type and pp[s] != 0:             # <<<<<<<<<<<<<<
@@ -23891,7 +23891,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __pyx_L14_bool_binop_done:;
       if (__pyx_t_8) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1525
+        /* "flagmatic/hypergraph_flag.pyx":1551
  *                                 if has_type and pp[s] != 0:
  * 
  *                                         has_f1 = 0             # <<<<<<<<<<<<<<
@@ -23900,7 +23900,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
         __pyx_v_has_f1 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1527
+        /* "flagmatic/hypergraph_flag.pyx":1553
  *                                         has_f1 = 0
  * 
  *                                         for j in range(m1 - s):             # <<<<<<<<<<<<<<
@@ -23911,7 +23911,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1528
+          /* "flagmatic/hypergraph_flag.pyx":1554
  * 
  *                                         for j in range(m1 - s):
  *                                                 pf1[s + j] = pp[s + j]             # <<<<<<<<<<<<<<
@@ -23921,38 +23921,38 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           (__pyx_v_pf1[(__pyx_v_s + __pyx_v_j)]) = (__pyx_v_pp[(__pyx_v_s + __pyx_v_j)]);
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1530
+        /* "flagmatic/hypergraph_flag.pyx":1556
  *                                                 pf1[s + j] = pp[s + j]
  * 
  *                                         f1 = g.c_induced_subgraph(pf1, m1)             # <<<<<<<<<<<<<<
  *                                         f1.t = s
  *                                         f1.make_minimal_isomorph()
  */
-        __pyx_t_5 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_g->__pyx_vtab)->c_induced_subgraph(__pyx_v_g, __pyx_v_pf1, __pyx_v_m1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1530, __pyx_L1_error)
+        __pyx_t_5 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_g->__pyx_vtab)->c_induced_subgraph(__pyx_v_g, __pyx_v_pf1, __pyx_v_m1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1556, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_XDECREF_SET(__pyx_v_f1, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5));
         __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1531
+        /* "flagmatic/hypergraph_flag.pyx":1557
  * 
  *                                         f1 = g.c_induced_subgraph(pf1, m1)
  *                                         f1.t = s             # <<<<<<<<<<<<<<
  *                                         f1.make_minimal_isomorph()
  * 
  */
-        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1531, __pyx_L1_error)
+        __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1557, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
-        if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_f1), __pyx_n_s_t, __pyx_t_5) < 0) __PYX_ERR(0, 1531, __pyx_L1_error)
+        if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_f1), __pyx_n_s_t, __pyx_t_5) < 0) __PYX_ERR(0, 1557, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1532
+        /* "flagmatic/hypergraph_flag.pyx":1558
  *                                         f1 = g.c_induced_subgraph(pf1, m1)
  *                                         f1.t = s
  *                                         f1.make_minimal_isomorph()             # <<<<<<<<<<<<<<
  * 
  *                                         for j in range(flags1.len):
  */
-        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_f1), __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1532, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_f1), __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1558, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         __pyx_t_3 = NULL;
         if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_1))) {
@@ -23965,16 +23965,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           }
         }
         if (__pyx_t_3) {
-          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1532, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1558, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         } else {
-          __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1532, __pyx_L1_error)
+          __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1558, __pyx_L1_error)
         }
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1534
+        /* "flagmatic/hypergraph_flag.pyx":1560
  *                                         f1.make_minimal_isomorph()
  * 
  *                                         for j in range(flags1.len):             # <<<<<<<<<<<<<<
@@ -23985,7 +23985,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1535
+          /* "flagmatic/hypergraph_flag.pyx":1561
  * 
  *                                         for j in range(flags1.len):
  *                                                 if f1.is_labelled_isomorphic(<HypergraphFlag> flags1.graphs[j]):             # <<<<<<<<<<<<<<
@@ -23994,14 +23994,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_t_5 = ((PyObject *)(__pyx_v_flags1->graphs[__pyx_v_j]));
           __Pyx_INCREF(__pyx_t_5);
-          __pyx_t_1 = ((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_f1->__pyx_vtab)->is_labelled_isomorphic(__pyx_v_f1, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5), 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1535, __pyx_L1_error)
+          __pyx_t_1 = ((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_f1->__pyx_vtab)->is_labelled_isomorphic(__pyx_v_f1, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_5), 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1561, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-          __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1535, __pyx_L1_error)
+          __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_1); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1561, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           if (__pyx_t_8) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1536
+            /* "flagmatic/hypergraph_flag.pyx":1562
  *                                         for j in range(flags1.len):
  *                                                 if f1.is_labelled_isomorphic(<HypergraphFlag> flags1.graphs[j]):
  *                                                         has_f1 = 1             # <<<<<<<<<<<<<<
@@ -24010,7 +24010,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             __pyx_v_has_f1 = 1;
 
-            /* "flagmatic/hypergraph_flag.pyx":1537
+            /* "flagmatic/hypergraph_flag.pyx":1563
  *                                                 if f1.is_labelled_isomorphic(<HypergraphFlag> flags1.graphs[j]):
  *                                                         has_f1 = 1
  *                                                         f1index = j             # <<<<<<<<<<<<<<
@@ -24019,7 +24019,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             __pyx_v_f1index = __pyx_v_j;
 
-            /* "flagmatic/hypergraph_flag.pyx":1538
+            /* "flagmatic/hypergraph_flag.pyx":1564
  *                                                         has_f1 = 1
  *                                                         f1index = j
  *                                                         break             # <<<<<<<<<<<<<<
@@ -24028,7 +24028,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             goto __pyx_L19_break;
 
-            /* "flagmatic/hypergraph_flag.pyx":1535
+            /* "flagmatic/hypergraph_flag.pyx":1561
  * 
  *                                         for j in range(flags1.len):
  *                                                 if f1.is_labelled_isomorphic(<HypergraphFlag> flags1.graphs[j]):             # <<<<<<<<<<<<<<
@@ -24039,7 +24039,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         }
         __pyx_L19_break:;
 
-        /* "flagmatic/hypergraph_flag.pyx":1523
+        /* "flagmatic/hypergraph_flag.pyx":1549
  *                                         continue
  * 
  *                                 if has_type and pp[s] != 0:             # <<<<<<<<<<<<<<
@@ -24048,7 +24048,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1540
+      /* "flagmatic/hypergraph_flag.pyx":1566
  *                                                         break
  * 
  *                                 if has_f1 == 0:             # <<<<<<<<<<<<<<
@@ -24058,7 +24058,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __pyx_t_8 = ((__pyx_v_has_f1 == 0) != 0);
       if (__pyx_t_8) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1541
+        /* "flagmatic/hypergraph_flag.pyx":1567
  * 
  *                                 if has_f1 == 0:
  *                                         continue             # <<<<<<<<<<<<<<
@@ -24067,7 +24067,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
         goto __pyx_L6_continue;
 
-        /* "flagmatic/hypergraph_flag.pyx":1540
+        /* "flagmatic/hypergraph_flag.pyx":1566
  *                                                         break
  * 
  *                                 if has_f1 == 0:             # <<<<<<<<<<<<<<
@@ -24076,7 +24076,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1543
+      /* "flagmatic/hypergraph_flag.pyx":1569
  *                                         continue
  * 
  *                                 for j in range(m2 - s):             # <<<<<<<<<<<<<<
@@ -24087,7 +24087,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
         __pyx_v_j = __pyx_t_14;
 
-        /* "flagmatic/hypergraph_flag.pyx":1544
+        /* "flagmatic/hypergraph_flag.pyx":1570
  * 
  *                                 for j in range(m2 - s):
  *                                         pf2[s + j] = pp[m1 + j]             # <<<<<<<<<<<<<<
@@ -24097,38 +24097,38 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         (__pyx_v_pf2[(__pyx_v_s + __pyx_v_j)]) = (__pyx_v_pp[(__pyx_v_m1 + __pyx_v_j)]);
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1546
+      /* "flagmatic/hypergraph_flag.pyx":1572
  *                                         pf2[s + j] = pp[m1 + j]
  * 
  *                                 f2 = g.c_induced_subgraph(pf2, m2)             # <<<<<<<<<<<<<<
  *                                 f2.t = s
  *                                 f2.make_minimal_isomorph()
  */
-      __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_g->__pyx_vtab)->c_induced_subgraph(__pyx_v_g, __pyx_v_pf2, __pyx_v_m2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1546, __pyx_L1_error)
+      __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_g->__pyx_vtab)->c_induced_subgraph(__pyx_v_g, __pyx_v_pf2, __pyx_v_m2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1572, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_XDECREF_SET(__pyx_v_f2, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_1));
       __pyx_t_1 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1547
+      /* "flagmatic/hypergraph_flag.pyx":1573
  * 
  *                                 f2 = g.c_induced_subgraph(pf2, m2)
  *                                 f2.t = s             # <<<<<<<<<<<<<<
  *                                 f2.make_minimal_isomorph()
  * 
  */
-      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1547, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1573, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_f2), __pyx_n_s_t, __pyx_t_1) < 0) __PYX_ERR(0, 1547, __pyx_L1_error)
+      if (__Pyx_PyObject_SetAttrStr(((PyObject *)__pyx_v_f2), __pyx_n_s_t, __pyx_t_1) < 0) __PYX_ERR(0, 1573, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1548
+      /* "flagmatic/hypergraph_flag.pyx":1574
  *                                 f2 = g.c_induced_subgraph(pf2, m2)
  *                                 f2.t = s
  *                                 f2.make_minimal_isomorph()             # <<<<<<<<<<<<<<
  * 
  *                                 for j in range(flags2.len):
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_f2), __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1548, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_f2), __pyx_n_s_make_minimal_isomorph); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1574, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __pyx_t_3 = NULL;
       if (CYTHON_COMPILING_IN_CPYTHON && likely(PyMethod_Check(__pyx_t_5))) {
@@ -24141,16 +24141,16 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         }
       }
       if (__pyx_t_3) {
-        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1548, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1574, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       } else {
-        __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1548, __pyx_L1_error)
+        __pyx_t_1 = __Pyx_PyObject_CallNoArg(__pyx_t_5); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1574, __pyx_L1_error)
       }
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1550
+      /* "flagmatic/hypergraph_flag.pyx":1576
  *                                 f2.make_minimal_isomorph()
  * 
  *                                 for j in range(flags2.len):             # <<<<<<<<<<<<<<
@@ -24161,7 +24161,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
         __pyx_v_j = __pyx_t_14;
 
-        /* "flagmatic/hypergraph_flag.pyx":1551
+        /* "flagmatic/hypergraph_flag.pyx":1577
  * 
  *                                 for j in range(flags2.len):
  *                                         if f2.is_labelled_isomorphic(<HypergraphFlag> flags2.graphs[j]):             # <<<<<<<<<<<<<<
@@ -24170,14 +24170,14 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
         __pyx_t_1 = ((PyObject *)(__pyx_v_flags2->graphs[__pyx_v_j]));
         __Pyx_INCREF(__pyx_t_1);
-        __pyx_t_5 = ((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_f2->__pyx_vtab)->is_labelled_isomorphic(__pyx_v_f2, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_1), 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1551, __pyx_L1_error)
+        __pyx_t_5 = ((struct __pyx_vtabstruct_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_v_f2->__pyx_vtab)->is_labelled_isomorphic(__pyx_v_f2, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_1), 0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1577, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_5);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1551, __pyx_L1_error)
+        __pyx_t_8 = __Pyx_PyObject_IsTrue(__pyx_t_5); if (unlikely(__pyx_t_8 < 0)) __PYX_ERR(0, 1577, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
         if (__pyx_t_8) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1552
+          /* "flagmatic/hypergraph_flag.pyx":1578
  *                                 for j in range(flags2.len):
  *                                         if f2.is_labelled_isomorphic(<HypergraphFlag> flags2.graphs[j]):
  *                                                 f2index = j             # <<<<<<<<<<<<<<
@@ -24186,7 +24186,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_v_f2index = __pyx_v_j;
 
-          /* "flagmatic/hypergraph_flag.pyx":1553
+          /* "flagmatic/hypergraph_flag.pyx":1579
  *                                         if f2.is_labelled_isomorphic(<HypergraphFlag> flags2.graphs[j]):
  *                                                 f2index = j
  *                                                 grb[(f1index * flags1.len) + f2index] += 1             # <<<<<<<<<<<<<<
@@ -24196,7 +24196,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           __pyx_t_15 = ((__pyx_v_f1index * __pyx_v_flags1->len) + __pyx_v_f2index);
           (__pyx_v_grb[__pyx_t_15]) = ((__pyx_v_grb[__pyx_t_15]) + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1554
+          /* "flagmatic/hypergraph_flag.pyx":1580
  *                                                 f2index = j
  *                                                 grb[(f1index * flags1.len) + f2index] += 1
  *                                                 break             # <<<<<<<<<<<<<<
@@ -24205,7 +24205,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           goto __pyx_L25_break;
 
-          /* "flagmatic/hypergraph_flag.pyx":1551
+          /* "flagmatic/hypergraph_flag.pyx":1577
  * 
  *                                 for j in range(flags2.len):
  *                                         if f2.is_labelled_isomorphic(<HypergraphFlag> flags2.graphs[j]):             # <<<<<<<<<<<<<<
@@ -24218,7 +24218,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __pyx_L6_continue:;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1556
+    /* "flagmatic/hypergraph_flag.pyx":1582
  *                                                 break
  * 
  *                         if equal_flags_mode:             # <<<<<<<<<<<<<<
@@ -24228,7 +24228,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __pyx_t_8 = (__pyx_v_equal_flags_mode != 0);
     if (__pyx_t_8) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1558
+      /* "flagmatic/hypergraph_flag.pyx":1584
  *                         if equal_flags_mode:
  * 
  *                                 nzcount = 0             # <<<<<<<<<<<<<<
@@ -24237,7 +24237,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
       __pyx_v_nzcount = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1559
+      /* "flagmatic/hypergraph_flag.pyx":1585
  * 
  *                                 nzcount = 0
  *                                 for i in range(flags1.len):             # <<<<<<<<<<<<<<
@@ -24248,7 +24248,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_10; __pyx_t_12+=1) {
         __pyx_v_i = __pyx_t_12;
 
-        /* "flagmatic/hypergraph_flag.pyx":1560
+        /* "flagmatic/hypergraph_flag.pyx":1586
  *                                 nzcount = 0
  *                                 for i in range(flags1.len):
  *                                         for j in range(i, flags1.len):             # <<<<<<<<<<<<<<
@@ -24259,7 +24259,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = __pyx_v_i; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1561
+          /* "flagmatic/hypergraph_flag.pyx":1587
  *                                 for i in range(flags1.len):
  *                                         for j in range(i, flags1.len):
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]             # <<<<<<<<<<<<<<
@@ -24268,7 +24268,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_v_k = ((__pyx_v_grb[((__pyx_v_i * __pyx_v_flags1->len) + __pyx_v_j)]) + (__pyx_v_grb[((__pyx_v_j * __pyx_v_flags1->len) + __pyx_v_i)]));
 
-          /* "flagmatic/hypergraph_flag.pyx":1562
+          /* "flagmatic/hypergraph_flag.pyx":1588
  *                                         for j in range(i, flags1.len):
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24278,7 +24278,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           __pyx_t_8 = ((__pyx_v_k != 0) != 0);
           if (__pyx_t_8) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1563
+            /* "flagmatic/hypergraph_flag.pyx":1589
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]
  *                                                 if k != 0:
  *                                                         nzcount += 1             # <<<<<<<<<<<<<<
@@ -24287,7 +24287,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             __pyx_v_nzcount = (__pyx_v_nzcount + 1);
 
-            /* "flagmatic/hypergraph_flag.pyx":1562
+            /* "flagmatic/hypergraph_flag.pyx":1588
  *                                         for j in range(i, flags1.len):
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24298,18 +24298,18 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         }
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1565
+      /* "flagmatic/hypergraph_flag.pyx":1591
  *                                                         nzcount += 1
  * 
  *                                 rarray.resize([row + nzcount, 5], refcheck=False)             # <<<<<<<<<<<<<<
  * 
  *                                 for i in range(flags1.len):
  */
-      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_rarray, __pyx_n_s_resize); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1565, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_GetAttrStr(__pyx_v_rarray, __pyx_n_s_resize); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_row + __pyx_v_nzcount)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1565, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_row + __pyx_v_nzcount)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1565, __pyx_L1_error)
+      __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_1);
       PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -24317,22 +24317,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __Pyx_GIVEREF(__pyx_int_5);
       PyList_SET_ITEM(__pyx_t_3, 1, __pyx_int_5);
       __pyx_t_1 = 0;
-      __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1565, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1565, __pyx_L1_error)
+      __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 1565, __pyx_L1_error)
-      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1565, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 1591, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1591, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1567
+      /* "flagmatic/hypergraph_flag.pyx":1593
  *                                 rarray.resize([row + nzcount, 5], refcheck=False)
  * 
  *                                 for i in range(flags1.len):             # <<<<<<<<<<<<<<
@@ -24343,7 +24343,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_10; __pyx_t_12+=1) {
         __pyx_v_i = __pyx_t_12;
 
-        /* "flagmatic/hypergraph_flag.pyx":1568
+        /* "flagmatic/hypergraph_flag.pyx":1594
  * 
  *                                 for i in range(flags1.len):
  *                                         for j in range(i, flags1.len):             # <<<<<<<<<<<<<<
@@ -24354,7 +24354,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = __pyx_v_i; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1569
+          /* "flagmatic/hypergraph_flag.pyx":1595
  *                                 for i in range(flags1.len):
  *                                         for j in range(i, flags1.len):
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]             # <<<<<<<<<<<<<<
@@ -24363,7 +24363,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_v_k = ((__pyx_v_grb[((__pyx_v_i * __pyx_v_flags1->len) + __pyx_v_j)]) + (__pyx_v_grb[((__pyx_v_j * __pyx_v_flags1->len) + __pyx_v_i)]));
 
-          /* "flagmatic/hypergraph_flag.pyx":1570
+          /* "flagmatic/hypergraph_flag.pyx":1596
  *                                         for j in range(i, flags1.len):
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24373,18 +24373,18 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           __pyx_t_8 = ((__pyx_v_k != 0) != 0);
           if (__pyx_t_8) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1571
+            /* "flagmatic/hypergraph_flag.pyx":1597
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]
  *                                                 if k != 0:
  *                                                         rarray[row, 0] = gi             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 1] = i
  *                                                         rarray[row, 2] = j
  */
-            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_gi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1571, __pyx_L1_error)
+            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_gi); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1597, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1571, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1597, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1571, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1597, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_GIVEREF(__pyx_t_3);
             PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -24392,22 +24392,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_0);
             PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_0);
             __pyx_t_3 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 1571, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 1597, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1572
+            /* "flagmatic/hypergraph_flag.pyx":1598
  *                                                 if k != 0:
  *                                                         rarray[row, 0] = gi
  *                                                         rarray[row, 1] = i             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 2] = j
  *                                                         rarray[row, 3] = k
  */
-            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1572, __pyx_L1_error)
+            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1598, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1572, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1598, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1572, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1598, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_GIVEREF(__pyx_t_1);
             PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -24415,22 +24415,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_1);
             PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_1);
             __pyx_t_1 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_2) < 0)) __PYX_ERR(0, 1572, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_2) < 0)) __PYX_ERR(0, 1598, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1573
+            /* "flagmatic/hypergraph_flag.pyx":1599
  *                                                         rarray[row, 0] = gi
  *                                                         rarray[row, 1] = i
  *                                                         rarray[row, 2] = j             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 3] = k
  *                                                         rarray[row, 4] = np * 2
  */
-            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1573, __pyx_L1_error)
+            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1599, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1573, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1599, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1573, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1599, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_GIVEREF(__pyx_t_3);
             PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -24438,22 +24438,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_2);
             PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_2);
             __pyx_t_3 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 1573, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 1599, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1574
+            /* "flagmatic/hypergraph_flag.pyx":1600
  *                                                         rarray[row, 1] = i
  *                                                         rarray[row, 2] = j
  *                                                         rarray[row, 3] = k             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 4] = np * 2
  *                                                         row += 1
  */
-            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1574, __pyx_L1_error)
+            __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1600, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1574, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1600, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1574, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1600, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_GIVEREF(__pyx_t_1);
             PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -24461,22 +24461,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_3);
             PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3);
             __pyx_t_1 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_2) < 0)) __PYX_ERR(0, 1574, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_2) < 0)) __PYX_ERR(0, 1600, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1575
+            /* "flagmatic/hypergraph_flag.pyx":1601
  *                                                         rarray[row, 2] = j
  *                                                         rarray[row, 3] = k
  *                                                         rarray[row, 4] = np * 2             # <<<<<<<<<<<<<<
  *                                                         row += 1
  * 
  */
-            __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_np * 2)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1575, __pyx_L1_error)
+            __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_np * 2)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1601, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_2);
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1575, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1601, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1575, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1601, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_GIVEREF(__pyx_t_3);
             PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -24484,11 +24484,11 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_4);
             PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_4);
             __pyx_t_3 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 1575, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_2) < 0)) __PYX_ERR(0, 1601, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1576
+            /* "flagmatic/hypergraph_flag.pyx":1602
  *                                                         rarray[row, 3] = k
  *                                                         rarray[row, 4] = np * 2
  *                                                         row += 1             # <<<<<<<<<<<<<<
@@ -24497,7 +24497,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             __pyx_v_row = (__pyx_v_row + 1);
 
-            /* "flagmatic/hypergraph_flag.pyx":1570
+            /* "flagmatic/hypergraph_flag.pyx":1596
  *                                         for j in range(i, flags1.len):
  *                                                 k = grb[(i * flags1.len) + j] + grb[(j * flags1.len) + i]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24508,7 +24508,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         }
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1556
+      /* "flagmatic/hypergraph_flag.pyx":1582
  *                                                 break
  * 
  *                         if equal_flags_mode:             # <<<<<<<<<<<<<<
@@ -24518,7 +24518,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       goto __pyx_L27;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1580
+    /* "flagmatic/hypergraph_flag.pyx":1606
  *                         else:
  * 
  *                                 nzcount = 0             # <<<<<<<<<<<<<<
@@ -24528,7 +24528,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     /*else*/ {
       __pyx_v_nzcount = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1581
+      /* "flagmatic/hypergraph_flag.pyx":1607
  * 
  *                                 nzcount = 0
  *                                 for i in range(flags1.len):             # <<<<<<<<<<<<<<
@@ -24539,7 +24539,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_10; __pyx_t_12+=1) {
         __pyx_v_i = __pyx_t_12;
 
-        /* "flagmatic/hypergraph_flag.pyx":1582
+        /* "flagmatic/hypergraph_flag.pyx":1608
  *                                 nzcount = 0
  *                                 for i in range(flags1.len):
  *                                         for j in range(flags2.len):             # <<<<<<<<<<<<<<
@@ -24550,7 +24550,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1583
+          /* "flagmatic/hypergraph_flag.pyx":1609
  *                                 for i in range(flags1.len):
  *                                         for j in range(flags2.len):
  *                                                 k = grb[(i * flags1.len) + j]             # <<<<<<<<<<<<<<
@@ -24559,7 +24559,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_v_k = (__pyx_v_grb[((__pyx_v_i * __pyx_v_flags1->len) + __pyx_v_j)]);
 
-          /* "flagmatic/hypergraph_flag.pyx":1584
+          /* "flagmatic/hypergraph_flag.pyx":1610
  *                                         for j in range(flags2.len):
  *                                                 k = grb[(i * flags1.len) + j]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24569,7 +24569,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           __pyx_t_8 = ((__pyx_v_k != 0) != 0);
           if (__pyx_t_8) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1585
+            /* "flagmatic/hypergraph_flag.pyx":1611
  *                                                 k = grb[(i * flags1.len) + j]
  *                                                 if k != 0:
  *                                                         nzcount += 1             # <<<<<<<<<<<<<<
@@ -24578,7 +24578,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             __pyx_v_nzcount = (__pyx_v_nzcount + 1);
 
-            /* "flagmatic/hypergraph_flag.pyx":1584
+            /* "flagmatic/hypergraph_flag.pyx":1610
  *                                         for j in range(flags2.len):
  *                                                 k = grb[(i * flags1.len) + j]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24589,18 +24589,18 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         }
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1587
+      /* "flagmatic/hypergraph_flag.pyx":1613
  *                                                         nzcount += 1
  * 
  *                                 rarray.resize([row + nzcount, 5], refcheck=False)             # <<<<<<<<<<<<<<
  * 
  *                                 for i in range(flags1.len):
  */
-      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_rarray, __pyx_n_s_resize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1587, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_rarray, __pyx_n_s_resize); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_row + __pyx_v_nzcount)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1587, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_row + __pyx_v_nzcount)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1587, __pyx_L1_error)
+      __pyx_t_3 = PyList_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_GIVEREF(__pyx_t_1);
       PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -24608,22 +24608,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       __Pyx_GIVEREF(__pyx_int_5);
       PyList_SET_ITEM(__pyx_t_3, 1, __pyx_int_5);
       __pyx_t_1 = 0;
-      __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1587, __pyx_L1_error)
+      __pyx_t_1 = PyTuple_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_GIVEREF(__pyx_t_3);
       PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
       __pyx_t_3 = 0;
-      __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1587, __pyx_L1_error)
+      __pyx_t_3 = PyDict_New(); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 1587, __pyx_L1_error)
-      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1587, __pyx_L1_error)
+      if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_refcheck, Py_False) < 0) __PYX_ERR(0, 1613, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_1, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1613, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1589
+      /* "flagmatic/hypergraph_flag.pyx":1615
  *                                 rarray.resize([row + nzcount, 5], refcheck=False)
  * 
  *                                 for i in range(flags1.len):             # <<<<<<<<<<<<<<
@@ -24634,7 +24634,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
       for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_10; __pyx_t_12+=1) {
         __pyx_v_i = __pyx_t_12;
 
-        /* "flagmatic/hypergraph_flag.pyx":1590
+        /* "flagmatic/hypergraph_flag.pyx":1616
  * 
  *                                 for i in range(flags1.len):
  *                                         for j in range(flags2.len):             # <<<<<<<<<<<<<<
@@ -24645,7 +24645,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
         for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
           __pyx_v_j = __pyx_t_14;
 
-          /* "flagmatic/hypergraph_flag.pyx":1591
+          /* "flagmatic/hypergraph_flag.pyx":1617
  *                                 for i in range(flags1.len):
  *                                         for j in range(flags2.len):
  *                                                 k = grb[(i * flags1.len) + j]             # <<<<<<<<<<<<<<
@@ -24654,7 +24654,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
           __pyx_v_k = (__pyx_v_grb[((__pyx_v_i * __pyx_v_flags1->len) + __pyx_v_j)]);
 
-          /* "flagmatic/hypergraph_flag.pyx":1592
+          /* "flagmatic/hypergraph_flag.pyx":1618
  *                                         for j in range(flags2.len):
  *                                                 k = grb[(i * flags1.len) + j]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24664,18 +24664,18 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
           __pyx_t_8 = ((__pyx_v_k != 0) != 0);
           if (__pyx_t_8) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1593
+            /* "flagmatic/hypergraph_flag.pyx":1619
  *                                                 k = grb[(i * flags1.len) + j]
  *                                                 if k != 0:
  *                                                         rarray[row, 0] = gi             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 1] = i
  *                                                         rarray[row, 2] = j
  */
-            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_gi); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1593, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_gi); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1619, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1593, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1619, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1593, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1619, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_GIVEREF(__pyx_t_3);
             PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -24683,22 +24683,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_0);
             PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_0);
             __pyx_t_3 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_5) < 0)) __PYX_ERR(0, 1593, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_5) < 0)) __PYX_ERR(0, 1619, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1594
+            /* "flagmatic/hypergraph_flag.pyx":1620
  *                                                 if k != 0:
  *                                                         rarray[row, 0] = gi
  *                                                         rarray[row, 1] = i             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 2] = j
  *                                                         rarray[row, 3] = k
  */
-            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1594, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1620, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1594, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1620, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1594, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1620, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_GIVEREF(__pyx_t_1);
             PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -24706,22 +24706,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_1);
             PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_1);
             __pyx_t_1 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_5) < 0)) __PYX_ERR(0, 1594, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_5) < 0)) __PYX_ERR(0, 1620, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1595
+            /* "flagmatic/hypergraph_flag.pyx":1621
  *                                                         rarray[row, 0] = gi
  *                                                         rarray[row, 1] = i
  *                                                         rarray[row, 2] = j             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 3] = k
  *                                                         rarray[row, 4] = np
  */
-            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1595, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1621, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1595, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1621, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1595, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1621, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_GIVEREF(__pyx_t_3);
             PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -24729,22 +24729,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_2);
             PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_2);
             __pyx_t_3 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_5) < 0)) __PYX_ERR(0, 1595, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_5) < 0)) __PYX_ERR(0, 1621, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1596
+            /* "flagmatic/hypergraph_flag.pyx":1622
  *                                                         rarray[row, 1] = i
  *                                                         rarray[row, 2] = j
  *                                                         rarray[row, 3] = k             # <<<<<<<<<<<<<<
  *                                                         rarray[row, 4] = np
  *                                                         row += 1
  */
-            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1596, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_k); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1622, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1596, __pyx_L1_error)
+            __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1622, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
-            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1596, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1622, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             __Pyx_GIVEREF(__pyx_t_1);
             PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -24752,22 +24752,22 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_3);
             PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3);
             __pyx_t_1 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_5) < 0)) __PYX_ERR(0, 1596, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_3, __pyx_t_5) < 0)) __PYX_ERR(0, 1622, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1597
+            /* "flagmatic/hypergraph_flag.pyx":1623
  *                                                         rarray[row, 2] = j
  *                                                         rarray[row, 3] = k
  *                                                         rarray[row, 4] = np             # <<<<<<<<<<<<<<
  *                                                         row += 1
  * 
  */
-            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1597, __pyx_L1_error)
+            __pyx_t_5 = __Pyx_PyInt_From_int(__pyx_v_np); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1623, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_5);
-            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1597, __pyx_L1_error)
+            __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_row); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1623, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
-            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1597, __pyx_L1_error)
+            __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1623, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_1);
             __Pyx_GIVEREF(__pyx_t_3);
             PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_3);
@@ -24775,11 +24775,11 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
             __Pyx_GIVEREF(__pyx_int_4);
             PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_int_4);
             __pyx_t_3 = 0;
-            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_5) < 0)) __PYX_ERR(0, 1597, __pyx_L1_error)
+            if (unlikely(PyObject_SetItem(__pyx_v_rarray, __pyx_t_1, __pyx_t_5) < 0)) __PYX_ERR(0, 1623, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
             __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-            /* "flagmatic/hypergraph_flag.pyx":1598
+            /* "flagmatic/hypergraph_flag.pyx":1624
  *                                                         rarray[row, 3] = k
  *                                                         rarray[row, 4] = np
  *                                                         row += 1             # <<<<<<<<<<<<<<
@@ -24788,7 +24788,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
             __pyx_v_row = (__pyx_v_row + 1);
 
-            /* "flagmatic/hypergraph_flag.pyx":1592
+            /* "flagmatic/hypergraph_flag.pyx":1618
  *                                         for j in range(flags2.len):
  *                                                 k = grb[(i * flags1.len) + j]
  *                                                 if k != 0:             # <<<<<<<<<<<<<<
@@ -24802,7 +24802,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
     __pyx_L27:;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1600
+  /* "flagmatic/hypergraph_flag.pyx":1626
  *                                                         row += 1
  * 
  *                 free(cur_edges)             # <<<<<<<<<<<<<<
@@ -24811,7 +24811,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   free(__pyx_v_cur_edges);
 
-  /* "flagmatic/hypergraph_flag.pyx":1601
+  /* "flagmatic/hypergraph_flag.pyx":1627
  * 
  *                 free(cur_edges)
  *                 free(pf1)             # <<<<<<<<<<<<<<
@@ -24820,7 +24820,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   free(__pyx_v_pf1);
 
-  /* "flagmatic/hypergraph_flag.pyx":1602
+  /* "flagmatic/hypergraph_flag.pyx":1628
  *                 free(cur_edges)
  *                 free(pf1)
  *                 free(pf2)             # <<<<<<<<<<<<<<
@@ -24829,7 +24829,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   free(__pyx_v_pf2);
 
-  /* "flagmatic/hypergraph_flag.pyx":1603
+  /* "flagmatic/hypergraph_flag.pyx":1629
  *                 free(pf1)
  *                 free(pf2)
  *                 free(grb)             # <<<<<<<<<<<<<<
@@ -24838,7 +24838,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
  */
   free(__pyx_v_grb);
 
-  /* "flagmatic/hypergraph_flag.pyx":1607
+  /* "flagmatic/hypergraph_flag.pyx":1633
  *                 #sig_off()
  * 
  *                 return rarray             # <<<<<<<<<<<<<<
@@ -24850,12 +24850,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_72flag_p
   __pyx_r = __pyx_v_rarray;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1455
+  /* "flagmatic/hypergraph_flag.pyx":1473
  * 
  *         @classmethod
  *         def flag_products (cls, graph_block gb, HypergraphFlag tg, graph_block flags1, graph_block flags2):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *p, np, *pp, *pf1, *pf2, *edges, *cur_edges
+ *                 cdef int *p
  */
 
   /* function exit code */
@@ -25011,12 +25011,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_14HypergraphFlag_2ne___ge
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1615
+/* "flagmatic/hypergraph_flag.pyx":1641
  * 
  * 
  * cdef void raw_minimize_edges(int *edges, int m, int r, bint oriented):             # <<<<<<<<<<<<<<
  * 
- *         cdef int i, *e, round, swapped
+ *         cdef int i
  */
 
 static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v_edges, int __pyx_v_m, int __pyx_v_r, int __pyx_v_oriented) {
@@ -25032,8 +25032,8 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
   int __pyx_t_5;
   __Pyx_RefNannySetupContext("raw_minimize_edges", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1619
- *         cdef int i, *e, round, swapped
+  /* "flagmatic/hypergraph_flag.pyx":1647
+ *         cdef int round, swapped
  * 
  *         if r == 3:             # <<<<<<<<<<<<<<
  * 
@@ -25042,7 +25042,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
   switch (__pyx_v_r) {
     case 3:
 
-    /* "flagmatic/hypergraph_flag.pyx":1621
+    /* "flagmatic/hypergraph_flag.pyx":1649
  *         if r == 3:
  * 
  *                 for i in range(m):             # <<<<<<<<<<<<<<
@@ -25053,7 +25053,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
     for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
       __pyx_v_i = __pyx_t_2;
 
-      /* "flagmatic/hypergraph_flag.pyx":1622
+      /* "flagmatic/hypergraph_flag.pyx":1650
  * 
  *                 for i in range(m):
  *                         e = &edges[i * 3]             # <<<<<<<<<<<<<<
@@ -25062,7 +25062,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       __pyx_v_e = (&(__pyx_v_edges[(__pyx_v_i * 3)]));
 
-      /* "flagmatic/hypergraph_flag.pyx":1623
+      /* "flagmatic/hypergraph_flag.pyx":1651
  *                 for i in range(m):
  *                         e = &edges[i * 3]
  *                         if e[0] > e[1]:             # <<<<<<<<<<<<<<
@@ -25072,7 +25072,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       __pyx_t_3 = (((__pyx_v_e[0]) > (__pyx_v_e[1])) != 0);
       if (__pyx_t_3) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1624
+        /* "flagmatic/hypergraph_flag.pyx":1652
  *                         e = &edges[i * 3]
  *                         if e[0] > e[1]:
  *                                 e[0], e[1] = e[1], e[0]             # <<<<<<<<<<<<<<
@@ -25084,7 +25084,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[0]) = __pyx_t_4;
         (__pyx_v_e[1]) = __pyx_t_5;
 
-        /* "flagmatic/hypergraph_flag.pyx":1623
+        /* "flagmatic/hypergraph_flag.pyx":1651
  *                 for i in range(m):
  *                         e = &edges[i * 3]
  *                         if e[0] > e[1]:             # <<<<<<<<<<<<<<
@@ -25093,7 +25093,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1625
+      /* "flagmatic/hypergraph_flag.pyx":1653
  *                         if e[0] > e[1]:
  *                                 e[0], e[1] = e[1], e[0]
  *                         if e[1] > e[2]:             # <<<<<<<<<<<<<<
@@ -25103,7 +25103,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       __pyx_t_3 = (((__pyx_v_e[1]) > (__pyx_v_e[2])) != 0);
       if (__pyx_t_3) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1626
+        /* "flagmatic/hypergraph_flag.pyx":1654
  *                                 e[0], e[1] = e[1], e[0]
  *                         if e[1] > e[2]:
  *                                 e[1], e[2] = e[2], e[1]             # <<<<<<<<<<<<<<
@@ -25115,7 +25115,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[1]) = __pyx_t_5;
         (__pyx_v_e[2]) = __pyx_t_4;
 
-        /* "flagmatic/hypergraph_flag.pyx":1625
+        /* "flagmatic/hypergraph_flag.pyx":1653
  *                         if e[0] > e[1]:
  *                                 e[0], e[1] = e[1], e[0]
  *                         if e[1] > e[2]:             # <<<<<<<<<<<<<<
@@ -25124,7 +25124,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1627
+      /* "flagmatic/hypergraph_flag.pyx":1655
  *                         if e[1] > e[2]:
  *                                 e[1], e[2] = e[2], e[1]
  *                         if e[0] > e[1]:             # <<<<<<<<<<<<<<
@@ -25134,7 +25134,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       __pyx_t_3 = (((__pyx_v_e[0]) > (__pyx_v_e[1])) != 0);
       if (__pyx_t_3) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1628
+        /* "flagmatic/hypergraph_flag.pyx":1656
  *                                 e[1], e[2] = e[2], e[1]
  *                         if e[0] > e[1]:
  *                                 e[0], e[1] = e[1], e[0]             # <<<<<<<<<<<<<<
@@ -25146,7 +25146,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[0]) = __pyx_t_4;
         (__pyx_v_e[1]) = __pyx_t_5;
 
-        /* "flagmatic/hypergraph_flag.pyx":1627
+        /* "flagmatic/hypergraph_flag.pyx":1655
  *                         if e[1] > e[2]:
  *                                 e[1], e[2] = e[2], e[1]
  *                         if e[0] > e[1]:             # <<<<<<<<<<<<<<
@@ -25156,7 +25156,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       }
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1630
+    /* "flagmatic/hypergraph_flag.pyx":1658
  *                                 e[0], e[1] = e[1], e[0]
  * 
  *                 round = 1             # <<<<<<<<<<<<<<
@@ -25165,7 +25165,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     __pyx_v_round = 1;
 
-    /* "flagmatic/hypergraph_flag.pyx":1632
+    /* "flagmatic/hypergraph_flag.pyx":1660
  *                 round = 1
  * 
  *                 while True:             # <<<<<<<<<<<<<<
@@ -25174,7 +25174,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     while (1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1634
+      /* "flagmatic/hypergraph_flag.pyx":1662
  *                 while True:
  * 
  *                         swapped = 0             # <<<<<<<<<<<<<<
@@ -25183,7 +25183,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       __pyx_v_swapped = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1635
+      /* "flagmatic/hypergraph_flag.pyx":1663
  * 
  *                         swapped = 0
  *                         for i in range(m - round):             # <<<<<<<<<<<<<<
@@ -25194,7 +25194,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
         __pyx_v_i = __pyx_t_2;
 
-        /* "flagmatic/hypergraph_flag.pyx":1637
+        /* "flagmatic/hypergraph_flag.pyx":1665
  *                         for i in range(m - round):
  * 
  *                                 e = &edges[i * 3]             # <<<<<<<<<<<<<<
@@ -25203,7 +25203,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         __pyx_v_e = (&(__pyx_v_edges[(__pyx_v_i * 3)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1639
+        /* "flagmatic/hypergraph_flag.pyx":1667
  *                                 e = &edges[i * 3]
  * 
  *                                 if e[0] < e[3]:             # <<<<<<<<<<<<<<
@@ -25213,7 +25213,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_t_3 = (((__pyx_v_e[0]) < (__pyx_v_e[3])) != 0);
         if (__pyx_t_3) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1640
+          /* "flagmatic/hypergraph_flag.pyx":1668
  * 
  *                                 if e[0] < e[3]:
  *                                         continue             # <<<<<<<<<<<<<<
@@ -25222,7 +25222,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
           goto __pyx_L10_continue;
 
-          /* "flagmatic/hypergraph_flag.pyx":1639
+          /* "flagmatic/hypergraph_flag.pyx":1667
  *                                 e = &edges[i * 3]
  * 
  *                                 if e[0] < e[3]:             # <<<<<<<<<<<<<<
@@ -25231,7 +25231,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1641
+        /* "flagmatic/hypergraph_flag.pyx":1669
  *                                 if e[0] < e[3]:
  *                                         continue
  *                                 if e[0] == e[3]:             # <<<<<<<<<<<<<<
@@ -25241,7 +25241,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_t_3 = (((__pyx_v_e[0]) == (__pyx_v_e[3])) != 0);
         if (__pyx_t_3) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1642
+          /* "flagmatic/hypergraph_flag.pyx":1670
  *                                         continue
  *                                 if e[0] == e[3]:
  *                                         if e[1] < e[4]:             # <<<<<<<<<<<<<<
@@ -25251,7 +25251,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
           __pyx_t_3 = (((__pyx_v_e[1]) < (__pyx_v_e[4])) != 0);
           if (__pyx_t_3) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1643
+            /* "flagmatic/hypergraph_flag.pyx":1671
  *                                 if e[0] == e[3]:
  *                                         if e[1] < e[4]:
  *                                                 continue             # <<<<<<<<<<<<<<
@@ -25260,7 +25260,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
             goto __pyx_L10_continue;
 
-            /* "flagmatic/hypergraph_flag.pyx":1642
+            /* "flagmatic/hypergraph_flag.pyx":1670
  *                                         continue
  *                                 if e[0] == e[3]:
  *                                         if e[1] < e[4]:             # <<<<<<<<<<<<<<
@@ -25269,7 +25269,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1644
+          /* "flagmatic/hypergraph_flag.pyx":1672
  *                                         if e[1] < e[4]:
  *                                                 continue
  *                                         if e[1] == e[4]:             # <<<<<<<<<<<<<<
@@ -25279,7 +25279,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
           __pyx_t_3 = (((__pyx_v_e[1]) == (__pyx_v_e[4])) != 0);
           if (__pyx_t_3) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1645
+            /* "flagmatic/hypergraph_flag.pyx":1673
  *                                                 continue
  *                                         if e[1] == e[4]:
  *                                                 if e[2] < e[5]:             # <<<<<<<<<<<<<<
@@ -25289,7 +25289,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
             __pyx_t_3 = (((__pyx_v_e[2]) < (__pyx_v_e[5])) != 0);
             if (__pyx_t_3) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1646
+              /* "flagmatic/hypergraph_flag.pyx":1674
  *                                         if e[1] == e[4]:
  *                                                 if e[2] < e[5]:
  *                                                         continue             # <<<<<<<<<<<<<<
@@ -25298,7 +25298,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
               goto __pyx_L10_continue;
 
-              /* "flagmatic/hypergraph_flag.pyx":1645
+              /* "flagmatic/hypergraph_flag.pyx":1673
  *                                                 continue
  *                                         if e[1] == e[4]:
  *                                                 if e[2] < e[5]:             # <<<<<<<<<<<<<<
@@ -25307,7 +25307,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1644
+            /* "flagmatic/hypergraph_flag.pyx":1672
  *                                         if e[1] < e[4]:
  *                                                 continue
  *                                         if e[1] == e[4]:             # <<<<<<<<<<<<<<
@@ -25316,7 +25316,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1641
+          /* "flagmatic/hypergraph_flag.pyx":1669
  *                                 if e[0] < e[3]:
  *                                         continue
  *                                 if e[0] == e[3]:             # <<<<<<<<<<<<<<
@@ -25325,7 +25325,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1648
+        /* "flagmatic/hypergraph_flag.pyx":1676
  *                                                         continue
  * 
  *                                 e[0], e[3] = e[3], e[0]             # <<<<<<<<<<<<<<
@@ -25337,7 +25337,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[0]) = __pyx_t_5;
         (__pyx_v_e[3]) = __pyx_t_4;
 
-        /* "flagmatic/hypergraph_flag.pyx":1649
+        /* "flagmatic/hypergraph_flag.pyx":1677
  * 
  *                                 e[0], e[3] = e[3], e[0]
  *                                 e[1], e[4] = e[4], e[1]             # <<<<<<<<<<<<<<
@@ -25349,7 +25349,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[1]) = __pyx_t_4;
         (__pyx_v_e[4]) = __pyx_t_5;
 
-        /* "flagmatic/hypergraph_flag.pyx":1650
+        /* "flagmatic/hypergraph_flag.pyx":1678
  *                                 e[0], e[3] = e[3], e[0]
  *                                 e[1], e[4] = e[4], e[1]
  *                                 e[2], e[5] = e[5], e[2]             # <<<<<<<<<<<<<<
@@ -25361,7 +25361,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[2]) = __pyx_t_5;
         (__pyx_v_e[5]) = __pyx_t_4;
 
-        /* "flagmatic/hypergraph_flag.pyx":1652
+        /* "flagmatic/hypergraph_flag.pyx":1680
  *                                 e[2], e[5] = e[5], e[2]
  * 
  *                                 swapped = 1             # <<<<<<<<<<<<<<
@@ -25372,7 +25372,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_L10_continue:;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1654
+      /* "flagmatic/hypergraph_flag.pyx":1682
  *                                 swapped = 1
  * 
  *                         if swapped == 0:             # <<<<<<<<<<<<<<
@@ -25382,7 +25382,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       __pyx_t_3 = ((__pyx_v_swapped == 0) != 0);
       if (__pyx_t_3) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1655
+        /* "flagmatic/hypergraph_flag.pyx":1683
  * 
  *                         if swapped == 0:
  *                                 break             # <<<<<<<<<<<<<<
@@ -25391,7 +25391,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         goto __pyx_L9_break;
 
-        /* "flagmatic/hypergraph_flag.pyx":1654
+        /* "flagmatic/hypergraph_flag.pyx":1682
  *                                 swapped = 1
  * 
  *                         if swapped == 0:             # <<<<<<<<<<<<<<
@@ -25400,7 +25400,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1657
+      /* "flagmatic/hypergraph_flag.pyx":1685
  *                                 break
  * 
  *                         round += 1             # <<<<<<<<<<<<<<
@@ -25411,8 +25411,8 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
     }
     __pyx_L9_break:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1619
- *         cdef int i, *e, round, swapped
+    /* "flagmatic/hypergraph_flag.pyx":1647
+ *         cdef int round, swapped
  * 
  *         if r == 3:             # <<<<<<<<<<<<<<
  * 
@@ -25420,7 +25420,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     break;
 
-    /* "flagmatic/hypergraph_flag.pyx":1659
+    /* "flagmatic/hypergraph_flag.pyx":1687
  *                         round += 1
  * 
  *         elif r == 2:             # <<<<<<<<<<<<<<
@@ -25429,7 +25429,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     case 2:
 
-    /* "flagmatic/hypergraph_flag.pyx":1661
+    /* "flagmatic/hypergraph_flag.pyx":1689
  *         elif r == 2:
  * 
  *                 if oriented == False:             # <<<<<<<<<<<<<<
@@ -25439,7 +25439,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
     __pyx_t_3 = ((__pyx_v_oriented == 0) != 0);
     if (__pyx_t_3) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1663
+      /* "flagmatic/hypergraph_flag.pyx":1691
  *                 if oriented == False:
  * 
  *                         for i in range(m):             # <<<<<<<<<<<<<<
@@ -25450,7 +25450,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
         __pyx_v_i = __pyx_t_2;
 
-        /* "flagmatic/hypergraph_flag.pyx":1664
+        /* "flagmatic/hypergraph_flag.pyx":1692
  * 
  *                         for i in range(m):
  *                                 e = &edges[i * 2]             # <<<<<<<<<<<<<<
@@ -25459,7 +25459,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         __pyx_v_e = (&(__pyx_v_edges[(__pyx_v_i * 2)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1665
+        /* "flagmatic/hypergraph_flag.pyx":1693
  *                         for i in range(m):
  *                                 e = &edges[i * 2]
  *                                 if e[0] > e[1]:             # <<<<<<<<<<<<<<
@@ -25469,7 +25469,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_t_3 = (((__pyx_v_e[0]) > (__pyx_v_e[1])) != 0);
         if (__pyx_t_3) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1666
+          /* "flagmatic/hypergraph_flag.pyx":1694
  *                                 e = &edges[i * 2]
  *                                 if e[0] > e[1]:
  *                                         e[0], e[1] = e[1], e[0]             # <<<<<<<<<<<<<<
@@ -25481,7 +25481,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
           (__pyx_v_e[0]) = __pyx_t_4;
           (__pyx_v_e[1]) = __pyx_t_5;
 
-          /* "flagmatic/hypergraph_flag.pyx":1665
+          /* "flagmatic/hypergraph_flag.pyx":1693
  *                         for i in range(m):
  *                                 e = &edges[i * 2]
  *                                 if e[0] > e[1]:             # <<<<<<<<<<<<<<
@@ -25491,7 +25491,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         }
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1661
+      /* "flagmatic/hypergraph_flag.pyx":1689
  *         elif r == 2:
  * 
  *                 if oriented == False:             # <<<<<<<<<<<<<<
@@ -25500,7 +25500,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1668
+    /* "flagmatic/hypergraph_flag.pyx":1696
  *                                         e[0], e[1] = e[1], e[0]
  * 
  *                 round = 1             # <<<<<<<<<<<<<<
@@ -25509,7 +25509,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     __pyx_v_round = 1;
 
-    /* "flagmatic/hypergraph_flag.pyx":1670
+    /* "flagmatic/hypergraph_flag.pyx":1698
  *                 round = 1
  * 
  *                 while True:             # <<<<<<<<<<<<<<
@@ -25518,7 +25518,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
     while (1) {
 
-      /* "flagmatic/hypergraph_flag.pyx":1672
+      /* "flagmatic/hypergraph_flag.pyx":1700
  *                 while True:
  * 
  *                         swapped = 0             # <<<<<<<<<<<<<<
@@ -25527,7 +25527,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       __pyx_v_swapped = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1673
+      /* "flagmatic/hypergraph_flag.pyx":1701
  * 
  *                         swapped = 0
  *                         for i in range(m - round):             # <<<<<<<<<<<<<<
@@ -25538,7 +25538,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
         __pyx_v_i = __pyx_t_2;
 
-        /* "flagmatic/hypergraph_flag.pyx":1675
+        /* "flagmatic/hypergraph_flag.pyx":1703
  *                         for i in range(m - round):
  * 
  *                                 e = &edges[i * 2]             # <<<<<<<<<<<<<<
@@ -25547,7 +25547,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         __pyx_v_e = (&(__pyx_v_edges[(__pyx_v_i * 2)]));
 
-        /* "flagmatic/hypergraph_flag.pyx":1677
+        /* "flagmatic/hypergraph_flag.pyx":1705
  *                                 e = &edges[i * 2]
  * 
  *                                 if e[0] < e[2]:             # <<<<<<<<<<<<<<
@@ -25557,7 +25557,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_t_3 = (((__pyx_v_e[0]) < (__pyx_v_e[2])) != 0);
         if (__pyx_t_3) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1678
+          /* "flagmatic/hypergraph_flag.pyx":1706
  * 
  *                                 if e[0] < e[2]:
  *                                         continue             # <<<<<<<<<<<<<<
@@ -25566,7 +25566,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
           goto __pyx_L24_continue;
 
-          /* "flagmatic/hypergraph_flag.pyx":1677
+          /* "flagmatic/hypergraph_flag.pyx":1705
  *                                 e = &edges[i * 2]
  * 
  *                                 if e[0] < e[2]:             # <<<<<<<<<<<<<<
@@ -25575,7 +25575,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1679
+        /* "flagmatic/hypergraph_flag.pyx":1707
  *                                 if e[0] < e[2]:
  *                                         continue
  *                                 if e[0] == e[2]:             # <<<<<<<<<<<<<<
@@ -25585,7 +25585,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_t_3 = (((__pyx_v_e[0]) == (__pyx_v_e[2])) != 0);
         if (__pyx_t_3) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1680
+          /* "flagmatic/hypergraph_flag.pyx":1708
  *                                         continue
  *                                 if e[0] == e[2]:
  *                                         if e[1] < e[3]:             # <<<<<<<<<<<<<<
@@ -25595,7 +25595,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
           __pyx_t_3 = (((__pyx_v_e[1]) < (__pyx_v_e[3])) != 0);
           if (__pyx_t_3) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1681
+            /* "flagmatic/hypergraph_flag.pyx":1709
  *                                 if e[0] == e[2]:
  *                                         if e[1] < e[3]:
  *                                                 continue             # <<<<<<<<<<<<<<
@@ -25604,7 +25604,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
             goto __pyx_L24_continue;
 
-            /* "flagmatic/hypergraph_flag.pyx":1680
+            /* "flagmatic/hypergraph_flag.pyx":1708
  *                                         continue
  *                                 if e[0] == e[2]:
  *                                         if e[1] < e[3]:             # <<<<<<<<<<<<<<
@@ -25613,7 +25613,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1679
+          /* "flagmatic/hypergraph_flag.pyx":1707
  *                                 if e[0] < e[2]:
  *                                         continue
  *                                 if e[0] == e[2]:             # <<<<<<<<<<<<<<
@@ -25622,7 +25622,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1683
+        /* "flagmatic/hypergraph_flag.pyx":1711
  *                                                 continue
  * 
  *                                 e[0], e[2] = e[2], e[0]             # <<<<<<<<<<<<<<
@@ -25634,7 +25634,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[0]) = __pyx_t_5;
         (__pyx_v_e[2]) = __pyx_t_4;
 
-        /* "flagmatic/hypergraph_flag.pyx":1684
+        /* "flagmatic/hypergraph_flag.pyx":1712
  * 
  *                                 e[0], e[2] = e[2], e[0]
  *                                 e[1], e[3] = e[3], e[1]             # <<<<<<<<<<<<<<
@@ -25646,7 +25646,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         (__pyx_v_e[1]) = __pyx_t_4;
         (__pyx_v_e[3]) = __pyx_t_5;
 
-        /* "flagmatic/hypergraph_flag.pyx":1686
+        /* "flagmatic/hypergraph_flag.pyx":1714
  *                                 e[1], e[3] = e[3], e[1]
  * 
  *                                 swapped = 1             # <<<<<<<<<<<<<<
@@ -25657,7 +25657,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
         __pyx_L24_continue:;
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1688
+      /* "flagmatic/hypergraph_flag.pyx":1716
  *                                 swapped = 1
  * 
  *                         if swapped == 0:             # <<<<<<<<<<<<<<
@@ -25667,7 +25667,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
       __pyx_t_3 = ((__pyx_v_swapped == 0) != 0);
       if (__pyx_t_3) {
 
-        /* "flagmatic/hypergraph_flag.pyx":1689
+        /* "flagmatic/hypergraph_flag.pyx":1717
  * 
  *                         if swapped == 0:
  *                                 break             # <<<<<<<<<<<<<<
@@ -25676,7 +25676,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
         goto __pyx_L23_break;
 
-        /* "flagmatic/hypergraph_flag.pyx":1688
+        /* "flagmatic/hypergraph_flag.pyx":1716
  *                                 swapped = 1
  * 
  *                         if swapped == 0:             # <<<<<<<<<<<<<<
@@ -25685,7 +25685,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
  */
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1691
+      /* "flagmatic/hypergraph_flag.pyx":1719
  *                                 break
  * 
  *                         round += 1             # <<<<<<<<<<<<<<
@@ -25696,7 +25696,7 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
     }
     __pyx_L23_break:;
 
-    /* "flagmatic/hypergraph_flag.pyx":1659
+    /* "flagmatic/hypergraph_flag.pyx":1687
  *                         round += 1
  * 
  *         elif r == 2:             # <<<<<<<<<<<<<<
@@ -25707,24 +25707,24 @@ static void __pyx_f_9flagmatic_15hypergraph_flag_raw_minimize_edges(int *__pyx_v
     default: break;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1615
+  /* "flagmatic/hypergraph_flag.pyx":1641
  * 
  * 
  * cdef void raw_minimize_edges(int *edges, int m, int r, bint oriented):             # <<<<<<<<<<<<<<
  * 
- *         cdef int i, *e, round, swapped
+ *         cdef int i
  */
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1699
+/* "flagmatic/hypergraph_flag.pyx":1727
  * previous_permutations = {}
  * 
  * cdef int *generate_permutations_fixing(int n, int s, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
 static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(int __pyx_v_n, int __pyx_v_s, int *__pyx_v_number_of) {
@@ -25754,18 +25754,18 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
   int __pyx_t_15;
   __Pyx_RefNannySetupContext("generate_permutations_fixing", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1704
+  /* "flagmatic/hypergraph_flag.pyx":1733
  * 
  *         # see if we've already generated it!
  *         key = (n, s)             # <<<<<<<<<<<<<<
  *         if key in previous_permutations.iterkeys():
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1704, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1704, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1704, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1733, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -25776,16 +25776,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
   __pyx_v_key = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1705
+  /* "flagmatic/hypergraph_flag.pyx":1734
  *         # see if we've already generated it!
  *         key = (n, s)
  *         if key in previous_permutations.iterkeys():             # <<<<<<<<<<<<<<
  * 
  *                 cib = <combinatorial_info_block>previous_permutations[key]
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_permutations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1705, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_permutations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1734, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1705, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1734, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -25799,28 +25799,28 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     }
   }
   if (__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1705, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1734, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1705, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1734, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_3, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1705, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_3, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1734, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1707
+    /* "flagmatic/hypergraph_flag.pyx":1736
  *         if key in previous_permutations.iterkeys():
  * 
  *                 cib = <combinatorial_info_block>previous_permutations[key]             # <<<<<<<<<<<<<<
  *                 fac = cib.np
  *                 p = cib.p
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_permutations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1707, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_permutations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1736, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1707, __pyx_L1_error)
+    __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1736, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = __pyx_t_1;
@@ -25829,7 +25829,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1708
+    /* "flagmatic/hypergraph_flag.pyx":1737
  * 
  *                 cib = <combinatorial_info_block>previous_permutations[key]
  *                 fac = cib.np             # <<<<<<<<<<<<<<
@@ -25839,7 +25839,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     __pyx_t_6 = __pyx_v_cib->np;
     __pyx_v_fac = __pyx_t_6;
 
-    /* "flagmatic/hypergraph_flag.pyx":1709
+    /* "flagmatic/hypergraph_flag.pyx":1738
  *                 cib = <combinatorial_info_block>previous_permutations[key]
  *                 fac = cib.np
  *                 p = cib.p             # <<<<<<<<<<<<<<
@@ -25849,7 +25849,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     __pyx_t_7 = __pyx_v_cib->p;
     __pyx_v_p = __pyx_t_7;
 
-    /* "flagmatic/hypergraph_flag.pyx":1705
+    /* "flagmatic/hypergraph_flag.pyx":1734
  *         # see if we've already generated it!
  *         key = (n, s)
  *         if key in previous_permutations.iterkeys():             # <<<<<<<<<<<<<<
@@ -25859,7 +25859,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     goto __pyx_L3;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1713
+  /* "flagmatic/hypergraph_flag.pyx":1742
  *         else:
  * 
  *                 perms = Permutations(range(s + 1, n + 1)).list()             # <<<<<<<<<<<<<<
@@ -25867,13 +25867,13 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1713, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1742, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyInt_From_long((__pyx_v_s + 1)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1713, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_long((__pyx_v_s + 1)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1742, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1713, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1742, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1713, __pyx_L1_error)
+    __pyx_t_10 = PyTuple_New(2); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1742, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     __Pyx_GIVEREF(__pyx_t_8);
     PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_8);
@@ -25881,7 +25881,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     PyTuple_SET_ITEM(__pyx_t_10, 1, __pyx_t_9);
     __pyx_t_8 = 0;
     __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_10, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1713, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_10, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1742, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     __pyx_t_10 = NULL;
@@ -25895,22 +25895,22 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
       }
     }
     if (!__pyx_t_10) {
-      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1713, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_9); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1742, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_GOTREF(__pyx_t_1);
     } else {
-      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1713, __pyx_L1_error)
+      __pyx_t_8 = PyTuple_New(1+1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1742, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_10); __pyx_t_10 = NULL;
       __Pyx_GIVEREF(__pyx_t_9);
       PyTuple_SET_ITEM(__pyx_t_8, 0+1, __pyx_t_9);
       __pyx_t_9 = 0;
-      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1713, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_8, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1742, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1713, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1742, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -25924,27 +25924,27 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
       }
     }
     if (__pyx_t_1) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1713, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1742, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1713, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1742, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_perms = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1714
+    /* "flagmatic/hypergraph_flag.pyx":1743
  * 
  *                 perms = Permutations(range(s + 1, n + 1)).list()
  *                 fac = len(perms)             # <<<<<<<<<<<<<<
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 for i in range(fac):
  */
-    __pyx_t_11 = PyObject_Length(__pyx_v_perms); if (unlikely(__pyx_t_11 == -1)) __PYX_ERR(0, 1714, __pyx_L1_error)
+    __pyx_t_11 = PyObject_Length(__pyx_v_perms); if (unlikely(__pyx_t_11 == -1)) __PYX_ERR(0, 1743, __pyx_L1_error)
     __pyx_v_fac = __pyx_t_11;
 
-    /* "flagmatic/hypergraph_flag.pyx":1715
+    /* "flagmatic/hypergraph_flag.pyx":1744
  *                 perms = Permutations(range(s + 1, n + 1)).list()
  *                 fac = len(perms)
  *                 p = <int *> malloc (sizeof(int) * n * fac)             # <<<<<<<<<<<<<<
@@ -25953,7 +25953,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  */
     __pyx_v_p = ((int *)malloc((((sizeof(int)) * __pyx_v_n) * __pyx_v_fac)));
 
-    /* "flagmatic/hypergraph_flag.pyx":1716
+    /* "flagmatic/hypergraph_flag.pyx":1745
  *                 fac = len(perms)
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 for i in range(fac):             # <<<<<<<<<<<<<<
@@ -25964,7 +25964,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
     for (__pyx_t_12 = 0; __pyx_t_12 < __pyx_t_6; __pyx_t_12+=1) {
       __pyx_v_i = __pyx_t_12;
 
-      /* "flagmatic/hypergraph_flag.pyx":1717
+      /* "flagmatic/hypergraph_flag.pyx":1746
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 for i in range(fac):
  *                         for j in range(n):             # <<<<<<<<<<<<<<
@@ -25975,7 +25975,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
       for (__pyx_t_14 = 0; __pyx_t_14 < __pyx_t_13; __pyx_t_14+=1) {
         __pyx_v_j = __pyx_t_14;
 
-        /* "flagmatic/hypergraph_flag.pyx":1718
+        /* "flagmatic/hypergraph_flag.pyx":1747
  *                 for i in range(fac):
  *                         for j in range(n):
  *                                 if j < s:             # <<<<<<<<<<<<<<
@@ -25985,7 +25985,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
         __pyx_t_5 = ((__pyx_v_j < __pyx_v_s) != 0);
         if (__pyx_t_5) {
 
-          /* "flagmatic/hypergraph_flag.pyx":1719
+          /* "flagmatic/hypergraph_flag.pyx":1748
  *                         for j in range(n):
  *                                 if j < s:
  *                                         p[(i * n) + j] = j + 1             # <<<<<<<<<<<<<<
@@ -25994,7 +25994,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  */
           (__pyx_v_p[((__pyx_v_i * __pyx_v_n) + __pyx_v_j)]) = (__pyx_v_j + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1718
+          /* "flagmatic/hypergraph_flag.pyx":1747
  *                 for i in range(fac):
  *                         for j in range(n):
  *                                 if j < s:             # <<<<<<<<<<<<<<
@@ -26004,7 +26004,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
           goto __pyx_L8;
         }
 
-        /* "flagmatic/hypergraph_flag.pyx":1721
+        /* "flagmatic/hypergraph_flag.pyx":1750
  *                                         p[(i * n) + j] = j + 1
  *                                 else:
  *                                         p[(i * n) + j] = <int> perms[i][j - s]             # <<<<<<<<<<<<<<
@@ -26012,13 +26012,13 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  *                 cib = combinatorial_info_block()
  */
         /*else*/ {
-          __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_perms, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1721, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_perms, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1750, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __pyx_t_15 = (__pyx_v_j - __pyx_v_s);
-          __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_t_15, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1721, __pyx_L1_error)
+          __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_t_15, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1750, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_2);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1721, __pyx_L1_error)
+          __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1750, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
           (__pyx_v_p[((__pyx_v_i * __pyx_v_n) + __pyx_v_j)]) = ((int)__pyx_t_15);
         }
@@ -26026,19 +26026,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
       }
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1723
+    /* "flagmatic/hypergraph_flag.pyx":1752
  *                                         p[(i * n) + j] = <int> perms[i][j - s]
  * 
  *                 cib = combinatorial_info_block()             # <<<<<<<<<<<<<<
  *                 cib.np = fac
  *                 cib.p = p
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1723, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1752, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1724
+    /* "flagmatic/hypergraph_flag.pyx":1753
  * 
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac             # <<<<<<<<<<<<<<
@@ -26047,7 +26047,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  */
     __pyx_v_cib->np = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1725
+    /* "flagmatic/hypergraph_flag.pyx":1754
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac
  *                 cib.p = p             # <<<<<<<<<<<<<<
@@ -26056,21 +26056,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  */
     __pyx_v_cib->p = __pyx_v_p;
 
-    /* "flagmatic/hypergraph_flag.pyx":1726
+    /* "flagmatic/hypergraph_flag.pyx":1755
  *                 cib.np = fac
  *                 cib.p = p
  *                 previous_permutations[key] = cib             # <<<<<<<<<<<<<<
  * 
  *         if number_of:
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_permutations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1726, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_permutations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1755, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1726, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1755, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1728
+  /* "flagmatic/hypergraph_flag.pyx":1757
  *                 previous_permutations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -26080,7 +26080,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
   __pyx_t_5 = (__pyx_v_number_of != 0);
   if (__pyx_t_5) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1729
+    /* "flagmatic/hypergraph_flag.pyx":1758
  * 
  *         if number_of:
  *                 number_of[0] = fac             # <<<<<<<<<<<<<<
@@ -26089,7 +26089,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  */
     (__pyx_v_number_of[0]) = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1728
+    /* "flagmatic/hypergraph_flag.pyx":1757
  *                 previous_permutations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -26098,7 +26098,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1731
+  /* "flagmatic/hypergraph_flag.pyx":1760
  *                 number_of[0] = fac
  * 
  *         return p             # <<<<<<<<<<<<<<
@@ -26108,12 +26108,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1699
+  /* "flagmatic/hypergraph_flag.pyx":1727
  * previous_permutations = {}
  * 
  * cdef int *generate_permutations_fixing(int n, int s, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -26134,7 +26134,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(in
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1733
+/* "flagmatic/hypergraph_flag.pyx":1762
  *         return p
  * 
  * cdef int *generate_permutations(int n, int *number_of):             # <<<<<<<<<<<<<<
@@ -26147,7 +26147,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations(int __pyx
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("generate_permutations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1735
+  /* "flagmatic/hypergraph_flag.pyx":1764
  * cdef int *generate_permutations(int n, int *number_of):
  * 
  *         return generate_permutations_fixing(n, <int> 0, number_of)             # <<<<<<<<<<<<<<
@@ -26157,7 +26157,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations(int __pyx
   __pyx_r = __pyx_f_9flagmatic_15hypergraph_flag_generate_permutations_fixing(__pyx_v_n, ((int)0), __pyx_v_number_of);
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1733
+  /* "flagmatic/hypergraph_flag.pyx":1762
  *         return p
  * 
  * cdef int *generate_permutations(int n, int *number_of):             # <<<<<<<<<<<<<<
@@ -26171,12 +26171,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_permutations(int __pyx
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1737
+/* "flagmatic/hypergraph_flag.pyx":1766
  *         return generate_permutations_fixing(n, <int> 0, number_of)
  * 
  * def get_permutations (n):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
 /* Python wrapper */
@@ -26212,65 +26212,65 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_get_permutations(CYTHON_U
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("get_permutations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1740
+  /* "flagmatic/hypergraph_flag.pyx":1771
+ *         cdef int np, i, j
  * 
- *         cdef int *p, np, i, j
  *         p = generate_permutations(n, &np)             # <<<<<<<<<<<<<<
  *         return [[p[(i * n) + j] for j in range(n)] for i in range(np)]
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1740, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1771, __pyx_L1_error)
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_permutations(__pyx_t_1, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1741
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1772
+ * 
  *         p = generate_permutations(n, &np)
  *         return [[p[(i * n) + j] for j in range(n)] for i in range(np)]             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1741, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1772, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_1 = __pyx_v_np;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_1; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
-    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1741, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1772, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_5 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1741, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_5 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1772, __pyx_L1_error)
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1741, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_n); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1741, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_n); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1741, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1741, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1741, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1741, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1741, __pyx_L1_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1772, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 1741, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_2, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 1772, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __pyx_r = __pyx_t_2;
   __pyx_t_2 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1737
+  /* "flagmatic/hypergraph_flag.pyx":1766
  *         return generate_permutations_fixing(n, <int> 0, number_of)
  * 
  * def get_permutations (n):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -26288,12 +26288,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_get_permutations(CYTHON_U
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1746
+/* "flagmatic/hypergraph_flag.pyx":1777
  * previous_combinations = {}
  * 
  * cdef int *generate_combinations(int n, int s, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
 static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx_v_n, int __pyx_v_s, int *__pyx_v_number_of) {
@@ -26324,18 +26324,18 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
   int __pyx_t_16;
   __Pyx_RefNannySetupContext("generate_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1751
+  /* "flagmatic/hypergraph_flag.pyx":1783
  * 
  *         # see if we've already generated it!
  *         key = (n, s)             # <<<<<<<<<<<<<<
  *         if key in previous_combinations.iterkeys():
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1751, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1783, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1751, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1783, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1751, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1783, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -26346,16 +26346,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
   __pyx_v_key = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1752
+  /* "flagmatic/hypergraph_flag.pyx":1784
  *         # see if we've already generated it!
  *         key = (n, s)
  *         if key in previous_combinations.iterkeys():             # <<<<<<<<<<<<<<
  * 
  *                 cib = <combinatorial_info_block>previous_combinations[key]
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1752, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1784, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1752, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1784, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -26369,28 +26369,28 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     }
   }
   if (__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1752, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1784, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1752, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1784, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_3, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1752, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_3, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1784, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1754
+    /* "flagmatic/hypergraph_flag.pyx":1786
  *         if key in previous_combinations.iterkeys():
  * 
  *                 cib = <combinatorial_info_block>previous_combinations[key]             # <<<<<<<<<<<<<<
  *                 fac = cib.np
  *                 p = cib.p
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1754, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1786, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1754, __pyx_L1_error)
+    __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1786, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = __pyx_t_1;
@@ -26399,7 +26399,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1755
+    /* "flagmatic/hypergraph_flag.pyx":1787
  * 
  *                 cib = <combinatorial_info_block>previous_combinations[key]
  *                 fac = cib.np             # <<<<<<<<<<<<<<
@@ -26409,7 +26409,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     __pyx_t_6 = __pyx_v_cib->np;
     __pyx_v_fac = __pyx_t_6;
 
-    /* "flagmatic/hypergraph_flag.pyx":1756
+    /* "flagmatic/hypergraph_flag.pyx":1788
  *                 cib = <combinatorial_info_block>previous_combinations[key]
  *                 fac = cib.np
  *                 p = cib.p             # <<<<<<<<<<<<<<
@@ -26419,7 +26419,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     __pyx_t_7 = __pyx_v_cib->p;
     __pyx_v_p = __pyx_t_7;
 
-    /* "flagmatic/hypergraph_flag.pyx":1752
+    /* "flagmatic/hypergraph_flag.pyx":1784
  *         # see if we've already generated it!
  *         key = (n, s)
  *         if key in previous_combinations.iterkeys():             # <<<<<<<<<<<<<<
@@ -26429,7 +26429,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     goto __pyx_L3;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1760
+  /* "flagmatic/hypergraph_flag.pyx":1792
  *         else:
  * 
  *                 perms = Combinations(range(1, n + 1), s).list()             # <<<<<<<<<<<<<<
@@ -26437,11 +26437,11 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
@@ -26449,10 +26449,10 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     __Pyx_GIVEREF(__pyx_t_8);
     PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_8);
     __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_10 = NULL;
     __pyx_t_11 = 0;
@@ -26466,7 +26466,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
         __pyx_t_11 = 1;
       }
     }
-    __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_10) {
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10); __pyx_t_10 = NULL;
@@ -26477,11 +26477,11 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_11, __pyx_t_9);
     __pyx_t_8 = 0;
     __pyx_t_9 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1760, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1792, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -26495,27 +26495,27 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
       }
     }
     if (__pyx_t_1) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1760, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1792, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1760, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1792, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_perms = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1761
+    /* "flagmatic/hypergraph_flag.pyx":1793
  * 
  *                 perms = Combinations(range(1, n + 1), s).list()
  *                 fac = len(perms)             # <<<<<<<<<<<<<<
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  *                 for i in range(fac):
  */
-    __pyx_t_11 = PyObject_Length(__pyx_v_perms); if (unlikely(__pyx_t_11 == -1)) __PYX_ERR(0, 1761, __pyx_L1_error)
+    __pyx_t_11 = PyObject_Length(__pyx_v_perms); if (unlikely(__pyx_t_11 == -1)) __PYX_ERR(0, 1793, __pyx_L1_error)
     __pyx_v_fac = __pyx_t_11;
 
-    /* "flagmatic/hypergraph_flag.pyx":1762
+    /* "flagmatic/hypergraph_flag.pyx":1794
  *                 perms = Combinations(range(1, n + 1), s).list()
  *                 fac = len(perms)
  *                 p = <int *> malloc (sizeof(int) * s * fac)             # <<<<<<<<<<<<<<
@@ -26524,7 +26524,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
  */
     __pyx_v_p = ((int *)malloc((((sizeof(int)) * __pyx_v_s) * __pyx_v_fac)));
 
-    /* "flagmatic/hypergraph_flag.pyx":1763
+    /* "flagmatic/hypergraph_flag.pyx":1795
  *                 fac = len(perms)
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  *                 for i in range(fac):             # <<<<<<<<<<<<<<
@@ -26535,7 +26535,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
     for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_6; __pyx_t_13+=1) {
       __pyx_v_i = __pyx_t_13;
 
-      /* "flagmatic/hypergraph_flag.pyx":1764
+      /* "flagmatic/hypergraph_flag.pyx":1796
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  *                 for i in range(fac):
  *                         for j in range(s):             # <<<<<<<<<<<<<<
@@ -26546,37 +26546,37 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
       for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
         __pyx_v_j = __pyx_t_15;
 
-        /* "flagmatic/hypergraph_flag.pyx":1765
+        /* "flagmatic/hypergraph_flag.pyx":1797
  *                 for i in range(fac):
  *                         for j in range(s):
  *                                 p[(i * s) + j] = <int> perms[i][j]             # <<<<<<<<<<<<<<
  * 
  *                 cib = combinatorial_info_block()
  */
-        __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_perms, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1765, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_perms, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1797, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1765, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1797, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_16 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_16 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1765, __pyx_L1_error)
+        __pyx_t_16 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_16 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1797, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         (__pyx_v_p[((__pyx_v_i * __pyx_v_s) + __pyx_v_j)]) = ((int)__pyx_t_16);
       }
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1767
+    /* "flagmatic/hypergraph_flag.pyx":1799
  *                                 p[(i * s) + j] = <int> perms[i][j]
  * 
  *                 cib = combinatorial_info_block()             # <<<<<<<<<<<<<<
  *                 cib.np = fac
  *                 cib.p = p
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1767, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1799, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1768
+    /* "flagmatic/hypergraph_flag.pyx":1800
  * 
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac             # <<<<<<<<<<<<<<
@@ -26585,7 +26585,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
  */
     __pyx_v_cib->np = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1769
+    /* "flagmatic/hypergraph_flag.pyx":1801
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac
  *                 cib.p = p             # <<<<<<<<<<<<<<
@@ -26594,21 +26594,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
  */
     __pyx_v_cib->p = __pyx_v_p;
 
-    /* "flagmatic/hypergraph_flag.pyx":1770
+    /* "flagmatic/hypergraph_flag.pyx":1802
  *                 cib.np = fac
  *                 cib.p = p
  *                 previous_combinations[key] = cib             # <<<<<<<<<<<<<<
  * 
  *         if number_of:
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1770, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1802, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1770, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1802, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1772
+  /* "flagmatic/hypergraph_flag.pyx":1804
  *                 previous_combinations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -26618,7 +26618,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
   __pyx_t_5 = (__pyx_v_number_of != 0);
   if (__pyx_t_5) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1773
+    /* "flagmatic/hypergraph_flag.pyx":1805
  * 
  *         if number_of:
  *                 number_of[0] = fac             # <<<<<<<<<<<<<<
@@ -26627,7 +26627,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
  */
     (__pyx_v_number_of[0]) = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1772
+    /* "flagmatic/hypergraph_flag.pyx":1804
  *                 previous_combinations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -26636,7 +26636,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1775
+  /* "flagmatic/hypergraph_flag.pyx":1807
  *                 number_of[0] = fac
  * 
  *         return p             # <<<<<<<<<<<<<<
@@ -26646,12 +26646,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1746
+  /* "flagmatic/hypergraph_flag.pyx":1777
  * previous_combinations = {}
  * 
  * cdef int *generate_combinations(int n, int s, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -26673,12 +26673,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(int __pyx
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1777
+/* "flagmatic/hypergraph_flag.pyx":1809
  *         return p
  * 
  * def get_combinations (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
 /* Python wrapper */
@@ -26710,11 +26710,11 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_3get_combinations(PyObjec
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_s)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_combinations", 1, 2, 2, 1); __PYX_ERR(0, 1777, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_combinations", 1, 2, 2, 1); __PYX_ERR(0, 1809, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_combinations") < 0)) __PYX_ERR(0, 1777, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_combinations") < 0)) __PYX_ERR(0, 1809, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -26727,7 +26727,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_3get_combinations(PyObjec
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_combinations", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1777, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_combinations", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1809, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.get_combinations", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -26759,66 +26759,66 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_2get_combinations(CYTHON_
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("get_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1780
+  /* "flagmatic/hypergraph_flag.pyx":1814
+ *         cdef int np, i, j
  * 
- *         cdef int *p, np, i, j
  *         p = generate_combinations(n, s, &np)             # <<<<<<<<<<<<<<
  *         return [[p[(i * s) + j] for j in range(s)] for i in range(np)]
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1780, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1780, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1814, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1814, __pyx_L1_error)
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_combinations(__pyx_t_1, __pyx_t_2, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1781
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1815
+ * 
  *         p = generate_combinations(n, s, &np)
  *         return [[p[(i * s) + j] for j in range(s)] for i in range(np)]             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1781, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1815, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __pyx_v_np;
   for (__pyx_t_1 = 0; __pyx_t_1 < __pyx_t_2; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
-    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1781, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1815, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyInt_As_long(__pyx_v_s); if (unlikely((__pyx_t_5 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1781, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_long(__pyx_v_s); if (unlikely((__pyx_t_5 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1815, __pyx_L1_error)
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1781, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_s); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1781, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_s); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1781, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1781, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1781, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1781, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1781, __pyx_L1_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1815, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 1781, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 1815, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1777
+  /* "flagmatic/hypergraph_flag.pyx":1809
  *         return p
  * 
  * def get_combinations (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -26836,12 +26836,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_2get_combinations(CYTHON_
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1787
+/* "flagmatic/hypergraph_flag.pyx":1821
  * previous_combinations_plus = {}
  * 
  * cdef int *generate_combinations_plus(int n, int s, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
 static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int __pyx_v_n, int __pyx_v_s, int *__pyx_v_number_of) {
@@ -26872,18 +26872,18 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
   int __pyx_t_16;
   __Pyx_RefNannySetupContext("generate_combinations_plus", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1792
+  /* "flagmatic/hypergraph_flag.pyx":1827
  * 
  *         # see if we've already generated it!
  *         key = (n, s)             # <<<<<<<<<<<<<<
  *         if key in previous_combinations_plus.iterkeys():
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1792, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1792, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1792, __pyx_L1_error)
+  __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1827, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_1);
@@ -26894,16 +26894,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
   __pyx_v_key = __pyx_t_3;
   __pyx_t_3 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1793
+  /* "flagmatic/hypergraph_flag.pyx":1828
  *         # see if we've already generated it!
  *         key = (n, s)
  *         if key in previous_combinations_plus.iterkeys():             # <<<<<<<<<<<<<<
  * 
  *                 cib = <combinatorial_info_block>previous_combinations_plus[key]
  */
-  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations_plus); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1793, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations_plus); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1828, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1793, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1828, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -26917,28 +26917,28 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     }
   }
   if (__pyx_t_2) {
-    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1793, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1828, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   } else {
-    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1793, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1828, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_3, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1793, __pyx_L1_error)
+  __pyx_t_4 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_3, Py_EQ)); if (unlikely(__pyx_t_4 < 0)) __PYX_ERR(0, 1828, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_5 = (__pyx_t_4 != 0);
   if (__pyx_t_5) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1795
+    /* "flagmatic/hypergraph_flag.pyx":1830
  *         if key in previous_combinations_plus.iterkeys():
  * 
  *                 cib = <combinatorial_info_block>previous_combinations_plus[key]             # <<<<<<<<<<<<<<
  *                 fac = cib.np
  *                 p = cib.p
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations_plus); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1795, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations_plus); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1830, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1795, __pyx_L1_error)
+    __pyx_t_1 = PyObject_GetItem(__pyx_t_3, __pyx_v_key); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1830, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_3 = __pyx_t_1;
@@ -26947,7 +26947,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1796
+    /* "flagmatic/hypergraph_flag.pyx":1831
  * 
  *                 cib = <combinatorial_info_block>previous_combinations_plus[key]
  *                 fac = cib.np             # <<<<<<<<<<<<<<
@@ -26957,7 +26957,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     __pyx_t_6 = __pyx_v_cib->np;
     __pyx_v_fac = __pyx_t_6;
 
-    /* "flagmatic/hypergraph_flag.pyx":1797
+    /* "flagmatic/hypergraph_flag.pyx":1832
  *                 cib = <combinatorial_info_block>previous_combinations_plus[key]
  *                 fac = cib.np
  *                 p = cib.p             # <<<<<<<<<<<<<<
@@ -26967,7 +26967,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     __pyx_t_7 = __pyx_v_cib->p;
     __pyx_v_p = __pyx_t_7;
 
-    /* "flagmatic/hypergraph_flag.pyx":1793
+    /* "flagmatic/hypergraph_flag.pyx":1828
  *         # see if we've already generated it!
  *         key = (n, s)
  *         if key in previous_combinations_plus.iterkeys():             # <<<<<<<<<<<<<<
@@ -26977,7 +26977,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     goto __pyx_L3;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1801
+  /* "flagmatic/hypergraph_flag.pyx":1836
  *         else:
  * 
  *                 perms = Combinations(range(1, n), s - 1).list()             # <<<<<<<<<<<<<<
@@ -26985,11 +26985,11 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
@@ -26997,10 +26997,10 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     __Pyx_GIVEREF(__pyx_t_8);
     PyTuple_SET_ITEM(__pyx_t_9, 1, __pyx_t_8);
     __pyx_t_8 = 0;
-    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_9, NULL); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __pyx_t_9 = __Pyx_PyInt_From_long((__pyx_v_s - 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyInt_From_long((__pyx_v_s - 1)); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __pyx_t_10 = NULL;
     __pyx_t_11 = 0;
@@ -27014,7 +27014,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
         __pyx_t_11 = 1;
       }
     }
-    __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(2+__pyx_t_11); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_10) {
       __Pyx_GIVEREF(__pyx_t_10); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_10); __pyx_t_10 = NULL;
@@ -27025,11 +27025,11 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_11, __pyx_t_9);
     __pyx_t_8 = 0;
     __pyx_t_9 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_12, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1801, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_list); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1836, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -27043,27 +27043,27 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
       }
     }
     if (__pyx_t_1) {
-      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1801, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1836, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
-      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1801, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1836, __pyx_L1_error)
     }
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_perms = __pyx_t_3;
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1802
+    /* "flagmatic/hypergraph_flag.pyx":1837
  * 
  *                 perms = Combinations(range(1, n), s - 1).list()
  *                 fac = len(perms)             # <<<<<<<<<<<<<<
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  *                 for i in range(fac):
  */
-    __pyx_t_11 = PyObject_Length(__pyx_v_perms); if (unlikely(__pyx_t_11 == -1)) __PYX_ERR(0, 1802, __pyx_L1_error)
+    __pyx_t_11 = PyObject_Length(__pyx_v_perms); if (unlikely(__pyx_t_11 == -1)) __PYX_ERR(0, 1837, __pyx_L1_error)
     __pyx_v_fac = __pyx_t_11;
 
-    /* "flagmatic/hypergraph_flag.pyx":1803
+    /* "flagmatic/hypergraph_flag.pyx":1838
  *                 perms = Combinations(range(1, n), s - 1).list()
  *                 fac = len(perms)
  *                 p = <int *> malloc (sizeof(int) * s * fac)             # <<<<<<<<<<<<<<
@@ -27072,7 +27072,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
  */
     __pyx_v_p = ((int *)malloc((((sizeof(int)) * __pyx_v_s) * __pyx_v_fac)));
 
-    /* "flagmatic/hypergraph_flag.pyx":1804
+    /* "flagmatic/hypergraph_flag.pyx":1839
  *                 fac = len(perms)
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  *                 for i in range(fac):             # <<<<<<<<<<<<<<
@@ -27083,7 +27083,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
     for (__pyx_t_13 = 0; __pyx_t_13 < __pyx_t_6; __pyx_t_13+=1) {
       __pyx_v_i = __pyx_t_13;
 
-      /* "flagmatic/hypergraph_flag.pyx":1805
+      /* "flagmatic/hypergraph_flag.pyx":1840
  *                 p = <int *> malloc (sizeof(int) * s * fac)
  *                 for i in range(fac):
  *                         for j in range(s - 1):             # <<<<<<<<<<<<<<
@@ -27094,24 +27094,24 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
       for (__pyx_t_15 = 0; __pyx_t_15 < __pyx_t_14; __pyx_t_15+=1) {
         __pyx_v_j = __pyx_t_15;
 
-        /* "flagmatic/hypergraph_flag.pyx":1806
+        /* "flagmatic/hypergraph_flag.pyx":1841
  *                 for i in range(fac):
  *                         for j in range(s - 1):
  *                                 p[(i * s) + j] = <int> perms[i][j]             # <<<<<<<<<<<<<<
  *                         p[(i * s) + s - 1] = n
  * 
  */
-        __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_perms, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1806, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_GetItemInt(__pyx_v_perms, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1841, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1806, __pyx_L1_error)
+        __pyx_t_2 = __Pyx_GetItemInt(__pyx_t_3, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1841, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_16 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_16 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1806, __pyx_L1_error)
+        __pyx_t_16 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_16 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1841, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         (__pyx_v_p[((__pyx_v_i * __pyx_v_s) + __pyx_v_j)]) = ((int)__pyx_t_16);
       }
 
-      /* "flagmatic/hypergraph_flag.pyx":1807
+      /* "flagmatic/hypergraph_flag.pyx":1842
  *                         for j in range(s - 1):
  *                                 p[(i * s) + j] = <int> perms[i][j]
  *                         p[(i * s) + s - 1] = n             # <<<<<<<<<<<<<<
@@ -27121,19 +27121,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
       (__pyx_v_p[(((__pyx_v_i * __pyx_v_s) + __pyx_v_s) - 1)]) = __pyx_v_n;
     }
 
-    /* "flagmatic/hypergraph_flag.pyx":1809
+    /* "flagmatic/hypergraph_flag.pyx":1844
  *                         p[(i * s) + s - 1] = n
  * 
  *                 cib = combinatorial_info_block()             # <<<<<<<<<<<<<<
  *                 cib.np = fac
  *                 cib.p = p
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1809, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1844, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1810
+    /* "flagmatic/hypergraph_flag.pyx":1845
  * 
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac             # <<<<<<<<<<<<<<
@@ -27142,7 +27142,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
  */
     __pyx_v_cib->np = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1811
+    /* "flagmatic/hypergraph_flag.pyx":1846
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac
  *                 cib.p = p             # <<<<<<<<<<<<<<
@@ -27151,21 +27151,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
  */
     __pyx_v_cib->p = __pyx_v_p;
 
-    /* "flagmatic/hypergraph_flag.pyx":1812
+    /* "flagmatic/hypergraph_flag.pyx":1847
  *                 cib.np = fac
  *                 cib.p = p
  *                 previous_combinations_plus[key] = cib             # <<<<<<<<<<<<<<
  * 
  *         if number_of:
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations_plus); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1812, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_combinations_plus); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1847, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1812, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1847, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1814
+  /* "flagmatic/hypergraph_flag.pyx":1849
  *                 previous_combinations_plus[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -27175,7 +27175,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
   __pyx_t_5 = (__pyx_v_number_of != 0);
   if (__pyx_t_5) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1815
+    /* "flagmatic/hypergraph_flag.pyx":1850
  * 
  *         if number_of:
  *                 number_of[0] = fac             # <<<<<<<<<<<<<<
@@ -27184,7 +27184,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
  */
     (__pyx_v_number_of[0]) = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1814
+    /* "flagmatic/hypergraph_flag.pyx":1849
  *                 previous_combinations_plus[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -27193,7 +27193,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1817
+  /* "flagmatic/hypergraph_flag.pyx":1852
  *                 number_of[0] = fac
  * 
  *         return p             # <<<<<<<<<<<<<<
@@ -27203,12 +27203,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1787
+  /* "flagmatic/hypergraph_flag.pyx":1821
  * previous_combinations_plus = {}
  * 
  * cdef int *generate_combinations_plus(int n, int s, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -27230,12 +27230,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(int 
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1820
+/* "flagmatic/hypergraph_flag.pyx":1855
  * 
  * 
  * def get_combinations_plus (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
 /* Python wrapper */
@@ -27267,11 +27267,11 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_5get_combinations_plus(Py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_s)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_combinations_plus", 1, 2, 2, 1); __PYX_ERR(0, 1820, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_combinations_plus", 1, 2, 2, 1); __PYX_ERR(0, 1855, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_combinations_plus") < 0)) __PYX_ERR(0, 1820, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_combinations_plus") < 0)) __PYX_ERR(0, 1855, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -27284,7 +27284,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_5get_combinations_plus(Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_combinations_plus", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1820, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_combinations_plus", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1855, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.get_combinations_plus", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -27316,66 +27316,66 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_4get_combinations_plus(CY
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("get_combinations_plus", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1823
- * 
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1859
+ *         cdef int *p
+ *         cdef int np, i, j
  *         p = generate_combinations_plus(n, s, &np)             # <<<<<<<<<<<<<<
  *         return [[p[(i * s) + j] for j in range(s)] for i in range(np)]
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1823, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1823, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1859, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1859, __pyx_L1_error)
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_combinations_plus(__pyx_t_1, __pyx_t_2, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1824
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1860
+ *         cdef int np, i, j
  *         p = generate_combinations_plus(n, s, &np)
  *         return [[p[(i * s) + j] for j in range(s)] for i in range(np)]             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1824, __pyx_L1_error)
+  __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1860, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __pyx_v_np;
   for (__pyx_t_1 = 0; __pyx_t_1 < __pyx_t_2; __pyx_t_1+=1) {
     __pyx_v_i = __pyx_t_1;
-    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1824, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1860, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __Pyx_PyInt_As_long(__pyx_v_s); if (unlikely((__pyx_t_5 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1824, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_As_long(__pyx_v_s); if (unlikely((__pyx_t_5 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1860, __pyx_L1_error)
     for (__pyx_t_6 = 0; __pyx_t_6 < __pyx_t_5; __pyx_t_6+=1) {
       __pyx_v_j = __pyx_t_6;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1824, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_s); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1824, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_s); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1824, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1824, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1824, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1824, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1824, __pyx_L1_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1860, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 1824, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_t_4))) __PYX_ERR(0, 1860, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
   __pyx_r = __pyx_t_3;
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1820
+  /* "flagmatic/hypergraph_flag.pyx":1855
  * 
  * 
  * def get_combinations_plus (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -27393,12 +27393,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_4get_combinations_plus(CY
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1829
+/* "flagmatic/hypergraph_flag.pyx":1865
  * previous_pair_combinations = {}
  * 
  * cdef int *generate_pair_combinations(int n, int s, int m1, int m2, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
 static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int __pyx_v_n, int __pyx_v_s, int __pyx_v_m1, int __pyx_v_m2, int *__pyx_v_number_of) {
@@ -27443,22 +27443,22 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
   int __pyx_t_19;
   __Pyx_RefNannySetupContext("generate_pair_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1834
+  /* "flagmatic/hypergraph_flag.pyx":1871
  * 
  *         # see if we've already generated it!
  *         key = (n, s, m1, m2)             # <<<<<<<<<<<<<<
  *         if key in previous_pair_combinations.iterkeys():
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1834, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1834, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_m1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1834, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_m1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_m2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1834, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_m2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_5 = PyTuple_New(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1834, __pyx_L1_error)
+  __pyx_t_5 = PyTuple_New(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1871, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_1);
@@ -27475,16 +27475,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
   __pyx_v_key = __pyx_t_5;
   __pyx_t_5 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1835
+  /* "flagmatic/hypergraph_flag.pyx":1872
  *         # see if we've already generated it!
  *         key = (n, s, m1, m2)
  *         if key in previous_pair_combinations.iterkeys():             # <<<<<<<<<<<<<<
  * 
  *                 cib = <combinatorial_info_block>previous_pair_combinations[key]
  */
-  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_pair_combinations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1835, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_pair_combinations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1872, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1835, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1872, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_4 = NULL;
@@ -27498,28 +27498,28 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     }
   }
   if (__pyx_t_4) {
-    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1835, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1872, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   } else {
-    __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1835, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_CallNoArg(__pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1872, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_5);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_5, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1835, __pyx_L1_error)
+  __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_5, Py_EQ)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1872, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   __pyx_t_7 = (__pyx_t_6 != 0);
   if (__pyx_t_7) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1837
+    /* "flagmatic/hypergraph_flag.pyx":1874
  *         if key in previous_pair_combinations.iterkeys():
  * 
  *                 cib = <combinatorial_info_block>previous_pair_combinations[key]             # <<<<<<<<<<<<<<
  *                 fac = cib.np
  *                 p = cib.p
  */
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_pair_combinations); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1837, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_pair_combinations); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1874, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PyObject_GetItem(__pyx_t_5, __pyx_v_key); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1837, __pyx_L1_error)
+    __pyx_t_3 = PyObject_GetItem(__pyx_t_5, __pyx_v_key); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1874, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_t_5 = __pyx_t_3;
@@ -27528,7 +27528,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1838
+    /* "flagmatic/hypergraph_flag.pyx":1875
  * 
  *                 cib = <combinatorial_info_block>previous_pair_combinations[key]
  *                 fac = cib.np             # <<<<<<<<<<<<<<
@@ -27538,7 +27538,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     __pyx_t_8 = __pyx_v_cib->np;
     __pyx_v_fac = __pyx_t_8;
 
-    /* "flagmatic/hypergraph_flag.pyx":1839
+    /* "flagmatic/hypergraph_flag.pyx":1876
  *                 cib = <combinatorial_info_block>previous_pair_combinations[key]
  *                 fac = cib.np
  *                 p = cib.p             # <<<<<<<<<<<<<<
@@ -27548,7 +27548,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     __pyx_t_9 = __pyx_v_cib->p;
     __pyx_v_p = __pyx_t_9;
 
-    /* "flagmatic/hypergraph_flag.pyx":1835
+    /* "flagmatic/hypergraph_flag.pyx":1872
  *         # see if we've already generated it!
  *         key = (n, s, m1, m2)
  *         if key in previous_pair_combinations.iterkeys():             # <<<<<<<<<<<<<<
@@ -27558,7 +27558,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     goto __pyx_L3;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1843
+  /* "flagmatic/hypergraph_flag.pyx":1880
  *         else:
  * 
  *                 fac = falling_factorial(n, s) * binomial(n - s, m1 - s) * binomial(n - m1, m2 - s)             # <<<<<<<<<<<<<<
@@ -27566,11 +27566,11 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  *                 i = 0
  */
   /*else*/ {
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_falling_factorial); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_falling_factorial); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_t_1 = NULL;
     __pyx_t_10 = 0;
@@ -27584,7 +27584,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -27595,15 +27595,15 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_t_2);
     __pyx_t_4 = 0;
     __pyx_t_2 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_11, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_2 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_s)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_s)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyInt_From_int((__pyx_v_m1 - __pyx_v_s)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int((__pyx_v_m1 - __pyx_v_s)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_1 = NULL;
     __pyx_t_10 = 0;
@@ -27617,7 +27617,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -27628,19 +27628,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_10, __pyx_t_4);
     __pyx_t_2 = 0;
     __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_11 = PyNumber_Multiply(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_11 = PyNumber_Multiply(__pyx_t_5, __pyx_t_3); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_12 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_m1)); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_m1)); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_4 = __Pyx_PyInt_From_int((__pyx_v_m2 - __pyx_v_s)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_int((__pyx_v_m2 - __pyx_v_s)); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __pyx_t_2 = NULL;
     __pyx_t_10 = 0;
@@ -27654,7 +27654,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_1 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_1 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -27665,19 +27665,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_10, __pyx_t_4);
     __pyx_t_12 = 0;
     __pyx_t_4 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_5, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_5 = PyNumber_Multiply(__pyx_t_11, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_5 = PyNumber_Multiply(__pyx_t_11, __pyx_t_3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1843, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyInt_As_int(__pyx_t_5); if (unlikely((__pyx_t_8 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1880, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
     __pyx_v_fac = __pyx_t_8;
 
-    /* "flagmatic/hypergraph_flag.pyx":1844
+    /* "flagmatic/hypergraph_flag.pyx":1881
  * 
  *                 fac = falling_factorial(n, s) * binomial(n - s, m1 - s) * binomial(n - m1, m2 - s)
  *                 p = <int *> malloc (sizeof(int) * n * fac)             # <<<<<<<<<<<<<<
@@ -27686,7 +27686,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
     __pyx_v_p = ((int *)malloc((((sizeof(int)) * __pyx_v_n) * __pyx_v_fac)));
 
-    /* "flagmatic/hypergraph_flag.pyx":1845
+    /* "flagmatic/hypergraph_flag.pyx":1882
  *                 fac = falling_factorial(n, s) * binomial(n - s, m1 - s) * binomial(n - m1, m2 - s)
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 i = 0             # <<<<<<<<<<<<<<
@@ -27695,16 +27695,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
     __pyx_v_i = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1846
+    /* "flagmatic/hypergraph_flag.pyx":1883
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 i = 0
  *                 vertices = range(1, n + 1)             # <<<<<<<<<<<<<<
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:
  */
-    __pyx_t_5 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1846, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1883, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1846, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1883, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
@@ -27712,22 +27712,22 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     __Pyx_GIVEREF(__pyx_t_5);
     PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_t_5);
     __pyx_t_5 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1846, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_3, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1883, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_vertices = __pyx_t_5;
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1847
+    /* "flagmatic/hypergraph_flag.pyx":1884
  *                 i = 0
  *                 vertices = range(1, n + 1)
  *                 perms = Permutations(vertices, s)             # <<<<<<<<<<<<<<
  *                 for perm in perms:
  *                         available_verts = [v for v in vertices if not v in perm]
  */
-    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1847, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1847, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_t_1 = NULL;
     __pyx_t_10 = 0;
@@ -27741,7 +27741,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1847, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -27752,14 +27752,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     __Pyx_GIVEREF(__pyx_t_11);
     PyTuple_SET_ITEM(__pyx_t_4, 1+__pyx_t_10, __pyx_t_11);
     __pyx_t_11 = 0;
-    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1847, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_4, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1884, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_perms = __pyx_t_5;
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1848
+    /* "flagmatic/hypergraph_flag.pyx":1885
  *                 vertices = range(1, n + 1)
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:             # <<<<<<<<<<<<<<
@@ -27770,26 +27770,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
       __pyx_t_5 = __pyx_v_perms; __Pyx_INCREF(__pyx_t_5); __pyx_t_10 = 0;
       __pyx_t_13 = NULL;
     } else {
-      __pyx_t_10 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_v_perms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1848, __pyx_L1_error)
+      __pyx_t_10 = -1; __pyx_t_5 = PyObject_GetIter(__pyx_v_perms); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1885, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_13 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 1848, __pyx_L1_error)
+      __pyx_t_13 = Py_TYPE(__pyx_t_5)->tp_iternext; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 1885, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_13)) {
         if (likely(PyList_CheckExact(__pyx_t_5))) {
           if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_10); __Pyx_INCREF(__pyx_t_3); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1848, __pyx_L1_error)
+          __pyx_t_3 = PyList_GET_ITEM(__pyx_t_5, __pyx_t_10); __Pyx_INCREF(__pyx_t_3); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1885, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1848, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1885, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         } else {
           if (__pyx_t_10 >= PyTuple_GET_SIZE(__pyx_t_5)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_10); __Pyx_INCREF(__pyx_t_3); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1848, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_5, __pyx_t_10); __Pyx_INCREF(__pyx_t_3); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1885, __pyx_L1_error)
           #else
-          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1848, __pyx_L1_error)
+          __pyx_t_3 = PySequence_ITEM(__pyx_t_5, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1885, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           #endif
         }
@@ -27799,7 +27799,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 1848, __pyx_L1_error)
+            else __PYX_ERR(0, 1885, __pyx_L1_error)
           }
           break;
         }
@@ -27808,39 +27808,39 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
       __Pyx_XDECREF_SET(__pyx_v_perm, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1849
+      /* "flagmatic/hypergraph_flag.pyx":1886
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:
  *                         available_verts = [v for v in vertices if not v in perm]             # <<<<<<<<<<<<<<
  *                         combs1 = Combinations(available_verts, m1 - s)
  *                         first_one = True
  */
-      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1849, __pyx_L1_error)
+      __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1886, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       if (likely(PyList_CheckExact(__pyx_v_vertices)) || PyTuple_CheckExact(__pyx_v_vertices)) {
         __pyx_t_4 = __pyx_v_vertices; __Pyx_INCREF(__pyx_t_4); __pyx_t_14 = 0;
         __pyx_t_15 = NULL;
       } else {
-        __pyx_t_14 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_vertices); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1849, __pyx_L1_error)
+        __pyx_t_14 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_vertices); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1886, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_15 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1849, __pyx_L1_error)
+        __pyx_t_15 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1886, __pyx_L1_error)
       }
       for (;;) {
         if (likely(!__pyx_t_15)) {
           if (likely(PyList_CheckExact(__pyx_t_4))) {
             if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_4)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_11 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1849, __pyx_L1_error)
+            __pyx_t_11 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1886, __pyx_L1_error)
             #else
-            __pyx_t_11 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1849, __pyx_L1_error)
+            __pyx_t_11 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1886, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             #endif
           } else {
             if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1849, __pyx_L1_error)
+            __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1886, __pyx_L1_error)
             #else
-            __pyx_t_11 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1849, __pyx_L1_error)
+            __pyx_t_11 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1886, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             #endif
           }
@@ -27850,7 +27850,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 1849, __pyx_L1_error)
+              else __PYX_ERR(0, 1886, __pyx_L1_error)
             }
             break;
           }
@@ -27858,26 +27858,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         }
         __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_perm, Py_NE)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1849, __pyx_L1_error)
+        __pyx_t_7 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_perm, Py_NE)); if (unlikely(__pyx_t_7 < 0)) __PYX_ERR(0, 1886, __pyx_L1_error)
         __pyx_t_6 = (__pyx_t_7 != 0);
         if (__pyx_t_6) {
-          if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1849, __pyx_L1_error)
+          if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1886, __pyx_L1_error)
         }
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_XDECREF_SET(__pyx_v_available_verts, ((PyObject*)__pyx_t_3));
       __pyx_t_3 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1850
+      /* "flagmatic/hypergraph_flag.pyx":1887
  *                 for perm in perms:
  *                         available_verts = [v for v in vertices if not v in perm]
  *                         combs1 = Combinations(available_verts, m1 - s)             # <<<<<<<<<<<<<<
  *                         first_one = True
  *                         for comb1 in combs1:
  */
-      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1850, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1887, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
-      __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m1 - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1850, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m1 - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1887, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_t_1 = NULL;
       __pyx_t_14 = 0;
@@ -27891,7 +27891,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           __pyx_t_14 = 1;
         }
       }
-      __pyx_t_12 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1850, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1887, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       if (__pyx_t_1) {
         __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -27902,14 +27902,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
       __Pyx_GIVEREF(__pyx_t_11);
       PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_14, __pyx_t_11);
       __pyx_t_11 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1850, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1887, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __Pyx_XDECREF_SET(__pyx_v_combs1, __pyx_t_3);
       __pyx_t_3 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1851
+      /* "flagmatic/hypergraph_flag.pyx":1888
  *                         available_verts = [v for v in vertices if not v in perm]
  *                         combs1 = Combinations(available_verts, m1 - s)
  *                         first_one = True             # <<<<<<<<<<<<<<
@@ -27918,7 +27918,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
       __pyx_v_first_one = 1;
 
-      /* "flagmatic/hypergraph_flag.pyx":1852
+      /* "flagmatic/hypergraph_flag.pyx":1889
  *                         combs1 = Combinations(available_verts, m1 - s)
  *                         first_one = True
  *                         for comb1 in combs1:             # <<<<<<<<<<<<<<
@@ -27929,26 +27929,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __pyx_t_3 = __pyx_v_combs1; __Pyx_INCREF(__pyx_t_3); __pyx_t_14 = 0;
         __pyx_t_15 = NULL;
       } else {
-        __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_combs1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1852, __pyx_L1_error)
+        __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_combs1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1889, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_15 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1852, __pyx_L1_error)
+        __pyx_t_15 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1889, __pyx_L1_error)
       }
       for (;;) {
         if (likely(!__pyx_t_15)) {
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_4); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1852, __pyx_L1_error)
+            __pyx_t_4 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_4); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1889, __pyx_L1_error)
             #else
-            __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1852, __pyx_L1_error)
+            __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1889, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_4);
             #endif
           } else {
             if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_4); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1852, __pyx_L1_error)
+            __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_4); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1889, __pyx_L1_error)
             #else
-            __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1852, __pyx_L1_error)
+            __pyx_t_4 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1889, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_4);
             #endif
           }
@@ -27958,7 +27958,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 1852, __pyx_L1_error)
+              else __PYX_ERR(0, 1889, __pyx_L1_error)
             }
             break;
           }
@@ -27967,46 +27967,46 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __Pyx_XDECREF_SET(__pyx_v_comb1, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1853
+        /* "flagmatic/hypergraph_flag.pyx":1890
  *                         first_one = True
  *                         for comb1 in combs1:
  *                                 remaining_verts = [v for v in available_verts if not v in comb1]             # <<<<<<<<<<<<<<
  *                                 combs2 = Combinations(remaining_verts, m2 - s)
  *                                 first_two = True
  */
-        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1853, __pyx_L1_error)
+        __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1890, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __pyx_t_12 = __pyx_v_available_verts; __Pyx_INCREF(__pyx_t_12); __pyx_t_16 = 0;
         for (;;) {
           if (__pyx_t_16 >= PyList_GET_SIZE(__pyx_t_12)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_11); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1853, __pyx_L1_error)
+          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_11); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1890, __pyx_L1_error)
           #else
-          __pyx_t_11 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1853, __pyx_L1_error)
+          __pyx_t_11 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1890, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           #endif
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_11);
           __pyx_t_11 = 0;
-          __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_comb1, Py_NE)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1853, __pyx_L1_error)
+          __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_comb1, Py_NE)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1890, __pyx_L1_error)
           __pyx_t_7 = (__pyx_t_6 != 0);
           if (__pyx_t_7) {
-            if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1853, __pyx_L1_error)
+            if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1890, __pyx_L1_error)
           }
         }
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF_SET(__pyx_v_remaining_verts, ((PyObject*)__pyx_t_4));
         __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1854
+        /* "flagmatic/hypergraph_flag.pyx":1891
  *                         for comb1 in combs1:
  *                                 remaining_verts = [v for v in available_verts if not v in comb1]
  *                                 combs2 = Combinations(remaining_verts, m2 - s)             # <<<<<<<<<<<<<<
  *                                 first_two = True
  *                                 for comb2 in combs2:
  */
-        __pyx_t_12 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1854, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1891, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m2 - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1854, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m2 - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1891, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_1 = NULL;
         __pyx_t_16 = 0;
@@ -28020,7 +28020,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             __pyx_t_16 = 1;
           }
         }
-        __pyx_t_2 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1854, __pyx_L1_error)
+        __pyx_t_2 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1891, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         if (__pyx_t_1) {
           __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_2, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -28031,14 +28031,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         __Pyx_GIVEREF(__pyx_t_11);
         PyTuple_SET_ITEM(__pyx_t_2, 1+__pyx_t_16, __pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1854, __pyx_L1_error)
+        __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_2, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1891, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
         __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF_SET(__pyx_v_combs2, __pyx_t_4);
         __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1855
+        /* "flagmatic/hypergraph_flag.pyx":1892
  *                                 remaining_verts = [v for v in available_verts if not v in comb1]
  *                                 combs2 = Combinations(remaining_verts, m2 - s)
  *                                 first_two = True             # <<<<<<<<<<<<<<
@@ -28047,7 +28047,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
         __pyx_v_first_two = 1;
 
-        /* "flagmatic/hypergraph_flag.pyx":1856
+        /* "flagmatic/hypergraph_flag.pyx":1893
  *                                 combs2 = Combinations(remaining_verts, m2 - s)
  *                                 first_two = True
  *                                 for comb2 in combs2:             # <<<<<<<<<<<<<<
@@ -28058,26 +28058,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           __pyx_t_4 = __pyx_v_combs2; __Pyx_INCREF(__pyx_t_4); __pyx_t_16 = 0;
           __pyx_t_17 = NULL;
         } else {
-          __pyx_t_16 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_combs2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1856, __pyx_L1_error)
+          __pyx_t_16 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_combs2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1893, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
-          __pyx_t_17 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1856, __pyx_L1_error)
+          __pyx_t_17 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1893, __pyx_L1_error)
         }
         for (;;) {
           if (likely(!__pyx_t_17)) {
             if (likely(PyList_CheckExact(__pyx_t_4))) {
               if (__pyx_t_16 >= PyList_GET_SIZE(__pyx_t_4)) break;
               #if CYTHON_COMPILING_IN_CPYTHON
-              __pyx_t_12 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_16); __Pyx_INCREF(__pyx_t_12); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1856, __pyx_L1_error)
+              __pyx_t_12 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_16); __Pyx_INCREF(__pyx_t_12); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1893, __pyx_L1_error)
               #else
-              __pyx_t_12 = PySequence_ITEM(__pyx_t_4, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1856, __pyx_L1_error)
+              __pyx_t_12 = PySequence_ITEM(__pyx_t_4, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1893, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
               #endif
             } else {
               if (__pyx_t_16 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
               #if CYTHON_COMPILING_IN_CPYTHON
-              __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_16); __Pyx_INCREF(__pyx_t_12); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1856, __pyx_L1_error)
+              __pyx_t_12 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_16); __Pyx_INCREF(__pyx_t_12); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1893, __pyx_L1_error)
               #else
-              __pyx_t_12 = PySequence_ITEM(__pyx_t_4, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1856, __pyx_L1_error)
+              __pyx_t_12 = PySequence_ITEM(__pyx_t_4, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1893, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
               #endif
             }
@@ -28087,7 +28087,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
               PyObject* exc_type = PyErr_Occurred();
               if (exc_type) {
                 if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                else __PYX_ERR(0, 1856, __pyx_L1_error)
+                else __PYX_ERR(0, 1893, __pyx_L1_error)
               }
               break;
             }
@@ -28096,7 +28096,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           __Pyx_XDECREF_SET(__pyx_v_comb2, __pyx_t_12);
           __pyx_t_12 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1857
+          /* "flagmatic/hypergraph_flag.pyx":1894
  *                                 first_two = True
  *                                 for comb2 in combs2:
  *                                         for j in range(s):             # <<<<<<<<<<<<<<
@@ -28107,7 +28107,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_8; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1858
+            /* "flagmatic/hypergraph_flag.pyx":1895
  *                                 for comb2 in combs2:
  *                                         for j in range(s):
  *                                                 if first_one:             # <<<<<<<<<<<<<<
@@ -28117,20 +28117,20 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             __pyx_t_7 = (__pyx_v_first_one != 0);
             if (__pyx_t_7) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1859
+              /* "flagmatic/hypergraph_flag.pyx":1896
  *                                         for j in range(s):
  *                                                 if first_one:
  *                                                         p[(i * n) + j] = <int> perm[j]             # <<<<<<<<<<<<<<
  *                                                 else:
  *                                                         p[(i * n) + j] = <int> 0
  */
-              __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_perm, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1859, __pyx_L1_error)
+              __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_perm, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1896, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
-              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1859, __pyx_L1_error)
+              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1896, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
               (__pyx_v_p[((__pyx_v_i * __pyx_v_n) + __pyx_v_j)]) = ((int)__pyx_t_19);
 
-              /* "flagmatic/hypergraph_flag.pyx":1858
+              /* "flagmatic/hypergraph_flag.pyx":1895
  *                                 for comb2 in combs2:
  *                                         for j in range(s):
  *                                                 if first_one:             # <<<<<<<<<<<<<<
@@ -28140,7 +28140,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
               goto __pyx_L18;
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1861
+            /* "flagmatic/hypergraph_flag.pyx":1898
  *                                                         p[(i * n) + j] = <int> perm[j]
  *                                                 else:
  *                                                         p[(i * n) + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -28153,7 +28153,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             __pyx_L18:;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1862
+          /* "flagmatic/hypergraph_flag.pyx":1899
  *                                                 else:
  *                                                         p[(i * n) + j] = <int> 0
  *                                         for j in range(m1 - s):             # <<<<<<<<<<<<<<
@@ -28164,7 +28164,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_8; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1863
+            /* "flagmatic/hypergraph_flag.pyx":1900
  *                                                         p[(i * n) + j] = <int> 0
  *                                         for j in range(m1 - s):
  *                                                 if first_two:             # <<<<<<<<<<<<<<
@@ -28174,20 +28174,20 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             __pyx_t_7 = (__pyx_v_first_two != 0);
             if (__pyx_t_7) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1864
+              /* "flagmatic/hypergraph_flag.pyx":1901
  *                                         for j in range(m1 - s):
  *                                                 if first_two:
  *                                                         p[(i * n) + s + j] = <int> comb1[j]             # <<<<<<<<<<<<<<
  *                                                 else:
  *                                                         p[(i * n) + s + j] = <int> 0
  */
-              __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_comb1, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1864, __pyx_L1_error)
+              __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_comb1, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1901, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_12);
-              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1864, __pyx_L1_error)
+              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1901, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
               (__pyx_v_p[(((__pyx_v_i * __pyx_v_n) + __pyx_v_s) + __pyx_v_j)]) = ((int)__pyx_t_19);
 
-              /* "flagmatic/hypergraph_flag.pyx":1863
+              /* "flagmatic/hypergraph_flag.pyx":1900
  *                                                         p[(i * n) + j] = <int> 0
  *                                         for j in range(m1 - s):
  *                                                 if first_two:             # <<<<<<<<<<<<<<
@@ -28197,7 +28197,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
               goto __pyx_L21;
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1866
+            /* "flagmatic/hypergraph_flag.pyx":1903
  *                                                         p[(i * n) + s + j] = <int> comb1[j]
  *                                                 else:
  *                                                         p[(i * n) + s + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -28210,7 +28210,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             __pyx_L21:;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1867
+          /* "flagmatic/hypergraph_flag.pyx":1904
  *                                                 else:
  *                                                         p[(i * n) + s + j] = <int> 0
  *                                         for j in range(m2 - s):             # <<<<<<<<<<<<<<
@@ -28221,21 +28221,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_8; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1868
+            /* "flagmatic/hypergraph_flag.pyx":1905
  *                                                         p[(i * n) + s + j] = <int> 0
  *                                         for j in range(m2 - s):
  *                                                 p[(i * n) + m1 + j] = <int> comb2[j]             # <<<<<<<<<<<<<<
  *                                         for j in range(n - m1 - m2 + s):
  *                                                 p[(i * n) + m1 + m2 - s + j] = <int> 0
  */
-            __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_comb2, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1868, __pyx_L1_error)
+            __pyx_t_12 = __Pyx_GetItemInt(__pyx_v_comb2, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1905, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_12);
-            __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1868, __pyx_L1_error)
+            __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1905, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
             (__pyx_v_p[(((__pyx_v_i * __pyx_v_n) + __pyx_v_m1) + __pyx_v_j)]) = ((int)__pyx_t_19);
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1869
+          /* "flagmatic/hypergraph_flag.pyx":1906
  *                                         for j in range(m2 - s):
  *                                                 p[(i * n) + m1 + j] = <int> comb2[j]
  *                                         for j in range(n - m1 - m2 + s):             # <<<<<<<<<<<<<<
@@ -28246,7 +28246,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_8; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1870
+            /* "flagmatic/hypergraph_flag.pyx":1907
  *                                                 p[(i * n) + m1 + j] = <int> comb2[j]
  *                                         for j in range(n - m1 - m2 + s):
  *                                                 p[(i * n) + m1 + m2 - s + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -28256,7 +28256,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
             (__pyx_v_p[(((((__pyx_v_i * __pyx_v_n) + __pyx_v_m1) + __pyx_v_m2) - __pyx_v_s) + __pyx_v_j)]) = ((int)0);
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1871
+          /* "flagmatic/hypergraph_flag.pyx":1908
  *                                         for j in range(n - m1 - m2 + s):
  *                                                 p[(i * n) + m1 + m2 - s + j] = <int> 0
  *                                         first_one = False             # <<<<<<<<<<<<<<
@@ -28265,7 +28265,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
           __pyx_v_first_one = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1872
+          /* "flagmatic/hypergraph_flag.pyx":1909
  *                                                 p[(i * n) + m1 + m2 - s + j] = <int> 0
  *                                         first_one = False
  *                                         first_two = False             # <<<<<<<<<<<<<<
@@ -28274,7 +28274,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
           __pyx_v_first_two = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1873
+          /* "flagmatic/hypergraph_flag.pyx":1910
  *                                         first_one = False
  *                                         first_two = False
  *                                         i += 1             # <<<<<<<<<<<<<<
@@ -28283,7 +28283,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1856
+          /* "flagmatic/hypergraph_flag.pyx":1893
  *                                 combs2 = Combinations(remaining_verts, m2 - s)
  *                                 first_two = True
  *                                 for comb2 in combs2:             # <<<<<<<<<<<<<<
@@ -28293,7 +28293,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
         }
         __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1852
+        /* "flagmatic/hypergraph_flag.pyx":1889
  *                         combs1 = Combinations(available_verts, m1 - s)
  *                         first_one = True
  *                         for comb1 in combs1:             # <<<<<<<<<<<<<<
@@ -28303,7 +28303,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1848
+      /* "flagmatic/hypergraph_flag.pyx":1885
  *                 vertices = range(1, n + 1)
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:             # <<<<<<<<<<<<<<
@@ -28313,19 +28313,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
     }
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1875
+    /* "flagmatic/hypergraph_flag.pyx":1912
  *                                         i += 1
  * 
  *                 cib = combinatorial_info_block()             # <<<<<<<<<<<<<<
  *                 cib.np = fac
  *                 cib.p = p
  */
-    __pyx_t_5 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1875, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1912, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1876
+    /* "flagmatic/hypergraph_flag.pyx":1913
  * 
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac             # <<<<<<<<<<<<<<
@@ -28334,7 +28334,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
     __pyx_v_cib->np = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1877
+    /* "flagmatic/hypergraph_flag.pyx":1914
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac
  *                 cib.p = p             # <<<<<<<<<<<<<<
@@ -28343,21 +28343,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
     __pyx_v_cib->p = __pyx_v_p;
 
-    /* "flagmatic/hypergraph_flag.pyx":1878
+    /* "flagmatic/hypergraph_flag.pyx":1915
  *                 cib.np = fac
  *                 cib.p = p
  *                 previous_pair_combinations[key] = cib             # <<<<<<<<<<<<<<
  * 
  *         if number_of:
  */
-    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_pair_combinations); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1878, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_pair_combinations); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1915, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    if (unlikely(PyObject_SetItem(__pyx_t_5, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1878, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_5, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1915, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1880
+  /* "flagmatic/hypergraph_flag.pyx":1917
  *                 previous_pair_combinations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -28367,7 +28367,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
   __pyx_t_7 = (__pyx_v_number_of != 0);
   if (__pyx_t_7) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1881
+    /* "flagmatic/hypergraph_flag.pyx":1918
  * 
  *         if number_of:
  *                 number_of[0] = fac             # <<<<<<<<<<<<<<
@@ -28376,7 +28376,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
     (__pyx_v_number_of[0]) = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1880
+    /* "flagmatic/hypergraph_flag.pyx":1917
  *                 previous_pair_combinations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -28385,7 +28385,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1883
+  /* "flagmatic/hypergraph_flag.pyx":1920
  *                 number_of[0] = fac
  * 
  *         return p             # <<<<<<<<<<<<<<
@@ -28395,12 +28395,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1829
+  /* "flagmatic/hypergraph_flag.pyx":1865
  * previous_pair_combinations = {}
  * 
  * cdef int *generate_pair_combinations(int n, int s, int m1, int m2, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -28431,12 +28431,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(int 
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1885
+/* "flagmatic/hypergraph_flag.pyx":1922
  *         return p
  * 
  * def get_pair_combinations (n, s, m1, m2):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
 /* Python wrapper */
@@ -28472,21 +28472,21 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_7get_pair_combinations(Py
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_s)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, 1); __PYX_ERR(0, 1885, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, 1); __PYX_ERR(0, 1922, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m1)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, 2); __PYX_ERR(0, 1885, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, 2); __PYX_ERR(0, 1922, __pyx_L3_error)
         }
         case  3:
         if (likely((values[3] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, 3); __PYX_ERR(0, 1885, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, 3); __PYX_ERR(0, 1922, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_pair_combinations") < 0)) __PYX_ERR(0, 1885, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_pair_combinations") < 0)) __PYX_ERR(0, 1922, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 4) {
       goto __pyx_L5_argtuple_error;
@@ -28503,7 +28503,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_7get_pair_combinations(Py
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1885, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_pair_combinations", 1, 4, 4, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1922, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.get_pair_combinations", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -28536,68 +28536,68 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_6get_pair_combinations(CY
   Py_ssize_t __pyx_t_11;
   __Pyx_RefNannySetupContext("get_pair_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1888
+  /* "flagmatic/hypergraph_flag.pyx":1927
+ *         cdef int np, i, j
  * 
- *         cdef int *p, np, i, j
  *         p = generate_pair_combinations(n, s, m1, m2, &np)             # <<<<<<<<<<<<<<
  *         return [[p[(i * n) + j] for j in range(n)] for i in range(np)]
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1888, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1888, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_m1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1888, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_m2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1888, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1927, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1927, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_m1); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1927, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_int(__pyx_v_m2); if (unlikely((__pyx_t_4 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1927, __pyx_L1_error)
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_pair_combinations(__pyx_t_1, __pyx_t_2, __pyx_t_3, __pyx_t_4, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1889
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1928
+ * 
  *         p = generate_pair_combinations(n, s, m1, m2, &np)
  *         return [[p[(i * n) + j] for j in range(n)] for i in range(np)]             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1889, __pyx_L1_error)
+  __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1928, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   __pyx_t_4 = __pyx_v_np;
   for (__pyx_t_3 = 0; __pyx_t_3 < __pyx_t_4; __pyx_t_3+=1) {
     __pyx_v_i = __pyx_t_3;
-    __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1889, __pyx_L1_error)
+    __pyx_t_6 = PyList_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 1928, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_7 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1889, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_7 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1928, __pyx_L1_error)
     for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_7; __pyx_t_2+=1) {
       __pyx_v_j = __pyx_t_2;
-      __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1889, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_9 = PyNumber_Multiply(__pyx_t_8, __pyx_v_n); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1889, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Multiply(__pyx_t_8, __pyx_v_n); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1889, __pyx_L1_error)
+      __pyx_t_8 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_10 = PyNumber_Add(__pyx_t_9, __pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1889, __pyx_L1_error)
+      __pyx_t_10 = PyNumber_Add(__pyx_t_9, __pyx_t_8); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
-      __pyx_t_11 = __Pyx_PyIndex_AsSsize_t(__pyx_t_10); if (unlikely((__pyx_t_11 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1889, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyIndex_AsSsize_t(__pyx_t_10); if (unlikely((__pyx_t_11 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
-      __pyx_t_10 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_11])); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1889, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_11])); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_6, (PyObject*)__pyx_t_10))) __PYX_ERR(0, 1889, __pyx_L1_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_6, (PyObject*)__pyx_t_10))) __PYX_ERR(0, 1928, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
     }
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_6))) __PYX_ERR(0, 1889, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_6))) __PYX_ERR(0, 1928, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
   }
   __pyx_r = __pyx_t_5;
   __pyx_t_5 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1885
+  /* "flagmatic/hypergraph_flag.pyx":1922
  *         return p
  * 
  * def get_pair_combinations (n, s, m1, m2):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -28615,12 +28615,12 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_6get_pair_combinations(CY
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1894
+/* "flagmatic/hypergraph_flag.pyx":1933
  * previous_equal_pair_combinations = {}
  * 
  * cdef int *generate_equal_pair_combinations(int n, int s, int m, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j, smallest
+ *         cdef int *p
  */
 
 static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combinations(int __pyx_v_n, int __pyx_v_s, int __pyx_v_m, int *__pyx_v_number_of) {
@@ -28666,20 +28666,20 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   int __pyx_t_19;
   __Pyx_RefNannySetupContext("generate_equal_pair_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1899
+  /* "flagmatic/hypergraph_flag.pyx":1939
  * 
  *         # see if we've already generated it!
  *         key = (n, s, m)             # <<<<<<<<<<<<<<
  *         if key in previous_equal_pair_combinations.iterkeys():
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1899, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1939, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1899, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1939, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1899, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_m); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1939, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1899, __pyx_L1_error)
+  __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1939, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_GIVEREF(__pyx_t_1);
   PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_1);
@@ -28693,16 +28693,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   __pyx_v_key = __pyx_t_4;
   __pyx_t_4 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1900
+  /* "flagmatic/hypergraph_flag.pyx":1940
  *         # see if we've already generated it!
  *         key = (n, s, m)
  *         if key in previous_equal_pair_combinations.iterkeys():             # <<<<<<<<<<<<<<
  * 
  *                 cib = <combinatorial_info_block>previous_equal_pair_combinations[key]
  */
-  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1900, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1940, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1900, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_iterkeys); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1940, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -28716,28 +28716,28 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     }
   }
   if (__pyx_t_3) {
-    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1900, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallOneArg(__pyx_t_2, __pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1940, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   } else {
-    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1900, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_CallNoArg(__pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1940, __pyx_L1_error)
   }
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_4, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1900, __pyx_L1_error)
+  __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_key, __pyx_t_4, Py_EQ)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1940, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_t_6 = (__pyx_t_5 != 0);
   if (__pyx_t_6) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1902
+    /* "flagmatic/hypergraph_flag.pyx":1942
  *         if key in previous_equal_pair_combinations.iterkeys():
  * 
  *                 cib = <combinatorial_info_block>previous_equal_pair_combinations[key]             # <<<<<<<<<<<<<<
  *                 fac = cib.np
  *                 p = cib.p
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1902, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1942, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_2 = PyObject_GetItem(__pyx_t_4, __pyx_v_key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1902, __pyx_L1_error)
+    __pyx_t_2 = PyObject_GetItem(__pyx_t_4, __pyx_v_key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1942, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_t_4 = __pyx_t_2;
@@ -28746,7 +28746,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_4);
     __pyx_t_4 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1903
+    /* "flagmatic/hypergraph_flag.pyx":1943
  * 
  *                 cib = <combinatorial_info_block>previous_equal_pair_combinations[key]
  *                 fac = cib.np             # <<<<<<<<<<<<<<
@@ -28756,7 +28756,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __pyx_t_7 = __pyx_v_cib->np;
     __pyx_v_fac = __pyx_t_7;
 
-    /* "flagmatic/hypergraph_flag.pyx":1904
+    /* "flagmatic/hypergraph_flag.pyx":1944
  *                 cib = <combinatorial_info_block>previous_equal_pair_combinations[key]
  *                 fac = cib.np
  *                 p = cib.p             # <<<<<<<<<<<<<<
@@ -28766,7 +28766,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __pyx_t_8 = __pyx_v_cib->p;
     __pyx_v_p = __pyx_t_8;
 
-    /* "flagmatic/hypergraph_flag.pyx":1900
+    /* "flagmatic/hypergraph_flag.pyx":1940
  *         # see if we've already generated it!
  *         key = (n, s, m)
  *         if key in previous_equal_pair_combinations.iterkeys():             # <<<<<<<<<<<<<<
@@ -28776,7 +28776,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     goto __pyx_L3;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1907
+  /* "flagmatic/hypergraph_flag.pyx":1947
  * 
  *         else:
  *                 fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2             # <<<<<<<<<<<<<<
@@ -28784,11 +28784,11 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  *                 i = 0
  */
   /*else*/ {
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_falling_factorial); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_falling_factorial); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_n); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __pyx_t_9 = NULL;
     __pyx_t_10 = 0;
@@ -28802,7 +28802,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -28813,15 +28813,15 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_t_1);
     __pyx_t_3 = 0;
     __pyx_t_1 = 0;
-    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_2, __pyx_t_11, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_s)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_s)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_9 = NULL;
     __pyx_t_10 = 0;
@@ -28835,7 +28835,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -28846,19 +28846,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_10, __pyx_t_3);
     __pyx_t_1 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_11, __pyx_t_12, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
-    __pyx_t_11 = PyNumber_Multiply(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_11 = PyNumber_Multiply(__pyx_t_4, __pyx_t_2); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_binomial); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_12 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_m)); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_12 = __Pyx_PyInt_From_int((__pyx_v_n - __pyx_v_m)); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
-    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_t_1 = NULL;
     __pyx_t_10 = 0;
@@ -28872,7 +28872,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_9 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (__pyx_t_1) {
       __Pyx_GIVEREF(__pyx_t_1); PyTuple_SET_ITEM(__pyx_t_9, 0, __pyx_t_1); __pyx_t_1 = NULL;
@@ -28883,22 +28883,22 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     PyTuple_SET_ITEM(__pyx_t_9, 1+__pyx_t_10, __pyx_t_3);
     __pyx_t_12 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_9, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_4 = PyNumber_Multiply(__pyx_t_11, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_4 = PyNumber_Multiply(__pyx_t_11, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_int_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyNumber_Divide(__pyx_t_4, __pyx_int_2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1907, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_2); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1947, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __pyx_v_fac = __pyx_t_7;
 
-    /* "flagmatic/hypergraph_flag.pyx":1908
+    /* "flagmatic/hypergraph_flag.pyx":1948
  *         else:
  *                 fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2
  *                 p = <int *> malloc (sizeof(int) * n * fac)             # <<<<<<<<<<<<<<
@@ -28907,7 +28907,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_p = ((int *)malloc((((sizeof(int)) * __pyx_v_n) * __pyx_v_fac)));
 
-    /* "flagmatic/hypergraph_flag.pyx":1909
+    /* "flagmatic/hypergraph_flag.pyx":1949
  *                 fac = falling_factorial(n, s) * binomial(n - s, m - s) * binomial(n - m, m - s)/2
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 i = 0             # <<<<<<<<<<<<<<
@@ -28916,16 +28916,16 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_i = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1910
+    /* "flagmatic/hypergraph_flag.pyx":1950
  *                 p = <int *> malloc (sizeof(int) * n * fac)
  *                 i = 0
  *                 vertices = range(1, n + 1)             # <<<<<<<<<<<<<<
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:
  */
-    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1910, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_long((__pyx_v_n + 1)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1910, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_INCREF(__pyx_int_1);
     __Pyx_GIVEREF(__pyx_int_1);
@@ -28933,22 +28933,22 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_4, 1, __pyx_t_2);
     __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1910, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_builtin_range, __pyx_t_4, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1950, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_vertices = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1911
+    /* "flagmatic/hypergraph_flag.pyx":1951
  *                 i = 0
  *                 vertices = range(1, n + 1)
  *                 perms = Permutations(vertices, s)             # <<<<<<<<<<<<<<
  *                 for perm in perms:
  *                         available_verts = [v for v in vertices if not v in perm]
  */
-    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1911, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_GetModuleGlobalName(__pyx_n_s_Permutations); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1911, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyInt_From_int(__pyx_v_s); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
     __pyx_t_9 = NULL;
     __pyx_t_10 = 0;
@@ -28962,7 +28962,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_10 = 1;
       }
     }
-    __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1911, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (__pyx_t_9) {
       __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -28973,14 +28973,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     __Pyx_GIVEREF(__pyx_t_11);
     PyTuple_SET_ITEM(__pyx_t_3, 1+__pyx_t_10, __pyx_t_11);
     __pyx_t_11 = 0;
-    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1911, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(__pyx_t_4, __pyx_t_3, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1951, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_perms = __pyx_t_2;
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1912
+    /* "flagmatic/hypergraph_flag.pyx":1952
  *                 vertices = range(1, n + 1)
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:             # <<<<<<<<<<<<<<
@@ -28991,26 +28991,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       __pyx_t_2 = __pyx_v_perms; __Pyx_INCREF(__pyx_t_2); __pyx_t_10 = 0;
       __pyx_t_13 = NULL;
     } else {
-      __pyx_t_10 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_perms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1912, __pyx_L1_error)
+      __pyx_t_10 = -1; __pyx_t_2 = PyObject_GetIter(__pyx_v_perms); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1952, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_2);
-      __pyx_t_13 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 1912, __pyx_L1_error)
+      __pyx_t_13 = Py_TYPE(__pyx_t_2)->tp_iternext; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 1952, __pyx_L1_error)
     }
     for (;;) {
       if (likely(!__pyx_t_13)) {
         if (likely(PyList_CheckExact(__pyx_t_2))) {
           if (__pyx_t_10 >= PyList_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1912, __pyx_L1_error)
+          __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1952, __pyx_L1_error)
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1912, __pyx_L1_error)
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1952, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         } else {
           if (__pyx_t_10 >= PyTuple_GET_SIZE(__pyx_t_2)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1912, __pyx_L1_error)
+          __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_2, __pyx_t_10); __Pyx_INCREF(__pyx_t_4); __pyx_t_10++; if (unlikely(0 < 0)) __PYX_ERR(0, 1952, __pyx_L1_error)
           #else
-          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1912, __pyx_L1_error)
+          __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_10); __pyx_t_10++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1952, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_4);
           #endif
         }
@@ -29020,7 +29020,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           PyObject* exc_type = PyErr_Occurred();
           if (exc_type) {
             if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-            else __PYX_ERR(0, 1912, __pyx_L1_error)
+            else __PYX_ERR(0, 1952, __pyx_L1_error)
           }
           break;
         }
@@ -29029,39 +29029,39 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       __Pyx_XDECREF_SET(__pyx_v_perm, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1913
+      /* "flagmatic/hypergraph_flag.pyx":1953
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:
  *                         available_verts = [v for v in vertices if not v in perm]             # <<<<<<<<<<<<<<
  *                         combs1 = Combinations(available_verts, m - s)
  *                         first_one = True
  */
-      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1913, __pyx_L1_error)
+      __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1953, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       if (likely(PyList_CheckExact(__pyx_v_vertices)) || PyTuple_CheckExact(__pyx_v_vertices)) {
         __pyx_t_3 = __pyx_v_vertices; __Pyx_INCREF(__pyx_t_3); __pyx_t_14 = 0;
         __pyx_t_15 = NULL;
       } else {
-        __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_vertices); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1913, __pyx_L1_error)
+        __pyx_t_14 = -1; __pyx_t_3 = PyObject_GetIter(__pyx_v_vertices); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1953, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
-        __pyx_t_15 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1913, __pyx_L1_error)
+        __pyx_t_15 = Py_TYPE(__pyx_t_3)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1953, __pyx_L1_error)
       }
       for (;;) {
         if (likely(!__pyx_t_15)) {
           if (likely(PyList_CheckExact(__pyx_t_3))) {
             if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_11 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1913, __pyx_L1_error)
+            __pyx_t_11 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1953, __pyx_L1_error)
             #else
-            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1913, __pyx_L1_error)
+            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1953, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             #endif
           } else {
             if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_3)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1913, __pyx_L1_error)
+            __pyx_t_11 = PyTuple_GET_ITEM(__pyx_t_3, __pyx_t_14); __Pyx_INCREF(__pyx_t_11); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1953, __pyx_L1_error)
             #else
-            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1913, __pyx_L1_error)
+            __pyx_t_11 = PySequence_ITEM(__pyx_t_3, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1953, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
             #endif
           }
@@ -29071,7 +29071,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 1913, __pyx_L1_error)
+              else __PYX_ERR(0, 1953, __pyx_L1_error)
             }
             break;
           }
@@ -29079,26 +29079,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         }
         __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_perm, Py_NE)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1913, __pyx_L1_error)
+        __pyx_t_6 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_perm, Py_NE)); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1953, __pyx_L1_error)
         __pyx_t_5 = (__pyx_t_6 != 0);
         if (__pyx_t_5) {
-          if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1913, __pyx_L1_error)
+          if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1953, __pyx_L1_error)
         }
       }
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF_SET(__pyx_v_available_verts, ((PyObject*)__pyx_t_4));
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1914
+      /* "flagmatic/hypergraph_flag.pyx":1954
  *                 for perm in perms:
  *                         available_verts = [v for v in vertices if not v in perm]
  *                         combs1 = Combinations(available_verts, m - s)             # <<<<<<<<<<<<<<
  *                         first_one = True
  *                         for comb1 in combs1:
  */
-      __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1914, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1954, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1914, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1954, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       __pyx_t_9 = NULL;
       __pyx_t_14 = 0;
@@ -29112,7 +29112,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           __pyx_t_14 = 1;
         }
       }
-      __pyx_t_12 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1914, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(2+__pyx_t_14); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1954, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       if (__pyx_t_9) {
         __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -29123,14 +29123,14 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       __Pyx_GIVEREF(__pyx_t_11);
       PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_14, __pyx_t_11);
       __pyx_t_11 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1914, __pyx_L1_error)
+      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_12, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1954, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
       __Pyx_XDECREF_SET(__pyx_v_combs1, __pyx_t_4);
       __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1915
+      /* "flagmatic/hypergraph_flag.pyx":1955
  *                         available_verts = [v for v in vertices if not v in perm]
  *                         combs1 = Combinations(available_verts, m - s)
  *                         first_one = True             # <<<<<<<<<<<<<<
@@ -29139,7 +29139,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
       __pyx_v_first_one = 1;
 
-      /* "flagmatic/hypergraph_flag.pyx":1916
+      /* "flagmatic/hypergraph_flag.pyx":1956
  *                         combs1 = Combinations(available_verts, m - s)
  *                         first_one = True
  *                         for comb1 in combs1:             # <<<<<<<<<<<<<<
@@ -29150,26 +29150,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __pyx_t_4 = __pyx_v_combs1; __Pyx_INCREF(__pyx_t_4); __pyx_t_14 = 0;
         __pyx_t_15 = NULL;
       } else {
-        __pyx_t_14 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_combs1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1916, __pyx_L1_error)
+        __pyx_t_14 = -1; __pyx_t_4 = PyObject_GetIter(__pyx_v_combs1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1956, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_15 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1916, __pyx_L1_error)
+        __pyx_t_15 = Py_TYPE(__pyx_t_4)->tp_iternext; if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 1956, __pyx_L1_error)
       }
       for (;;) {
         if (likely(!__pyx_t_15)) {
           if (likely(PyList_CheckExact(__pyx_t_4))) {
             if (__pyx_t_14 >= PyList_GET_SIZE(__pyx_t_4)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1916, __pyx_L1_error)
+            __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1956, __pyx_L1_error)
             #else
-            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1916, __pyx_L1_error)
+            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1956, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             #endif
           } else {
             if (__pyx_t_14 >= PyTuple_GET_SIZE(__pyx_t_4)) break;
             #if CYTHON_COMPILING_IN_CPYTHON
-            __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1916, __pyx_L1_error)
+            __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_4, __pyx_t_14); __Pyx_INCREF(__pyx_t_3); __pyx_t_14++; if (unlikely(0 < 0)) __PYX_ERR(0, 1956, __pyx_L1_error)
             #else
-            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1916, __pyx_L1_error)
+            __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_14); __pyx_t_14++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1956, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_3);
             #endif
           }
@@ -29179,7 +29179,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             PyObject* exc_type = PyErr_Occurred();
             if (exc_type) {
               if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-              else __PYX_ERR(0, 1916, __pyx_L1_error)
+              else __PYX_ERR(0, 1956, __pyx_L1_error)
             }
             break;
           }
@@ -29188,46 +29188,46 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __Pyx_XDECREF_SET(__pyx_v_comb1, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1917
+        /* "flagmatic/hypergraph_flag.pyx":1957
  *                         first_one = True
  *                         for comb1 in combs1:
  *                                 remaining_verts = [v for v in available_verts if not v in comb1]             # <<<<<<<<<<<<<<
  *                                 combs2 = Combinations(remaining_verts, m - s)
  *                                 smallest = min(comb1)
  */
-        __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1917, __pyx_L1_error)
+        __pyx_t_3 = PyList_New(0); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1957, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __pyx_t_12 = __pyx_v_available_verts; __Pyx_INCREF(__pyx_t_12); __pyx_t_16 = 0;
         for (;;) {
           if (__pyx_t_16 >= PyList_GET_SIZE(__pyx_t_12)) break;
           #if CYTHON_COMPILING_IN_CPYTHON
-          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_11); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1917, __pyx_L1_error)
+          __pyx_t_11 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_11); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1957, __pyx_L1_error)
           #else
-          __pyx_t_11 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1917, __pyx_L1_error)
+          __pyx_t_11 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1957, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_11);
           #endif
           __Pyx_XDECREF_SET(__pyx_v_v, __pyx_t_11);
           __pyx_t_11 = 0;
-          __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_comb1, Py_NE)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1917, __pyx_L1_error)
+          __pyx_t_5 = (__Pyx_PySequence_ContainsTF(__pyx_v_v, __pyx_v_comb1, Py_NE)); if (unlikely(__pyx_t_5 < 0)) __PYX_ERR(0, 1957, __pyx_L1_error)
           __pyx_t_6 = (__pyx_t_5 != 0);
           if (__pyx_t_6) {
-            if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1917, __pyx_L1_error)
+            if (unlikely(__Pyx_ListComp_Append(__pyx_t_3, (PyObject*)__pyx_v_v))) __PYX_ERR(0, 1957, __pyx_L1_error)
           }
         }
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF_SET(__pyx_v_remaining_verts, ((PyObject*)__pyx_t_3));
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1918
+        /* "flagmatic/hypergraph_flag.pyx":1958
  *                         for comb1 in combs1:
  *                                 remaining_verts = [v for v in available_verts if not v in comb1]
  *                                 combs2 = Combinations(remaining_verts, m - s)             # <<<<<<<<<<<<<<
  *                                 smallest = min(comb1)
  *                                 first_two = True
  */
-        __pyx_t_12 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1918, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_GetModuleGlobalName(__pyx_n_s_Combinations); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1958, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
-        __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1918, __pyx_L1_error)
+        __pyx_t_11 = __Pyx_PyInt_From_int((__pyx_v_m - __pyx_v_s)); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1958, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_11);
         __pyx_t_9 = NULL;
         __pyx_t_16 = 0;
@@ -29241,7 +29241,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_t_16 = 1;
           }
         }
-        __pyx_t_1 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1918, __pyx_L1_error)
+        __pyx_t_1 = PyTuple_New(2+__pyx_t_16); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1958, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_1);
         if (__pyx_t_9) {
           __Pyx_GIVEREF(__pyx_t_9); PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_t_9); __pyx_t_9 = NULL;
@@ -29252,33 +29252,33 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         __Pyx_GIVEREF(__pyx_t_11);
         PyTuple_SET_ITEM(__pyx_t_1, 1+__pyx_t_16, __pyx_t_11);
         __pyx_t_11 = 0;
-        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1918, __pyx_L1_error)
+        __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_12, __pyx_t_1, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1958, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __Pyx_XDECREF_SET(__pyx_v_combs2, __pyx_t_3);
         __pyx_t_3 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1919
+        /* "flagmatic/hypergraph_flag.pyx":1959
  *                                 remaining_verts = [v for v in available_verts if not v in comb1]
  *                                 combs2 = Combinations(remaining_verts, m - s)
  *                                 smallest = min(comb1)             # <<<<<<<<<<<<<<
  *                                 first_two = True
  *                                 for comb2 in combs2:
  */
-        __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1919, __pyx_L1_error)
+        __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1959, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_3);
         __Pyx_INCREF(__pyx_v_comb1);
         __Pyx_GIVEREF(__pyx_v_comb1);
         PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_comb1);
-        __pyx_t_12 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1919, __pyx_L1_error)
+        __pyx_t_12 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1959, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_12);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1919, __pyx_L1_error)
+        __pyx_t_7 = __Pyx_PyInt_As_int(__pyx_t_12); if (unlikely((__pyx_t_7 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1959, __pyx_L1_error)
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
         __pyx_v_smallest = __pyx_t_7;
 
-        /* "flagmatic/hypergraph_flag.pyx":1920
+        /* "flagmatic/hypergraph_flag.pyx":1960
  *                                 combs2 = Combinations(remaining_verts, m - s)
  *                                 smallest = min(comb1)
  *                                 first_two = True             # <<<<<<<<<<<<<<
@@ -29287,7 +29287,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
         __pyx_v_first_two = 1;
 
-        /* "flagmatic/hypergraph_flag.pyx":1921
+        /* "flagmatic/hypergraph_flag.pyx":1961
  *                                 smallest = min(comb1)
  *                                 first_two = True
  *                                 for comb2 in combs2:             # <<<<<<<<<<<<<<
@@ -29298,26 +29298,26 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           __pyx_t_12 = __pyx_v_combs2; __Pyx_INCREF(__pyx_t_12); __pyx_t_16 = 0;
           __pyx_t_17 = NULL;
         } else {
-          __pyx_t_16 = -1; __pyx_t_12 = PyObject_GetIter(__pyx_v_combs2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1921, __pyx_L1_error)
+          __pyx_t_16 = -1; __pyx_t_12 = PyObject_GetIter(__pyx_v_combs2); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 1961, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_12);
-          __pyx_t_17 = Py_TYPE(__pyx_t_12)->tp_iternext; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1921, __pyx_L1_error)
+          __pyx_t_17 = Py_TYPE(__pyx_t_12)->tp_iternext; if (unlikely(!__pyx_t_17)) __PYX_ERR(0, 1961, __pyx_L1_error)
         }
         for (;;) {
           if (likely(!__pyx_t_17)) {
             if (likely(PyList_CheckExact(__pyx_t_12))) {
               if (__pyx_t_16 >= PyList_GET_SIZE(__pyx_t_12)) break;
               #if CYTHON_COMPILING_IN_CPYTHON
-              __pyx_t_3 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1921, __pyx_L1_error)
+              __pyx_t_3 = PyList_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1961, __pyx_L1_error)
               #else
-              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1921, __pyx_L1_error)
+              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1961, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               #endif
             } else {
               if (__pyx_t_16 >= PyTuple_GET_SIZE(__pyx_t_12)) break;
               #if CYTHON_COMPILING_IN_CPYTHON
-              __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1921, __pyx_L1_error)
+              __pyx_t_3 = PyTuple_GET_ITEM(__pyx_t_12, __pyx_t_16); __Pyx_INCREF(__pyx_t_3); __pyx_t_16++; if (unlikely(0 < 0)) __PYX_ERR(0, 1961, __pyx_L1_error)
               #else
-              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1921, __pyx_L1_error)
+              __pyx_t_3 = PySequence_ITEM(__pyx_t_12, __pyx_t_16); __pyx_t_16++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1961, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_3);
               #endif
             }
@@ -29327,7 +29327,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
               PyObject* exc_type = PyErr_Occurred();
               if (exc_type) {
                 if (likely(exc_type == PyExc_StopIteration || PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
-                else __PYX_ERR(0, 1921, __pyx_L1_error)
+                else __PYX_ERR(0, 1961, __pyx_L1_error)
               }
               break;
             }
@@ -29336,31 +29336,31 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           __Pyx_XDECREF_SET(__pyx_v_comb2, __pyx_t_3);
           __pyx_t_3 = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1922
+          /* "flagmatic/hypergraph_flag.pyx":1962
  *                                 first_two = True
  *                                 for comb2 in combs2:
  *                                         if min(comb2) < smallest:             # <<<<<<<<<<<<<<
  *                                                 continue
  *                                         for j in range(s):
  */
-          __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1922, __pyx_L1_error)
+          __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1962, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
           __Pyx_INCREF(__pyx_v_comb2);
           __Pyx_GIVEREF(__pyx_v_comb2);
           PyTuple_SET_ITEM(__pyx_t_3, 0, __pyx_v_comb2);
-          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1922, __pyx_L1_error)
+          __pyx_t_1 = __Pyx_PyObject_Call(__pyx_builtin_min, __pyx_t_3, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1962, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_1);
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_smallest); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1922, __pyx_L1_error)
+          __pyx_t_3 = __Pyx_PyInt_From_int(__pyx_v_smallest); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1962, __pyx_L1_error)
           __Pyx_GOTREF(__pyx_t_3);
-          __pyx_t_11 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1922, __pyx_L1_error)
+          __pyx_t_11 = PyObject_RichCompare(__pyx_t_1, __pyx_t_3, Py_LT); __Pyx_XGOTREF(__pyx_t_11); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1962, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
           __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-          __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1922, __pyx_L1_error)
+          __pyx_t_6 = __Pyx_PyObject_IsTrue(__pyx_t_11); if (unlikely(__pyx_t_6 < 0)) __PYX_ERR(0, 1962, __pyx_L1_error)
           __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
           if (__pyx_t_6) {
 
-            /* "flagmatic/hypergraph_flag.pyx":1923
+            /* "flagmatic/hypergraph_flag.pyx":1963
  *                                 for comb2 in combs2:
  *                                         if min(comb2) < smallest:
  *                                                 continue             # <<<<<<<<<<<<<<
@@ -29369,7 +29369,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
             goto __pyx_L14_continue;
 
-            /* "flagmatic/hypergraph_flag.pyx":1922
+            /* "flagmatic/hypergraph_flag.pyx":1962
  *                                 first_two = True
  *                                 for comb2 in combs2:
  *                                         if min(comb2) < smallest:             # <<<<<<<<<<<<<<
@@ -29378,7 +29378,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1924
+          /* "flagmatic/hypergraph_flag.pyx":1964
  *                                         if min(comb2) < smallest:
  *                                                 continue
  *                                         for j in range(s):             # <<<<<<<<<<<<<<
@@ -29389,7 +29389,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1925
+            /* "flagmatic/hypergraph_flag.pyx":1965
  *                                                 continue
  *                                         for j in range(s):
  *                                                 if first_one:             # <<<<<<<<<<<<<<
@@ -29399,20 +29399,20 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_t_6 = (__pyx_v_first_one != 0);
             if (__pyx_t_6) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1926
+              /* "flagmatic/hypergraph_flag.pyx":1966
  *                                         for j in range(s):
  *                                                 if first_one:
  *                                                         p[(i * n) + j] = <int> perm[j]             # <<<<<<<<<<<<<<
  *                                                 else:
  *                                                         p[(i * n) + j] = <int> 0
  */
-              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_perm, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1926, __pyx_L1_error)
+              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_perm, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1966, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1926, __pyx_L1_error)
+              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1966, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
               (__pyx_v_p[((__pyx_v_i * __pyx_v_n) + __pyx_v_j)]) = ((int)__pyx_t_19);
 
-              /* "flagmatic/hypergraph_flag.pyx":1925
+              /* "flagmatic/hypergraph_flag.pyx":1965
  *                                                 continue
  *                                         for j in range(s):
  *                                                 if first_one:             # <<<<<<<<<<<<<<
@@ -29422,7 +29422,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
               goto __pyx_L19;
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1928
+            /* "flagmatic/hypergraph_flag.pyx":1968
  *                                                         p[(i * n) + j] = <int> perm[j]
  *                                                 else:
  *                                                         p[(i * n) + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -29435,7 +29435,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_L19:;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1929
+          /* "flagmatic/hypergraph_flag.pyx":1969
  *                                                 else:
  *                                                         p[(i * n) + j] = <int> 0
  *                                         for j in range(m - s):             # <<<<<<<<<<<<<<
@@ -29446,7 +29446,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1930
+            /* "flagmatic/hypergraph_flag.pyx":1970
  *                                                         p[(i * n) + j] = <int> 0
  *                                         for j in range(m - s):
  *                                                 if first_two:             # <<<<<<<<<<<<<<
@@ -29456,20 +29456,20 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_t_6 = (__pyx_v_first_two != 0);
             if (__pyx_t_6) {
 
-              /* "flagmatic/hypergraph_flag.pyx":1931
+              /* "flagmatic/hypergraph_flag.pyx":1971
  *                                         for j in range(m - s):
  *                                                 if first_two:
  *                                                         p[(i * n) + s + j] = <int> comb1[j]             # <<<<<<<<<<<<<<
  *                                                 else:
  *                                                         p[(i * n) + s + j] = <int> 0
  */
-              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb1, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1931, __pyx_L1_error)
+              __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb1, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1971, __pyx_L1_error)
               __Pyx_GOTREF(__pyx_t_11);
-              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1931, __pyx_L1_error)
+              __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1971, __pyx_L1_error)
               __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
               (__pyx_v_p[(((__pyx_v_i * __pyx_v_n) + __pyx_v_s) + __pyx_v_j)]) = ((int)__pyx_t_19);
 
-              /* "flagmatic/hypergraph_flag.pyx":1930
+              /* "flagmatic/hypergraph_flag.pyx":1970
  *                                                         p[(i * n) + j] = <int> 0
  *                                         for j in range(m - s):
  *                                                 if first_two:             # <<<<<<<<<<<<<<
@@ -29479,7 +29479,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
               goto __pyx_L22;
             }
 
-            /* "flagmatic/hypergraph_flag.pyx":1933
+            /* "flagmatic/hypergraph_flag.pyx":1973
  *                                                         p[(i * n) + s + j] = <int> comb1[j]
  *                                                 else:
  *                                                         p[(i * n) + s + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -29492,7 +29492,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             __pyx_L22:;
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1934
+          /* "flagmatic/hypergraph_flag.pyx":1974
  *                                                 else:
  *                                                         p[(i * n) + s + j] = <int> 0
  *                                         for j in range(m - s):             # <<<<<<<<<<<<<<
@@ -29503,21 +29503,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1935
+            /* "flagmatic/hypergraph_flag.pyx":1975
  *                                                         p[(i * n) + s + j] = <int> 0
  *                                         for j in range(m - s):
  *                                                 p[(i * n) + m + j] = <int> comb2[j]             # <<<<<<<<<<<<<<
  *                                         for j in range(n - m - m + s):
  *                                                 p[(i * n) + m + m - s + j] = <int> 0
  */
-            __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb2, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1935, __pyx_L1_error)
+            __pyx_t_11 = __Pyx_GetItemInt(__pyx_v_comb2, __pyx_v_j, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 1975, __pyx_L1_error)
             __Pyx_GOTREF(__pyx_t_11);
-            __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1935, __pyx_L1_error)
+            __pyx_t_19 = __Pyx_PyInt_As_int(__pyx_t_11); if (unlikely((__pyx_t_19 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1975, __pyx_L1_error)
             __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
             (__pyx_v_p[(((__pyx_v_i * __pyx_v_n) + __pyx_v_m) + __pyx_v_j)]) = ((int)__pyx_t_19);
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1936
+          /* "flagmatic/hypergraph_flag.pyx":1976
  *                                         for j in range(m - s):
  *                                                 p[(i * n) + m + j] = <int> comb2[j]
  *                                         for j in range(n - m - m + s):             # <<<<<<<<<<<<<<
@@ -29528,7 +29528,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
           for (__pyx_t_18 = 0; __pyx_t_18 < __pyx_t_7; __pyx_t_18+=1) {
             __pyx_v_j = __pyx_t_18;
 
-            /* "flagmatic/hypergraph_flag.pyx":1937
+            /* "flagmatic/hypergraph_flag.pyx":1977
  *                                                 p[(i * n) + m + j] = <int> comb2[j]
  *                                         for j in range(n - m - m + s):
  *                                                 p[(i * n) + m + m - s + j] = <int> 0             # <<<<<<<<<<<<<<
@@ -29538,7 +29538,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
             (__pyx_v_p[(((((__pyx_v_i * __pyx_v_n) + __pyx_v_m) + __pyx_v_m) - __pyx_v_s) + __pyx_v_j)]) = ((int)0);
           }
 
-          /* "flagmatic/hypergraph_flag.pyx":1938
+          /* "flagmatic/hypergraph_flag.pyx":1978
  *                                         for j in range(n - m - m + s):
  *                                                 p[(i * n) + m + m - s + j] = <int> 0
  *                                         first_one = False             # <<<<<<<<<<<<<<
@@ -29547,7 +29547,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           __pyx_v_first_one = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1939
+          /* "flagmatic/hypergraph_flag.pyx":1979
  *                                                 p[(i * n) + m + m - s + j] = <int> 0
  *                                         first_one = False
  *                                         first_two = False             # <<<<<<<<<<<<<<
@@ -29556,7 +29556,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           __pyx_v_first_two = 0;
 
-          /* "flagmatic/hypergraph_flag.pyx":1940
+          /* "flagmatic/hypergraph_flag.pyx":1980
  *                                         first_one = False
  *                                         first_two = False
  *                                         i += 1             # <<<<<<<<<<<<<<
@@ -29565,7 +29565,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
           __pyx_v_i = (__pyx_v_i + 1);
 
-          /* "flagmatic/hypergraph_flag.pyx":1921
+          /* "flagmatic/hypergraph_flag.pyx":1961
  *                                 smallest = min(comb1)
  *                                 first_two = True
  *                                 for comb2 in combs2:             # <<<<<<<<<<<<<<
@@ -29576,7 +29576,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
         }
         __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
 
-        /* "flagmatic/hypergraph_flag.pyx":1916
+        /* "flagmatic/hypergraph_flag.pyx":1956
  *                         combs1 = Combinations(available_verts, m - s)
  *                         first_one = True
  *                         for comb1 in combs1:             # <<<<<<<<<<<<<<
@@ -29586,7 +29586,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
       }
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "flagmatic/hypergraph_flag.pyx":1912
+      /* "flagmatic/hypergraph_flag.pyx":1952
  *                 vertices = range(1, n + 1)
  *                 perms = Permutations(vertices, s)
  *                 for perm in perms:             # <<<<<<<<<<<<<<
@@ -29596,19 +29596,19 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
     }
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1942
+    /* "flagmatic/hypergraph_flag.pyx":1982
  *                                         i += 1
  * 
  *                 cib = combinatorial_info_block()             # <<<<<<<<<<<<<<
  *                 cib.np = fac
  *                 cib.p = p
  */
-    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1942, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1982, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __pyx_v_cib = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_combinatorial_info_block *)__pyx_t_2);
     __pyx_t_2 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1943
+    /* "flagmatic/hypergraph_flag.pyx":1983
  * 
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac             # <<<<<<<<<<<<<<
@@ -29617,7 +29617,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_cib->np = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1944
+    /* "flagmatic/hypergraph_flag.pyx":1984
  *                 cib = combinatorial_info_block()
  *                 cib.np = fac
  *                 cib.p = p             # <<<<<<<<<<<<<<
@@ -29626,21 +29626,21 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     __pyx_v_cib->p = __pyx_v_p;
 
-    /* "flagmatic/hypergraph_flag.pyx":1945
+    /* "flagmatic/hypergraph_flag.pyx":1985
  *                 cib.np = fac
  *                 cib.p = p
  *                 previous_equal_pair_combinations[key] = cib             # <<<<<<<<<<<<<<
  * 
  *         if number_of:
  */
-    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1945, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_GetModuleGlobalName(__pyx_n_s_previous_equal_pair_combinations); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1985, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1945, __pyx_L1_error)
+    if (unlikely(PyObject_SetItem(__pyx_t_2, __pyx_v_key, ((PyObject *)__pyx_v_cib)) < 0)) __PYX_ERR(0, 1985, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   }
   __pyx_L3:;
 
-  /* "flagmatic/hypergraph_flag.pyx":1947
+  /* "flagmatic/hypergraph_flag.pyx":1987
  *                 previous_equal_pair_combinations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -29650,7 +29650,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   __pyx_t_6 = (__pyx_v_number_of != 0);
   if (__pyx_t_6) {
 
-    /* "flagmatic/hypergraph_flag.pyx":1948
+    /* "flagmatic/hypergraph_flag.pyx":1988
  * 
  *         if number_of:
  *                 number_of[0] = fac             # <<<<<<<<<<<<<<
@@ -29659,7 +29659,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
     (__pyx_v_number_of[0]) = __pyx_v_fac;
 
-    /* "flagmatic/hypergraph_flag.pyx":1947
+    /* "flagmatic/hypergraph_flag.pyx":1987
  *                 previous_equal_pair_combinations[key] = cib
  * 
  *         if number_of:             # <<<<<<<<<<<<<<
@@ -29668,7 +29668,7 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
  */
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1950
+  /* "flagmatic/hypergraph_flag.pyx":1990
  *                 number_of[0] = fac
  * 
  *         return p             # <<<<<<<<<<<<<<
@@ -29678,12 +29678,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   __pyx_r = __pyx_v_p;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1894
+  /* "flagmatic/hypergraph_flag.pyx":1933
  * previous_equal_pair_combinations = {}
  * 
  * cdef int *generate_equal_pair_combinations(int n, int s, int m, int *number_of):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, fac, i, j, smallest
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -29714,12 +29714,12 @@ static int *__pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combination
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1952
+/* "flagmatic/hypergraph_flag.pyx":1992
  *         return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
 /* Python wrapper */
@@ -29753,16 +29753,16 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_9get_equal_pair_combinati
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_s)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 1); __PYX_ERR(0, 1952, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 1); __PYX_ERR(0, 1992, __pyx_L3_error)
         }
         case  2:
         if (likely((values[2] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_m)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 2); __PYX_ERR(0, 1952, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, 2); __PYX_ERR(0, 1992, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_equal_pair_combinations") < 0)) __PYX_ERR(0, 1952, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "get_equal_pair_combinations") < 0)) __PYX_ERR(0, 1992, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -29777,7 +29777,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_9get_equal_pair_combinati
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1952, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("get_equal_pair_combinations", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1992, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.get_equal_pair_combinations", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -29809,67 +29809,67 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_8get_equal_pair_combinati
   Py_ssize_t __pyx_t_10;
   __Pyx_RefNannySetupContext("get_equal_pair_combinations", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1955
- * 
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1996
+ *         cdef int *p
+ *         cdef int np, i, j
  *         p = generate_equal_pair_combinations(n, s, m, &np)             # <<<<<<<<<<<<<<
  *         return [[p[(i * n) + j] for j in range(n)] for i in range(np)]
  * 
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1955, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1955, __pyx_L1_error)
-  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1955, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1996, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_s); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1996, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyInt_As_int(__pyx_v_m); if (unlikely((__pyx_t_3 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1996, __pyx_L1_error)
   __pyx_v_p = __pyx_f_9flagmatic_15hypergraph_flag_generate_equal_pair_combinations(__pyx_t_1, __pyx_t_2, __pyx_t_3, (&__pyx_v_np));
 
-  /* "flagmatic/hypergraph_flag.pyx":1956
- *         cdef int *p, np, i, j
+  /* "flagmatic/hypergraph_flag.pyx":1997
+ *         cdef int np, i, j
  *         p = generate_equal_pair_combinations(n, s, m, &np)
  *         return [[p[(i * n) + j] for j in range(n)] for i in range(np)]             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1956, __pyx_L1_error)
+  __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1997, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __pyx_v_np;
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_3; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
-    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1956, __pyx_L1_error)
+    __pyx_t_5 = PyList_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 1997, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_6 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1956, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_As_long(__pyx_v_n); if (unlikely((__pyx_t_6 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 1997, __pyx_L1_error)
     for (__pyx_t_1 = 0; __pyx_t_1 < __pyx_t_6; __pyx_t_1+=1) {
       __pyx_v_j = __pyx_t_1;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_i); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_n); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      __pyx_t_8 = PyNumber_Multiply(__pyx_t_7, __pyx_v_n); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyInt_From_int(__pyx_v_j); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      __pyx_t_9 = PyNumber_Add(__pyx_t_8, __pyx_t_7); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1956, __pyx_L1_error)
+      __pyx_t_10 = __Pyx_PyIndex_AsSsize_t(__pyx_t_9); if (unlikely((__pyx_t_10 == (Py_ssize_t)-1) && PyErr_Occurred())) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1956, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyInt_From_int((__pyx_v_p[__pyx_t_10])); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1956, __pyx_L1_error)
+      if (unlikely(__Pyx_ListComp_Append(__pyx_t_5, (PyObject*)__pyx_t_9))) __PYX_ERR(0, 1997, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
     }
-    if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_5))) __PYX_ERR(0, 1956, __pyx_L1_error)
+    if (unlikely(__Pyx_ListComp_Append(__pyx_t_4, (PyObject*)__pyx_t_5))) __PYX_ERR(0, 1997, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1952
+  /* "flagmatic/hypergraph_flag.pyx":1992
  *         return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
 
   /* function exit code */
@@ -29887,7 +29887,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_8get_equal_pair_combinati
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1963
+/* "flagmatic/hypergraph_flag.pyx":2004
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
@@ -29924,11 +29924,11 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_11make_graph_block(PyObje
         case  1:
         if (likely((values[1] = PyDict_GetItem(__pyx_kwds, __pyx_n_s_n)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, 1); __PYX_ERR(0, 1963, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, 1); __PYX_ERR(0, 2004, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "make_graph_block") < 0)) __PYX_ERR(0, 1963, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "make_graph_block") < 0)) __PYX_ERR(0, 2004, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -29941,7 +29941,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_11make_graph_block(PyObje
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 1963, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("make_graph_block", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 2004, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("flagmatic.hypergraph_flag.make_graph_block", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
@@ -29965,39 +29965,39 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("make_graph_block", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1965
+  /* "flagmatic/hypergraph_flag.pyx":2006
  * def make_graph_block(graphs, n):
  * 
  *         gb = graph_block()             # <<<<<<<<<<<<<<
  *         gb.n = n
  *         gb.len = len(graphs)
  */
-  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_graph_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1965, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_graph_block), __pyx_empty_tuple, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2006, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_gb = ((struct __pyx_obj_9flagmatic_15hypergraph_flag_graph_block *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1966
+  /* "flagmatic/hypergraph_flag.pyx":2007
  * 
  *         gb = graph_block()
  *         gb.n = n             # <<<<<<<<<<<<<<
  *         gb.len = len(graphs)
  *         gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  */
-  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 1966, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_int(__pyx_v_n); if (unlikely((__pyx_t_2 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 2007, __pyx_L1_error)
   __pyx_v_gb->n = __pyx_t_2;
 
-  /* "flagmatic/hypergraph_flag.pyx":1967
+  /* "flagmatic/hypergraph_flag.pyx":2008
  *         gb = graph_block()
  *         gb.n = n
  *         gb.len = len(graphs)             # <<<<<<<<<<<<<<
  *         gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  *         for i in range(gb.len):
  */
-  __pyx_t_3 = PyObject_Length(__pyx_v_graphs); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 1967, __pyx_L1_error)
+  __pyx_t_3 = PyObject_Length(__pyx_v_graphs); if (unlikely(__pyx_t_3 == -1)) __PYX_ERR(0, 2008, __pyx_L1_error)
   __pyx_v_gb->len = __pyx_t_3;
 
-  /* "flagmatic/hypergraph_flag.pyx":1968
+  /* "flagmatic/hypergraph_flag.pyx":2009
  *         gb.n = n
  *         gb.len = len(graphs)
  *         gb.graphs = <void **> malloc(gb.len * sizeof(void *))             # <<<<<<<<<<<<<<
@@ -30006,7 +30006,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
  */
   __pyx_v_gb->graphs = ((void **)malloc((__pyx_v_gb->len * (sizeof(void *)))));
 
-  /* "flagmatic/hypergraph_flag.pyx":1969
+  /* "flagmatic/hypergraph_flag.pyx":2010
  *         gb.len = len(graphs)
  *         gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  *         for i in range(gb.len):             # <<<<<<<<<<<<<<
@@ -30017,20 +30017,20 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   for (__pyx_t_4 = 0; __pyx_t_4 < __pyx_t_2; __pyx_t_4+=1) {
     __pyx_v_i = __pyx_t_4;
 
-    /* "flagmatic/hypergraph_flag.pyx":1970
+    /* "flagmatic/hypergraph_flag.pyx":2011
  *         gb.graphs = <void **> malloc(gb.len * sizeof(void *))
  *         for i in range(gb.len):
  *                 gb.graphs[i] = <void *> graphs[i]             # <<<<<<<<<<<<<<
  *         return gb
  * 
  */
-    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_graphs, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1970, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt(__pyx_v_graphs, __pyx_v_i, int, 1, __Pyx_PyInt_From_int, 0, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2011, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     (__pyx_v_gb->graphs[__pyx_v_i]) = ((void *)__pyx_t_1);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1971
+  /* "flagmatic/hypergraph_flag.pyx":2012
  *         for i in range(gb.len):
  *                 gb.graphs[i] = <void *> graphs[i]
  *         return gb             # <<<<<<<<<<<<<<
@@ -30042,7 +30042,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   __pyx_r = ((PyObject *)__pyx_v_gb);
   goto __pyx_L0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1963
+  /* "flagmatic/hypergraph_flag.pyx":2004
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
@@ -30062,7 +30062,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_10make_graph_block(CYTHON
   return __pyx_r;
 }
 
-/* "flagmatic/hypergraph_flag.pyx":1974
+/* "flagmatic/hypergraph_flag.pyx":2015
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
@@ -30077,7 +30077,7 @@ static PyObject *__pyx_pw_9flagmatic_15hypergraph_flag_13print_graph_block(PyObj
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("print_graph_block (wrapper)", 0);
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gb), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "gb", 0))) __PYX_ERR(0, 1974, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_gb), __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block, 1, "gb", 0))) __PYX_ERR(0, 2015, __pyx_L1_error)
   __pyx_r = __pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(__pyx_self, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_graph_block *)__pyx_v_gb));
 
   /* function exit code */
@@ -30100,7 +30100,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(CYTHO
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("print_graph_block", 0);
 
-  /* "flagmatic/hypergraph_flag.pyx":1976
+  /* "flagmatic/hypergraph_flag.pyx":2017
  * def print_graph_block(graph_block gb):
  * 
  *         for i in range(gb.len):             # <<<<<<<<<<<<<<
@@ -30111,7 +30111,7 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(CYTHO
   for (__pyx_t_2 = 0; __pyx_t_2 < __pyx_t_1; __pyx_t_2+=1) {
     __pyx_v_i = __pyx_t_2;
 
-    /* "flagmatic/hypergraph_flag.pyx":1977
+    /* "flagmatic/hypergraph_flag.pyx":2018
  * 
  *         for i in range(gb.len):
  *                 g = <HypergraphFlag ?> gb.graphs[i]             # <<<<<<<<<<<<<<
@@ -30122,24 +30122,24 @@ static PyObject *__pyx_pf_9flagmatic_15hypergraph_flag_12print_graph_block(CYTHO
     __Pyx_XDECREF_SET(__pyx_v_g, ((struct __pyx_obj_9flagmatic_15hypergraph_flag_HypergraphFlag *)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "flagmatic/hypergraph_flag.pyx":1978
+    /* "flagmatic/hypergraph_flag.pyx":2019
  *         for i in range(gb.len):
  *                 g = <HypergraphFlag ?> gb.graphs[i]
  *                 print str(g)             # <<<<<<<<<<<<<<
  */
-    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 1978, __pyx_L1_error)
+    __pyx_t_3 = PyTuple_New(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 2019, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_INCREF(((PyObject *)__pyx_v_g));
     __Pyx_GIVEREF(((PyObject *)__pyx_v_g));
     PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)__pyx_v_g));
-    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 1978, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyObject_Call(((PyObject *)(&PyString_Type)), __pyx_t_3, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 2019, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 1978, __pyx_L1_error)
+    if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 2019, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   }
 
-  /* "flagmatic/hypergraph_flag.pyx":1974
+  /* "flagmatic/hypergraph_flag.pyx":2015
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
@@ -33357,7 +33357,7 @@ static int __Pyx_InitCachedBuiltins(void) {
   __pyx_builtin_sum = __Pyx_GetBuiltinName(__pyx_n_s_sum); if (!__pyx_builtin_sum) __PYX_ERR(0, 545, __pyx_L1_error)
   __pyx_builtin_max = __Pyx_GetBuiltinName(__pyx_n_s_max); if (!__pyx_builtin_max) __PYX_ERR(0, 551, __pyx_L1_error)
   __pyx_builtin_sorted = __Pyx_GetBuiltinName(__pyx_n_s_sorted); if (!__pyx_builtin_sorted) __PYX_ERR(0, 718, __pyx_L1_error)
-  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_n_s_min); if (!__pyx_builtin_min) __PYX_ERR(0, 1919, __pyx_L1_error)
+  __pyx_builtin_min = __Pyx_GetBuiltinName(__pyx_n_s_min); if (!__pyx_builtin_min) __PYX_ERR(0, 1959, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 799, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -33682,108 +33682,108 @@ static int __Pyx_InitCachedConstants(void) {
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
- *                 cdef int i, *c_verts, num_verts
+ *                 cdef int i
  */
   __pyx_tuple__34 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__34)) __PYX_ERR(0, 984, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__34);
   __Pyx_GIVEREF(__pyx_tuple__34);
 
-  /* "flagmatic/hypergraph_flag.pyx":1003
+  /* "flagmatic/hypergraph_flag.pyx":1009
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 ig.n = num_verts
  */
-  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 1003, __pyx_L1_error)
+  __pyx_tuple__35 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__35)) __PYX_ERR(0, 1009, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__35);
   __Pyx_GIVEREF(__pyx_tuple__35);
 
-  /* "flagmatic/hypergraph_flag.pyx":1064
+  /* "flagmatic/hypergraph_flag.pyx":1075
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 if self._r != h._r or self._oriented != h._oriented:
  */
-  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 1064, __pyx_L1_error)
+  __pyx_tuple__36 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__36)) __PYX_ERR(0, 1075, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__36);
   __Pyx_GIVEREF(__pyx_tuple__36);
 
-  /* "flagmatic/hypergraph_flag.pyx":1134
+  /* "flagmatic/hypergraph_flag.pyx":1151
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 forb_k = [pair[0] for pair in forbidden_edge_numbers]
  */
-  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 1134, __pyx_L1_error)
+  __pyx_tuple__37 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__37)) __PYX_ERR(0, 1151, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__37);
   __Pyx_GIVEREF(__pyx_tuple__37);
 
-  /* "flagmatic/hypergraph_flag.pyx":1234
+  /* "flagmatic/hypergraph_flag.pyx":1252
  * 
  *                 if self.is_degenerate:
  *                         raise NotImplementedError("degenerate graphs are not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 for i in range(len(graphs)):
  */
-  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 1234, __pyx_L1_error)
+  __pyx_tuple__38 = PyTuple_Pack(1, __pyx_kp_s_degenerate_graphs_are_not_suppor); if (unlikely(!__pyx_tuple__38)) __PYX_ERR(0, 1252, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__38);
   __Pyx_GIVEREF(__pyx_tuple__38);
 
-  /* "flagmatic/hypergraph_flag.pyx":1274
+  /* "flagmatic/hypergraph_flag.pyx":1292
  * 
  *                 if self.multiplicity != 1:
  *                         raise NotImplementedError("Cannot split vertices of multigraphs.")             # <<<<<<<<<<<<<<
  * 
  *                 if x < 1 or x > self._n:
  */
-  __pyx_tuple__39 = PyTuple_Pack(1, __pyx_kp_s_Cannot_split_vertices_of_multigr); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 1274, __pyx_L1_error)
+  __pyx_tuple__39 = PyTuple_Pack(1, __pyx_kp_s_Cannot_split_vertices_of_multigr); if (unlikely(!__pyx_tuple__39)) __PYX_ERR(0, 1292, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__39);
   __Pyx_GIVEREF(__pyx_tuple__39);
 
-  /* "flagmatic/hypergraph_flag.pyx":1321
+  /* "flagmatic/hypergraph_flag.pyx":1339
  * 
  *                 if self.multiplicity != 1:
  *                         raise NotImplementedError("Multigraphs not supported.")             # <<<<<<<<<<<<<<
  * 
  *                 cg = self.__copy__()
  */
-  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_kp_s_Multigraphs_not_supported); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 1321, __pyx_L1_error)
+  __pyx_tuple__40 = PyTuple_Pack(1, __pyx_kp_s_Multigraphs_not_supported); if (unlikely(!__pyx_tuple__40)) __PYX_ERR(0, 1339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__40);
   __Pyx_GIVEREF(__pyx_tuple__40);
 
-  /* "flagmatic/hypergraph_flag.pyx":1373
+  /* "flagmatic/hypergraph_flag.pyx":1391
  * 
  *                 if self._r == 3:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("3:123"))             # <<<<<<<<<<<<<<
  *                 elif self._r == 2:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("2:12", 2))
  */
-  __pyx_tuple__41 = PyTuple_Pack(1, __pyx_kp_s_3_123); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 1373, __pyx_L1_error)
+  __pyx_tuple__41 = PyTuple_Pack(1, __pyx_kp_s_3_123); if (unlikely(!__pyx_tuple__41)) __PYX_ERR(0, 1391, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__41);
   __Pyx_GIVEREF(__pyx_tuple__41);
 
-  /* "flagmatic/hypergraph_flag.pyx":1375
+  /* "flagmatic/hypergraph_flag.pyx":1393
  *                         return self.degenerate_subgraph_density(HypergraphFlag("3:123"))
  *                 elif self._r == 2:
  *                         return self.degenerate_subgraph_density(HypergraphFlag("2:12", 2))             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_tuple__42 = PyTuple_Pack(2, __pyx_kp_s_2_12, __pyx_int_2); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 1375, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(2, __pyx_kp_s_2_12, __pyx_int_2); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 1393, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
 
-  /* "flagmatic/hypergraph_flag.pyx":1413
+  /* "flagmatic/hypergraph_flag.pyx":1431
  *                 """
  *                 if tg.t != 0:
  *                         raise NotImplementedError("type should not contain labelled vertices.")             # <<<<<<<<<<<<<<
  * 
  *                 s = tg.n
  */
-  __pyx_tuple__43 = PyTuple_Pack(1, __pyx_kp_s_type_should_not_contain_labelled); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 1413, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(1, __pyx_kp_s_type_should_not_contain_labelled); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 1431, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
 
@@ -33853,89 +33853,89 @@ static int __Pyx_InitCachedConstants(void) {
   __Pyx_GOTREF(__pyx_tuple__49);
   __Pyx_GIVEREF(__pyx_tuple__49);
 
-  /* "flagmatic/hypergraph_flag.pyx":1737
+  /* "flagmatic/hypergraph_flag.pyx":1766
  *         return generate_permutations_fixing(n, <int> 0, number_of)
  * 
  * def get_permutations (n):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_tuple__50 = PyTuple_Pack(5, __pyx_n_s_n, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 1737, __pyx_L1_error)
+  __pyx_tuple__50 = PyTuple_Pack(5, __pyx_n_s_n, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__50)) __PYX_ERR(0, 1766, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__50);
   __Pyx_GIVEREF(__pyx_tuple__50);
-  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_permutations, 1737, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 1737, __pyx_L1_error)
+  __pyx_codeobj__51 = (PyObject*)__Pyx_PyCode_New(1, 0, 5, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__50, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_permutations, 1766, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__51)) __PYX_ERR(0, 1766, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1777
+  /* "flagmatic/hypergraph_flag.pyx":1809
  *         return p
  * 
  * def get_combinations (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_tuple__52 = PyTuple_Pack(6, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 1777, __pyx_L1_error)
+  __pyx_tuple__52 = PyTuple_Pack(6, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__52)) __PYX_ERR(0, 1809, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__52);
   __Pyx_GIVEREF(__pyx_tuple__52);
-  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_combinations, 1777, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 1777, __pyx_L1_error)
+  __pyx_codeobj__53 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__52, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_combinations, 1809, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__53)) __PYX_ERR(0, 1809, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1820
+  /* "flagmatic/hypergraph_flag.pyx":1855
  * 
  * 
  * def get_combinations_plus (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_tuple__54 = PyTuple_Pack(6, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_tuple__54 = PyTuple_Pack(6, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__54)) __PYX_ERR(0, 1855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__54);
   __Pyx_GIVEREF(__pyx_tuple__54);
-  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_combinations_plus, 1820, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_codeobj__55 = (PyObject*)__Pyx_PyCode_New(2, 0, 6, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__54, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_combinations_plus, 1855, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__55)) __PYX_ERR(0, 1855, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1885
+  /* "flagmatic/hypergraph_flag.pyx":1922
  *         return p
  * 
  * def get_pair_combinations (n, s, m1, m2):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_tuple__56 = PyTuple_Pack(8, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_m1, __pyx_n_s_m2, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 1885, __pyx_L1_error)
+  __pyx_tuple__56 = PyTuple_Pack(8, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_m1, __pyx_n_s_m2, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__56)) __PYX_ERR(0, 1922, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__56);
   __Pyx_GIVEREF(__pyx_tuple__56);
-  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_pair_combinations, 1885, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 1885, __pyx_L1_error)
+  __pyx_codeobj__57 = (PyObject*)__Pyx_PyCode_New(4, 0, 8, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__56, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_pair_combinations, 1922, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__57)) __PYX_ERR(0, 1922, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1952
+  /* "flagmatic/hypergraph_flag.pyx":1992
  *         return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_tuple__58 = PyTuple_Pack(7, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_m, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 1952, __pyx_L1_error)
+  __pyx_tuple__58 = PyTuple_Pack(7, __pyx_n_s_n, __pyx_n_s_s, __pyx_n_s_m, __pyx_n_s_p, __pyx_n_s_np, __pyx_n_s_i, __pyx_n_s_j); if (unlikely(!__pyx_tuple__58)) __PYX_ERR(0, 1992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__58);
   __Pyx_GIVEREF(__pyx_tuple__58);
-  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_equal_pair_combinations, 1952, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 1952, __pyx_L1_error)
+  __pyx_codeobj__59 = (PyObject*)__Pyx_PyCode_New(3, 0, 7, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__58, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_get_equal_pair_combinations, 1992, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__59)) __PYX_ERR(0, 1992, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1963
+  /* "flagmatic/hypergraph_flag.pyx":2004
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
  * 
  *         gb = graph_block()
  */
-  __pyx_tuple__60 = PyTuple_Pack(4, __pyx_n_s_graphs, __pyx_n_s_n, __pyx_n_s_gb, __pyx_n_s_i); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 1963, __pyx_L1_error)
+  __pyx_tuple__60 = PyTuple_Pack(4, __pyx_n_s_graphs, __pyx_n_s_n, __pyx_n_s_gb, __pyx_n_s_i); if (unlikely(!__pyx_tuple__60)) __PYX_ERR(0, 2004, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__60);
   __Pyx_GIVEREF(__pyx_tuple__60);
-  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_make_graph_block, 1963, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 1963, __pyx_L1_error)
+  __pyx_codeobj__61 = (PyObject*)__Pyx_PyCode_New(2, 0, 4, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__60, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_make_graph_block, 2004, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__61)) __PYX_ERR(0, 2004, __pyx_L1_error)
 
-  /* "flagmatic/hypergraph_flag.pyx":1974
+  /* "flagmatic/hypergraph_flag.pyx":2015
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
  * 
  *         for i in range(gb.len):
  */
-  __pyx_tuple__62 = PyTuple_Pack(3, __pyx_n_s_gb, __pyx_n_s_i, __pyx_n_s_g); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_tuple__62 = PyTuple_Pack(3, __pyx_n_s_gb, __pyx_n_s_i, __pyx_n_s_g); if (unlikely(!__pyx_tuple__62)) __PYX_ERR(0, 2015, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__62);
   __Pyx_GIVEREF(__pyx_tuple__62);
-  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_print_graph_block, 1974, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_codeobj__63 = (PyObject*)__Pyx_PyCode_New(1, 0, 3, 0, 0, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__62, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Users_srobik_Github_flagmatic_d, __pyx_n_s_print_graph_block, 2015, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__63)) __PYX_ERR(0, 2015, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -34060,13 +34060,13 @@ PyMODINIT_FUNC PyInit_hypergraph_flag(void)
   if (__Pyx_SetVtable(__pyx_type_9flagmatic_15hypergraph_flag_HypergraphFlag.tp_dict, __pyx_vtabptr_9flagmatic_15hypergraph_flag_HypergraphFlag) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
   if (PyObject_SetAttrString(__pyx_m, "HypergraphFlag", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_HypergraphFlag) < 0) __PYX_ERR(0, 63, __pyx_L1_error)
   __pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag = &__pyx_type_9flagmatic_15hypergraph_flag_HypergraphFlag;
-  if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block) < 0) __PYX_ERR(0, 1694, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block) < 0) __PYX_ERR(0, 1722, __pyx_L1_error)
   __pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "combinatorial_info_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block) < 0) __PYX_ERR(0, 1694, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "combinatorial_info_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block) < 0) __PYX_ERR(0, 1722, __pyx_L1_error)
   __pyx_ptype_9flagmatic_15hypergraph_flag_combinatorial_info_block = &__pyx_type_9flagmatic_15hypergraph_flag_combinatorial_info_block;
-  if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) __PYX_ERR(0, 1959, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) __PYX_ERR(0, 2000, __pyx_L1_error)
   __pyx_type_9flagmatic_15hypergraph_flag_graph_block.tp_print = 0;
-  if (PyObject_SetAttrString(__pyx_m, "graph_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) __PYX_ERR(0, 1959, __pyx_L1_error)
+  if (PyObject_SetAttrString(__pyx_m, "graph_block", (PyObject *)&__pyx_type_9flagmatic_15hypergraph_flag_graph_block) < 0) __PYX_ERR(0, 2000, __pyx_L1_error)
   __pyx_ptype_9flagmatic_15hypergraph_flag_graph_block = &__pyx_type_9flagmatic_15hypergraph_flag_graph_block;
   if (PyType_Ready(&__pyx_type_9flagmatic_15hypergraph_flag___pyx_scope_struct__generate_flags) < 0) __PYX_ERR(0, 480, __pyx_L1_error)
   __pyx_type_9flagmatic_15hypergraph_flag___pyx_scope_struct__generate_flags.tp_print = 0;
@@ -34420,172 +34420,172 @@ PyMODINIT_FUNC PyInit_hypergraph_flag(void)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   PyType_Modified(__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag);
 
-  /* "flagmatic/hypergraph_flag.pyx":1455
+  /* "flagmatic/hypergraph_flag.pyx":1473
  * 
  *         @classmethod
  *         def flag_products (cls, graph_block gb, HypergraphFlag tg, graph_block flags1, graph_block flags2):             # <<<<<<<<<<<<<<
  * 
- *                 cdef int *p, np, *pp, *pf1, *pf2, *edges, *cur_edges
+ *                 cdef int *p
  */
-  __pyx_t_2 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag, __pyx_n_s_flag_products); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1455, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetNameInClass((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag, __pyx_n_s_flag_products); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1473, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
 
-  /* "flagmatic/hypergraph_flag.pyx":1454
+  /* "flagmatic/hypergraph_flag.pyx":1472
  *         #
  * 
  *         @classmethod             # <<<<<<<<<<<<<<
  *         def flag_products (cls, graph_block gb, HypergraphFlag tg, graph_block flags1, graph_block flags2):
  * 
  */
-  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1454, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_Method_ClassMethod(__pyx_t_2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1472, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag->tp_dict, __pyx_n_s_flag_products, __pyx_t_1) < 0) __PYX_ERR(0, 1455, __pyx_L1_error)
+  if (PyDict_SetItem((PyObject *)__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag->tp_dict, __pyx_n_s_flag_products, __pyx_t_1) < 0) __PYX_ERR(0, 1473, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   PyType_Modified(__pyx_ptype_9flagmatic_15hypergraph_flag_HypergraphFlag);
 
-  /* "flagmatic/hypergraph_flag.pyx":1697
+  /* "flagmatic/hypergraph_flag.pyx":1725
  *         pass
  * 
  * previous_permutations = {}             # <<<<<<<<<<<<<<
  * 
  * cdef int *generate_permutations_fixing(int n, int s, int *number_of):
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1697, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1725, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_permutations, __pyx_t_1) < 0) __PYX_ERR(0, 1697, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_permutations, __pyx_t_1) < 0) __PYX_ERR(0, 1725, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1737
+  /* "flagmatic/hypergraph_flag.pyx":1766
  *         return generate_permutations_fixing(n, <int> 0, number_of)
  * 
  * def get_permutations (n):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_1get_permutations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1737, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_1get_permutations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1766, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_permutations, __pyx_t_1) < 0) __PYX_ERR(0, 1737, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_permutations, __pyx_t_1) < 0) __PYX_ERR(0, 1766, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1744
+  /* "flagmatic/hypergraph_flag.pyx":1775
  * 
  * 
  * previous_combinations = {}             # <<<<<<<<<<<<<<
  * 
  * cdef int *generate_combinations(int n, int s, int *number_of):
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1744, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1775, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1744, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1775, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1777
+  /* "flagmatic/hypergraph_flag.pyx":1809
  *         return p
  * 
  * def get_combinations (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_3get_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1777, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_3get_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1809, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1777, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1809, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1785
+  /* "flagmatic/hypergraph_flag.pyx":1819
  * 
  * # Combinations that always contain maximum element
  * previous_combinations_plus = {}             # <<<<<<<<<<<<<<
  * 
  * cdef int *generate_combinations_plus(int n, int s, int *number_of):
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1785, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1819, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_combinations_plus, __pyx_t_1) < 0) __PYX_ERR(0, 1785, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_combinations_plus, __pyx_t_1) < 0) __PYX_ERR(0, 1819, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1820
+  /* "flagmatic/hypergraph_flag.pyx":1855
  * 
  * 
  * def get_combinations_plus (n, s):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_5get_combinations_plus, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1820, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_5get_combinations_plus, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1855, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_combinations_plus, __pyx_t_1) < 0) __PYX_ERR(0, 1820, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_combinations_plus, __pyx_t_1) < 0) __PYX_ERR(0, 1855, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1827
+  /* "flagmatic/hypergraph_flag.pyx":1863
  * 
  * 
  * previous_pair_combinations = {}             # <<<<<<<<<<<<<<
  * 
  * cdef int *generate_pair_combinations(int n, int s, int m1, int m2, int *number_of):
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1827, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1863, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1827, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1863, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1885
+  /* "flagmatic/hypergraph_flag.pyx":1922
  *         return p
  * 
  * def get_pair_combinations (n, s, m1, m2):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_7get_pair_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1885, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_7get_pair_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1922, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1885, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1922, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1892
+  /* "flagmatic/hypergraph_flag.pyx":1931
  * 
  * 
  * previous_equal_pair_combinations = {}             # <<<<<<<<<<<<<<
  * 
  * cdef int *generate_equal_pair_combinations(int n, int s, int m, int *number_of):
  */
-  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1892, __pyx_L1_error)
+  __pyx_t_1 = PyDict_New(); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1931, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_equal_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1892, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_previous_equal_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1931, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1952
+  /* "flagmatic/hypergraph_flag.pyx":1992
  *         return p
  * 
  * def get_equal_pair_combinations (n, s, m):             # <<<<<<<<<<<<<<
  * 
- *         cdef int *p, np, i, j
+ *         cdef int *p
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_9get_equal_pair_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1952, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_9get_equal_pair_combinations, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1992, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_equal_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1952, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_get_equal_pair_combinations, __pyx_t_1) < 0) __PYX_ERR(0, 1992, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1963
+  /* "flagmatic/hypergraph_flag.pyx":2004
  * 
  * 
  * def make_graph_block(graphs, n):             # <<<<<<<<<<<<<<
  * 
  *         gb = graph_block()
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_11make_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1963, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_11make_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2004, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_make_graph_block, __pyx_t_1) < 0) __PYX_ERR(0, 1963, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_make_graph_block, __pyx_t_1) < 0) __PYX_ERR(0, 2004, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "flagmatic/hypergraph_flag.pyx":1974
+  /* "flagmatic/hypergraph_flag.pyx":2015
  * 
  * 
  * def print_graph_block(graph_block gb):             # <<<<<<<<<<<<<<
  * 
  *         for i in range(gb.len):
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_13print_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1974, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_9flagmatic_15hypergraph_flag_13print_graph_block, NULL, __pyx_n_s_flagmatic_hypergraph_flag); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2015, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_print_graph_block, __pyx_t_1) < 0) __PYX_ERR(0, 1974, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_print_graph_block, __pyx_t_1) < 0) __PYX_ERR(0, 2015, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "flagmatic/hypergraph_flag.pyx":1

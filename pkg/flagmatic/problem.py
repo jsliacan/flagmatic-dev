@@ -1891,6 +1891,7 @@ class Problem(SageObject):
             if p.eof():
                 break
             try:
+                sys.stdout.write("Reading output file...\n")
                 p.expect("\r\n")
                 line = p.before.strip() + "\n"
                 self._sdp_solver_output += line

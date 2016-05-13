@@ -598,7 +598,6 @@ class Problem(SageObject):
                         if g == h:
                             dv += coeff
                     else:
-                        sys.stdout.write("%d\n" % g.subgraph_density(h))
                         dv += coeff * g.subgraph_density(h)
                 density_values.append(dv)
             self._densities.append(density_values)
@@ -1892,6 +1891,7 @@ class Problem(SageObject):
             if p.eof():
                 break
             try:
+                sys.stdout.write("Reading output file...\n")
                 p.expect("\r\n")
                 line = p.before.strip() + "\n"
                 self._sdp_solver_output += line
