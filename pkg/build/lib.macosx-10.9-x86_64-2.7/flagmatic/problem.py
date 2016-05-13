@@ -598,6 +598,7 @@ class Problem(SageObject):
                         if g == h:
                             dv += coeff
                     else:
+                        sys.stdout.write("%d\n" % g.subgraph_density(h))
                         dv += coeff * g.subgraph_density(h)
                 density_values.append(dv)
             self._densities.append(density_values)

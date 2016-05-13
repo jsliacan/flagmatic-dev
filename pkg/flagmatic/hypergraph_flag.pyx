@@ -48,10 +48,11 @@ DEF MAX_NUMBER_OF_VERTICES = 35
 from libc.stdlib cimport malloc, calloc, realloc, free
 from libc.string cimport memset
 
+import sys # remove this, just for testing
 import numpy
 cimport numpy
 
-from sage.rings.arith import binomial, falling_factorial
+from sage.arith.all import binomial, falling_factorial
 from sage.combinat.all import Combinations, Permutations, Tuples, Subsets
 from sage.rings.all import Integer, QQ, ZZ
 from sage.matrix.all import matrix, block_matrix
@@ -749,8 +750,8 @@ cdef class HypergraphFlag (Flag):
                 """
                 if self.is_degenerate:
                         raise NotImplementedError("degenerate graphs are not supported.")
-                
-                return self.ne / binomial(self.n, self.r)
+
+                return Integer(self.ne) / binomial(self.n, self.r)
 
 
         def subgraph_density(self, h):

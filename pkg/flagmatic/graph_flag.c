@@ -1092,10 +1092,10 @@ static const char __pyx_k_cycle_tuples[] = "cycle_tuples";
 static const char __pyx_k_edge_iterator[] = "edge_iterator";
 static const char __pyx_k_generate_flags[] = "generate_flags";
 static const char __pyx_k_representation[] = "representation";
+static const char __pyx_k_sage_arith_all[] = "sage.arith.all";
 static const char __pyx_k_generate_graphs[] = "generate_graphs";
 static const char __pyx_k_forbidden_graphs[] = "forbidden_graphs";
 static const char __pyx_k_max_number_edges[] = "max_number_edges";
-static const char __pyx_k_sage_rings_arith[] = "sage.rings.arith";
 static const char __pyx_k_sage_graphs_graph[] = "sage.graphs.graph";
 static const char __pyx_k_automorphism_group[] = "automorphism_group";
 static const char __pyx_k_flagmatic_graph_flag[] = "flagmatic.graph_flag";
@@ -1144,8 +1144,8 @@ static PyObject *__pyx_n_s_r;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_repr;
 static PyObject *__pyx_n_s_representation;
+static PyObject *__pyx_n_s_sage_arith_all;
 static PyObject *__pyx_n_s_sage_graphs_graph;
-static PyObject *__pyx_n_s_sage_rings_arith;
 static PyObject *__pyx_n_s_send;
 static PyObject *__pyx_n_s_super;
 static PyObject *__pyx_n_s_test;
@@ -3530,8 +3530,8 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_repr, __pyx_k_repr, sizeof(__pyx_k_repr), 0, 0, 1, 1},
   {&__pyx_n_s_representation, __pyx_k_representation, sizeof(__pyx_k_representation), 0, 0, 1, 1},
+  {&__pyx_n_s_sage_arith_all, __pyx_k_sage_arith_all, sizeof(__pyx_k_sage_arith_all), 0, 0, 1, 1},
   {&__pyx_n_s_sage_graphs_graph, __pyx_k_sage_graphs_graph, sizeof(__pyx_k_sage_graphs_graph), 0, 0, 1, 1},
-  {&__pyx_n_s_sage_rings_arith, __pyx_k_sage_rings_arith, sizeof(__pyx_k_sage_rings_arith), 0, 0, 1, 1},
   {&__pyx_n_s_send, __pyx_k_send, sizeof(__pyx_k_send), 0, 0, 1, 1},
   {&__pyx_n_s_super, __pyx_k_super, sizeof(__pyx_k_super), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -3716,7 +3716,7 @@ PyMODINIT_FUNC PyInit_graph_flag(void)
   /* "flagmatic/graph_flag.pyx":32
  * """
  * 
- * from sage.rings.arith import binomial             # <<<<<<<<<<<<<<
+ * from sage.arith.all import binomial             # <<<<<<<<<<<<<<
  * from sage.graphs.graph import Graph
  * from hypergraph_flag cimport HypergraphFlag
  */
@@ -3725,7 +3725,7 @@ PyMODINIT_FUNC PyInit_graph_flag(void)
   __Pyx_INCREF(__pyx_n_s_binomial);
   __Pyx_GIVEREF(__pyx_n_s_binomial);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_binomial);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_sage_rings_arith, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_sage_arith_all, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 32, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_binomial); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 32, __pyx_L1_error)
@@ -3736,7 +3736,7 @@ PyMODINIT_FUNC PyInit_graph_flag(void)
 
   /* "flagmatic/graph_flag.pyx":33
  * 
- * from sage.rings.arith import binomial
+ * from sage.arith.all import binomial
  * from sage.graphs.graph import Graph             # <<<<<<<<<<<<<<
  * from hypergraph_flag cimport HypergraphFlag
  * 
