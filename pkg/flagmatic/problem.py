@@ -1469,6 +1469,7 @@ class Problem(SageObject):
         return num_blocks, block_sizes, block_offsets, block_indices
         
         
+        
     def solve_sdp(self, show_output=False, solver="csdp",
         force_sharp_graphs=False, force_zero_eigenvectors=False,
         check_solution=True, tolerance=1e-5, show_sorted=False, show_all=False,
@@ -1891,7 +1892,6 @@ class Problem(SageObject):
             if p.eof():
                 break
             try:
-                sys.stdout.write("Reading output file...\n")
                 p.expect("\r\n")
                 line = p.before.strip() + "\n"
                 self._sdp_solver_output += line
@@ -3546,7 +3546,6 @@ class Problem(SageObject):
                     
         if assumption12 and claim0 and claim1 and claim2 and claim3:
             self._robustly_stable = True
-            print "\nOooh la la - early Christmas! The problem is robustly", str(Fgraph)+"-stable!\n"
             print "*"*20, "ROBUST STABILITY -- OK", "*"*20
             if newproblem:
                 newproblem.write_certificate("cert_robust_stab.js") # only writes certificate of the FA problem with forbidden Tgraph
@@ -3554,8 +3553,22 @@ class Problem(SageObject):
             else: # newproblem is None
                 print "Certificate is trivial, since everything is forbidden in a graph that avoids a 1-vertex subgraph.\n"
             self.write_certificate("cert_flag_alg.js")
+        else:
+            print "*"*20, "ROBUST STABILITY -- FAIL", "*"*20
+            sys.stdout.write("If you can prove robust stability by hand, run force_robustly_stable() method of your problem before running verify_perfect_stability()\n")
+            if claim1:
+                self.write_certificate("cert_flag_alg.js")
         return
-    
+
+
+    def force_robust_stability():
+        
+        """Mark self as robustly stable."""
+
+        self._robustly_stable = True
+        sys.stdout.write("The problem is assumed to be robustly stable, although Flagmatic cannot verify it.\n")
+
+
 
     def verify_perfect_stability(self, fgraph=None):
         """Verify conditions of Thm 5.9 for Perfect Stability.

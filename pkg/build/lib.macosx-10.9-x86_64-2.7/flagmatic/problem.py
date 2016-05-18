@@ -1469,6 +1469,7 @@ class Problem(SageObject):
         return num_blocks, block_sizes, block_offsets, block_indices
         
         
+        
     def solve_sdp(self, show_output=False, solver="csdp",
         force_sharp_graphs=False, force_zero_eigenvectors=False,
         check_solution=True, tolerance=1e-5, show_sorted=False, show_all=False,
@@ -1891,7 +1892,6 @@ class Problem(SageObject):
             if p.eof():
                 break
             try:
-                sys.stdout.write("Reading output file...\n")
                 p.expect("\r\n")
                 line = p.before.strip() + "\n"
                 self._sdp_solver_output += line
